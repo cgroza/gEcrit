@@ -1,0 +1,11 @@
+	gEcrit Readme
+
+gEcrit is a Python IDE. Its focus is on simplicity and ease of use. It is fast and lightweight. It features Python indentation, line numbers, code folding, syntax highlighting, shell access, code completion, a program runner, a source browser, indentation guides, a white space indicator, autosaving, an edge line, multiple tabs, printing, jumping to a specific line, word searching, word replacement, zooming undo/redo, pastebin.com code submission, Python syntax checking, the ability to change the indentation of many lines at once, autocompletiton,file tree browser,and bad brace checking
+
+Debian users can use the included deb for install.
+Note: The deb does not put any menu entry yet, you can start it by executing gecrit on a command prompt.
+
+Windows users can start it by launching the editorClass.py file.
+Note: This system was tested on Windows very little.
+
+Other Distros: An RPM is on the road map.
