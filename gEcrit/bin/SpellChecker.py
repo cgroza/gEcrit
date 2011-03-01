@@ -1,28 +1,14 @@
-
-#   Distributed under the terms of the GPL (GNU Public License)
-#
-#   gEcrit is free software; you can redistribute it and/or modify
-#   it under the terms of the GNU General Public License as published by
-#   the Free Software Foundation; either version 2 of the License, or
-#   (at your option) any later version.
-#
-#   This program is distributed in the hope that it will be useful,
-#   but WITHOUT ANY WARRANTY; without even the implied warranty of
-#   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#   GNU General Public License for more details.
-#
-#   You should have received a copy of the GNU General Public License
-#   along with this program; if not, write to the Free Software
-#   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
-
-#SpellChecker.py
-
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 try:
     import enchant
-except: print "Spell checker pyenchant is not available."
+except:
+    print "Spell checker pyenchant is not available."
 
-class NeatSpell():
+
+class NeatSpell:
+
     def __init__(self):
         try:
             self.dictionary = enchant.Dict()
@@ -30,13 +16,14 @@ class NeatSpell():
             print "The Dictionary could not be identified.\n  Falling back to English."
             self.dictionary = enchant.Dict("en_US")
 
-    def CheckWord(self,word):
+    def CheckWord(self, word):
         return self.dictionary.check(word)
 
-    def GetSuggestion(self,word):
+    def GetSuggestion(self, word):
         return self.dictionary.suggest(word)
 
-    def ShowSpellDialog(self,event):
+    def ShowSpellDialog(self, event):
         pass
+
 
 WordSpeller = NeatSpell()
