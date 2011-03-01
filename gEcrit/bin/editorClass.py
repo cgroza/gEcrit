@@ -49,7 +49,6 @@ class Editor(wx.Frame):
 
         self.SaveRecord = {}
         self.IdRange = []
-        self.GoConfWin = ConfFrame = CfgFrame(self.IdRange, None)
 
 
         if  "editorClass.py" not in sys.argv[-1]:
@@ -66,8 +65,6 @@ class Editor(wx.Frame):
         self.MainFrame = wx.Frame.__init__(self,parent,1000,'gEcrit', size=(700,600))
 
         self.Bind(wx.EVT_CLOSE, self.OnQuit)
-
-        self.PastebinDlg = PastebinWin(self)
 
 
         self.NewTabImage = wx.Image('icons/newtab.bmp', wx.BITMAP_TYPE_ANY).ConvertToBitmap()
@@ -167,7 +164,7 @@ class Editor(wx.Frame):
 
 
         main_splitter = wx.SplitterWindow(self,-1, style=wx.SP_3D|wx.SP_BORDER)
-
+        main_splitter.SetMinimumPaneSize(150)
         tab_panel = wx.Panel(main_splitter)
         nb_panel = wx.Panel(main_splitter)
         nb_panel.SetId(998)  #needed in configClass.py
@@ -233,7 +230,7 @@ class Editor(wx.Frame):
         os.chdir(pathname)
 
 
-        main_splitter.SplitHorizontally(nb_panel,tab_panel)
+        main_splitter.SplitHorizontally(nb_panel,tab_panel,-1)
 
         if not will_split:
             main_splitter.Unsplit(tab_panel)
@@ -339,6 +336,9 @@ class Editor(wx.Frame):
         self.SetSizer(mega_sizer)
 
         self.Centre()
+        self.PastebinDlg = PastebinWin(self)
+        self.GoConfWin = ConfFrame = CfgFrame(self.IdRange, None)
+
 
 
     def OnPrefs(self,event):
@@ -365,7 +365,7 @@ class Editor(wx.Frame):
         text_id = self.text_id
 
         splitter = wx.SplitterWindow(panel, -1, style=wx.SP_3D|wx.SP_BORDER)
-
+        splitter.SetMinimumPaneSize(150)
         notebk_panel = wx.Panel(splitter)
         side_nb = wx.Notebook(notebk_panel,-1,pos=(0,0),size=(-1,-1))
         side_nb.SetId(4003+text_id)
@@ -549,8 +549,11 @@ Do you wish to save it?","",style = wx.CANCEL | wx.YES| wx.NO )
             try:
                 self.IdRange.remove(text_id)
             except: pass
-            self.nb.RemovePage(self.nb.GetSelection())
-
+            self.nb.RemovePage(self.nb.GetSelection())  #Memory leak
+            cur_doc.Destroy()
+            wx.FindWindowById(4003+text_id).GetParent().GetSizer().Clear(True)
+            wx.FindWindowById(1001+text_id).Destroy()
+        event.Skip()
 
 
 

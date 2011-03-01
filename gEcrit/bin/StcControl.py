@@ -26,17 +26,23 @@ try:
     from SpellChecker import *
     NO_SPELL_CHECK = False
 except: print "module enhant not found."; NO_SPELL_CHECK = True
+
+
 class StcTextCtrl(wx.stc.StyledTextCtrl):
-    
+
     def __init__(self,parent,id,src_br,file_path="New Document"):
         wx.stc.StyledTextCtrl.__init__(self, parent, id, pos = (0,0), size=(1,1))
         self.CharCount  = 0
         self.SaveTarget = file_path
 
         if file_path != "New Document" and file_path != "":
-            self.LoadFile(file_path) 
+            self.LoadFile(file_path)
 
-        else: self.SaveTarget = ""
+        else:
+            self.SaveTarget = ""
+
+        if Config.GetOption("DefaultTextAct"):
+            self.AppendText(Config.GetOption("DefaultText"))
 
         self.SaveRecord = self.GetText()
 
@@ -66,7 +72,7 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
             SaveAsFileName = SaveFileAs.GetFilename()
             SaveAsPath = SaveFileAs.GetDirectory()+"/"+ SaveAsFileName
 
-            self.SaveFile(SaveAsPath) 
+            self.SaveFile(SaveAsPath)
 
             SaveContent = self.GetText()
 
@@ -93,9 +99,9 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
             return
 
         try:
-            
 
-            self.SaveFile(self.SaveTarget) 
+
+            self.SaveFile(self.SaveTarget)
 
             if Config.GetOption("StatusBar"):
                 self.StatusBar.SetStatusText("Saved")
@@ -185,7 +191,7 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         self.Cut()
         event.Skip()
 
-    
+
     def OnCopy(self,event):
         self.Copy()
         event.Skip()

@@ -32,7 +32,7 @@ class ConfigNanny:
         "BackSpaceUnindent":False, "UseTabs":False, "CarretWidth": 7,"FoldMarks":False,"SourceBrowser":False\
         , "TabWidth":8, "EdgeLine":False, "EdgeColumn":80,"BashShell":False,"PythonShell":False\
         ,"OSPath":"/bin/bash","PyPath":"/usr/bin/python","SpellCheck":False,"SpellSuggestions":False\
-        ,"FileTree":False}
+        ,"FileTree":False,"DefaultText":"","DefaultTextAct":False}
         self.HOMEDIR= os.path.expanduser('~')
 
         self.ReadConfig()
@@ -46,7 +46,7 @@ class ConfigNanny:
             return self.DefaultConfigDict[option]
 
 
-    def ChangeOption(self,option, val,IdRange):
+    def ChangeOption(self,option, val,IdRange=0):
             TempConfigDict = self.ConfigDict
         #~ try:
             self.DefaultConfigDict[option]

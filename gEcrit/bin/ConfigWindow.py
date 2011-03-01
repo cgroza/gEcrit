@@ -24,9 +24,10 @@ from SyntaxHighlight import *
 from configClass import *
 from logClass import *
 from SyntaxColor import *
+from DefCodeWin import*
 
 
-def CallChangeOption(event,option, val,IdRange):
+def CallChangeOption(event,option, val,IdRange=0):
     Config.ChangeOption(option, val,IdRange)
 
 def CallChangeColorFile(event, item, newcolor):
@@ -49,6 +50,9 @@ class CfgFrame(wx.Frame):
         wx.Frame.__init__(self,parent,-1,'Settings', size=(300,500))
         self.SetIcon(wx.Icon('icons/gEcrit.png', wx.BITMAP_TYPE_PNG))
         ConfigBook = wx.Notebook(self)
+
+        dflt_text_win = DefaultCodeFr(self,-1)
+
 
         ConfigPanel=wx.Panel(ConfigBook)
         ConfigPanel2 = wx.Panel(ConfigBook)
@@ -110,6 +114,17 @@ class CfgFrame(wx.Frame):
         (event,"SpellSuggestions",SpellSugBox.GetValue(),IdRange))
         SpellSugBox.SetValue(Config.GetOption("SpellSuggestions"))
 
+        DfltTextBox = wx.CheckBox(ConfigPanel,-1,"Enable New Document Default Text",(10,130),(-1,-1))
+        DfltTextBox.Bind(wx.EVT_CHECKBOX,lambda event: CallChangeOption\
+        (event,"DefaultTextAct",DfltTextBox.GetValue()))
+        DfltTextBox.Bind(wx.EVT_CHECKBOX,lambda event: ToggleSpinner\
+        (event,DfltTextBox.GetValue(),DfltTextBtn))
+        DfltTextBox.SetValue(Config.GetOption("DefaultTextAct"))
+
+
+        DfltTextBtn = wx.Button(ConfigPanel,-1,"Edit Document Default Text",(50,135),(-1,-1))
+        DfltTextBtn.Bind(wx.EVT_BUTTON,dflt_text_win.ShowMe)
+        DfltTextBtn.Enable(Config.GetOption("DefaultTextAct"))
 
         LogActBox = wx.CheckBox(ConfigPanel, -1, "Enable Log", (10,140), (160,-1))
         LogActBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption\
@@ -148,6 +163,8 @@ class CfgFrame(wx.Frame):
         first_sizer.Add(FileTreeBox,0,wx.EXPAND,wx.ALL,5)
         first_sizer.Add(SpellBox,0,wx.EXPAND,wx.ALL,5 )
         first_sizer.Add(SpellSugBox,0,wx.EXPAND,wx.ALL,15)
+        first_sizer.Add(DfltTextBox,0,wx.EXPAND)
+        first_sizer.Add(DfltTextBtn,0,wx.LEFT,30)
         first_sizer.Add(LogActBox,0,wx.EXPAND,wx.ALL,5 )
         first_sizer.Add(PalleteButton,0,wx.ALL,5 )
         first_sizer.Add(special_sizer,0,wx.ALL,5 )
