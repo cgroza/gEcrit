@@ -1,0 +1,81 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module yapsy.IPlugin</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="yapsy.html"><font color="#ffffff">yapsy</font></a>.IPlugin</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/cgroza/Projects/gEcrit/bin/yapsy/IPlugin.py">/home/cgroza/Projects/gEcrit/bin/yapsy/IPlugin.py</a></font></td></tr></table>
+    <p><tt>Role<br>
+====<br>
+&nbsp;<br>
+Defines&nbsp;the&nbsp;basic&nbsp;interfaces&nbsp;for&nbsp;a&nbsp;plugin.&nbsp;These&nbsp;interfaces&nbsp;are<br>
+inherited&nbsp;by&nbsp;the&nbsp;*core*&nbsp;class&nbsp;of&nbsp;a&nbsp;plugin.&nbsp;The&nbsp;*core*&nbsp;class&nbsp;of&nbsp;a<br>
+plugin&nbsp;is&nbsp;then&nbsp;the&nbsp;one&nbsp;that&nbsp;will&nbsp;be&nbsp;notified&nbsp;the<br>
+activation/deactivation&nbsp;of&nbsp;a&nbsp;plugin&nbsp;via&nbsp;the&nbsp;``activate/deactivate``<br>
+methods.<br>
+&nbsp;<br>
+&nbsp;<br>
+For&nbsp;simple&nbsp;(near&nbsp;trivial)&nbsp;plugin&nbsp;systems,&nbsp;one&nbsp;can&nbsp;directly&nbsp;use&nbsp;the<br>
+following&nbsp;interfaces.<br>
+&nbsp;<br>
+Extensibility<br>
+=============<br>
+&nbsp;<br>
+In&nbsp;your&nbsp;own&nbsp;software,&nbsp;you'll&nbsp;probably&nbsp;want&nbsp;to&nbsp;build&nbsp;derived&nbsp;classes&nbsp;of<br>
+the&nbsp;``<a href="#IPlugin">IPlugin</a>``&nbsp;class&nbsp;as&nbsp;it&nbsp;is&nbsp;a&nbsp;mere&nbsp;interface&nbsp;with&nbsp;no&nbsp;specific<br>
+functionality.<br>
+&nbsp;<br>
+Your&nbsp;software's&nbsp;plugins&nbsp;should&nbsp;then&nbsp;inherit&nbsp;your&nbsp;very&nbsp;own&nbsp;plugin&nbsp;class<br>
+(itself&nbsp;derived&nbsp;from&nbsp;``<a href="#IPlugin">IPlugin</a>``).<br>
+&nbsp;<br>
+Where&nbsp;and&nbsp;how&nbsp;to&nbsp;code&nbsp;these&nbsp;plugins&nbsp;is&nbsp;explained&nbsp;in&nbsp;the&nbsp;section&nbsp;about<br>
+the&nbsp;:doc:`PluginManager`.<br>
+&nbsp;<br>
+&nbsp;<br>
+API<br>
+===</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="yapsy.IPlugin.html#IPlugin">IPlugin</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="IPlugin">class <strong>IPlugin</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>The&nbsp;most&nbsp;simple&nbsp;interface&nbsp;to&nbsp;be&nbsp;inherited&nbsp;when&nbsp;creating&nbsp;a&nbsp;plugin.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="IPlugin-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Set&nbsp;the&nbsp;basic&nbsp;variables.</tt></dd></dl>
+
+<dl><dt><a name="IPlugin-activate"><strong>activate</strong></a>(self)</dt><dd><tt>Called&nbsp;at&nbsp;plugin&nbsp;activation.</tt></dd></dl>
+
+<dl><dt><a name="IPlugin-deactivate"><strong>deactivate</strong></a>(self)</dt><dd><tt>Called&nbsp;when&nbsp;the&nbsp;plugin&nbsp;is&nbsp;disabled.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

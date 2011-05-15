@@ -2,28 +2,39 @@
 # -*- coding: utf-8 -*-
 
 import wx
+import wx.richtext
 from SyntaxHighlight import *
 from configClass import *
 from logClass import *
 from SyntaxColor import *
-from DefCodeWin import *
+
 
 
 def CallChangeOption(event, option, val, IdRange=0):
+    """
+    CallChangeOption
+
+    Helper function used to call Config.ChangeOption.
+    """
     Config.ChangeOption(option, val, IdRange)
 
 
 def CallChangeColorFile(event, item, newcolor):
-    ChangeColorFile(item, newcolor)
-    event.Skip()
+    """
+    CallChangeColorFile
 
-
-def DESTROYFrame(event, Frame):
-    Frame.Close(True)
+    Used to call ChangeColorFile
+    """
+    SyntCol.ChangeColorFile(item, newcolor)
     event.Skip()
 
 
 def ToggleSpinner(event, state, widget):
+    """
+    ToggleSpinner
+
+    Disables or enables the suplied widget depending on the arguments.
+    """
     if state == True:
         widget.Enable()
     else:
@@ -31,38 +42,104 @@ def ToggleSpinner(event, state, widget):
     event.Skip()
 
 
+
 class CfgFrame(wx.Frame):
+    """
+    CfgFrame
 
-    def __init__(self, IdRange, parent=None):
-        wx.Frame.__init__(self, parent, -1, 'Settings', size=(300, 500))
+    Creates the application configuration window and
+    provides the necessary controls to modify the application
+    preferences.
+    """
+    def __init__(self, parent, IdRange):
+        """
+        __init__
+
+        Builds the entire frame GUI and binds their events across
+        3 Notebook tabs.
+        """
+        self.parent = parent
+        self._ = self.parent._
+        wx.Frame.__init__(self, self.parent, -1, self._('Settings'), size=(400, 500))
         self.SetIcon(wx.Icon('icons/gEcrit.png', wx.BITMAP_TYPE_PNG))
-        ConfigBook = wx.Notebook(self)
+        self.cfg_book_pnl = wx.Panel(self)
+        self.book_sizer = wx.BoxSizer(wx.HORIZONTAL)
+        self.ok_bt_pnl = wx.Panel(self)
 
-        dflt_text_win = DefaultCodeFr(self, -1)
+        self.ok_bt = wx.Button(self.ok_bt_pnl, -1, self._("OK"), size = (-1, -1))
+        self.ok_bt.Bind(wx.EVT_BUTTON, self.HideMe)
+        self.main_sizer = wx.BoxSizer(wx.VERTICAL)
+        self.ConfigBook = wx.Notebook(self.cfg_book_pnl)
 
-        ConfigPanel = wx.Panel(ConfigBook)
-        ConfigPanel2 = wx.Panel(ConfigBook)
+        self.general = GeneralSettingsPanel(self.ConfigBook, IdRange)
+        self.editor = EditorSettingsPanel(self.ConfigBook, IdRange)
 
-        ColPal.CollorPaletteWindow(0, IdRange)
-        first_sizer = wx.BoxSizer(wx.VERTICAL)
 
-        AutosaveBox = wx.CheckBox(ConfigPanel, -1, "Enable Autosave", (10,
+        self.book_sizer.Add(self.ConfigBook, 1, wx.EXPAND)
+        self.cfg_book_pnl.SetSizer(self.book_sizer)
+        self.cfg_book_pnl.Fit()
+
+        self.ConfigBook.AddPage(self.general, self._("General"))
+        self.ConfigBook.AddPage(self.editor, self._("Editor"))
+
+        self.Bind(wx.EVT_CLOSE, self.HideMe)
+
+        self.main_sizer.Add(self.cfg_book_pnl, 1, wx.EXPAND)
+        self.main_sizer.Add(self.ok_bt_pnl, 0)
+        self.SetSizer(self.main_sizer)
+        self.Fit()
+        self.Hide()
+        self.Centre()
+
+    def ShowMe(self, event):
+        """
+        ShowMe
+
+        Makes window visible.
+        """
+        #update the id range of documents(do dinamycally update settings)
+        self.IdRange = self.parent.IdRange
+        self.general.IdRange = self.IdRange
+        self.editor.IdRange = self.IdRange
+        self.Show(True)
+
+
+    def HideMe(self, event):
+        """
+        HideMe
+
+        Hides the window.
+        """
+        self.Hide()
+
+
+
+
+class GeneralSettingsPanel(wx.Panel):
+    def __init__(self, parent, IdRange):
+        self.parent = parent
+        self._ = self.parent.GetParent().GetParent().GetParent()._
+        self.IdRange = IdRange
+        wx.Panel.__init__(self, self.parent)
+        ColPal.CollorPaletteWindow(0, self,self.IdRange)
+        sizer = wx.BoxSizer(wx.VERTICAL)
+
+        AutosaveBox = wx.CheckBox(self, -1, self._("Enable Autosave"), (10,
                                   10), (160, -1))
         AutosaveBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
-                         "Autosave", AutosaveBox.GetValue(), IdRange))
+                         "Autosave", AutosaveBox.GetValue(), self.IdRange))
 
         AutosaveBox.Bind(wx.EVT_CHECKBOX, lambda event: ToggleSpinner(event,
                          AutosaveBox.GetValue(), Interval))
 
-        Inter_Info = wx.StaticText(ConfigPanel, -1,
-                                   "Save data each # of characters:", (20,
-                                   35))
+        Inter_Info = wx.StaticText(self, -1,
+            self._("Save data each # of characters:"), (20,35))
 
-        Interval = wx.SpinCtrl(ConfigPanel, -1, "", (20, 60), (90, -1))
+        Interval = wx.SpinCtrl(self, -1, "", (20, 60), (90, -1))
         Interval.SetRange(1, 500)
         Interval.SetValue(Config.GetOption("Autosave Interval"))
         Interval.Bind(wx.EVT_SPINCTRL, lambda event: CallChangeOption(event,
-                      "Autosave Interval", Interval.GetValue(), IdRange))
+           "Autosave Interval", Interval.GetValue(), self.IdRange))
 
         if not Config.GetOption("Autosave"):
             AutosaveBox.SetValue(False)
@@ -70,166 +147,131 @@ class CfgFrame(wx.Frame):
         else:
             AutosaveBox.SetValue(True)
 
+        RmTrlBox = wx.CheckBox(self,-1, self._("Strip Trailing Spaces On Save"),
+                                        pos = (20, 70), size = (-1, -1))
+        RmTrlBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
+                        "StripTrails", RmTrlBox.GetValue()))
+        RmTrlBox.SetValue(Config.GetOption("StripTrails"))
 
-        StatusBarBox = wx.CheckBox(ConfigPanel, -1, "Enable StatusBar",
+        StatusBarBox = wx.CheckBox(self, -1, self._("Enable Status Bar"),
                                    (10, 90), (160, -1))
         StatusBarBox.Bind(wx.EVT_CHECKBOX, lambda event: \
                           CallChangeOption(event, "StatusBar",
-                          StatusBarBox.GetValue(), IdRange))
+                          StatusBarBox.GetValue(), self.IdRange))
 
         StatusBarBox.SetValue(Config.GetOption("StatusBar"))
 
-        Src_Br_Box = wx.CheckBox(ConfigPanel, -1,
-                                 "Enable Source Browser", (10, 115), (-1,
-                                 -1))
 
-        Src_Br_Box.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
-                        "SourceBrowser", Src_Br_Box.GetValue(), IdRange))
+        SessionBox = wx.CheckBox(self, -1, self._("Enable Session"))
+        SessionBox.SetValue(Config.GetOption("Session"))
+        SessionBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
+                                       "Session",SessionBox.GetValue()))
 
-        Src_Br_Box.SetValue(Config.GetOption("SourceBrowser"))
-
-        FileTreeBox = wx.CheckBox(ConfigPanel, -1,
-                                  "Enable File Tree Browser", (10, 117),
-                                  (-1, -1))
-
-        FileTreeBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
-                         "FileTree", FileTreeBox.GetValue(), IdRange))
-
-        FileTreeBox.SetValue(Config.GetOption("FileTree"))
-
-        SpellBox = wx.CheckBox(ConfigPanel, -1, "Enable Spell Checker",
-                               (10, 120), (-1, -1))
-
-        SpellBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
-                      "SpellCheck", SpellBox.GetValue(), IdRange))
-
-        SpellBox.SetValue(Config.GetOption("SpellCheck"))
-
-        SpellBox.Bind(wx.EVT_CHECKBOX, lambda event: ToggleSpinner(event,
-                      SpellBox.GetValue(), SpellSugBox))
-
-        SpellSugBox = wx.CheckBox(ConfigPanel, -1,
-                                  "Show Spell Suggestions", (10, 120), (-1,
-                                  -1))
-
-        SpellSugBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
-                         "SpellSuggestions", SpellSugBox.GetValue(),
-                         IdRange))
-
-        SpellSugBox.SetValue(Config.GetOption("SpellSuggestions"))
-
-        DfltTextBox = wx.CheckBox(ConfigPanel, -1,
-                                  "Enable New Document Default Text", (10,
-                                  130), (-1, -1))
-
-        DfltTextBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
-                         "DefaultTextAct", DfltTextBox.GetValue()))
-
-        DfltTextBox.Bind(wx.EVT_CHECKBOX, lambda event: ToggleSpinner(event,
-                         DfltTextBox.GetValue(), DfltTextBtn))
-        DfltTextBox.SetValue(Config.GetOption("DefaultTextAct"))
-
-        DfltTextBtn = wx.Button(ConfigPanel, -1,
-                                "Edit Document Default Text", (50, 135),
-                                (-1, -1))
-
-        DfltTextBtn.Bind(wx.EVT_BUTTON, dflt_text_win.ShowMe)
-        DfltTextBtn.Enable(Config.GetOption("DefaultTextAct"))
-
-        LogActBox = wx.CheckBox(ConfigPanel, -1, "Enable Log", (10, 140),
+        LogActBox = wx.CheckBox(self, -1, self._("Enable Log"), (10, 140),
                                 (160, -1))
 
         LogActBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
-                       "ActLog", LogActBox.GetValue(), IdRange))
+                       "ActLog", LogActBox.GetValue(), self.IdRange))
 
         LogActBox.SetValue(Config.GetOption("ActLog"))
 
-        PalleteButton = wx.Button(ConfigPanel, -1, "Colour Palette", pos=
+        PalleteButton = wx.Button(self, -1, self._("Colour Palette"), pos=
                                   (10, 220), size=(-1, -1))
 
         PalleteButton.Bind(wx.EVT_BUTTON, ColPal.ShowMe)
 
-        DefaultsButton = wx.Button(ConfigPanel, -1, "Reset to Defaults",
-                                   pos=(10, 260), size=(-1, -1))
-
-        DefaultsButton.Bind(wx.EVT_BUTTON, lambda event: \
-                            CallChangeOption(event, "Defaults",
-                            "Defaults", IdRange))
-
-        DefaultsButton.Bind(wx.EVT_BUTTON, lambda event: \
-                            CallChangeColorFile(event, "Defaults",
-                            "Defaults"))
-
-        ViewButton = wx.Button(ConfigPanel, label="View Log", pos=(10,
+        ViewButton = wx.Button(self, -1,self._("View Log"), pos=(10,
                                180), size=(-1, -1))
 
         ViewButton.Bind(wx.EVT_BUTTON, self.viewLog)
 
-        EraseButton = wx.Button(ConfigPanel, label="Erase Log", pos=(50,
+        EraseButton = wx.Button(self, -1,self._("Erase Log"), pos=(50,
                                 180), size=(-1, -1))
 
         EraseButton.Bind(wx.EVT_BUTTON, Log.EraseLog)
         EraseButton.Bind(wx.EVT_BUTTON, lambda event: ToggleSpinner(event,
                          False, EraseButton))
 
-        OKButton = wx.Button(ConfigPanel, -1, "OK", pos=(200, 420), size=
-                             (80, 40))
-
-        OKButton.Bind(wx.EVT_CLOSE, self.HideMe)
-        OKButton.Bind(wx.EVT_BUTTON, self.HideMe)
 
         special_sizer = wx.BoxSizer(wx.HORIZONTAL)
         special_sizer.Add(ViewButton, 0)
         special_sizer.Add(EraseButton, 0)
 
-        first_sizer.Add(AutosaveBox, 0, wx.EXPAND, wx.ALL, 5)
-        first_sizer.Add(Inter_Info, 0, wx.ALL, 5)
-        first_sizer.Add(Interval, 0, wx.LEFT, 30)
-        first_sizer.Add(StatusBarBox, 0, wx.EXPAND, wx.ALL, 5)
-        first_sizer.Add(Src_Br_Box, 0, wx.EXPAND, wx.ALL, 5)
-        first_sizer.Add(FileTreeBox, 0, wx.EXPAND, wx.ALL, 5)
-        first_sizer.Add(SpellBox, 0, wx.EXPAND, wx.ALL, 5)
-        first_sizer.Add(SpellSugBox, 0, wx.EXPAND, wx.ALL, 15)
-        first_sizer.Add(DfltTextBox, 0, wx.EXPAND)
-        first_sizer.Add(DfltTextBtn, 0, wx.LEFT, 30)
-        first_sizer.Add(LogActBox, 0, wx.EXPAND, wx.ALL, 5)
-        first_sizer.Add(PalleteButton, 0, wx.ALL, 5)
-        first_sizer.Add(special_sizer, 0, wx.ALL, 5)
+        sizer.Add(AutosaveBox, 0, wx.EXPAND, wx.ALL, 5)
+        sizer.Add(Inter_Info, 0, wx.ALL, 5)
+        sizer.Add(Interval, 0, wx.LEFT, 30)
+        sizer.Add(RmTrlBox, 0 , wx.EXPAND)
+        sizer.Add(StatusBarBox, 0, wx.EXPAND, wx.ALL, 5)
+        sizer.Add(SessionBox, 0)
+        sizer.Add(LogActBox, 0, wx.EXPAND, wx.ALL, 5)
+        sizer.Add(PalleteButton, 0, wx.ALL, 5)
+        sizer.Add(special_sizer, 0, wx.ALL, 5)
 
-        first_sizer.Add(DefaultsButton, 0)
-        ConfigPanel.SetSizer(first_sizer)
+        self.SetSizer(sizer)
 
-        second_sizer = wx.BoxSizer(wx.VERTICAL)
-        LineNrBox = wx.CheckBox(ConfigPanel2, -1, "Show Line Numbers", (10,
+    def viewLog(self, event):
+        """
+        viewLog
+
+        Creates child class and the required controls to view the log
+        file.
+        """
+        logcontent = ""
+        if Config.GetOption("ActLog") == True:
+
+            logFrame = wx.Frame(None, -1, self._("View Log"), size=(500, 500))
+            panel5 = wx.Panel(logFrame)
+            data = wx.richtext.RichTextCtrl(panel5, pos=(0, 0), size=(500,
+                    500), style = wx.TE_READONLY)
+            data.AppendText(Log.ReadLog())
+            logFrame.Centre()
+            logFrame.Show()
+        else:
+
+            inform = wx.MessageDialog(None,
+                    self._("The Log is disabled!\
+            \nEnable it to view."),
+                    self._("Log Status"), wx.OK)
+            inform.ShowModal()
+
+
+class EditorSettingsPanel(wx.Panel):
+    def __init__(self, parent, IdRange):
+        self.parent = parent
+        self.IdRange = IdRange
+        self._ = self.parent.GetParent().GetParent().GetParent()._
+        wx.Panel.__init__(self, self.parent)
+        sizer = wx.BoxSizer(wx.VERTICAL)
+        LineNrBox = wx.CheckBox(self, -1, self._("Show Line Numbers"), (10,
                                 10), (-1, -1))
 
         LineNrBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
-                       "LineNumbers", LineNrBox.GetValue(), IdRange))
+                    self._("LineNumbers"), LineNrBox.GetValue(), self.IdRange))
 
         LineNrBox.SetValue(Config.GetOption("LineNumbers"))
 
-        SyntaxHgBox = wx.CheckBox(ConfigPanel2, -1, "Syntax Highlight ",
+        SyntaxHgBox = wx.CheckBox(self, -1, self._("Syntax Highlight"),
                                   (10, 35), (-1, -1))
 
         SyntaxHgBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
                          "SyntaxHighlight", SyntaxHgBox.GetValue(),
-                         IdRange))
+                         self.IdRange))
 
         SyntaxHgBox.SetValue(Config.GetOption("SyntaxHighlight"))
 
-        AutoIdentBox = wx.CheckBox(ConfigPanel2, -1, "Autoindentation",
+        AutoIdentBox = wx.CheckBox(self, -1, self._("Autoindentation"),
                                    (10, 60), (-1, -1))
 
         AutoIdentBox.Bind(wx.EVT_CHECKBOX, lambda event: \
                           CallChangeOption(event, "Autoindentation",
-                          AutoIdentBox.GetValue(), IdRange))
+                          AutoIdentBox.GetValue(), self.IdRange))
 
         AutoIdentBox.Bind(wx.EVT_CHECKBOX, lambda event: ToggleSpinner(event,
                           AutoIdentBox.GetValue(), IndentSizeBox))
 
         AutoIdentBox.SetValue(Config.GetOption("Autoindentation"))
 
-        IndentSizeBox = wx.SpinCtrl(ConfigPanel2, -1, "", (35, 85), (90,
+        IndentSizeBox = wx.SpinCtrl(self, -1, "", (35, 85), (90,
                                     -1))
 
         IndentSizeBox.SetRange(1, 12)
@@ -237,15 +279,15 @@ class CfgFrame(wx.Frame):
 
         IndentSizeBox.Bind(wx.EVT_SPINCTRL, lambda event: \
                            CallChangeOption(event, "IndentSize",
-                           IndentSizeBox.GetValue(), IdRange))
+                           IndentSizeBox.GetValue(), self.IdRange))
 
         if Config.GetOption("Autoindentation") == True:
             IndentSizeBox.Enable()
         else:
             IndentSizeBox.Disable()
 
-        IndentationGuidesBox = wx.CheckBox(ConfigPanel2, -1,
-                "Indentation Guides", (10, 110), (-1, -1))
+        IndentationGuidesBox = wx.CheckBox(self, -1,
+            self._("Indentation Guides"), (10, 110), (-1, -1))
 
         IndentationGuidesBox.SetValue(Config.GetOption("IndetationGuides"))
 
@@ -253,78 +295,78 @@ class CfgFrame(wx.Frame):
                                   CallChangeOption(event,
                                   "IndetationGuides",
                                   IndentationGuidesBox.GetValue(),
-                                  IdRange))
+                                  self.IdRange))
 
-        BackSpaceUnindentBox = wx.CheckBox(ConfigPanel2, -1,
-                "Backspace to Unindent", (10, 135), (-1, -1))
+        BackSpaceUnindentBox = wx.CheckBox(self, -1,
+                self._("Backspace to Unindent"), (10, 135), (-1, -1))
         BackSpaceUnindentBox.SetValue(Config.GetOption("BackSpaceUnindent"))
 
         BackSpaceUnindentBox.Bind(wx.EVT_CHECKBOX, lambda event: \
                                   CallChangeOption(event,
                                   "BackSpaceUnindent",
                                   BackSpaceUnindentBox.GetValue(),
-                                  IdRange))
+                                  self.IdRange))
 
-        WhitespaceBox = wx.CheckBox(ConfigPanel2, -1, "Show Whitespace",
+        WhitespaceBox = wx.CheckBox(self, -1, self._("Show Whitespace"),
                                     (10, 160), (-1, -1))
         WhitespaceBox.SetValue(Config.GetOption("Whitespace"))
 
         WhitespaceBox.Bind(wx.EVT_CHECKBOX, lambda event: \
                            CallChangeOption(event, "Whitespace",
-                           WhitespaceBox.GetValue(), IdRange))
+                           WhitespaceBox.GetValue(), self.IdRange))
 
-        UseTabsBox = wx.CheckBox(ConfigPanel2, -1, "Use Tabs", (10, 185),
+        UseTabsBox = wx.CheckBox(self, -1, self._("Use Tabs"), (10, 185),
                                  (160, -1))
         UseTabsBox.SetValue(Config.GetOption("UseTabs"))
 
         UseTabsBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
-                        "UseTabs", UseTabsBox.GetValue(), IdRange))
+           "UseTabs", UseTabsBox.GetValue(), self.IdRange))
 
-        CarretInfo = wx.StaticText(ConfigPanel2, -1, 'Carret Width:', (10,
+        CarretInfo = wx.StaticText(self, -1, self._('Carret Width:'), (10,
                                    210))
 
-        CarretWidthSpin = wx.SpinCtrl(ConfigPanel2, -1, "", (35, 235), (-1,
+        CarretWidthSpin = wx.SpinCtrl(self, -1, "", (35, 235), (-1,
                 -1))
         CarretWidthSpin.SetRange(1, 20)
         CarretWidthSpin.SetValue(Config.GetOption("CarretWidth"))
 
         CarretWidthSpin.Bind(wx.EVT_SPINCTRL, lambda event: \
                              CallChangeOption(event, "CarretWidth",
-                             CarretWidthSpin.GetValue(), IdRange))
+                             CarretWidthSpin.GetValue(), self.IdRange))
 
-        FoldMarkBox = wx.CheckBox(ConfigPanel2, -1, "Fold Marks", (10,
+        FoldMarkBox = wx.CheckBox(self, -1, self._("Fold Marks"), (10,
                                   265), (160, -1))
 
         FoldMarkBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
-                         "FoldMarks", FoldMarkBox.GetValue(), IdRange))
+                         "FoldMarks", FoldMarkBox.GetValue(), self.IdRange))
 
         FoldMarkBox.SetValue(Config.GetOption("FoldMarks"))
 
-        TabInfo = wx.StaticText(ConfigPanel2, -1, "Tab Width:", pos=(10,
+        TabInfo = wx.StaticText(self, -1, self._("Tab Width:"), pos=(10,
                                 300), size=(-1, -1))
 
-        TabWidthBox = wx.SpinCtrl(ConfigPanel2, -1, "", pos=(35, 320),
+        TabWidthBox = wx.SpinCtrl(self, -1, "", pos=(35, 320),
                                   size=(90, -1))
 
         TabWidthBox.SetValue(Config.GetOption("TabWidth"))
 
         TabWidthBox.Bind(wx.EVT_SPINCTRL, lambda event: CallChangeOption(event,
-                         "TabWidth", TabWidthBox.GetValue(), IdRange))
+                         "TabWidth", TabWidthBox.GetValue(), self.IdRange))
 
-        EdgeLineBox = wx.CheckBox(ConfigPanel2, -1, "Edge Line", pos=(10,
+        EdgeLineBox = wx.CheckBox(self, -1, self._("Edge Line"), pos=(10,
                                   350), size=(-1, -1))
         EdgeLineBox.SetValue(Config.GetOption("EdgeLine"))
 
         EdgeLineBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
-                         "EdgeLine", EdgeLineBox.GetValue(), IdRange))
+                         "EdgeLine", EdgeLineBox.GetValue(), self.IdRange))
 
         EdgeLineBox.Bind(wx.EVT_CHECKBOX, lambda event: ToggleSpinner(event,
                          EdgeLineBox.GetValue(), EdgeLinePos))
 
-        EdgeInfo = wx.StaticText(ConfigPanel2, -1, "Edge Line Position:",
+        EdgeInfo = wx.StaticText(self, -1, self._("Edge Line Position:"),
                                  pos=(35, 375), size=(-1, -1))
 
-        EdgeLinePos = wx.SpinCtrl(ConfigPanel2, -1, "", pos=(35, 400),
+        EdgeLinePos = wx.SpinCtrl(self, -1, "", pos=(35, 400),
                                   size=(-1, -1))
         EdgeLinePos.SetValue(Config.GetOption("EdgeColumn"))
 
@@ -334,125 +376,32 @@ class CfgFrame(wx.Frame):
             EdgeLinePos.Disable()
 
         EdgeLinePos.Bind(wx.EVT_SPINCTRL, lambda event: CallChangeOption(event,
-                         "EdgeColumn", EdgeLinePos.GetValue(), IdRange))
+                         "EdgeColumn", EdgeLinePos.GetValue(), self.IdRange))
 
-        second_sizer.Add(LineNrBox, 0, wx.EXPAND)
-        second_sizer.Add(SyntaxHgBox, 0, wx.EXPAND)
-        second_sizer.Add(AutoIdentBox, 0, wx.EXPAND)
-        second_sizer.Add(IndentSizeBox, 0, wx.LEFT, 30)
-        second_sizer.Add(IndentationGuidesBox, 0, wx.EXPAND)
-        second_sizer.Add(BackSpaceUnindentBox, 0, wx.EXPAND)
-        second_sizer.Add(WhitespaceBox, 0, wx.EXPAND)
-        second_sizer.Add(UseTabsBox, 0, wx.EXPAND, 30)
-        second_sizer.Add(CarretInfo, 0, wx.EXPAND)
-        second_sizer.Add(CarretWidthSpin, 0, wx.LEFT, 30)
-        second_sizer.Add(FoldMarkBox, 0, wx.EXPAND)
-        second_sizer.Add(TabInfo, 0, wx.EXPAND)
-        second_sizer.Add(TabWidthBox, 0, wx.LEFT, 30)
-        second_sizer.Add(EdgeLineBox, 0, wx.EXPAND)
-        second_sizer.Add(EdgeInfo, 0, wx.EXPAND)
-        second_sizer.Add(EdgeLinePos, 0, wx.LEFT, 30)
+        EdgeLinePos.SetRange(0, 1000)
 
-        ConfigPanel2.SetSizer(second_sizer)
+        BraceCompBox = wx.CheckBox(self,-1, self._("Autocomplete Braces"),
+                                            pos=(10,200),size=(-1,-1))
+        BraceCompBox.Bind(wx.EVT_CHECKBOX,lambda event: CallChangeOption(
+                        event,"BraceComp",BraceCompBox.GetValue(),self.IdRange))
+        BraceCompBox.SetValue(Config.GetOption("BraceComp"))
 
-        OKButton2 = wx.Button(ConfigPanel2, -1, "OK", pos=(200, 420),
-                              size=(80, 40))
-        OKButton2.Bind(wx.EVT_CLOSE, self.HideMe)
-        OKButton2.Bind(wx.EVT_BUTTON, self.HideMe)
+        sizer.Add(LineNrBox, 0, wx.EXPAND)
+        sizer.Add(SyntaxHgBox, 0, wx.EXPAND)
+        sizer.Add(AutoIdentBox, 0, wx.EXPAND)
+        sizer.Add(IndentSizeBox, 0, wx.LEFT, 30)
+        sizer.Add(IndentationGuidesBox, 0, wx.EXPAND)
+        sizer.Add(BackSpaceUnindentBox, 0, wx.EXPAND)
+        sizer.Add(WhitespaceBox, 0, wx.EXPAND)
+        sizer.Add(UseTabsBox, 0, wx.EXPAND, 30)
+        sizer.Add(CarretInfo, 0, wx.EXPAND)
+        sizer.Add(CarretWidthSpin, 0, wx.LEFT, 30)
+        sizer.Add(FoldMarkBox, 0, wx.EXPAND)
+        sizer.Add(TabInfo, 0, wx.EXPAND)
+        sizer.Add(TabWidthBox, 0, wx.LEFT, 30)
+        sizer.Add(EdgeLineBox, 0, wx.EXPAND)
+        sizer.Add(EdgeInfo, 0, wx.EXPAND)
+        sizer.Add(EdgeLinePos, 0, wx.LEFT, 30)
+        sizer.Add(BraceCompBox,0,wx.EXPAND)
 
-        third_sizer = wx.BoxSizer(wx.VERTICAL)
-
-        ConfigPanel3 = wx.Panel(ConfigBook)
-        BashBox = wx.CheckBox(ConfigPanel3, -1, "OS Terminal", pos=(10,
-                              10), size=(-1, -1))
-        BashBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
-                     "BashShell", BashBox.GetValue(), IdRange))
-
-        BashBox.Bind(wx.EVT_CHECKBOX, lambda event: ToggleSpinner(event,
-                     BashBox.GetValue(), OSPath))
-
-        BashBox.SetValue(Config.GetOption("BashShell"))
-
-        OSInfo = wx.StaticText(ConfigPanel3, -1, "OS shell path:", pos=(10,
-                               30), size=(-1, -1))
-
-        OSPath = wx.TextCtrl(ConfigPanel3, -1, "", pos=(10, 50), size=(250,
-                             -1))
-        OSPath.SetValue(Config.GetOption("OSPath"))
-        OSPath.Enable(BashBox.GetValue())
-
-        OSApply = wx.Button(ConfigPanel3, -1, "Apply", pos=(10, 80),
-                            size=(-1, -1))
-        OSApply.Bind(wx.EVT_BUTTON, lambda event: CallChangeOption(event,
-                     "OSPath", OSPath.GetValue(), IdRange))
-
-        PythonBox = wx.CheckBox(ConfigPanel3, -1, "Python Terminal", pos=
-                                (10, 110), size=(-1, -1))
-        PythonBox.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
-                       "PythonShell", PythonBox.GetValue(), IdRange))
-
-        PythonBox.Bind(wx.EVT_CHECKBOX, lambda event: ToggleSpinner(event,
-                       PythonBox.GetValue(), PyPath))
-
-        PythonBox.SetValue(Config.GetOption("PythonShell"))
-
-        PyInfo = wx.StaticText(ConfigPanel3, -1, "Python shell path:",
-                               pos=(10, 130), size=(-1, -1))
-
-        PyPath = wx.TextCtrl(ConfigPanel3, -1, "", pos=(10, 150), size=(250,
-                             -1))
-        PyPath.SetValue(Config.GetOption("PyPath"))
-        PyPath.Enable(PythonBox.GetValue())
-
-        PyApply = wx.Button(ConfigPanel3, -1, "Apply", pos=(10, 180),
-                            size=(-1, -1))
-        PyApply.Bind(wx.EVT_BUTTON, lambda event: CallChangeOption(event,
-                     "PyPath", PyPath.GetValue(), IdRange))
-
-        third_sizer.Add(BashBox, 0, wx.EXPAND, 5)
-        third_sizer.Add(OSInfo, 0, wx.EXPAND, 5)
-        third_sizer.Add(OSPath, 0, wx.EXPAND, 5)
-        third_sizer.Add(OSApply, 0, 5)
-        third_sizer.Add(PythonBox, 0, wx.EXPAND, 5)
-        third_sizer.Add(PyInfo, 0, wx.EXPAND, 5)
-        third_sizer.Add(PyPath, 0, wx.EXPAND, 5)
-        third_sizer.Add(PyApply, 0, 5)
-
-        ConfigPanel3.SetSizer(third_sizer)
-
-        OKButton4 = wx.Button(ConfigPanel3, -1, "OK", pos=(200, 420),
-                              size=(80, 40))
-        OKButton4.Bind(wx.EVT_BUTTON, self.HideMe)
-
-        ConfigBook.AddPage(ConfigPanel, "General")
-        ConfigBook.AddPage(ConfigPanel2, "Editor")
-        ConfigBook.AddPage(ConfigPanel3, "Terminals")
-        self.Bind(wx.EVT_CLOSE, self.HideMe)
-
-        self.Hide()
-        self.Centre()
-
-    def ShowMe(self, event):
-        self.Show(True)
-
-    def HideMe(self, event):
-        self.Hide()
-
-    def viewLog(self, event):
-        logcontent = ""
-        if Config.GetOption("ActLog") == True:
-
-            logFrame = wx.Frame(None, -1, "View Log", size=(500, 500))
-            panel5 = wx.Panel(logFrame)
-            data = wx.richtext.RichTextCtrl(panel5, pos=(0, 0), size=(500,
-                    500))
-            data.AppendText(Log.ReadLog())
-            logFrame.Centre()
-            logFrame.Show()
-        else:
-
-            inform = wx.MessageDialog(None,
-                    "The Log is disabled!\
-            \nEnable it to view.",
-                    "Log Status", wx.OK)
-            inform.ShowModal()
+        self.SetSizer(sizer)

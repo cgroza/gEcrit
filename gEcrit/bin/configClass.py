@@ -3,13 +3,23 @@
 
 import wx
 import os
-from TinyFeatures import *
 from SyntaxHighlight import *
 
 
 class ConfigNanny:
+    """
+    ConfigNanny
 
+    Manages the application configuration manipulation.
+
+    """
     def __init__(self):
+        """
+        __init__
+
+        Creates a default configuration dictionary and reads the
+        configuration file.
+        """
         self.DefaultConfigDict = {
             "Autosave": False,
             "Autosave Interval": 200,
@@ -27,25 +37,50 @@ class ConfigNanny:
             "UseTabs": False,
             "CarretWidth": 7,
             "FoldMarks": False,
-            "SourceBrowser": False,
             "TabWidth": 8,
             "EdgeLine": False,
             "EdgeColumn": 80,
             "BashShell": False,
             "PythonShell": False,
-            "OSPath": "/bin/bash",
-            "PyPath": "/usr/bin/python",
-            "SpellCheck": False,
-            "SpellSuggestions": False,
-            "FileTree": False,
-            "DefaultText": "",
-            "DefaultTextAct": False,
+            "RecentFiles":[],
+            "BraceComp":False,
+            "StripTrails":False,
+            "Session" : True,
+            "ActivePlugins": ["Task Keeper","Class Hierarchy Tree",
+                              "HTML Converter", "Python Syntax Doctor",
+                              "Pastebin.com Uploader","PyTidy","Notes",
+                              "Terminator"]
             }
+
+        self.update_funct = {
+            "Autosave Interval":self.UpdateAutoSaveInterval,
+            "StatusBar":        self.UpdateStatusBar,
+            "LineNumbers":      self.UpdateLineNumbers,
+            "SyntaxHighlight":  self.UpdateSyntaxHighlight,
+            "IndentSize":       self.UpdateIndentSize,
+            "Whitespace":       self.UpdateWhitespace,
+            "IndetationGuides": self.UpdateIndentationGuides,
+            "BackSpaceUnindent":self.UpdateBackSpaceUnindent,
+            "UseTabs":          self.UpdateUseTabs,
+            "CarretWidth":      self.UpdateCarretWidth,
+            "FoldMarks":        self.UpdateFoldMarks,
+            "TabWidth":         self.UpdateTabWidth,
+            "EdgeLine":         self.UpdateEdgeLine,
+            "EdgeColumn":       self.UpdateEdgeColumn
+        }
+
         self.HOMEDIR = os.path.expanduser('~')
 
         self.ReadConfig()
 
     def GetOption(self, option):
+        """
+        GetOption
+
+        Return the status of the requested option from the
+        configuration dictionary.
+        If something goes wrong, returns from default.
+        """
         try:
             return (self.ConfigDict)[option]
         except:
@@ -53,210 +88,194 @@ class ConfigNanny:
             return (self.DefaultConfigDict)[option]
 
     def ChangeOption(self, option, val, IdRange=0):
+        """
+        ChangeOption
+
+        Modifies the status of the requested option  to the provided
+        value.
+
+        Updates the configuration dictionary and writes it to file.
+        """
         TempConfigDict = self.ConfigDict
 
         (self.DefaultConfigDict)[option]
         TempConfigDict[option] = val
 
-        NewConfig = open(self.HOMEDIR + "/.gEcrit.conf", "w")
+        NewConfig = open(self.HOMEDIR + "/.gEcrit/gEcrit.conf", "w")
         NewConfig.write(str(TempConfigDict))
         NewConfig.close()
-        self.ToggleFeature(0, option, val, IdRange)
+        if option in ["PythonShell","BashShell"]:
+            self.UpdateShells(option)
+
+        if option in self.update_funct:
+            self.update_funct[option](val,IdRange)
+
         self.ReadConfig()
 
     def ReadConfig(self):
+        """
+        ReadConfig
+
+        Reads the configuration file and generates a configuration
+        dictionary.
+
+        If something goes wrong, returns from default.
+        """
         try:
-            ConfigFile = open(self.HOMEDIR + "/.gEcrit.conf", "r")
+            ConfigFile = open(self.HOMEDIR + "/.gEcrit/gEcrit.conf", "r")
             self.ConfigDict = eval(ConfigFile.read())
             return self.ConfigDict
         except:
-
+            if not os.path.exists(self.HOMEDIR + "/.gEcrit/gEcrit.conf"):
+                if not os.path.exists(self.HOMEDIR + "/.gEcrit"):
+                    os.mkdir(self.HOMEDIR + "/.gEcrit/")
             self.ConfigDict = self.DefaultConfigDict
-            ConfigFile = open(self.HOMEDIR + "/.gEcrit.conf", "w")
+            ConfigFile = open(self.HOMEDIR + "/.gEcrit/gEcrit.conf", "w")
             ConfigFile.write(str(self.DefaultConfigDict))
             ConfigFile.close()
             return self.ConfigDict
 
-    def ToggleFeature(self, event, feature, val, IdRange):
-        if feature == "IndentSize":
-            for id in IdRange:
-                item = wx.FindWindowById(id)
-                item.SetIndent(val)
-        elif feature == "IndetationGuides":
-            for id in IdRange:
-                item = wx.FindWindowById(id)
-                item.SetIndentationGuides(val)
-        elif feature == "BackSpaceUnindent":
 
-            for id in IdRange:
-                item = wx.FindWindowById(id)
-                item.SetBackSpaceUnIndents(val)
-        elif feature == "Whitespace":
+    def UpdateIndentSize(self, val, IdRange):
+        for id in IdRange:
+            item = wx.FindWindowById(id)
+            item.SetIndent(val)
 
-            for id in IdRange:
-                item = wx.FindWindowById(id)
-                item.SetViewWhiteSpace(val)
-        elif feature == "UseTabs":
+    def UpdateIndentationGuides(self, val, IdRange):
+        for id in IdRange:
+            item = wx.FindWindowById(id)
+            item.SetIndentationGuides(val)
 
-            for id in IdRange:
-                item = wx.FindWindowById(id)
-                item.SetUseTabs(val)
-        elif feature == "CarretWidth":
+    def UpdateBackSpaceUnindent(self, val, IdRange):
+        for id in IdRange:
+            item = wx.FindWindowById(id)
+            item.SetBackSpaceUnIndents(val)
 
-            for id in IdRange:
-                item = wx.FindWindowById(id)
-                item.SetCaretWidth(val)
-        elif feature == "IndentSize":
+    def UpdateWhitespace(self, val, IdRange):
+        for id in IdRange:
+            item = wx.FindWindowById(id)
+            item.SetViewWhiteSpace(val)
 
-            for id in IdRange:
-                item = wx.FindWindowById(id)
-                item.SetTabWidth(val)
-        elif feature == "LineNumbers":
+    def UpdateUseTabs(self, val, IdRange):
+        for id in IdRange:
+            item = wx.FindWindowById(id)
+            item.SetUseTabs(val)
 
-            for id in IdRange:
-                item = wx.FindWindowById(id)
-                if val == True:
+    def UpdateCarretWidth(self, val, IdRange):
+        for id in IdRange:
+            item = wx.FindWindowById(id)
+            item.SetCaretWidth(val)
 
-                    item.SetMarginWidth(1, 45)
-                else:
-                    item.SetMarginWidth(1, 1)
-        elif feature == "FoldMarks":
 
-            for id in IdRange:
-                item = wx.FindWindowById(id)
-                if val == True:
-                    item.SetMarginType(2, wx.stc.STC_MARGIN_SYMBOL)
-                    item.SetMarginMask(2, wx.stc.STC_MASK_FOLDERS)
-                    item.SetMarginSensitive(2, True)
-                    item.SetMarginWidth(2, 12)
-                elif val == False:
-                    item.SetMarginWidth(2, 1)
-        elif feature == "SyntaxHighlight":
+    def UpdateLineNumbers(self, val, IdRange):
 
-            if val == False:
-                for id in IdRange:
-                    item = wx.FindWindowById(id)
-                    item.StyleClearAll()
-            elif val == True:
-                for id in IdRange:
-                    SyntCol.ActivateSyntaxHighLight(id)
-        elif feature == "StatusBar":
-
-            item = wx.FindWindowById(999)
+        for id in IdRange:
+            item = wx.FindWindowById(id)
             if val == True:
-                item.Show(True)
-            else:
-                item.Hide()
-        elif feature == "TabWidth":
 
+                item.SetMarginWidth(1, 45)
+            else:
+                item.SetMarginWidth(1, 1)
+
+    def UpdateFoldMarks(self, val, IdRange):
+        for id in IdRange:
+            item = wx.FindWindowById(id)
+            if val == True:
+                item.SetMarginType(2, wx.stc.STC_MARGIN_SYMBOL)
+                item.SetMarginMask(2, wx.stc.STC_MASK_FOLDERS)
+                item.SetMarginSensitive(2, True)
+                item.SetMarginWidth(2, 12)
+            elif val == False:
+                item.SetMarginWidth(2, 1)
+
+    def UpdateSyntaxHighlight(self, val, IdRange):
+
+        if val == False:
             for id in IdRange:
                 item = wx.FindWindowById(id)
-                item.SetTabWidth(val)
-        elif feature == "EdgeLine":
+                item.StyleClearAll()
+        elif val == True:
+            for id in IdRange:
+                SyntCol.ActivateSyntaxHighLight(id)
 
-            if val == False:
-                for id in IdRange:
-                    item = wx.FindWindowById(id)
-                    item.SetEdgeMode(wx.stc.STC_EDGE_NONE)
-            else:
-                for id in IdRange:
-                    item = wx.FindWindowById(id)
-                    item.SetEdgeMode(wx.stc.STC_EDGE_LINE)
-        elif feature == "EdgeColumn":
+    def UpdateStatusBar(self, val=True, IdRange=0):
 
+        item = wx.FindWindowById(999)
+        if val == True:
+            item.Show(True)
+        else:
+            item.Hide()
+
+    def UpdateTabWidth(self, val, IdRange):
+
+        for id in IdRange:
+            item = wx.FindWindowById(id)
+            item.SetTabWidth(val)
+
+    def UpdateEdgeLine(self, val, IdRange):
+        if val == False:
             for id in IdRange:
                 item = wx.FindWindowById(id)
-                item.SetEdgeColumn(val)
-        elif feature == "SourceBrowser":
+                item.SetEdgeMode(wx.stc.STC_EDGE_NONE)
+        else:
+            for id in IdRange:
+                item = wx.FindWindowById(id)
+                item.SetEdgeMode(wx.stc.STC_EDGE_LINE)
 
-            counter = 0
-            if val == True:
-                for id in IdRange:
-                    item = wx.FindWindowById(2000 + id)
-                    nb = wx.FindWindowById(4003 + id)
-                    if self.GetOption("SourceBrowser") and not self.GetOption("FileTree"):
-                        item.parent.GetParent().GetParent().GetParent().SplitVertically(item.GetParent().GetParent().GetParent(),
-                                wx.FindWindowById(1001 + id))
-                    nb.AddPage(item.GetParent(), "Source Browser")
-                    counter += 1
-            else:
+    def UpdateEdgeColumn(self, val, IdRange):
+        for id in IdRange:
+            item = wx.FindWindowById(id)
+            item.SetEdgeColumn(val)
 
-                for id in IdRange:
-                    item = wx.FindWindowById(2000 + id)
-                    nb = wx.FindWindowById(4003 + id)
-                    if not self.GetOption("SourceBrowser") and not self.GetOption("FileTree"):
-                        item.parent.GetParent().GetParent().GetParent().Unsplit(item.GetParent().GetParent().GetParent())
-                    nb.RemovePage(self.GetTab("Source Browser", nb))
-                    counter += 1
-        elif feature == "FileTree":
 
-            counter = 0
-            if val == True:
-                for id in IdRange:
-                    item = wx.FindWindowById(5000 + id)
-                    nb = wx.FindWindowById(4003 + id)
-                    if self.GetOption("FileTree") and not self.GetOption("SourceBrowser"):
-                        item.parent.GetParent().GetParent().GetParent().SplitVertically(item.GetParent().GetParent().GetParent(),
-                                wx.FindWindowById(1001 + id))
-                    nb.AddPage(item.GetParent(), "File Browser")
-                    counter += 1
-            else:
+    def UpdateShells(self, feature):
+        item = wx.FindWindowById(4002)
+        OSShell = wx.FindWindowById(4000)
+        PyShell = wx.FindWindowById(4001)
+        Nb_Panel = wx.FindWindowById(998)
 
-                for id in IdRange:
-                    item = wx.FindWindowById(5000 + id)
-                    nb = wx.FindWindowById(4003 + id)
-                    if not self.GetOption("FileTree") and not self.GetOption("SourceBrowser"):
-                        item.parent.GetParent().GetParent().GetParent().Unsplit(item.GetParent().GetParent().GetParent())
-                    nb.RemovePage(self.GetTab("File Browser", nb))
-                    counter += 1
-        elif feature in ["PythonShell", "BashShell"]:
+        if not self.GetOption("PythonShell"):
+            try:
+                PyShell.OnClose(0)
+                item.RemovePage(self.GetTab("Python", item))
+            except:
+                pass
+        if not self.GetOption("BashShell") and feature == \
+            "BashShell":
 
-            item = wx.FindWindowById(4002)
-            OSShell = wx.FindWindowById(4000)
-            PyShell = wx.FindWindowById(4001)
-            Nb_Panel = wx.FindWindowById(998)
-            if not self.GetOption("PythonShell"):
-                try:
-                    PyShell.OnClose(0)
-                    item.RemovePage(self.GetTab("Python", item))
-                except:
-                    pass
-            if not self.GetOption("BashShell") and feature == \
-                "BashShell":
+            OSShell.OnClose(0)
+            item.RemovePage(self.GetTab("OS Shell", item))
 
-                OSShell.OnClose(0)
-                item.RemovePage(self.GetTab("OS Shell", item))
+        if self.GetOption("PythonShell") and feature == \
+            "PythonShell":
+            PyShell.OnRun(0, self.GetOption("PyPath"))
+            item.AddPage(PyShell.parent, "Python")
+            PyShell.GetParent().Fit()
 
-            if not self.GetOption("PythonShell") and not self.GetOption("BashShell"):
 
-                item.GetParent().GetParent().Unsplit(item.GetParent())
-            else:
+        if self.GetOption("BashShell") and feature == \
+            "BashShell":
+            OSShell.OnRun(0, self.GetOption("OSPath"))
+            item.AddPage(OSShell.parent, "OS Shell")
+            OSShell.GetParent().Fit()
 
-                if self.GetOption("PythonShell") and feature == \
-                    "PythonShell":
-                    PyShell.OnRun(0, self.GetOption("PyPath"))
-                    item.AddPage(PyShell.parent, "Python")
-                    PyShell.GetParent().Fit()
+        if item.GetPageCount() == 0:
 
-                if self.GetOption("BashShell") and feature == \
-                    "BashShell":
-                    OSShell.OnRun(0, self.GetOption("OSPath"))
-                    item.AddPage(OSShell.parent, "OS Shell")
-                    OSShell.GetParent().Fit()
+            item.GetParent().GetParent().Unsplit(item.GetParent())
 
-                item.GetParent().GetParent().SplitHorizontally(Nb_Panel,
-                        item.GetParent())
-                item.GetParent().GetParent().Refresh()
-        elif feature == "EdgeLine":
 
-            if val:
-                for id in IdRange:
-                    wx.FindWindowById(id).SetEdgeMode(wx.stc.STC_EDGE_LINE)
-            else:
-                for id in IdRange:
-                    wx.FindWindowById(id).SetEdgeMode(wx.stc.STC_EDGE_NONE)
+
+    def UpdateAutoSaveInterval(self, val, IdRange):
+        for id in IdRange:
+            item = wx.FindWindowById(id)
+            item.autosave_interval = val
 
     def GetTab(self, tab_name, notebook):
+        """
+        GetTab
+
+        Retrieves a AUI NOTEBOOK tab index from a given name.
+        """
         end = notebook.GetPageCount()
         selectedtabText = ""
 
@@ -271,10 +290,14 @@ class ConfigNanny:
         None
 
     def ApplyIDEConfig(self, text_id, file_ext):
+        """
+        ApplyIDEConfig
+
+        Sets the IDE related features at application startup time.
+        """
         cur_doc = wx.FindWindowById(text_id)
 
-        if self.GetOption("SyntaxHighlight") and file_ext == "py":
-            SyntCol.ActivateSyntaxHighLight(text_id)
+        SyntCol.ActivateSyntaxHighLight(text_id)
 
         if self.GetOption("Autoindentation"):
             cur_doc.SetIndent(self.GetOption("IndentSize"))
@@ -291,14 +314,17 @@ class ConfigNanny:
         cur_doc.SetMarginType(1, wx.stc.STC_MARGIN_NUMBER)
         if self.GetOption("LineNumbers"):
             cur_doc.SetMarginWidth(1, 45)
+            cur_doc.SetMarginSensitive(1, True)
         else:
             cur_doc.SetMarginWidth(1, 1)
+            cur_doc.SetMarginSensitive(1, False)
 
         if self.GetOption("FoldMarks"):
             cur_doc.SetMarginType(2, wx.stc.STC_MARGIN_SYMBOL)
             cur_doc.SetMarginMask(2, wx.stc.STC_MASK_FOLDERS)
             cur_doc.SetMarginSensitive(2, True)
             cur_doc.SetMarginWidth(2, 12)
+
 
         cur_doc.SetTabWidth(self.GetOption("TabWidth"))
         if self.GetOption("EdgeLine"):

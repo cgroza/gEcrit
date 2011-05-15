@@ -1,0 +1,72 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module yapsy.PluginInfo</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="yapsy.html"><font color="#ffffff">yapsy</font></a>.PluginInfo</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/cgroza/Projects/gEcrit/bin/yapsy/PluginInfo.py">/home/cgroza/Projects/gEcrit/bin/yapsy/PluginInfo.py</a></font></td></tr></table>
+    <p><tt>Role<br>
+====<br>
+&nbsp;<br>
+Encapsulate&nbsp;a&nbsp;plugin&nbsp;instance&nbsp;as&nbsp;well&nbsp;as&nbsp;some&nbsp;metadata.<br>
+&nbsp;<br>
+API<br>
+===</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="yapsy.PluginInfo.html#PluginInfo">PluginInfo</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PluginInfo">class <strong>PluginInfo</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Representation&nbsp;of&nbsp;the&nbsp;most&nbsp;basic&nbsp;set&nbsp;of&nbsp;information&nbsp;related&nbsp;to&nbsp;a<br>
+given&nbsp;plugin&nbsp;such&nbsp;as&nbsp;its&nbsp;name,&nbsp;author,&nbsp;description...<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="PluginInfo-__init__"><strong>__init__</strong></a>(self, plugin_name, plugin_path)</dt><dd><tt>Set&nbsp;the&nbsp;name&nbsp;and&nbsp;path&nbsp;of&nbsp;the&nbsp;plugin&nbsp;as&nbsp;well&nbsp;as&nbsp;the&nbsp;default<br>
+values&nbsp;for&nbsp;other&nbsp;usefull&nbsp;variables.<br>
+&nbsp;<br>
+..&nbsp;warning::&nbsp;The&nbsp;``path``&nbsp;attribute&nbsp;is&nbsp;the&nbsp;full&nbsp;path&nbsp;to&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;plugin&nbsp;if&nbsp;it&nbsp;is&nbsp;organised&nbsp;as&nbsp;a&nbsp;directory&nbsp;or&nbsp;the&nbsp;full&nbsp;path<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;a&nbsp;file&nbsp;without&nbsp;the&nbsp;``.py``&nbsp;extension&nbsp;if&nbsp;the&nbsp;plugin&nbsp;is<br>
+&nbsp;&nbsp;&nbsp;&nbsp;defined&nbsp;by&nbsp;a&nbsp;simple&nbsp;file.&nbsp;In&nbsp;the&nbsp;later&nbsp;case,&nbsp;the&nbsp;actual<br>
+&nbsp;&nbsp;&nbsp;&nbsp;plugin&nbsp;is&nbsp;reached&nbsp;via&nbsp;``plugin_info.path+'.py'``.</tt></dd></dl>
+
+<dl><dt><a name="PluginInfo-setVersion"><strong>setVersion</strong></a>(self, vstring)</dt><dd><tt>Set&nbsp;the&nbsp;version&nbsp;of&nbsp;the&nbsp;plugin.<br>
+&nbsp;<br>
+Used&nbsp;by&nbsp;subclasses&nbsp;to&nbsp;provide&nbsp;different&nbsp;handling&nbsp;of&nbsp;the<br>
+version&nbsp;number.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>is_activated</strong></dt>
+<dd><tt>Return&nbsp;the&nbsp;activated&nbsp;state&nbsp;of&nbsp;the&nbsp;plugin&nbsp;object.<br>
+Makes&nbsp;it&nbsp;possible&nbsp;to&nbsp;define&nbsp;a&nbsp;property.</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

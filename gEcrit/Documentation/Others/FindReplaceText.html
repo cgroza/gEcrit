@@ -1,0 +1,88 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module FindReplaceText</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>FindReplaceText</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/cgroza/Projects/gEcrit/bin/FindReplaceText.py">/home/cgroza/Projects/gEcrit/bin/FindReplaceText.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="wx.html">wx</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="FindReplaceText.html#SearchReplace">SearchReplace</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SearchReplace">class <strong>SearchReplace</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#SearchReplace">SearchReplace</a><br>
+&nbsp;<br>
+Provied&nbsp;the&nbsp;necessary&nbsp;dialogs&nbsp;and&nbsp;functions&nbsp;for&nbsp;the&nbsp;text&nbsp;search<br>
+feature.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="SearchReplace-FindDocText"><strong>FindDocText</strong></a>(self, text_id)</dt><dd><tt>FindDocText<br>
+&nbsp;<br>
+Creates&nbsp;and&nbsp;initializes&nbsp;the&nbsp;neccesary&nbsp;dialog&nbsp;for&nbsp;text&nbsp;searching.<br>
+Sets&nbsp;up&nbsp;the&nbsp;environment&nbsp;and&nbsp;the&nbsp;variables&nbsp;that&nbsp;indicate&nbsp;the<br>
+position&nbsp;in&nbsp;the&nbsp;text&nbsp;document.</tt></dd></dl>
+
+<dl><dt><a name="SearchReplace-OnClose"><strong>OnClose</strong></a>(self, event, widget)</dt><dd><tt>OnClose<br>
+&nbsp;<br>
+Destroys&nbsp;the&nbsp;suplied&nbsp;widet.</tt></dd></dl>
+
+<dl><dt><a name="SearchReplace-ReplaceAllWords"><strong>ReplaceAllWords</strong></a>(self, event, text_id, item)</dt><dd><tt>ReplaceAllWords<br>
+&nbsp;<br>
+Replaces&nbsp;all&nbsp;the&nbsp;occurences&nbsp;of&nbsp;the&nbsp;suplied&nbsp;string&nbsp;with&nbsp;the<br>
+suplie&nbsp;replacement.&nbsp;Promps&nbsp;user&nbsp;when&nbsp;end&nbsp;of&nbsp;file&nbsp;was&nbsp;reached.</tt></dd></dl>
+
+<dl><dt><a name="SearchReplace-ReplaceDocText"><strong>ReplaceDocText</strong></a>(self, text_id)</dt><dd><tt>ReplaceDocText<br>
+&nbsp;<br>
+Creates&nbsp;and&nbsp;initializes&nbsp;the&nbsp;neccesary&nbsp;dialog&nbsp;for&nbsp;text&nbsp;searching<br>
+and&nbsp;replaceing.&nbsp;Sets&nbsp;up&nbsp;the&nbsp;environment&nbsp;and&nbsp;the&nbsp;variables&nbsp;that&nbsp;indicate&nbsp;the<br>
+position&nbsp;in&nbsp;the&nbsp;text&nbsp;document.</tt></dd></dl>
+
+<dl><dt><a name="SearchReplace-ReplaceWord"><strong>ReplaceWord</strong></a>(self, event, text_id, item)</dt><dd><tt>ReplaceWord<br>
+&nbsp;<br>
+Searches&nbsp;the&nbsp;suplied&nbsp;string&nbsp;in&nbsp;the&nbsp;current&nbsp;document&nbsp;and&nbsp;replaces<br>
+it&nbsp;with&nbsp;the&nbsp;suplied&nbsp;replacement.<br>
+Manages&nbsp;scrolling&nbsp;to&nbsp;that&nbsp;position.<br>
+Returns&nbsp;the&nbsp;text&nbsp;position&nbsp;if&nbsp;found&nbsp;and&nbsp;-1&nbsp;if&nbsp;not&nbsp;found.<br>
+When&nbsp;reaches&nbsp;end,&nbsp;resets&nbsp;the&nbsp;current&nbsp;postion&nbsp;in&nbsp;the&nbsp;document&nbsp;to&nbsp;0.</tt></dd></dl>
+
+<dl><dt><a name="SearchReplace-SearchWord"><strong>SearchWord</strong></a>(self, event, text_id, item)</dt><dd><tt>SearchWord<br>
+&nbsp;<br>
+Searches&nbsp;the&nbsp;suplied&nbsp;string&nbsp;in&nbsp;the&nbsp;current&nbsp;document.<br>
+Manages&nbsp;highlighting&nbsp;and&nbsp;scrolling&nbsp;to&nbsp;that&nbsp;position.<br>
+Returns&nbsp;the&nbsp;text&nbsp;position&nbsp;if&nbsp;found&nbsp;and&nbsp;-1&nbsp;if&nbsp;not&nbsp;found.<br>
+When&nbsp;reaches&nbsp;end,&nbsp;resets&nbsp;the&nbsp;current&nbsp;postion&nbsp;in&nbsp;the&nbsp;document&nbsp;to&nbsp;0.</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>FindRepl</strong> = &lt;FindReplaceText.SearchReplace instance&gt;</td></tr></table>
+</body></html>

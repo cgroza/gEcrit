@@ -1,26 +1,37 @@
+
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
 import wx
 
-
 class AboutWindow(wx.Frame):
+    """
+    AboutWindow
 
+    Constructs and about window.
+
+    """
     def __init__(self):
+        """
+        __init__
+
+        Initializes the AboutDialogInfo object and sets
+        all the required data.
+        """
         AboutInfo = wx.AboutDialogInfo()
         AboutInfo.Name = "gEcrit"
-        AboutInfo.Version = "1.8.2"
+        AboutInfo.Version = "2.7"
         AboutInfo.Copyright = """
-gEcrit 1.5
-PVC Inc"""
+gEcrit 2.7
+The Python Code Editor"""
         AboutInfo.Developers = ["Groza Cristian e-mail: kristi9524@gmail.com\
-",
+",                              "Groza Mihai e-mail: grozam@ymail.com\n"
                                 "Victor Pruteanu e-mail: vikkhackerz@gmail.com"]
         AboutInfo.Website = "http://www.cristigrozatips.do.am"
         AboutInfo.License = \
             """
        Copyright 2010 Groza Cristian <kristi9524@gmail.com>
-       Victor Pruteanu <vikkhackerz@gmail.com>
+        Victor Pruteanu <vikkhackerz@gmail.com>
 
        This program is free software; you can redistribute it and/or modify
        it under the terms of the GNU General Public License as published by
@@ -37,5 +48,3 @@ PVC Inc"""
        Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
        MA 02110-1301, USA."""
         wx.AboutBox(AboutInfo)
-
-

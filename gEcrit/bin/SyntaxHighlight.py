@@ -2,13 +2,27 @@
 # -*- coding: utf-8 -*-
 
 import wx
-import keyword
+from Keywords import *
 import os
 
 
+
 class SyntaxColorizer:
+    """
+    SyntaxColorizer
+
+    Sets up the lexer for syntax highlighting.
+
+    """
+
 
     def __init__(self):
+        """
+        __init__
+
+        Generates a default color dictionary.
+
+        """
         self.HOMEDIR = os.path.expanduser('~')
 
         self.DefaultColorDict = {
@@ -26,38 +40,67 @@ class SyntaxColorizer:
             }
 
     def ReadColorFile(self, color):
+        """
+        ReadColorFile
+
+        Reads the configuration file and generates
+        a color dictionary for the lexer.
+
+        """
         try:
-            ColorFile = open(self.HOMEDIR + "/.gEcritColor", "r")
+            ColorFile = open(self.HOMEDIR + ".gEcrit/.gEcritColor", "r")
             ColorDict = eval(ColorFile.read())
             ColorDict[color]
         except:
+            if not os.path.exists(self.HOMEDIR + "/.gEcrit"):
+                os.mkdir(self.HOMEDIR + "/.gEcrit/")
             ColorDict = self.DefaultColorDict
-            ColorFile = open(self.HOMEDIR + "/.gEcritColor", "w")
+            ColorFile = open(self.HOMEDIR + "/.gEcrit/.gEcritColor", "w")
             ColorFile.write(str(self.DefaultColorDict))
         ColorFile.close()
         return ColorDict[color]
 
     def ChangeColorFile(self, item, newcolor):
+        """
+        ChangeColorFile
+
+        Modifies the value of the suplied argument item
+        with the suplied argument newcolor.
+        Writes changes to file.
+
+        """
         try:
             (self.DefaultColorDict)[item]
-            ColorFile = open(self.HOMEDIR + "/.gEcritColor", "r")
+            ColorFile = open(self.HOMEDIR + "/.gEcrit/.gEcritColor", "r")
             ColorDict = eval(ColorFile.read())
             ColorDict[item] = newcolor
-            ColorFile = open(self.HOMEDIR + "/.gEcritColor", "w")
+            ColorFile = open(self.HOMEDIR + "/.gEcrit/.gEcritColor", "w")
             ColorFile.write(str(ColorDict))
         except:
+            if not os.path.exists(self.HOMEDIR + "/.gEcrit"):
+                os.mkdir(self.HOMEDIR + "/.gEcrit/")
             ColorDict = self.DefaultColorDict
-            ColorFile = open(self.HOMEDIR + "/.gEcritColor", "w")
+            ColorFile = open(self.HOMEDIR + "/.gEcrit/.gEcritColor", "w")
             ColorFile.write(str(self.DefaultColorDict))
-            ColorFile = open(self.HOMEDIR + "/.gEcritColor", "r")
+            ColorFile = open(self.HOMEDIR + "/.gEcrit/.gEcritColor", "r")
             ColorDict[item] = newcolor
 
         ColorFile.close()
 
     def ActivateSyntaxHighLight(self, text_id):
+        """
+        ActivateSyntaxHighLight
+
+        Initializes the lexer and sets the color styles.
+
+        """
         cur_doc = wx.FindWindowById(text_id)
-        cur_doc.SetLexer(wx.stc.STC_LEX_PYTHON)
-        cur_doc.SetKeyWords(0, (" ").join(keyword.kwlist))
+
+        try:
+            cur_doc.SetKeyWords(0, (" ").join(keywords[cur_doc.GetFileExtension()]))
+        except KeyError:
+            cur_doc.SetKeyWords(0, (" ").join(keywords["cpp"]))
+
         cur_doc.SetProperty("fold", "1")
 
         cur_doc.StyleSetSpec(wx.stc.STC_P_DEFAULT, "fore:#000000")

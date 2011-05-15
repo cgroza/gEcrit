@@ -6,11 +6,27 @@ import wx
 
 
 class PrettyPrinter(wx.html.HtmlEasyPrinting):
+    """
+    PrettyPrinter
 
-    def __init__(self, filename, text_id, parent=None):
+    Provides the necessary functions for printing
+    documents.
+
+    Build the GUI and provides the appropriate controls.
+    """
+
+    def __init__(self, parent=None):
+        """
+        __init__
+
+        Initializes the HtmlEasyPrinting object.
+
+        Creates the necessary dialogs.
+        Retrieves the content to be printed.
+
+        """
         wx.html.HtmlEasyPrinting.__init__(self)
         self.parent = parent
-
         data = wx.PrintDialogData()
 
         data.EnableSelection(True)
@@ -23,20 +39,35 @@ class PrettyPrinter(wx.html.HtmlEasyPrinting):
         dlg = wx.PrintDialog(parent, data)
 
         dlg.Destroy()
-        cur_doc = wx.FindWindowById(text_id)
-        content = cur_doc.GetText()
-        linenumbers = cur_doc.GetLineCount()
-        self.DoPrint(content, filename, linenumbers)
 
-    def DoPrint(self, text, filename, linenumbers=1):
+
+        self.DoPrint()
+
+    def DoPrint(self):
+        """
+        DoPrint
+
+        Sets the print hedear and calls the HTML
+        generation function.
+
+        Sends the output to HtmlEasyPrinting object for printing.
+        """
+        filename = self.parent.GetCurrentDocument().GetFileName()
         self.SetHeader(filename)
-        self.PrintText(self.ToHTML(text, linenumbers), filename)
+        self.PrintText(self.ToHTML(), filename)
 
-    def ToHTML(self, text, linenumbers):
-        text = text.replace('&', "&amp;").replace('<', "&lt;").replace('>',
+    def ToHTML(self):
+        """
+        ToHTML
+
+        Formats the document text to HTML form.
+        Returns it.
+        """
+        self.current_doc = self.parent.GetCurrentDocument()
+        text = self.current_doc.GetText().replace('&', "&amp;").replace('<', "&lt;").replace('>',
                 "&gt;")
 
-        if linenumbers:
+        if self.current_doc.GetLineCount():
             text = "1<a href=\"#\">00000</a>" + text.replace(' ',
                     " &nbsp;")
             x = 0
@@ -65,5 +96,3 @@ class PrettyPrinter(wx.html.HtmlEasyPrinting):
             "<html><body link=\"#FFFFFF\" vlink=\"#FFFFFF\" alink=\"#FFFFFF\">" + \
             text.replace("\n", "\n<br>") + "</span></body></html>"
         return thehtml
-
-

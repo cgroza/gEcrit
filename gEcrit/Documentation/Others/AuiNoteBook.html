@@ -1,0 +1,1824 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module AuiNoteBook</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>AuiNoteBook</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/cgroza/Projects/gEcrit/bin/AuiNoteBook.py">/home/cgroza/Projects/gEcrit/bin/AuiNoteBook.py</a></font></td></tr></table>
+    <p></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="wx.html">wx</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="wx.aui.html#AuiNotebook">wx.aui.AuiNotebook</a>(<a href="wx._core.html#Control">wx._core.Control</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="AuiNoteBook.html#AuiNoteBook">AuiNoteBook</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="AuiNoteBook">class <strong>AuiNoteBook</strong></a>(<a href="wx.aui.html#AuiNotebook">wx.aui.AuiNotebook</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="AuiNoteBook.html#AuiNoteBook">AuiNoteBook</a></dd>
+<dd><a href="wx.aui.html#AuiNotebook">wx.aui.AuiNotebook</a></dd>
+<dd><a href="wx._core.html#Control">wx._core.Control</a></dd>
+<dd><a href="wx._core.html#Window">wx._core.Window</a></dd>
+<dd><a href="wx._core.html#EvtHandler">wx._core.EvtHandler</a></dd>
+<dd><a href="wx._core.html#Object">wx._core.Object</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="AuiNoteBook-OnBeginDrag"><strong>OnBeginDrag</strong></a>(self, event)</dt><dd><tt>OnBeginDrag<br>
+&nbsp;<br>
+Updates&nbsp;the&nbsp;internal&nbsp;representation&nbsp;of&nbsp;the&nbsp;tabs.<br>
+You&nbsp;should&nbsp;have&nbsp;nothing&nbsp;to&nbsp;do&nbsp;with&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-OnChangeTab"><strong>OnChangeTab</strong></a>(self, event)</dt><dd><tt>OnChangeTab<br>
+&nbsp;<br>
+Alerts&nbsp;the&nbsp;plugins&nbsp;of&nbsp;the&nbsp;current&nbsp;document&nbsp;change.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-OnEndDrag"><strong>OnEndDrag</strong></a>(self, event)</dt><dd><tt>OnEndDrag<br>
+&nbsp;<br>
+Updates&nbsp;the&nbsp;internal&nbsp;representation&nbsp;of&nbsp;the&nbsp;tabs.<br>
+You&nbsp;should&nbsp;have&nbsp;nothing&nbsp;to&nbsp;do&nbsp;with&nbsp;this&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-__init__"><strong>__init__</strong></a>(self, parent)</dt><dd><tt>__init__<br>
+&nbsp;<br>
+Basic&nbsp;constructor.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="wx.aui.html#AuiNotebook">wx.aui.AuiNotebook</a>:<br>
+<dl><dt><a name="AuiNoteBook-AddPage"><strong>AddPage</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-AddPage">AddPage</a>(self,&nbsp;Window&nbsp;page,&nbsp;String&nbsp;caption,&nbsp;bool&nbsp;select=False,&nbsp;Bitmap&nbsp;bitmap=wxNullBitmap)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-AdvanceSelection"><strong>AdvanceSelection</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-AdvanceSelection">AdvanceSelection</a>(self,&nbsp;bool&nbsp;forward=True)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Create"><strong>Create</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Create">Create</a>(self,&nbsp;Window&nbsp;parent,&nbsp;int&nbsp;id=ID_ANY,&nbsp;Point&nbsp;pos=DefaultPosition,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Size&nbsp;size=DefaultSize,&nbsp;long&nbsp;style=0)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Do&nbsp;the&nbsp;2nd&nbsp;phase&nbsp;and&nbsp;create&nbsp;the&nbsp;GUI&nbsp;control.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-DeletePage"><strong>DeletePage</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-DeletePage">DeletePage</a>(self,&nbsp;size_t&nbsp;page)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetArtProvider"><strong>GetArtProvider</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetArtProvider">GetArtProvider</a>(self)&nbsp;-&gt;&nbsp;AuiTabArt</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetAuiManager"><strong>GetAuiManager</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetAuiManager">GetAuiManager</a>(self)&nbsp;-&gt;&nbsp;AuiManager</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetHeightForPageHeight"><strong>GetHeightForPageHeight</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetHeightForPageHeight">GetHeightForPageHeight</a>(self,&nbsp;int&nbsp;pageHeight)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetPage"><strong>GetPage</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetPage">GetPage</a>(self,&nbsp;size_t&nbsp;page_idx)&nbsp;-&gt;&nbsp;Window</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetPageBitmap"><strong>GetPageBitmap</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetPageBitmap">GetPageBitmap</a>(self,&nbsp;size_t&nbsp;page_idx)&nbsp;-&gt;&nbsp;Bitmap</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetPageCount"><strong>GetPageCount</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetPageCount">GetPageCount</a>(self)&nbsp;-&gt;&nbsp;size_t</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetPageIndex"><strong>GetPageIndex</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetPageIndex">GetPageIndex</a>(self,&nbsp;Window&nbsp;page_wnd)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetPageText"><strong>GetPageText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetPageText">GetPageText</a>(self,&nbsp;size_t&nbsp;page_idx)&nbsp;-&gt;&nbsp;String</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetSelection"><strong>GetSelection</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetSelection">GetSelection</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetTabCtrlHeight"><strong>GetTabCtrlHeight</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetTabCtrlHeight">GetTabCtrlHeight</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-InsertPage"><strong>InsertPage</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-InsertPage">InsertPage</a>(self,&nbsp;size_t&nbsp;page_idx,&nbsp;Window&nbsp;page,&nbsp;String&nbsp;caption,&nbsp;bool&nbsp;select=False,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Bitmap&nbsp;bitmap=wxNullBitmap)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-RemovePage"><strong>RemovePage</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-RemovePage">RemovePage</a>(self,&nbsp;size_t&nbsp;page)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetArtProvider"><strong>SetArtProvider</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetArtProvider">SetArtProvider</a>(self,&nbsp;AuiTabArt&nbsp;art)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetMeasuringFont"><strong>SetMeasuringFont</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetMeasuringFont">SetMeasuringFont</a>(self,&nbsp;Font&nbsp;font)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetNormalFont"><strong>SetNormalFont</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetNormalFont">SetNormalFont</a>(self,&nbsp;Font&nbsp;font)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetPageBitmap"><strong>SetPageBitmap</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetPageBitmap">SetPageBitmap</a>(self,&nbsp;size_t&nbsp;page,&nbsp;Bitmap&nbsp;bitmap)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetPageText"><strong>SetPageText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetPageText">SetPageText</a>(self,&nbsp;size_t&nbsp;page,&nbsp;String&nbsp;text)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetSelectedFont"><strong>SetSelectedFont</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetSelectedFont">SetSelectedFont</a>(self,&nbsp;Font&nbsp;font)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetSelection"><strong>SetSelection</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetSelection">SetSelection</a>(self,&nbsp;size_t&nbsp;new_page)&nbsp;-&gt;&nbsp;size_t</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetTabCtrlHeight"><strong>SetTabCtrlHeight</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetTabCtrlHeight">SetTabCtrlHeight</a>(self,&nbsp;int&nbsp;height)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetUniformBitmapSize"><strong>SetUniformBitmapSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetUniformBitmapSize">SetUniformBitmapSize</a>(self,&nbsp;Size&nbsp;size)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ShowWindowMenu"><strong>ShowWindowMenu</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ShowWindowMenu">ShowWindowMenu</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Split"><strong>Split</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Split">Split</a>(self,&nbsp;size_t&nbsp;page,&nbsp;int&nbsp;direction)</tt></dd></dl>
+
+<dl><dt><strong>__del__</strong> <em>lambda</em> self</dt></dl>
+
+<dl><dt><a name="AuiNoteBook-__repr__"><strong>__repr__</strong></a> = _swig_repr(self)</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="wx.aui.html#AuiNotebook">wx.aui.AuiNotebook</a>:<br>
+<dl><dt><strong>PageCount</strong></dt>
+<dd><tt>See&nbsp;`GetPageCount`</tt></dd>
+</dl>
+<dl><dt><strong>Selection</strong></dt>
+<dd><tt>See&nbsp;`GetSelection`&nbsp;and&nbsp;`SetSelection`</tt></dd>
+</dl>
+<dl><dt><strong>thisown</strong></dt>
+<dd><tt>The&nbsp;membership&nbsp;flag</tt></dd>
+</dl>
+<hr>
+Data and other attributes inherited from <a href="wx.aui.html#AuiNotebook">wx.aui.AuiNotebook</a>:<br>
+<dl><dt><strong>__swig_destroy__</strong> = &lt;built-in function delete_AuiNotebook&gt;</dl>
+
+<hr>
+Methods inherited from <a href="wx._core.html#Control">wx._core.Control</a>:<br>
+<dl><dt><a name="AuiNoteBook-Command"><strong>Command</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Command">Command</a>(self,&nbsp;CommandEvent&nbsp;event)<br>
+&nbsp;<br>
+Simulates&nbsp;the&nbsp;effect&nbsp;of&nbsp;the&nbsp;user&nbsp;issuing&nbsp;a&nbsp;command&nbsp;to&nbsp;the&nbsp;item.<br>
+&nbsp;<br>
+:see:&nbsp;`wx.CommandEvent`</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetAlignment"><strong>GetAlignment</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetAlignment">GetAlignment</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;control&nbsp;alignment&nbsp;(left/right/centre,&nbsp;top/bottom/centre)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetLabelText"><strong>GetLabelText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetLabelText">GetLabelText</a>(self)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Get&nbsp;just&nbsp;the&nbsp;text&nbsp;of&nbsp;the&nbsp;label,&nbsp;without&nbsp;mnemonic&nbsp;characters&nbsp;('&amp;')</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="wx._core.html#Control">wx._core.Control</a>:<br>
+<dl><dt><a name="AuiNoteBook-GetClassDefaultAttributes"><strong>GetClassDefaultAttributes</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetClassDefaultAttributes">GetClassDefaultAttributes</a>(int&nbsp;variant=WINDOW_VARIANT_NORMAL)&nbsp;-&gt;&nbsp;VisualAttributes<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;default&nbsp;attributes&nbsp;for&nbsp;this&nbsp;class.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;if&nbsp;you&nbsp;want<br>
+to&nbsp;use&nbsp;the&nbsp;same&nbsp;font&nbsp;or&nbsp;colour&nbsp;in&nbsp;your&nbsp;own&nbsp;control&nbsp;as&nbsp;in&nbsp;a&nbsp;standard<br>
+control&nbsp;--&nbsp;which&nbsp;is&nbsp;a&nbsp;much&nbsp;better&nbsp;idea&nbsp;than&nbsp;hard&nbsp;coding&nbsp;specific<br>
+colours&nbsp;or&nbsp;fonts&nbsp;which&nbsp;might&nbsp;look&nbsp;completely&nbsp;out&nbsp;of&nbsp;place&nbsp;on&nbsp;the<br>
+user's&nbsp;system,&nbsp;especially&nbsp;if&nbsp;it&nbsp;uses&nbsp;themes.<br>
+&nbsp;<br>
+The&nbsp;variant&nbsp;parameter&nbsp;is&nbsp;only&nbsp;relevant&nbsp;under&nbsp;Mac&nbsp;currently&nbsp;and&nbsp;is<br>
+ignore&nbsp;under&nbsp;other&nbsp;platforms.&nbsp;Under&nbsp;Mac,&nbsp;it&nbsp;will&nbsp;change&nbsp;the&nbsp;size&nbsp;of<br>
+the&nbsp;returned&nbsp;font.&nbsp;See&nbsp;`wx.Window.SetWindowVariant`&nbsp;for&nbsp;more&nbsp;about<br>
+this.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="wx._core.html#Control">wx._core.Control</a>:<br>
+<dl><dt><strong>Alignment</strong></dt>
+<dd><tt>See&nbsp;`GetAlignment`</tt></dd>
+</dl>
+<dl><dt><strong>LabelText</strong></dt>
+<dd><tt>See&nbsp;`GetLabelText`</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="wx._core.html#Window">wx._core.Window</a>:<br>
+<dl><dt><a name="AuiNoteBook-AcceptsFocus"><strong>AcceptsFocus</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-AcceptsFocus">AcceptsFocus</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Can&nbsp;this&nbsp;window&nbsp;have&nbsp;focus?</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-AcceptsFocusFromKeyboard"><strong>AcceptsFocusFromKeyboard</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-AcceptsFocusFromKeyboard">AcceptsFocusFromKeyboard</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Can&nbsp;this&nbsp;window&nbsp;be&nbsp;given&nbsp;focus&nbsp;by&nbsp;keyboard&nbsp;navigation?&nbsp;if&nbsp;not,&nbsp;the<br>
+only&nbsp;way&nbsp;to&nbsp;give&nbsp;it&nbsp;focus&nbsp;(provided&nbsp;it&nbsp;accepts&nbsp;it&nbsp;at&nbsp;all)&nbsp;is&nbsp;to&nbsp;click<br>
+it.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-AddChild"><strong>AddChild</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-AddChild">AddChild</a>(self,&nbsp;Window&nbsp;child)<br>
+&nbsp;<br>
+Adds&nbsp;a&nbsp;child&nbsp;window.&nbsp;This&nbsp;is&nbsp;called&nbsp;automatically&nbsp;by&nbsp;window&nbsp;creation<br>
+functions&nbsp;so&nbsp;should&nbsp;not&nbsp;be&nbsp;required&nbsp;by&nbsp;the&nbsp;application&nbsp;programmer.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-AdjustForLayoutDirection"><strong>AdjustForLayoutDirection</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-AdjustForLayoutDirection">AdjustForLayoutDirection</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;width,&nbsp;int&nbsp;widthTotal)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Mirror&nbsp;coordinates&nbsp;for&nbsp;RTL&nbsp;layout&nbsp;if&nbsp;this&nbsp;window&nbsp;uses&nbsp;it&nbsp;and&nbsp;if&nbsp;the<br>
+mirroring&nbsp;is&nbsp;not&nbsp;done&nbsp;automatically&nbsp;like&nbsp;Win32.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-AssociateHandle"><strong>AssociateHandle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-AssociateHandle">AssociateHandle</a>(self,&nbsp;long&nbsp;handle)<br>
+&nbsp;<br>
+Associate&nbsp;the&nbsp;window&nbsp;with&nbsp;a&nbsp;new&nbsp;native&nbsp;handle</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-CacheBestSize"><strong>CacheBestSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-CacheBestSize">CacheBestSize</a>(self,&nbsp;Size&nbsp;size)<br>
+&nbsp;<br>
+Cache&nbsp;the&nbsp;best&nbsp;size&nbsp;so&nbsp;it&nbsp;doesn't&nbsp;need&nbsp;to&nbsp;be&nbsp;calculated&nbsp;again,&nbsp;(at&nbsp;least&nbsp;until<br>
+some&nbsp;properties&nbsp;of&nbsp;the&nbsp;window&nbsp;change.)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-CanSetTransparent"><strong>CanSetTransparent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-CanSetTransparent">CanSetTransparent</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;``True``&nbsp;if&nbsp;the&nbsp;platform&nbsp;supports&nbsp;setting&nbsp;the&nbsp;transparency&nbsp;for<br>
+this&nbsp;window.&nbsp;&nbsp;Note&nbsp;that&nbsp;this&nbsp;method&nbsp;will&nbsp;err&nbsp;on&nbsp;the&nbsp;side&nbsp;of&nbsp;caution,<br>
+so&nbsp;it&nbsp;is&nbsp;possible&nbsp;that&nbsp;this&nbsp;will&nbsp;return&nbsp;``False``&nbsp;when&nbsp;it&nbsp;is&nbsp;in&nbsp;fact<br>
+possible&nbsp;to&nbsp;set&nbsp;the&nbsp;transparency.<br>
+&nbsp;<br>
+NOTE:&nbsp;On&nbsp;X-windows&nbsp;systems&nbsp;the&nbsp;X&nbsp;server&nbsp;must&nbsp;have&nbsp;the&nbsp;composite<br>
+extension&nbsp;loaded,&nbsp;and&nbsp;there&nbsp;must&nbsp;be&nbsp;a&nbsp;composite&nbsp;manager&nbsp;program&nbsp;(such<br>
+as&nbsp;xcompmgr)&nbsp;running.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-CaptureMouse"><strong>CaptureMouse</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-CaptureMouse">CaptureMouse</a>(self)<br>
+&nbsp;<br>
+Directs&nbsp;all&nbsp;mouse&nbsp;input&nbsp;to&nbsp;this&nbsp;window.&nbsp;Call&nbsp;wx.Window.ReleaseMouse&nbsp;to<br>
+release&nbsp;the&nbsp;capture.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;wxWindows&nbsp;maintains&nbsp;the&nbsp;stack&nbsp;of&nbsp;windows&nbsp;having&nbsp;captured&nbsp;the<br>
+mouse&nbsp;and&nbsp;when&nbsp;the&nbsp;mouse&nbsp;is&nbsp;released&nbsp;the&nbsp;capture&nbsp;returns&nbsp;to&nbsp;the&nbsp;window<br>
+which&nbsp;had&nbsp;had&nbsp;captured&nbsp;it&nbsp;previously&nbsp;and&nbsp;it&nbsp;is&nbsp;only&nbsp;really&nbsp;released&nbsp;if<br>
+there&nbsp;were&nbsp;no&nbsp;previous&nbsp;window.&nbsp;In&nbsp;particular,&nbsp;this&nbsp;means&nbsp;that&nbsp;you&nbsp;must<br>
+release&nbsp;the&nbsp;mouse&nbsp;as&nbsp;many&nbsp;times&nbsp;as&nbsp;you&nbsp;capture&nbsp;it,&nbsp;unless&nbsp;the&nbsp;window<br>
+receives&nbsp;the&nbsp;`wx.MouseCaptureLostEvent`&nbsp;event.<br>
+&nbsp;<br>
+Any&nbsp;application&nbsp;which&nbsp;captures&nbsp;the&nbsp;mouse&nbsp;in&nbsp;the&nbsp;beginning&nbsp;of&nbsp;some<br>
+operation&nbsp;*must*&nbsp;handle&nbsp;`wx.MouseCaptureLostEvent`&nbsp;and&nbsp;cancel&nbsp;this<br>
+operation&nbsp;when&nbsp;it&nbsp;receives&nbsp;the&nbsp;event.&nbsp;The&nbsp;event&nbsp;handler&nbsp;must&nbsp;not<br>
+recapture&nbsp;mouse.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Center"><strong>Center</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Center">Center</a>(self,&nbsp;int&nbsp;direction=BOTH)<br>
+&nbsp;<br>
+Centers&nbsp;the&nbsp;window.&nbsp;&nbsp;The&nbsp;parameter&nbsp;specifies&nbsp;the&nbsp;direction&nbsp;for<br>
+centering,&nbsp;and&nbsp;may&nbsp;be&nbsp;wx.HORIZONTAL,&nbsp;wx.VERTICAL&nbsp;or&nbsp;wx.BOTH.&nbsp;It&nbsp;may<br>
+also&nbsp;include&nbsp;wx.CENTER_ON_SCREEN&nbsp;flag&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;center&nbsp;the&nbsp;window<br>
+on&nbsp;the&nbsp;entire&nbsp;screen&nbsp;and&nbsp;not&nbsp;on&nbsp;its&nbsp;parent&nbsp;window.&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a<br>
+top-level&nbsp;window&nbsp;and&nbsp;has&nbsp;no&nbsp;parent&nbsp;then&nbsp;it&nbsp;will&nbsp;always&nbsp;be&nbsp;centered<br>
+relative&nbsp;to&nbsp;the&nbsp;screen.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-CenterOnParent"><strong>CenterOnParent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-CenterOnParent">CenterOnParent</a>(self,&nbsp;int&nbsp;dir=BOTH)<br>
+&nbsp;<br>
+Center&nbsp;with&nbsp;respect&nbsp;to&nbsp;the&nbsp;the&nbsp;parent&nbsp;window</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Centre"><strong>Centre</strong></a> = Center(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Center">Center</a>(self,&nbsp;int&nbsp;direction=BOTH)<br>
+&nbsp;<br>
+Centers&nbsp;the&nbsp;window.&nbsp;&nbsp;The&nbsp;parameter&nbsp;specifies&nbsp;the&nbsp;direction&nbsp;for<br>
+centering,&nbsp;and&nbsp;may&nbsp;be&nbsp;wx.HORIZONTAL,&nbsp;wx.VERTICAL&nbsp;or&nbsp;wx.BOTH.&nbsp;It&nbsp;may<br>
+also&nbsp;include&nbsp;wx.CENTER_ON_SCREEN&nbsp;flag&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;center&nbsp;the&nbsp;window<br>
+on&nbsp;the&nbsp;entire&nbsp;screen&nbsp;and&nbsp;not&nbsp;on&nbsp;its&nbsp;parent&nbsp;window.&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a<br>
+top-level&nbsp;window&nbsp;and&nbsp;has&nbsp;no&nbsp;parent&nbsp;then&nbsp;it&nbsp;will&nbsp;always&nbsp;be&nbsp;centered<br>
+relative&nbsp;to&nbsp;the&nbsp;screen.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-CentreOnParent"><strong>CentreOnParent</strong></a> = CenterOnParent(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-CenterOnParent">CenterOnParent</a>(self,&nbsp;int&nbsp;dir=BOTH)<br>
+&nbsp;<br>
+Center&nbsp;with&nbsp;respect&nbsp;to&nbsp;the&nbsp;the&nbsp;parent&nbsp;window</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ClearBackground"><strong>ClearBackground</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ClearBackground">ClearBackground</a>(self)<br>
+&nbsp;<br>
+Clears&nbsp;the&nbsp;window&nbsp;by&nbsp;filling&nbsp;it&nbsp;with&nbsp;the&nbsp;current&nbsp;background<br>
+colour.&nbsp;Does&nbsp;not&nbsp;cause&nbsp;an&nbsp;erase&nbsp;background&nbsp;event&nbsp;to&nbsp;be&nbsp;generated.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ClientToScreen"><strong>ClientToScreen</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ClientToScreen">ClientToScreen</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Converts&nbsp;to&nbsp;screen&nbsp;coordinates&nbsp;from&nbsp;coordinates&nbsp;relative&nbsp;to&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ClientToScreenXY"><strong>ClientToScreenXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ClientToScreenXY">ClientToScreenXY</a>(int&nbsp;x,&nbsp;int&nbsp;y)&nbsp;-&gt;&nbsp;(x,y)<br>
+&nbsp;<br>
+Converts&nbsp;to&nbsp;screen&nbsp;coordinates&nbsp;from&nbsp;coordinates&nbsp;relative&nbsp;to&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ClientToWindowSize"><strong>ClientToWindowSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ClientToWindowSize">ClientToWindowSize</a>(self,&nbsp;Size&nbsp;size)&nbsp;-&gt;&nbsp;Size</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Close"><strong>Close</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Close">Close</a>(self,&nbsp;bool&nbsp;force=False)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;simply&nbsp;generates&nbsp;a&nbsp;EVT_CLOSE&nbsp;event&nbsp;whose&nbsp;handler&nbsp;usually<br>
+tries&nbsp;to&nbsp;close&nbsp;the&nbsp;window.&nbsp;It&nbsp;doesn't&nbsp;close&nbsp;the&nbsp;window&nbsp;itself,<br>
+however.&nbsp;&nbsp;If&nbsp;force&nbsp;is&nbsp;False&nbsp;(the&nbsp;default)&nbsp;then&nbsp;the&nbsp;window's&nbsp;close<br>
+handler&nbsp;will&nbsp;be&nbsp;allowed&nbsp;to&nbsp;veto&nbsp;the&nbsp;destruction&nbsp;of&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ConvertDialogPointToPixels"><strong>ConvertDialogPointToPixels</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ConvertDialogPointToPixels">ConvertDialogPointToPixels</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Converts&nbsp;a&nbsp;point&nbsp;or&nbsp;size&nbsp;from&nbsp;dialog&nbsp;units&nbsp;to&nbsp;pixels.&nbsp;&nbsp;Dialog&nbsp;units<br>
+are&nbsp;used&nbsp;for&nbsp;maintaining&nbsp;a&nbsp;dialog's&nbsp;proportions&nbsp;even&nbsp;if&nbsp;the&nbsp;font<br>
+changes.&nbsp;For&nbsp;the&nbsp;x&nbsp;dimension,&nbsp;the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the<br>
+average&nbsp;character&nbsp;width&nbsp;and&nbsp;then&nbsp;divided&nbsp;by&nbsp;4.&nbsp;For&nbsp;the&nbsp;y&nbsp;dimension,<br>
+the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;average&nbsp;character&nbsp;height&nbsp;and<br>
+then&nbsp;divided&nbsp;by&nbsp;8.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ConvertDialogSizeToPixels"><strong>ConvertDialogSizeToPixels</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ConvertDialogSizeToPixels">ConvertDialogSizeToPixels</a>(self,&nbsp;Size&nbsp;sz)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Converts&nbsp;a&nbsp;point&nbsp;or&nbsp;size&nbsp;from&nbsp;dialog&nbsp;units&nbsp;to&nbsp;pixels.&nbsp;&nbsp;Dialog&nbsp;units<br>
+are&nbsp;used&nbsp;for&nbsp;maintaining&nbsp;a&nbsp;dialog's&nbsp;proportions&nbsp;even&nbsp;if&nbsp;the&nbsp;font<br>
+changes.&nbsp;For&nbsp;the&nbsp;x&nbsp;dimension,&nbsp;the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the<br>
+average&nbsp;character&nbsp;width&nbsp;and&nbsp;then&nbsp;divided&nbsp;by&nbsp;4.&nbsp;For&nbsp;the&nbsp;y&nbsp;dimension,<br>
+the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;average&nbsp;character&nbsp;height&nbsp;and<br>
+then&nbsp;divided&nbsp;by&nbsp;8.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ConvertPixelPointToDialog"><strong>ConvertPixelPointToDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ConvertPixelPointToDialog">ConvertPixelPointToDialog</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ConvertPixelSizeToDialog"><strong>ConvertPixelSizeToDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ConvertPixelSizeToDialog">ConvertPixelSizeToDialog</a>(self,&nbsp;Size&nbsp;sz)&nbsp;-&gt;&nbsp;Size</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-DLG_PNT"><strong>DLG_PNT</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-DLG_PNT">DLG_PNT</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Converts&nbsp;a&nbsp;point&nbsp;or&nbsp;size&nbsp;from&nbsp;dialog&nbsp;units&nbsp;to&nbsp;pixels.&nbsp;&nbsp;Dialog&nbsp;units<br>
+are&nbsp;used&nbsp;for&nbsp;maintaining&nbsp;a&nbsp;dialog's&nbsp;proportions&nbsp;even&nbsp;if&nbsp;the&nbsp;font<br>
+changes.&nbsp;For&nbsp;the&nbsp;x&nbsp;dimension,&nbsp;the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the<br>
+average&nbsp;character&nbsp;width&nbsp;and&nbsp;then&nbsp;divided&nbsp;by&nbsp;4.&nbsp;For&nbsp;the&nbsp;y&nbsp;dimension,<br>
+the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;average&nbsp;character&nbsp;height&nbsp;and<br>
+then&nbsp;divided&nbsp;by&nbsp;8.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-DLG_SZE"><strong>DLG_SZE</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-DLG_SZE">DLG_SZE</a>(self,&nbsp;Size&nbsp;sz)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Converts&nbsp;a&nbsp;point&nbsp;or&nbsp;size&nbsp;from&nbsp;dialog&nbsp;units&nbsp;to&nbsp;pixels.&nbsp;&nbsp;Dialog&nbsp;units<br>
+are&nbsp;used&nbsp;for&nbsp;maintaining&nbsp;a&nbsp;dialog's&nbsp;proportions&nbsp;even&nbsp;if&nbsp;the&nbsp;font<br>
+changes.&nbsp;For&nbsp;the&nbsp;x&nbsp;dimension,&nbsp;the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the<br>
+average&nbsp;character&nbsp;width&nbsp;and&nbsp;then&nbsp;divided&nbsp;by&nbsp;4.&nbsp;For&nbsp;the&nbsp;y&nbsp;dimension,<br>
+the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;average&nbsp;character&nbsp;height&nbsp;and<br>
+then&nbsp;divided&nbsp;by&nbsp;8.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Destroy"><strong>Destroy</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Destroy">Destroy</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Destroys&nbsp;the&nbsp;window&nbsp;safely.&nbsp;&nbsp;Frames&nbsp;and&nbsp;dialogs&nbsp;are&nbsp;not&nbsp;destroyed<br>
+immediately&nbsp;when&nbsp;this&nbsp;function&nbsp;is&nbsp;called&nbsp;--&nbsp;they&nbsp;are&nbsp;added&nbsp;to&nbsp;a&nbsp;list<br>
+of&nbsp;windows&nbsp;to&nbsp;be&nbsp;deleted&nbsp;on&nbsp;idle&nbsp;time,&nbsp;when&nbsp;all&nbsp;the&nbsp;window's&nbsp;events<br>
+have&nbsp;been&nbsp;processed.&nbsp;This&nbsp;prevents&nbsp;problems&nbsp;with&nbsp;events&nbsp;being&nbsp;sent&nbsp;to<br>
+non-existent&nbsp;windows.<br>
+&nbsp;<br>
+Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;window&nbsp;has&nbsp;either&nbsp;been&nbsp;successfully&nbsp;deleted,&nbsp;or&nbsp;it<br>
+has&nbsp;been&nbsp;added&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;windows&nbsp;pending&nbsp;real&nbsp;deletion.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-DestroyChildren"><strong>DestroyChildren</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-DestroyChildren">DestroyChildren</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Destroys&nbsp;all&nbsp;children&nbsp;of&nbsp;a&nbsp;window.&nbsp;Called&nbsp;automatically&nbsp;by&nbsp;the<br>
+destructor.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Disable"><strong>Disable</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Disable">Disable</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Disables&nbsp;the&nbsp;window,&nbsp;same&nbsp;as&nbsp;<a href="#AuiNoteBook-Enable">Enable</a>(false).</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-DissociateHandle"><strong>DissociateHandle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-DissociateHandle">DissociateHandle</a>(self)<br>
+&nbsp;<br>
+Dissociate&nbsp;the&nbsp;current&nbsp;native&nbsp;handle&nbsp;from&nbsp;the&nbsp;window</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-DragAcceptFiles"><strong>DragAcceptFiles</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-DragAcceptFiles">DragAcceptFiles</a>(self,&nbsp;bool&nbsp;accept)<br>
+&nbsp;<br>
+Enables&nbsp;or&nbsp;disables&nbsp;eligibility&nbsp;for&nbsp;drop&nbsp;file&nbsp;events,&nbsp;EVT_DROP_FILES.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Enable"><strong>Enable</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Enable">Enable</a>(self,&nbsp;bool&nbsp;enable=True)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Enable&nbsp;or&nbsp;disable&nbsp;the&nbsp;window&nbsp;for&nbsp;user&nbsp;input.&nbsp;Note&nbsp;that&nbsp;when&nbsp;a&nbsp;parent<br>
+window&nbsp;is&nbsp;disabled,&nbsp;all&nbsp;of&nbsp;its&nbsp;children&nbsp;are&nbsp;disabled&nbsp;as&nbsp;well&nbsp;and&nbsp;they<br>
+are&nbsp;reenabled&nbsp;again&nbsp;when&nbsp;the&nbsp;parent&nbsp;is.&nbsp;&nbsp;Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;window<br>
+has&nbsp;been&nbsp;enabled&nbsp;or&nbsp;disabled,&nbsp;false&nbsp;if&nbsp;nothing&nbsp;was&nbsp;done,&nbsp;i.e.&nbsp;if&nbsp;the<br>
+window&nbsp;had&nbsp;already&nbsp;been&nbsp;in&nbsp;the&nbsp;specified&nbsp;state.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-FindWindowById"><strong>FindWindowById</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-FindWindowById">FindWindowById</a>(self,&nbsp;long&nbsp;winid)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Find&nbsp;a&nbsp;child&nbsp;of&nbsp;this&nbsp;window&nbsp;by&nbsp;window&nbsp;ID</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-FindWindowByLabel"><strong>FindWindowByLabel</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-FindWindowByLabel">FindWindowByLabel</a>(self,&nbsp;String&nbsp;label)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Find&nbsp;a&nbsp;child&nbsp;of&nbsp;this&nbsp;window&nbsp;by&nbsp;label</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-FindWindowByName"><strong>FindWindowByName</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-FindWindowByName">FindWindowByName</a>(self,&nbsp;String&nbsp;name)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Find&nbsp;a&nbsp;child&nbsp;of&nbsp;this&nbsp;window&nbsp;by&nbsp;name</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Fit"><strong>Fit</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Fit">Fit</a>(self)<br>
+&nbsp;<br>
+Sizes&nbsp;the&nbsp;window&nbsp;so&nbsp;that&nbsp;it&nbsp;fits&nbsp;around&nbsp;its&nbsp;subwindows.&nbsp;This&nbsp;function<br>
+won't&nbsp;do&nbsp;anything&nbsp;if&nbsp;there&nbsp;are&nbsp;no&nbsp;subwindows&nbsp;and&nbsp;will&nbsp;only&nbsp;really&nbsp;work<br>
+correctly&nbsp;if&nbsp;sizers&nbsp;are&nbsp;used&nbsp;for&nbsp;the&nbsp;subwindows&nbsp;layout.&nbsp;Also,&nbsp;if&nbsp;the<br>
+window&nbsp;has&nbsp;exactly&nbsp;one&nbsp;subwindow&nbsp;it&nbsp;is&nbsp;better&nbsp;(faster&nbsp;and&nbsp;the&nbsp;result<br>
+is&nbsp;more&nbsp;precise&nbsp;as&nbsp;Fit&nbsp;adds&nbsp;some&nbsp;margin&nbsp;to&nbsp;account&nbsp;for&nbsp;fuzziness&nbsp;of<br>
+its&nbsp;calculations)&nbsp;to&nbsp;call&nbsp;window.<a href="#AuiNoteBook-SetClientSize">SetClientSize</a>(child.<a href="#AuiNoteBook-GetSize">GetSize</a>())<br>
+instead&nbsp;of&nbsp;calling&nbsp;Fit.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-FitInside"><strong>FitInside</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-FitInside">FitInside</a>(self)<br>
+&nbsp;<br>
+Similar&nbsp;to&nbsp;Fit,&nbsp;but&nbsp;sizes&nbsp;the&nbsp;interior&nbsp;(virtual)&nbsp;size&nbsp;of&nbsp;a<br>
+window.&nbsp;Mainly&nbsp;useful&nbsp;with&nbsp;scrolled&nbsp;windows&nbsp;to&nbsp;reset&nbsp;scrollbars&nbsp;after<br>
+sizing&nbsp;changes&nbsp;that&nbsp;do&nbsp;not&nbsp;trigger&nbsp;a&nbsp;size&nbsp;event,&nbsp;and/or&nbsp;scrolled<br>
+windows&nbsp;without&nbsp;an&nbsp;interior&nbsp;sizer.&nbsp;This&nbsp;function&nbsp;similarly&nbsp;won't&nbsp;do<br>
+anything&nbsp;if&nbsp;there&nbsp;are&nbsp;no&nbsp;subwindows.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Freeze"><strong>Freeze</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Freeze">Freeze</a>(self)<br>
+&nbsp;<br>
+Freezes&nbsp;the&nbsp;window&nbsp;or,&nbsp;in&nbsp;other&nbsp;words,&nbsp;prevents&nbsp;any&nbsp;updates&nbsp;from<br>
+taking&nbsp;place&nbsp;on&nbsp;screen,&nbsp;the&nbsp;window&nbsp;is&nbsp;not&nbsp;redrawn&nbsp;at&nbsp;all.&nbsp;Thaw&nbsp;must&nbsp;be<br>
+called&nbsp;to&nbsp;reenable&nbsp;window&nbsp;redrawing.&nbsp;&nbsp;Calls&nbsp;to&nbsp;Freeze/Thaw&nbsp;may&nbsp;be<br>
+nested,&nbsp;with&nbsp;the&nbsp;actual&nbsp;Thaw&nbsp;being&nbsp;delayed&nbsp;until&nbsp;all&nbsp;the&nbsp;nesting&nbsp;has<br>
+been&nbsp;undone.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;useful&nbsp;for&nbsp;visual&nbsp;appearance&nbsp;optimization&nbsp;(for&nbsp;example,<br>
+it&nbsp;is&nbsp;a&nbsp;good&nbsp;idea&nbsp;to&nbsp;use&nbsp;it&nbsp;before&nbsp;inserting&nbsp;large&nbsp;amount&nbsp;of&nbsp;text&nbsp;into<br>
+a&nbsp;wxTextCtrl&nbsp;under&nbsp;wxGTK)&nbsp;but&nbsp;is&nbsp;not&nbsp;implemented&nbsp;on&nbsp;all&nbsp;platforms&nbsp;nor<br>
+for&nbsp;all&nbsp;controls&nbsp;so&nbsp;it&nbsp;is&nbsp;mostly&nbsp;just&nbsp;a&nbsp;hint&nbsp;to&nbsp;wxWindows&nbsp;and&nbsp;not&nbsp;a<br>
+mandatory&nbsp;directive.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetAcceleratorTable"><strong>GetAcceleratorTable</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetAcceleratorTable">GetAcceleratorTable</a>(self)&nbsp;-&gt;&nbsp;AcceleratorTable<br>
+&nbsp;<br>
+Gets&nbsp;the&nbsp;accelerator&nbsp;table&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetAdjustedBestSize"><strong>GetAdjustedBestSize</strong></a> = deprecatedWrapper(*args, **kwargs)</dt><dd><tt>Use&nbsp;`GetEffectiveMinSize`&nbsp;instead.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetAutoLayout"><strong>GetAutoLayout</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetAutoLayout">GetAutoLayout</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;current&nbsp;autoLayout&nbsp;setting</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetBackgroundColour"><strong>GetBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetBackgroundColour">GetBackgroundColour</a>(self)&nbsp;-&gt;&nbsp;Colour<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;background&nbsp;colour&nbsp;of&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetBackgroundStyle"><strong>GetBackgroundStyle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetBackgroundStyle">GetBackgroundStyle</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;background&nbsp;style&nbsp;of&nbsp;the&nbsp;window.<br>
+&nbsp;<br>
+:see:&nbsp;`SetBackgroundStyle`</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetBestFittingSize"><strong>GetBestFittingSize</strong></a> = deprecatedWrapper(*args, **kwargs)</dt><dd><tt>Use&nbsp;`GetEffectiveMinSize`&nbsp;instead.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetBestSize"><strong>GetBestSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetBestSize">GetBestSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;returns&nbsp;the&nbsp;best&nbsp;acceptable&nbsp;minimal&nbsp;size&nbsp;for&nbsp;the<br>
+window,&nbsp;if&nbsp;applicable.&nbsp;For&nbsp;example,&nbsp;for&nbsp;a&nbsp;static&nbsp;text&nbsp;control,&nbsp;it&nbsp;will<br>
+be&nbsp;the&nbsp;minimal&nbsp;size&nbsp;such&nbsp;that&nbsp;the&nbsp;control&nbsp;label&nbsp;is&nbsp;not&nbsp;truncated.&nbsp;For<br>
+windows&nbsp;containing&nbsp;subwindows&nbsp;(such&nbsp;as&nbsp;wx.Panel),&nbsp;the&nbsp;size&nbsp;returned&nbsp;by<br>
+this&nbsp;function&nbsp;will&nbsp;be&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;size&nbsp;the&nbsp;window&nbsp;would&nbsp;have&nbsp;had<br>
+after&nbsp;calling&nbsp;Fit.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetBestSizeTuple"><strong>GetBestSizeTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetBestSizeTuple">GetBestSizeTuple</a>()&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;returns&nbsp;the&nbsp;best&nbsp;acceptable&nbsp;minimal&nbsp;size&nbsp;for&nbsp;the<br>
+window,&nbsp;if&nbsp;applicable.&nbsp;For&nbsp;example,&nbsp;for&nbsp;a&nbsp;static&nbsp;text&nbsp;control,&nbsp;it&nbsp;will<br>
+be&nbsp;the&nbsp;minimal&nbsp;size&nbsp;such&nbsp;that&nbsp;the&nbsp;control&nbsp;label&nbsp;is&nbsp;not&nbsp;truncated.&nbsp;For<br>
+windows&nbsp;containing&nbsp;subwindows&nbsp;(such&nbsp;as&nbsp;wx.Panel),&nbsp;the&nbsp;size&nbsp;returned&nbsp;by<br>
+this&nbsp;function&nbsp;will&nbsp;be&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;size&nbsp;the&nbsp;window&nbsp;would&nbsp;have&nbsp;had<br>
+after&nbsp;calling&nbsp;Fit.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetBestVirtualSize"><strong>GetBestVirtualSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetBestVirtualSize">GetBestVirtualSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;largest&nbsp;of&nbsp;ClientSize&nbsp;and&nbsp;BestSize&nbsp;(as&nbsp;determined&nbsp;by&nbsp;a<br>
+sizer,&nbsp;interior&nbsp;children,&nbsp;or&nbsp;other&nbsp;means)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetBorder"><strong>GetBorder</strong></a>(*args)</dt><dd><tt><a href="#AuiNoteBook-GetBorder">GetBorder</a>(self,&nbsp;long&nbsp;flags)&nbsp;-&gt;&nbsp;int<br>
+<a href="#AuiNoteBook-GetBorder">GetBorder</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;border&nbsp;for&nbsp;the&nbsp;flags&nbsp;of&nbsp;this&nbsp;window</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetCaret"><strong>GetCaret</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetCaret">GetCaret</a>(self)&nbsp;-&gt;&nbsp;Caret<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;caret&nbsp;associated&nbsp;with&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetCharHeight"><strong>GetCharHeight</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetCharHeight">GetCharHeight</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;(average)&nbsp;character&nbsp;size&nbsp;for&nbsp;the&nbsp;current&nbsp;font.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetCharWidth"><strong>GetCharWidth</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetCharWidth">GetCharWidth</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;(average)&nbsp;character&nbsp;size&nbsp;for&nbsp;the&nbsp;current&nbsp;font.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetChildren"><strong>GetChildren</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetChildren">GetChildren</a>(self)&nbsp;-&gt;&nbsp;WindowList<br>
+&nbsp;<br>
+Returns&nbsp;an&nbsp;object&nbsp;containing&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;window's&nbsp;children.&nbsp;&nbsp;The<br>
+object&nbsp;provides&nbsp;a&nbsp;Python&nbsp;sequence-like&nbsp;interface&nbsp;over&nbsp;the&nbsp;internal<br>
+list&nbsp;maintained&nbsp;by&nbsp;the&nbsp;window..</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetClientAreaOrigin"><strong>GetClientAreaOrigin</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetClientAreaOrigin">GetClientAreaOrigin</a>(self)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;origin&nbsp;of&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window&nbsp;relative&nbsp;to&nbsp;the<br>
+window's&nbsp;top&nbsp;left&nbsp;corner&nbsp;(the&nbsp;client&nbsp;area&nbsp;may&nbsp;be&nbsp;shifted&nbsp;because&nbsp;of<br>
+the&nbsp;borders,&nbsp;scrollbars,&nbsp;other&nbsp;decorations...)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetClientRect"><strong>GetClientRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetClientRect">GetClientRect</a>(self)&nbsp;-&gt;&nbsp;Rect<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;client&nbsp;area&nbsp;position&nbsp;and&nbsp;size&nbsp;as&nbsp;a&nbsp;`wx.Rect`&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetClientSize"><strong>GetClientSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetClientSize">GetClientSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+This&nbsp;gets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window's&nbsp;'client&nbsp;area'&nbsp;in&nbsp;pixels.&nbsp;The&nbsp;client<br>
+area&nbsp;is&nbsp;the&nbsp;area&nbsp;which&nbsp;may&nbsp;be&nbsp;drawn&nbsp;on&nbsp;by&nbsp;the&nbsp;programmer,&nbsp;excluding<br>
+title&nbsp;bar,&nbsp;border,&nbsp;scrollbars,&nbsp;etc.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetClientSizeTuple"><strong>GetClientSizeTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetClientSizeTuple">GetClientSizeTuple</a>()&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+This&nbsp;gets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window's&nbsp;'client&nbsp;area'&nbsp;in&nbsp;pixels.&nbsp;The&nbsp;client<br>
+area&nbsp;is&nbsp;the&nbsp;area&nbsp;which&nbsp;may&nbsp;be&nbsp;drawn&nbsp;on&nbsp;by&nbsp;the&nbsp;programmer,&nbsp;excluding<br>
+title&nbsp;bar,&nbsp;border,&nbsp;scrollbars,&nbsp;etc.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetConstraints"><strong>GetConstraints</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetConstraints">GetConstraints</a>(self)&nbsp;-&gt;&nbsp;LayoutConstraints<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the&nbsp;window's&nbsp;layout&nbsp;constraints,&nbsp;or&nbsp;None&nbsp;if&nbsp;there<br>
+are&nbsp;none.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetContainingSizer"><strong>GetContainingSizer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetContainingSizer">GetContainingSizer</a>(self)&nbsp;-&gt;&nbsp;Sizer<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;sizer&nbsp;that&nbsp;this&nbsp;window&nbsp;is&nbsp;a&nbsp;member&nbsp;of,&nbsp;if&nbsp;any,&nbsp;otherwise&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetCursor"><strong>GetCursor</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetCursor">GetCursor</a>(self)&nbsp;-&gt;&nbsp;Cursor<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;cursor&nbsp;associated&nbsp;with&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetDefaultAttributes"><strong>GetDefaultAttributes</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetDefaultAttributes">GetDefaultAttributes</a>(self)&nbsp;-&gt;&nbsp;VisualAttributes<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;default&nbsp;attributes&nbsp;for&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;class.&nbsp;&nbsp;This&nbsp;is<br>
+useful&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;use&nbsp;the&nbsp;same&nbsp;font&nbsp;or&nbsp;colour&nbsp;in&nbsp;your&nbsp;own&nbsp;control<br>
+as&nbsp;in&nbsp;a&nbsp;standard&nbsp;control&nbsp;--&nbsp;which&nbsp;is&nbsp;a&nbsp;much&nbsp;better&nbsp;idea&nbsp;than&nbsp;hard<br>
+coding&nbsp;specific&nbsp;colours&nbsp;or&nbsp;fonts&nbsp;which&nbsp;might&nbsp;look&nbsp;completely&nbsp;out&nbsp;of<br>
+place&nbsp;on&nbsp;the&nbsp;user's&nbsp;system,&nbsp;especially&nbsp;if&nbsp;it&nbsp;uses&nbsp;themes.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetDropTarget"><strong>GetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetDropTarget">GetDropTarget</a>(self)&nbsp;-&gt;&nbsp;DropTarget<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;associated&nbsp;drop&nbsp;target,&nbsp;which&nbsp;may&nbsp;be&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetEffectiveMinSize"><strong>GetEffectiveMinSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetEffectiveMinSize">GetEffectiveMinSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;will&nbsp;merge&nbsp;the&nbsp;window's&nbsp;best&nbsp;size&nbsp;into&nbsp;the&nbsp;window's<br>
+minimum&nbsp;size,&nbsp;giving&nbsp;priority&nbsp;to&nbsp;the&nbsp;min&nbsp;size&nbsp;components,&nbsp;and&nbsp;returns<br>
+the&nbsp;results.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetEventHandler"><strong>GetEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetEventHandler">GetEventHandler</a>(self)&nbsp;-&gt;&nbsp;EvtHandler<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;event&nbsp;handler&nbsp;for&nbsp;this&nbsp;window.&nbsp;By&nbsp;default,&nbsp;the&nbsp;window&nbsp;is<br>
+its&nbsp;own&nbsp;event&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetExtraStyle"><strong>GetExtraStyle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetExtraStyle">GetExtraStyle</a>(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;extra&nbsp;style&nbsp;bits&nbsp;for&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetFont"><strong>GetFont</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetFont">GetFont</a>(self)&nbsp;-&gt;&nbsp;Font<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;default&nbsp;font&nbsp;used&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetForegroundColour"><strong>GetForegroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetForegroundColour">GetForegroundColour</a>(self)&nbsp;-&gt;&nbsp;Colour<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;foreground&nbsp;colour&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;The&nbsp;interpretation&nbsp;of<br>
+foreground&nbsp;colour&nbsp;is&nbsp;dependent&nbsp;on&nbsp;the&nbsp;window&nbsp;class;&nbsp;it&nbsp;may&nbsp;be&nbsp;the&nbsp;text<br>
+colour&nbsp;or&nbsp;other&nbsp;colour,&nbsp;or&nbsp;it&nbsp;may&nbsp;not&nbsp;be&nbsp;used&nbsp;at&nbsp;all.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetFullTextExtent"><strong>GetFullTextExtent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetFullTextExtent">GetFullTextExtent</a>(String&nbsp;string,&nbsp;Font&nbsp;font=None)&nbsp;-&gt;<br>
+&nbsp;&nbsp;&nbsp;(width,&nbsp;height,&nbsp;descent,&nbsp;externalLeading)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;width,&nbsp;height,&nbsp;decent&nbsp;and&nbsp;leading&nbsp;of&nbsp;the&nbsp;text&nbsp;using&nbsp;the<br>
+current&nbsp;or&nbsp;specified&nbsp;font.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetGrandParent"><strong>GetGrandParent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetGrandParent">GetGrandParent</a>(self)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;parent&nbsp;of&nbsp;the&nbsp;parent&nbsp;of&nbsp;this&nbsp;window,&nbsp;or&nbsp;None&nbsp;if&nbsp;there<br>
+isn't&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetGtkWidget"><strong>GetGtkWidget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetGtkWidget">GetGtkWidget</a>(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+On&nbsp;wxGTK&nbsp;returns&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the&nbsp;GtkWidget&nbsp;for&nbsp;this&nbsp;window&nbsp;as&nbsp;a&nbsp;long<br>
+integer.&nbsp;&nbsp;On&nbsp;the&nbsp;other&nbsp;platforms&nbsp;this&nbsp;method&nbsp;returns&nbsp;zero.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetHandle"><strong>GetHandle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetHandle">GetHandle</a>(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;platform-specific&nbsp;handle&nbsp;(as&nbsp;a&nbsp;long&nbsp;integer)&nbsp;of&nbsp;the<br>
+physical&nbsp;window.&nbsp;&nbsp;On&nbsp;wxMSW&nbsp;this&nbsp;is&nbsp;the&nbsp;win32&nbsp;window&nbsp;handle,&nbsp;on&nbsp;wxGTK<br>
+it&nbsp;is&nbsp;the&nbsp;XWindow&nbsp;ID,&nbsp;and&nbsp;on&nbsp;wxMac&nbsp;it&nbsp;is&nbsp;the&nbsp;ControlRef.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetHelpText"><strong>GetHelpText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetHelpText">GetHelpText</a>(self)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Gets&nbsp;the&nbsp;help&nbsp;text&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;context-sensitive&nbsp;help&nbsp;for&nbsp;this<br>
+window.&nbsp;&nbsp;Note&nbsp;that&nbsp;the&nbsp;text&nbsp;is&nbsp;actually&nbsp;stored&nbsp;by&nbsp;the&nbsp;current<br>
+`wx.HelpProvider`&nbsp;implementation,&nbsp;and&nbsp;not&nbsp;in&nbsp;the&nbsp;window&nbsp;object&nbsp;itself.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetHelpTextAtPoint"><strong>GetHelpTextAtPoint</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetHelpTextAtPoint">GetHelpTextAtPoint</a>(self,&nbsp;Point&nbsp;pt,&nbsp;wxHelpEvent::Origin&nbsp;origin)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;help&nbsp;string&nbsp;associated&nbsp;with&nbsp;the&nbsp;given&nbsp;position&nbsp;in&nbsp;this&nbsp;window.<br>
+&nbsp;<br>
+Notice&nbsp;that&nbsp;pt&nbsp;may&nbsp;be&nbsp;invalid&nbsp;if&nbsp;event&nbsp;origin&nbsp;is&nbsp;keyboard&nbsp;or&nbsp;unknown<br>
+and&nbsp;this&nbsp;method&nbsp;should&nbsp;return&nbsp;the&nbsp;global&nbsp;window&nbsp;help&nbsp;text&nbsp;then</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetId"><strong>GetId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetId">GetId</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;identifier&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;Each&nbsp;window&nbsp;has&nbsp;an&nbsp;integer<br>
+identifier.&nbsp;If&nbsp;the&nbsp;application&nbsp;has&nbsp;not&nbsp;provided&nbsp;one&nbsp;(or&nbsp;the&nbsp;default&nbsp;Id<br>
+-1&nbsp;is&nbsp;used)&nbsp;then&nbsp;an&nbsp;unique&nbsp;identifier&nbsp;with&nbsp;a&nbsp;negative&nbsp;value&nbsp;will&nbsp;be<br>
+generated.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetLabel"><strong>GetLabel</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetLabel">GetLabel</a>(self)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Generic&nbsp;way&nbsp;of&nbsp;getting&nbsp;a&nbsp;label&nbsp;from&nbsp;any&nbsp;window,&nbsp;for&nbsp;identification<br>
+purposes.&nbsp;&nbsp;The&nbsp;interpretation&nbsp;of&nbsp;this&nbsp;function&nbsp;differs&nbsp;from&nbsp;class&nbsp;to<br>
+class.&nbsp;For&nbsp;frames&nbsp;and&nbsp;dialogs,&nbsp;the&nbsp;value&nbsp;returned&nbsp;is&nbsp;the&nbsp;title.&nbsp;For<br>
+buttons&nbsp;or&nbsp;static&nbsp;text&nbsp;controls,&nbsp;it&nbsp;is&nbsp;the&nbsp;button&nbsp;text.&nbsp;This&nbsp;function<br>
+can&nbsp;be&nbsp;useful&nbsp;for&nbsp;meta-programs&nbsp;such&nbsp;as&nbsp;testing&nbsp;tools&nbsp;or&nbsp;special-needs<br>
+access&nbsp;programs)which&nbsp;need&nbsp;to&nbsp;identify&nbsp;windows&nbsp;by&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetLayoutDirection"><strong>GetLayoutDirection</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetLayoutDirection">GetLayoutDirection</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;layout&nbsp;direction&nbsp;(LTR&nbsp;or&nbsp;RTL)&nbsp;for&nbsp;this&nbsp;window.&nbsp;&nbsp;Returns<br>
+``wx.Layout_Default``&nbsp;if&nbsp;layout&nbsp;direction&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetMaxHeight"><strong>GetMaxHeight</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetMaxHeight">GetMaxHeight</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetMaxSize"><strong>GetMaxSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetMaxSize">GetMaxSize</a>(self)&nbsp;-&gt;&nbsp;Size</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetMaxWidth"><strong>GetMaxWidth</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetMaxWidth">GetMaxWidth</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetMinHeight"><strong>GetMinHeight</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetMinHeight">GetMinHeight</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetMinSize"><strong>GetMinSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetMinSize">GetMinSize</a>(self)&nbsp;-&gt;&nbsp;Size</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetMinWidth"><strong>GetMinWidth</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetMinWidth">GetMinWidth</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetName"><strong>GetName</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetName">GetName</a>(self)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;windows&nbsp;name.&nbsp;&nbsp;This&nbsp;name&nbsp;is&nbsp;not&nbsp;guaranteed&nbsp;to&nbsp;be&nbsp;unique;<br>
+it&nbsp;is&nbsp;up&nbsp;to&nbsp;the&nbsp;programmer&nbsp;to&nbsp;supply&nbsp;an&nbsp;appropriate&nbsp;name&nbsp;in&nbsp;the&nbsp;window<br>
+constructor&nbsp;or&nbsp;via&nbsp;wx.Window.SetName.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetParent"><strong>GetParent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetParent">GetParent</a>(self)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;parent&nbsp;window&nbsp;of&nbsp;this&nbsp;window,&nbsp;or&nbsp;None&nbsp;if&nbsp;there&nbsp;isn't&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetPosition"><strong>GetPosition</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetPosition">GetPosition</a>(self)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;window's&nbsp;position.&nbsp;&nbsp;Notice&nbsp;that&nbsp;the&nbsp;position&nbsp;is&nbsp;in&nbsp;client<br>
+coordinates&nbsp;for&nbsp;child&nbsp;windows&nbsp;and&nbsp;screen&nbsp;coordinates&nbsp;for&nbsp;the&nbsp;top&nbsp;level<br>
+ones,&nbsp;use&nbsp;`GetScreenPosition`&nbsp;if&nbsp;you&nbsp;need&nbsp;screen&nbsp;coordinates&nbsp;for&nbsp;all<br>
+kinds&nbsp;of&nbsp;windows.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetPositionTuple"><strong>GetPositionTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetPositionTuple">GetPositionTuple</a>()&nbsp;-&gt;&nbsp;(x,y)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;window's&nbsp;position.&nbsp;&nbsp;Notice&nbsp;that&nbsp;the&nbsp;position&nbsp;is&nbsp;in&nbsp;client<br>
+coordinates&nbsp;for&nbsp;child&nbsp;windows&nbsp;and&nbsp;screen&nbsp;coordinates&nbsp;for&nbsp;the&nbsp;top&nbsp;level<br>
+ones,&nbsp;use&nbsp;`GetScreenPosition`&nbsp;if&nbsp;you&nbsp;need&nbsp;screen&nbsp;coordinates&nbsp;for&nbsp;all<br>
+kinds&nbsp;of&nbsp;windows.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetRect"><strong>GetRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetRect">GetRect</a>(self)&nbsp;-&gt;&nbsp;Rect<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;size&nbsp;and&nbsp;position&nbsp;of&nbsp;the&nbsp;window&nbsp;as&nbsp;a&nbsp;`wx.Rect`&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetScreenPosition"><strong>GetScreenPosition</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetScreenPosition">GetScreenPosition</a>(self)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;position&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;screen&nbsp;coordinantes.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetScreenPositionTuple"><strong>GetScreenPositionTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetScreenPositionTuple">GetScreenPositionTuple</a>()&nbsp;-&gt;&nbsp;(x,y)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;position&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;screen&nbsp;coordinantes.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetScreenRect"><strong>GetScreenRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetScreenRect">GetScreenRect</a>(self)&nbsp;-&gt;&nbsp;Rect<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;size&nbsp;and&nbsp;position&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;screen&nbsp;coordinantes&nbsp;as<br>
+a&nbsp;`wx.Rect`&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetScrollPos"><strong>GetScrollPos</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetScrollPos">GetScrollPos</a>(self,&nbsp;int&nbsp;orientation)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;built-in&nbsp;scrollbar&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetScrollRange"><strong>GetScrollRange</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetScrollRange">GetScrollRange</a>(self,&nbsp;int&nbsp;orientation)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;built-in&nbsp;scrollbar&nbsp;range.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetScrollThumb"><strong>GetScrollThumb</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetScrollThumb">GetScrollThumb</a>(self,&nbsp;int&nbsp;orientation)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;built-in&nbsp;scrollbar&nbsp;thumb&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetSize"><strong>GetSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetSize">GetSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetSizeTuple"><strong>GetSizeTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetSizeTuple">GetSizeTuple</a>()&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetSizer"><strong>GetSizer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetSizer">GetSizer</a>(self)&nbsp;-&gt;&nbsp;Sizer<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;sizer&nbsp;associated&nbsp;with&nbsp;the&nbsp;window&nbsp;by&nbsp;a&nbsp;previous&nbsp;call&nbsp;to<br>
+SetSizer&nbsp;or&nbsp;None&nbsp;if&nbsp;there&nbsp;isn't&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetTextExtent"><strong>GetTextExtent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetTextExtent">GetTextExtent</a>(String&nbsp;string)&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;of&nbsp;the&nbsp;text&nbsp;using&nbsp;the&nbsp;current&nbsp;font.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetThemeEnabled"><strong>GetThemeEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetThemeEnabled">GetThemeEnabled</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;themeEnabled&nbsp;flag.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetToolTip"><strong>GetToolTip</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetToolTip">GetToolTip</a>(self)&nbsp;-&gt;&nbsp;ToolTip<br>
+&nbsp;<br>
+get&nbsp;the&nbsp;associated&nbsp;tooltip&nbsp;or&nbsp;None&nbsp;if&nbsp;none</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetTopLevelParent"><strong>GetTopLevelParent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetTopLevelParent">GetTopLevelParent</a>(self)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;first&nbsp;frame&nbsp;or&nbsp;dialog&nbsp;in&nbsp;this&nbsp;window's&nbsp;parental&nbsp;hierarchy.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetUpdateClientRect"><strong>GetUpdateClientRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetUpdateClientRect">GetUpdateClientRect</a>(self)&nbsp;-&gt;&nbsp;Rect<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;update&nbsp;rectangle&nbsp;region&nbsp;bounding&nbsp;box&nbsp;in&nbsp;client&nbsp;coords.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetUpdateRegion"><strong>GetUpdateRegion</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetUpdateRegion">GetUpdateRegion</a>(self)&nbsp;-&gt;&nbsp;Region<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;region&nbsp;specifying&nbsp;which&nbsp;parts&nbsp;of&nbsp;the&nbsp;window&nbsp;have&nbsp;been<br>
+damaged.&nbsp;Should&nbsp;only&nbsp;be&nbsp;called&nbsp;within&nbsp;an&nbsp;EVT_PAINT&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetValidator"><strong>GetValidator</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetValidator">GetValidator</a>(self)&nbsp;-&gt;&nbsp;Validator<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the&nbsp;current&nbsp;validator&nbsp;for&nbsp;the&nbsp;window,&nbsp;or&nbsp;None&nbsp;if<br>
+there&nbsp;is&nbsp;none.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetVirtualSize"><strong>GetVirtualSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetVirtualSize">GetVirtualSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;the&nbsp;virtual&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;For&nbsp;most&nbsp;windows<br>
+this&nbsp;is&nbsp;just&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window,&nbsp;but&nbsp;for&nbsp;some&nbsp;like&nbsp;scrolled<br>
+windows&nbsp;it&nbsp;is&nbsp;more&nbsp;or&nbsp;less&nbsp;independent&nbsp;of&nbsp;the&nbsp;screen&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetVirtualSizeTuple"><strong>GetVirtualSizeTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetVirtualSizeTuple">GetVirtualSizeTuple</a>()&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;the&nbsp;virtual&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;For&nbsp;most&nbsp;windows<br>
+this&nbsp;is&nbsp;just&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window,&nbsp;but&nbsp;for&nbsp;some&nbsp;like&nbsp;scrolled<br>
+windows&nbsp;it&nbsp;is&nbsp;more&nbsp;or&nbsp;less&nbsp;independent&nbsp;of&nbsp;the&nbsp;screen&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetWindowBorderSize"><strong>GetWindowBorderSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetWindowBorderSize">GetWindowBorderSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;left/right&nbsp;and&nbsp;top/bottom&nbsp;borders.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetWindowStyle"><strong>GetWindowStyle</strong></a> = GetWindowStyleFlag(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetWindowStyleFlag">GetWindowStyleFlag</a>(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+Gets&nbsp;the&nbsp;window&nbsp;style&nbsp;that&nbsp;was&nbsp;passed&nbsp;to&nbsp;the&nbsp;constructor&nbsp;or&nbsp;Create<br>
+method.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetWindowStyleFlag"><strong>GetWindowStyleFlag</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetWindowStyleFlag">GetWindowStyleFlag</a>(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+Gets&nbsp;the&nbsp;window&nbsp;style&nbsp;that&nbsp;was&nbsp;passed&nbsp;to&nbsp;the&nbsp;constructor&nbsp;or&nbsp;Create<br>
+method.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetWindowVariant"><strong>GetWindowVariant</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetWindowVariant">GetWindowVariant</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-HasCapture"><strong>HasCapture</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-HasCapture">HasCapture</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;this&nbsp;window&nbsp;has&nbsp;the&nbsp;current&nbsp;mouse&nbsp;capture.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-HasFlag"><strong>HasFlag</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-HasFlag">HasFlag</a>(self,&nbsp;int&nbsp;flag)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Test&nbsp;if&nbsp;the&nbsp;given&nbsp;style&nbsp;is&nbsp;set&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-HasMultiplePages"><strong>HasMultiplePages</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-HasMultiplePages">HasMultiplePages</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-HasScrollbar"><strong>HasScrollbar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-HasScrollbar">HasScrollbar</a>(self,&nbsp;int&nbsp;orient)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Does&nbsp;the&nbsp;window&nbsp;have&nbsp;the&nbsp;scrollbar&nbsp;for&nbsp;this&nbsp;orientation?</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-HasTransparentBackground"><strong>HasTransparentBackground</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-HasTransparentBackground">HasTransparentBackground</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;True&nbsp;if&nbsp;this&nbsp;window's&nbsp;background&nbsp;is&nbsp;transparent&nbsp;(as,&nbsp;for<br>
+example,&nbsp;for&nbsp;`wx.StaticText`)&nbsp;and&nbsp;should&nbsp;show&nbsp;the&nbsp;parent&nbsp;window's<br>
+background.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;mostly&nbsp;used&nbsp;internally&nbsp;by&nbsp;the&nbsp;library&nbsp;itself&nbsp;and&nbsp;you<br>
+normally&nbsp;shouldn't&nbsp;have&nbsp;to&nbsp;call&nbsp;it.&nbsp;You&nbsp;may,&nbsp;however,&nbsp;have&nbsp;to&nbsp;override<br>
+it&nbsp;in&nbsp;your&nbsp;custom&nbsp;control&nbsp;classes&nbsp;to&nbsp;ensure&nbsp;that&nbsp;background&nbsp;is&nbsp;painted<br>
+correctly.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Hide"><strong>Hide</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Hide">Hide</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Equivalent&nbsp;to&nbsp;calling&nbsp;<a href="#AuiNoteBook-Show">Show</a>(False).</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-HitTest"><strong>HitTest</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-HitTest">HitTest</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Test&nbsp;where&nbsp;the&nbsp;given&nbsp;(in&nbsp;client&nbsp;coords)&nbsp;point&nbsp;lies</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-HitTestXY"><strong>HitTestXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-HitTestXY">HitTestXY</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Test&nbsp;where&nbsp;the&nbsp;given&nbsp;(in&nbsp;client&nbsp;coords)&nbsp;point&nbsp;lies</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-InheritAttributes"><strong>InheritAttributes</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-InheritAttributes">InheritAttributes</a>(self)<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;is&nbsp;(or&nbsp;should&nbsp;be,&nbsp;in&nbsp;case&nbsp;of&nbsp;custom&nbsp;controls)&nbsp;called<br>
+during&nbsp;window&nbsp;creation&nbsp;to&nbsp;intelligently&nbsp;set&nbsp;up&nbsp;the&nbsp;window&nbsp;visual<br>
+attributes,&nbsp;that&nbsp;is&nbsp;the&nbsp;font&nbsp;and&nbsp;the&nbsp;foreground&nbsp;and&nbsp;background<br>
+colours.<br>
+&nbsp;<br>
+By&nbsp;'intelligently'&nbsp;the&nbsp;following&nbsp;is&nbsp;meant:&nbsp;by&nbsp;default,&nbsp;all&nbsp;windows&nbsp;use<br>
+their&nbsp;own&nbsp;default&nbsp;attributes.&nbsp;However&nbsp;if&nbsp;some&nbsp;of&nbsp;the&nbsp;parent's<br>
+attributes&nbsp;are&nbsp;explicitly&nbsp;changed&nbsp;(that&nbsp;is,&nbsp;using&nbsp;SetFont&nbsp;and&nbsp;not<br>
+SetOwnFont)&nbsp;and&nbsp;if&nbsp;the&nbsp;corresponding&nbsp;attribute&nbsp;hadn't&nbsp;been<br>
+explicitly&nbsp;set&nbsp;for&nbsp;this&nbsp;window&nbsp;itself,&nbsp;then&nbsp;this&nbsp;window&nbsp;takes&nbsp;the&nbsp;same<br>
+value&nbsp;as&nbsp;used&nbsp;by&nbsp;the&nbsp;parent.&nbsp;In&nbsp;addition,&nbsp;if&nbsp;the&nbsp;window&nbsp;overrides<br>
+ShouldInheritColours&nbsp;to&nbsp;return&nbsp;false,&nbsp;the&nbsp;colours&nbsp;will&nbsp;not&nbsp;be&nbsp;changed<br>
+no&nbsp;matter&nbsp;what&nbsp;and&nbsp;only&nbsp;the&nbsp;font&nbsp;might.<br>
+&nbsp;<br>
+This&nbsp;rather&nbsp;complicated&nbsp;logic&nbsp;is&nbsp;necessary&nbsp;in&nbsp;order&nbsp;to&nbsp;accommodate&nbsp;the<br>
+different&nbsp;usage&nbsp;scenarios.&nbsp;The&nbsp;most&nbsp;common&nbsp;one&nbsp;is&nbsp;when&nbsp;all&nbsp;default<br>
+attributes&nbsp;are&nbsp;used&nbsp;and&nbsp;in&nbsp;this&nbsp;case,&nbsp;nothing&nbsp;should&nbsp;be&nbsp;inherited&nbsp;as<br>
+in&nbsp;modern&nbsp;GUIs&nbsp;different&nbsp;controls&nbsp;use&nbsp;different&nbsp;fonts&nbsp;(and&nbsp;colours)<br>
+than&nbsp;their&nbsp;siblings&nbsp;so&nbsp;they&nbsp;can't&nbsp;inherit&nbsp;the&nbsp;same&nbsp;value&nbsp;from&nbsp;the<br>
+parent.&nbsp;However&nbsp;it&nbsp;was&nbsp;also&nbsp;deemed&nbsp;desirable&nbsp;to&nbsp;allow&nbsp;to&nbsp;simply&nbsp;change<br>
+the&nbsp;attributes&nbsp;of&nbsp;all&nbsp;children&nbsp;at&nbsp;once&nbsp;by&nbsp;just&nbsp;changing&nbsp;the&nbsp;font&nbsp;or<br>
+colour&nbsp;of&nbsp;their&nbsp;common&nbsp;parent,&nbsp;hence&nbsp;in&nbsp;this&nbsp;case&nbsp;we&nbsp;do&nbsp;inherit&nbsp;the<br>
+parents&nbsp;attributes.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-InheritsBackgroundColour"><strong>InheritsBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-InheritsBackgroundColour">InheritsBackgroundColour</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-InitDialog"><strong>InitDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-InitDialog">InitDialog</a>(self)<br>
+&nbsp;<br>
+Sends&nbsp;an&nbsp;EVT_INIT_DIALOG&nbsp;event,&nbsp;whose&nbsp;handler&nbsp;usually&nbsp;transfers&nbsp;data<br>
+to&nbsp;the&nbsp;dialog&nbsp;via&nbsp;validators.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-InvalidateBestSize"><strong>InvalidateBestSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-InvalidateBestSize">InvalidateBestSize</a>(self)<br>
+&nbsp;<br>
+Reset&nbsp;the&nbsp;cached&nbsp;best&nbsp;size&nbsp;value&nbsp;so&nbsp;it&nbsp;will&nbsp;be&nbsp;recalculated&nbsp;the&nbsp;next<br>
+time&nbsp;it&nbsp;is&nbsp;needed.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-IsBeingDeleted"><strong>IsBeingDeleted</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-IsBeingDeleted">IsBeingDeleted</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Is&nbsp;the&nbsp;window&nbsp;in&nbsp;the&nbsp;process&nbsp;of&nbsp;being&nbsp;deleted?</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-IsDoubleBuffered"><strong>IsDoubleBuffered</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-IsDoubleBuffered">IsDoubleBuffered</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;``True``&nbsp;if&nbsp;the&nbsp;window&nbsp;contents&nbsp;is&nbsp;double-buffered&nbsp;by&nbsp;the<br>
+system,&nbsp;i.e.&nbsp;if&nbsp;any&nbsp;drawing&nbsp;done&nbsp;on&nbsp;the&nbsp;window&nbsp;is&nbsp;really&nbsp;done&nbsp;on&nbsp;a<br>
+temporary&nbsp;backing&nbsp;surface&nbsp;and&nbsp;transferred&nbsp;to&nbsp;the&nbsp;screen&nbsp;all&nbsp;at&nbsp;once<br>
+later.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-IsEnabled"><strong>IsEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-IsEnabled">IsEnabled</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;window&nbsp;is&nbsp;enabled&nbsp;for&nbsp;input,&nbsp;false&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-IsExposed"><strong>IsExposed</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-IsExposed">IsExposed</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y,&nbsp;int&nbsp;w=1,&nbsp;int&nbsp;h=1)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;given&nbsp;point&nbsp;or&nbsp;rectangle&nbsp;area&nbsp;has&nbsp;been&nbsp;exposed<br>
+since&nbsp;the&nbsp;last&nbsp;repaint.&nbsp;Call&nbsp;this&nbsp;in&nbsp;an&nbsp;paint&nbsp;event&nbsp;handler&nbsp;to<br>
+optimize&nbsp;redrawing&nbsp;by&nbsp;only&nbsp;redrawing&nbsp;those&nbsp;areas,&nbsp;which&nbsp;have&nbsp;been<br>
+exposed.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-IsExposedPoint"><strong>IsExposedPoint</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-IsExposedPoint">IsExposedPoint</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;given&nbsp;point&nbsp;or&nbsp;rectangle&nbsp;area&nbsp;has&nbsp;been&nbsp;exposed<br>
+since&nbsp;the&nbsp;last&nbsp;repaint.&nbsp;Call&nbsp;this&nbsp;in&nbsp;an&nbsp;paint&nbsp;event&nbsp;handler&nbsp;to<br>
+optimize&nbsp;redrawing&nbsp;by&nbsp;only&nbsp;redrawing&nbsp;those&nbsp;areas,&nbsp;which&nbsp;have&nbsp;been<br>
+exposed.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-IsExposedRect"><strong>IsExposedRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-IsExposedRect">IsExposedRect</a>(self,&nbsp;Rect&nbsp;rect)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;given&nbsp;point&nbsp;or&nbsp;rectangle&nbsp;area&nbsp;has&nbsp;been&nbsp;exposed<br>
+since&nbsp;the&nbsp;last&nbsp;repaint.&nbsp;Call&nbsp;this&nbsp;in&nbsp;an&nbsp;paint&nbsp;event&nbsp;handler&nbsp;to<br>
+optimize&nbsp;redrawing&nbsp;by&nbsp;only&nbsp;redrawing&nbsp;those&nbsp;areas,&nbsp;which&nbsp;have&nbsp;been<br>
+exposed.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-IsFrozen"><strong>IsFrozen</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-IsFrozen">IsFrozen</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;``True``&nbsp;if&nbsp;the&nbsp;window&nbsp;has&nbsp;been&nbsp;frozen&nbsp;and&nbsp;not&nbsp;thawed&nbsp;yet.<br>
+&nbsp;<br>
+:see:&nbsp;`Freeze`&nbsp;and&nbsp;`Thaw`</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-IsRetained"><strong>IsRetained</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-IsRetained">IsRetained</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;window&nbsp;is&nbsp;retained,&nbsp;false&nbsp;otherwise.&nbsp;&nbsp;Retained<br>
+windows&nbsp;are&nbsp;only&nbsp;available&nbsp;on&nbsp;X&nbsp;platforms.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-IsShown"><strong>IsShown</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-IsShown">IsShown</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;window&nbsp;is&nbsp;shown,&nbsp;false&nbsp;if&nbsp;it&nbsp;has&nbsp;been&nbsp;hidden.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-IsShownOnScreen"><strong>IsShownOnScreen</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-IsShownOnScreen">IsShownOnScreen</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;``True``&nbsp;if&nbsp;the&nbsp;window&nbsp;is&nbsp;physically&nbsp;visible&nbsp;on&nbsp;the&nbsp;screen,<br>
+i.e.&nbsp;it&nbsp;is&nbsp;shown&nbsp;and&nbsp;all&nbsp;its&nbsp;parents&nbsp;up&nbsp;to&nbsp;the&nbsp;toplevel&nbsp;window&nbsp;are<br>
+shown&nbsp;as&nbsp;well.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-IsTopLevel"><strong>IsTopLevel</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-IsTopLevel">IsTopLevel</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;given&nbsp;window&nbsp;is&nbsp;a&nbsp;top-level&nbsp;one.&nbsp;Currently&nbsp;all<br>
+frames&nbsp;and&nbsp;dialogs&nbsp;are&nbsp;always&nbsp;considered&nbsp;to&nbsp;be&nbsp;top-level&nbsp;windows&nbsp;(even<br>
+if&nbsp;they&nbsp;have&nbsp;a&nbsp;parent&nbsp;window).</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Layout"><strong>Layout</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Layout">Layout</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Invokes&nbsp;the&nbsp;constraint-based&nbsp;layout&nbsp;algorithm&nbsp;or&nbsp;the&nbsp;sizer-based<br>
+algorithm&nbsp;for&nbsp;this&nbsp;window.&nbsp;&nbsp;See&nbsp;SetAutoLayout:&nbsp;when&nbsp;auto&nbsp;layout&nbsp;is&nbsp;on,<br>
+this&nbsp;function&nbsp;gets&nbsp;called&nbsp;automatically&nbsp;by&nbsp;the&nbsp;default&nbsp;EVT_SIZE<br>
+handler&nbsp;when&nbsp;the&nbsp;window&nbsp;is&nbsp;resized.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-LineDown"><strong>LineDown</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-LineDown">LineDown</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;just&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;<a href="#AuiNoteBook-ScrollLines">ScrollLines</a>(1).</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-LineUp"><strong>LineUp</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-LineUp">LineUp</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;just&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;<a href="#AuiNoteBook-ScrollLines">ScrollLines</a>(-1).</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Lower"><strong>Lower</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Lower">Lower</a>(self)<br>
+&nbsp;<br>
+Lowers&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;bottom&nbsp;of&nbsp;the&nbsp;window&nbsp;hierarchy.&nbsp;&nbsp;In&nbsp;current<br>
+version&nbsp;of&nbsp;wxWidgets&nbsp;this&nbsp;works&nbsp;both&nbsp;for&nbsp;managed&nbsp;and&nbsp;child&nbsp;windows.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-MakeModal"><strong>MakeModal</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-MakeModal">MakeModal</a>(self,&nbsp;bool&nbsp;modal=True)<br>
+&nbsp;<br>
+Disables&nbsp;all&nbsp;other&nbsp;windows&nbsp;in&nbsp;the&nbsp;application&nbsp;so&nbsp;that&nbsp;the&nbsp;user&nbsp;can<br>
+only&nbsp;interact&nbsp;with&nbsp;this&nbsp;window.&nbsp;&nbsp;Passing&nbsp;False&nbsp;will&nbsp;reverse&nbsp;this<br>
+effect.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Move"><strong>Move</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Move">Move</a>(self,&nbsp;Point&nbsp;pt,&nbsp;int&nbsp;flags=SIZE_USE_EXISTING)<br>
+&nbsp;<br>
+Moves&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;given&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-MoveAfterInTabOrder"><strong>MoveAfterInTabOrder</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-MoveAfterInTabOrder">MoveAfterInTabOrder</a>(self,&nbsp;Window&nbsp;win)<br>
+&nbsp;<br>
+Moves&nbsp;this&nbsp;window&nbsp;in&nbsp;the&nbsp;tab&nbsp;navigation&nbsp;order&nbsp;after&nbsp;the&nbsp;specified<br>
+sibling&nbsp;window.&nbsp;&nbsp;This&nbsp;means&nbsp;that&nbsp;when&nbsp;the&nbsp;user&nbsp;presses&nbsp;the&nbsp;TAB&nbsp;key&nbsp;on<br>
+that&nbsp;other&nbsp;window,&nbsp;the&nbsp;focus&nbsp;switches&nbsp;to&nbsp;this&nbsp;window.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;tab&nbsp;order&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;creation&nbsp;order.&nbsp;&nbsp;This&nbsp;function<br>
+and&nbsp;`MoveBeforeInTabOrder`&nbsp;allow&nbsp;to&nbsp;change&nbsp;it&nbsp;after&nbsp;creating&nbsp;all&nbsp;the<br>
+windows.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-MoveBeforeInTabOrder"><strong>MoveBeforeInTabOrder</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-MoveBeforeInTabOrder">MoveBeforeInTabOrder</a>(self,&nbsp;Window&nbsp;win)<br>
+&nbsp;<br>
+Same&nbsp;as&nbsp;`MoveAfterInTabOrder`&nbsp;except&nbsp;that&nbsp;it&nbsp;inserts&nbsp;this&nbsp;window&nbsp;just<br>
+before&nbsp;win&nbsp;instead&nbsp;of&nbsp;putting&nbsp;it&nbsp;right&nbsp;after&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-MoveXY"><strong>MoveXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-MoveXY">MoveXY</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y,&nbsp;int&nbsp;flags=SIZE_USE_EXISTING)<br>
+&nbsp;<br>
+Moves&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;given&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Navigate"><strong>Navigate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Navigate">Navigate</a>(self,&nbsp;int&nbsp;flags=NavigationKeyEvent.IsForward)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Does&nbsp;keyboard&nbsp;navigation&nbsp;from&nbsp;this&nbsp;window&nbsp;to&nbsp;another,&nbsp;by&nbsp;sending&nbsp;a<br>
+`wx.NavigationKeyEvent`.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-PageDown"><strong>PageDown</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-PageDown">PageDown</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;just&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;<a href="#AuiNoteBook-ScrollPages">ScrollPages</a>(1).</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-PageUp"><strong>PageUp</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-PageUp">PageUp</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;just&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;<a href="#AuiNoteBook-ScrollPages">ScrollPages</a>(-1).</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-PopEventHandler"><strong>PopEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-PopEventHandler">PopEventHandler</a>(self,&nbsp;bool&nbsp;deleteHandler=False)&nbsp;-&gt;&nbsp;EvtHandler<br>
+&nbsp;<br>
+Removes&nbsp;and&nbsp;returns&nbsp;the&nbsp;top-most&nbsp;event&nbsp;handler&nbsp;on&nbsp;the&nbsp;event&nbsp;handler<br>
+stack.&nbsp;&nbsp;If&nbsp;deleteHandler&nbsp;is&nbsp;True&nbsp;then&nbsp;the&nbsp;wx.EvtHandler&nbsp;object&nbsp;will&nbsp;be<br>
+destroyed&nbsp;after&nbsp;it&nbsp;is&nbsp;popped,&nbsp;and&nbsp;``None``&nbsp;will&nbsp;be&nbsp;returned&nbsp;instead.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-PopupMenu"><strong>PopupMenu</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-PopupMenu">PopupMenu</a>(self,&nbsp;Menu&nbsp;menu,&nbsp;Point&nbsp;pos=DefaultPosition)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Pops&nbsp;up&nbsp;the&nbsp;given&nbsp;menu&nbsp;at&nbsp;the&nbsp;specified&nbsp;coordinates,&nbsp;relative&nbsp;to&nbsp;this&nbsp;window,<br>
+and&nbsp;returns&nbsp;control&nbsp;when&nbsp;the&nbsp;user&nbsp;has&nbsp;dismissed&nbsp;the&nbsp;menu.&nbsp;If&nbsp;a&nbsp;menu&nbsp;item&nbsp;is<br>
+selected,&nbsp;the&nbsp;corresponding&nbsp;menu&nbsp;event&nbsp;is&nbsp;generated&nbsp;and&nbsp;will&nbsp;be&nbsp;processed&nbsp;as<br>
+usual.&nbsp;&nbsp;If&nbsp;the&nbsp;default&nbsp;position&nbsp;is&nbsp;given&nbsp;then&nbsp;the&nbsp;current&nbsp;position&nbsp;of&nbsp;the<br>
+mouse&nbsp;cursor&nbsp;will&nbsp;be&nbsp;used.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-PopupMenuXY"><strong>PopupMenuXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-PopupMenuXY">PopupMenuXY</a>(self,&nbsp;Menu&nbsp;menu,&nbsp;int&nbsp;x=-1,&nbsp;int&nbsp;y=-1)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Pops&nbsp;up&nbsp;the&nbsp;given&nbsp;menu&nbsp;at&nbsp;the&nbsp;specified&nbsp;coordinates,&nbsp;relative&nbsp;to&nbsp;this&nbsp;window,<br>
+and&nbsp;returns&nbsp;control&nbsp;when&nbsp;the&nbsp;user&nbsp;has&nbsp;dismissed&nbsp;the&nbsp;menu.&nbsp;If&nbsp;a&nbsp;menu&nbsp;item&nbsp;is<br>
+selected,&nbsp;the&nbsp;corresponding&nbsp;menu&nbsp;event&nbsp;is&nbsp;generated&nbsp;and&nbsp;will&nbsp;be&nbsp;processed&nbsp;as<br>
+usual.&nbsp;&nbsp;If&nbsp;the&nbsp;default&nbsp;position&nbsp;is&nbsp;given&nbsp;then&nbsp;the&nbsp;current&nbsp;position&nbsp;of&nbsp;the<br>
+mouse&nbsp;cursor&nbsp;will&nbsp;be&nbsp;used.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-PostCreate"><strong>PostCreate</strong></a>(self, pre)</dt><dd><tt>Phase&nbsp;3&nbsp;of&nbsp;the&nbsp;2-phase&nbsp;create&nbsp;&lt;wink!&gt;<br>
+Call&nbsp;this&nbsp;method&nbsp;after&nbsp;precreating&nbsp;the&nbsp;window&nbsp;with&nbsp;the&nbsp;2-phase&nbsp;create&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-PrepareDC"><strong>PrepareDC</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-PrepareDC">PrepareDC</a>(self,&nbsp;DC&nbsp;dc)<br>
+&nbsp;<br>
+Call&nbsp;this&nbsp;function&nbsp;to&nbsp;prepare&nbsp;the&nbsp;device&nbsp;context&nbsp;for&nbsp;drawing&nbsp;a<br>
+scrolled&nbsp;image.&nbsp;It&nbsp;sets&nbsp;the&nbsp;device&nbsp;origin&nbsp;according&nbsp;to&nbsp;the&nbsp;current<br>
+scroll&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-PushEventHandler"><strong>PushEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-PushEventHandler">PushEventHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)<br>
+&nbsp;<br>
+Pushes&nbsp;this&nbsp;event&nbsp;handler&nbsp;onto&nbsp;the&nbsp;event&nbsp;handler&nbsp;stack&nbsp;for&nbsp;the&nbsp;window.<br>
+An&nbsp;event&nbsp;handler&nbsp;is&nbsp;an&nbsp;object&nbsp;that&nbsp;is&nbsp;capable&nbsp;of&nbsp;processing&nbsp;the&nbsp;events<br>
+sent&nbsp;to&nbsp;a&nbsp;window.&nbsp;&nbsp;(In&nbsp;other&nbsp;words,&nbsp;is&nbsp;able&nbsp;to&nbsp;dispatch&nbsp;the&nbsp;events&nbsp;to&nbsp;a<br>
+handler&nbsp;function.)&nbsp;&nbsp;By&nbsp;default,&nbsp;the&nbsp;window&nbsp;is&nbsp;its&nbsp;own&nbsp;event&nbsp;handler,<br>
+but&nbsp;an&nbsp;application&nbsp;may&nbsp;wish&nbsp;to&nbsp;substitute&nbsp;another,&nbsp;for&nbsp;example&nbsp;to<br>
+allow&nbsp;central&nbsp;implementation&nbsp;of&nbsp;event-handling&nbsp;for&nbsp;a&nbsp;variety&nbsp;of<br>
+different&nbsp;window&nbsp;classes.<br>
+&nbsp;<br>
+wx.Window.PushEventHandler&nbsp;allows&nbsp;an&nbsp;application&nbsp;to&nbsp;set&nbsp;up&nbsp;a&nbsp;chain&nbsp;of<br>
+event&nbsp;handlers,&nbsp;where&nbsp;an&nbsp;event&nbsp;not&nbsp;handled&nbsp;by&nbsp;one&nbsp;event&nbsp;handler&nbsp;is<br>
+handed&nbsp;to&nbsp;the&nbsp;next&nbsp;one&nbsp;in&nbsp;the&nbsp;chain.&nbsp;&nbsp;Use&nbsp;`wx.Window.PopEventHandler`<br>
+to&nbsp;remove&nbsp;the&nbsp;event&nbsp;handler.&nbsp;&nbsp;Ownership&nbsp;of&nbsp;the&nbsp;handler&nbsp;is&nbsp;*not*&nbsp;given<br>
+to&nbsp;the&nbsp;window,&nbsp;so&nbsp;you&nbsp;should&nbsp;be&nbsp;sure&nbsp;to&nbsp;pop&nbsp;the&nbsp;handler&nbsp;before&nbsp;the<br>
+window&nbsp;is&nbsp;destroyed&nbsp;and&nbsp;either&nbsp;let&nbsp;PopEventHandler&nbsp;destroy&nbsp;it,&nbsp;or&nbsp;call<br>
+its&nbsp;Destroy&nbsp;method&nbsp;yourself.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Raise"><strong>Raise</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Raise">Raise</a>(self)<br>
+&nbsp;<br>
+Raises&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;top&nbsp;of&nbsp;the&nbsp;window&nbsp;hierarchy.&nbsp;&nbsp;In&nbsp;current<br>
+version&nbsp;of&nbsp;wxWidgets&nbsp;this&nbsp;works&nbsp;both&nbsp;for&nbsp;managed&nbsp;and&nbsp;child&nbsp;windows.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Refresh"><strong>Refresh</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Refresh">Refresh</a>(self,&nbsp;bool&nbsp;eraseBackground=True,&nbsp;Rect&nbsp;rect=None)<br>
+&nbsp;<br>
+Mark&nbsp;the&nbsp;specified&nbsp;rectangle&nbsp;(or&nbsp;the&nbsp;whole&nbsp;window)&nbsp;as&nbsp;"dirty"&nbsp;so&nbsp;it<br>
+will&nbsp;be&nbsp;repainted.&nbsp;&nbsp;Causes&nbsp;an&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;be&nbsp;generated&nbsp;and&nbsp;sent<br>
+to&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect,&nbsp;bool&nbsp;eraseBackground=True)<br>
+&nbsp;<br>
+Redraws&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;given&nbsp;rectangle:&nbsp;the&nbsp;area&nbsp;inside&nbsp;it&nbsp;will<br>
+be&nbsp;repainted.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;Refresh&nbsp;but&nbsp;has&nbsp;a&nbsp;nicer&nbsp;syntax.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-RegisterHotKey"><strong>RegisterHotKey</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-RegisterHotKey">RegisterHotKey</a>(self,&nbsp;int&nbsp;hotkeyId,&nbsp;int&nbsp;modifiers,&nbsp;int&nbsp;keycode)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Registers&nbsp;a&nbsp;system&nbsp;wide&nbsp;hotkey.&nbsp;Every&nbsp;time&nbsp;the&nbsp;user&nbsp;presses&nbsp;the&nbsp;hotkey<br>
+registered&nbsp;here,&nbsp;this&nbsp;window&nbsp;will&nbsp;receive&nbsp;a&nbsp;hotkey&nbsp;event.&nbsp;It&nbsp;will<br>
+receive&nbsp;the&nbsp;event&nbsp;even&nbsp;if&nbsp;the&nbsp;application&nbsp;is&nbsp;in&nbsp;the&nbsp;background&nbsp;and<br>
+does&nbsp;not&nbsp;have&nbsp;the&nbsp;input&nbsp;focus&nbsp;because&nbsp;the&nbsp;user&nbsp;is&nbsp;working&nbsp;with&nbsp;some<br>
+other&nbsp;application.&nbsp;&nbsp;To&nbsp;bind&nbsp;an&nbsp;event&nbsp;handler&nbsp;function&nbsp;to&nbsp;this&nbsp;hotkey<br>
+use&nbsp;EVT_HOTKEY&nbsp;with&nbsp;an&nbsp;id&nbsp;equal&nbsp;to&nbsp;hotkeyId.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;the<br>
+hotkey&nbsp;was&nbsp;registered&nbsp;successfully.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ReleaseMouse"><strong>ReleaseMouse</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ReleaseMouse">ReleaseMouse</a>(self)<br>
+&nbsp;<br>
+Releases&nbsp;mouse&nbsp;input&nbsp;captured&nbsp;with&nbsp;wx.Window.CaptureMouse.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-RemoveChild"><strong>RemoveChild</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-RemoveChild">RemoveChild</a>(self,&nbsp;Window&nbsp;child)<br>
+&nbsp;<br>
+Removes&nbsp;a&nbsp;child&nbsp;window.&nbsp;This&nbsp;is&nbsp;called&nbsp;automatically&nbsp;by&nbsp;window<br>
+deletion&nbsp;functions&nbsp;so&nbsp;should&nbsp;not&nbsp;be&nbsp;required&nbsp;by&nbsp;the&nbsp;application<br>
+programmer.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-RemoveEventHandler"><strong>RemoveEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-RemoveEventHandler">RemoveEventHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Find&nbsp;the&nbsp;given&nbsp;handler&nbsp;in&nbsp;the&nbsp;event&nbsp;handler&nbsp;chain&nbsp;and&nbsp;remove&nbsp;(but&nbsp;not<br>
+delete)&nbsp;it&nbsp;from&nbsp;the&nbsp;event&nbsp;handler&nbsp;chain,&nbsp;returns&nbsp;True&nbsp;if&nbsp;it&nbsp;was&nbsp;found<br>
+and&nbsp;False&nbsp;otherwise&nbsp;(this&nbsp;also&nbsp;results&nbsp;in&nbsp;an&nbsp;assert&nbsp;failure&nbsp;so&nbsp;this<br>
+function&nbsp;should&nbsp;only&nbsp;be&nbsp;called&nbsp;when&nbsp;the&nbsp;handler&nbsp;is&nbsp;supposed&nbsp;to&nbsp;be<br>
+there.)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Reparent"><strong>Reparent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Reparent">Reparent</a>(self,&nbsp;Window&nbsp;newParent)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Reparents&nbsp;the&nbsp;window,&nbsp;i.e&nbsp;the&nbsp;window&nbsp;will&nbsp;be&nbsp;removed&nbsp;from&nbsp;its&nbsp;current<br>
+parent&nbsp;window&nbsp;(e.g.&nbsp;a&nbsp;non-standard&nbsp;toolbar&nbsp;in&nbsp;a&nbsp;wxFrame)&nbsp;and&nbsp;then<br>
+re-inserted&nbsp;into&nbsp;another.&nbsp;Available&nbsp;on&nbsp;Windows&nbsp;and&nbsp;GTK.&nbsp;&nbsp;Returns&nbsp;True<br>
+if&nbsp;the&nbsp;parent&nbsp;was&nbsp;changed,&nbsp;False&nbsp;otherwise&nbsp;(error&nbsp;or&nbsp;newParent&nbsp;==<br>
+oldParent)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ScreenToClient"><strong>ScreenToClient</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ScreenToClient">ScreenToClient</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Converts&nbsp;from&nbsp;screen&nbsp;to&nbsp;client&nbsp;window&nbsp;coordinates.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ScreenToClientXY"><strong>ScreenToClientXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ScreenToClientXY">ScreenToClientXY</a>(int&nbsp;x,&nbsp;int&nbsp;y)&nbsp;-&gt;&nbsp;(x,y)<br>
+&nbsp;<br>
+Converts&nbsp;from&nbsp;screen&nbsp;to&nbsp;client&nbsp;window&nbsp;coordinates.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ScrollLines"><strong>ScrollLines</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ScrollLines">ScrollLines</a>(self,&nbsp;int&nbsp;lines)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;platform&nbsp;and&nbsp;window&nbsp;class&nbsp;supports&nbsp;it,&nbsp;scrolls&nbsp;the&nbsp;window&nbsp;by<br>
+the&nbsp;given&nbsp;number&nbsp;of&nbsp;lines&nbsp;down,&nbsp;if&nbsp;lines&nbsp;is&nbsp;positive,&nbsp;or&nbsp;up&nbsp;if&nbsp;lines<br>
+is&nbsp;negative.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;window&nbsp;was&nbsp;scrolled,&nbsp;False&nbsp;if&nbsp;it&nbsp;was<br>
+already&nbsp;on&nbsp;top/bottom&nbsp;and&nbsp;nothing&nbsp;was&nbsp;done.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ScrollPages"><strong>ScrollPages</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ScrollPages">ScrollPages</a>(self,&nbsp;int&nbsp;pages)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;platform&nbsp;and&nbsp;window&nbsp;class&nbsp;supports&nbsp;it,&nbsp;scrolls&nbsp;the&nbsp;window&nbsp;by<br>
+the&nbsp;given&nbsp;number&nbsp;of&nbsp;pages&nbsp;down,&nbsp;if&nbsp;pages&nbsp;is&nbsp;positive,&nbsp;or&nbsp;up&nbsp;if&nbsp;pages<br>
+is&nbsp;negative.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;window&nbsp;was&nbsp;scrolled,&nbsp;False&nbsp;if&nbsp;it&nbsp;was<br>
+already&nbsp;on&nbsp;top/bottom&nbsp;and&nbsp;nothing&nbsp;was&nbsp;done.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ScrollWindow"><strong>ScrollWindow</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ScrollWindow">ScrollWindow</a>(self,&nbsp;int&nbsp;dx,&nbsp;int&nbsp;dy,&nbsp;Rect&nbsp;rect=None)<br>
+&nbsp;<br>
+Physically&nbsp;scrolls&nbsp;the&nbsp;pixels&nbsp;in&nbsp;the&nbsp;window&nbsp;and&nbsp;move&nbsp;child&nbsp;windows<br>
+accordingly.&nbsp;&nbsp;Use&nbsp;this&nbsp;function&nbsp;to&nbsp;optimise&nbsp;your&nbsp;scrolling<br>
+implementations,&nbsp;to&nbsp;minimise&nbsp;the&nbsp;area&nbsp;that&nbsp;must&nbsp;be&nbsp;redrawn.&nbsp;Note&nbsp;that<br>
+it&nbsp;is&nbsp;rarely&nbsp;required&nbsp;to&nbsp;call&nbsp;this&nbsp;function&nbsp;from&nbsp;a&nbsp;user&nbsp;program.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SendSizeEvent"><strong>SendSizeEvent</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="AuiNoteBook-SetAcceleratorTable"><strong>SetAcceleratorTable</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetAcceleratorTable">SetAcceleratorTable</a>(self,&nbsp;AcceleratorTable&nbsp;accel)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;accelerator&nbsp;table&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetAutoLayout"><strong>SetAutoLayout</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetAutoLayout">SetAutoLayout</a>(self,&nbsp;bool&nbsp;autoLayout)<br>
+&nbsp;<br>
+Determines&nbsp;whether&nbsp;the&nbsp;Layout&nbsp;function&nbsp;will&nbsp;be&nbsp;called&nbsp;automatically<br>
+when&nbsp;the&nbsp;window&nbsp;is&nbsp;resized.&nbsp;&nbsp;lease&nbsp;note&nbsp;that&nbsp;this&nbsp;only&nbsp;happens&nbsp;for&nbsp;the<br>
+windows&nbsp;usually&nbsp;used&nbsp;to&nbsp;contain&nbsp;children,&nbsp;namely&nbsp;`wx.Panel`&nbsp;and<br>
+`wx.TopLevelWindow`&nbsp;(and&nbsp;the&nbsp;classes&nbsp;deriving&nbsp;from&nbsp;them).<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;called&nbsp;implicitly&nbsp;by&nbsp;`SetSizer`&nbsp;but&nbsp;if&nbsp;you&nbsp;use<br>
+`SetConstraints`&nbsp;you&nbsp;should&nbsp;call&nbsp;it&nbsp;manually&nbsp;or&nbsp;otherwise&nbsp;the&nbsp;window<br>
+layout&nbsp;won't&nbsp;be&nbsp;correctly&nbsp;updated&nbsp;when&nbsp;its&nbsp;size&nbsp;changes.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetBackgroundColour"><strong>SetBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetBackgroundColour">SetBackgroundColour</a>(self,&nbsp;Colour&nbsp;colour)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;background&nbsp;colour&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;colour<br>
+was&nbsp;changed.&nbsp;&nbsp;The&nbsp;background&nbsp;colour&nbsp;is&nbsp;usually&nbsp;painted&nbsp;by&nbsp;the&nbsp;default<br>
+EVT_ERASE_BACKGROUND&nbsp;event&nbsp;handler&nbsp;function&nbsp;under&nbsp;Windows&nbsp;and<br>
+automatically&nbsp;under&nbsp;GTK.&nbsp;&nbsp;Using&nbsp;`wx.NullColour`&nbsp;will&nbsp;reset&nbsp;the&nbsp;window<br>
+to&nbsp;the&nbsp;default&nbsp;background&nbsp;colour.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;setting&nbsp;the&nbsp;background&nbsp;colour&nbsp;may&nbsp;not&nbsp;cause&nbsp;an&nbsp;immediate<br>
+refresh,&nbsp;so&nbsp;you&nbsp;may&nbsp;wish&nbsp;to&nbsp;call&nbsp;`ClearBackground`&nbsp;or&nbsp;`Refresh`&nbsp;after<br>
+calling&nbsp;this&nbsp;function.<br>
+&nbsp;<br>
+Using&nbsp;this&nbsp;function&nbsp;will&nbsp;disable&nbsp;attempts&nbsp;to&nbsp;use&nbsp;themes&nbsp;for&nbsp;this<br>
+window,&nbsp;if&nbsp;the&nbsp;system&nbsp;supports&nbsp;them.&nbsp;&nbsp;Use&nbsp;with&nbsp;care&nbsp;since&nbsp;usually&nbsp;the<br>
+themes&nbsp;represent&nbsp;the&nbsp;appearance&nbsp;chosen&nbsp;by&nbsp;the&nbsp;user&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;all<br>
+applications&nbsp;on&nbsp;the&nbsp;system.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetBackgroundStyle"><strong>SetBackgroundStyle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetBackgroundStyle">SetBackgroundStyle</a>(self,&nbsp;int&nbsp;style)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;background&nbsp;style&nbsp;of&nbsp;the&nbsp;window.&nbsp;The&nbsp;background&nbsp;style<br>
+indicates&nbsp;how&nbsp;the&nbsp;background&nbsp;of&nbsp;the&nbsp;window&nbsp;is&nbsp;drawn.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;======================&nbsp;&nbsp;========================================<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wx.BG_STYLE_SYSTEM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;background&nbsp;colour&nbsp;or&nbsp;pattern&nbsp;should<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;determined&nbsp;by&nbsp;the&nbsp;system<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wx.BG_STYLE_COLOUR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;background&nbsp;should&nbsp;be&nbsp;a&nbsp;solid&nbsp;colour<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wx.BG_STYLE_CUSTOM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;background&nbsp;will&nbsp;be&nbsp;implemented&nbsp;by&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;======================&nbsp;&nbsp;========================================<br>
+&nbsp;<br>
+On&nbsp;GTK+,&nbsp;use&nbsp;of&nbsp;wx.BG_STYLE_CUSTOM&nbsp;allows&nbsp;the&nbsp;flicker-free&nbsp;drawing&nbsp;of<br>
+a&nbsp;custom&nbsp;background,&nbsp;such&nbsp;as&nbsp;a&nbsp;tiled&nbsp;bitmap.&nbsp;Currently&nbsp;the&nbsp;style&nbsp;has<br>
+no&nbsp;effect&nbsp;on&nbsp;other&nbsp;platforms.<br>
+&nbsp;<br>
+:see:&nbsp;`GetBackgroundStyle`,&nbsp;`SetBackgroundColour`</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetBestFittingSize"><strong>SetBestFittingSize</strong></a> = deprecatedWrapper(*args, **kwargs)</dt><dd><tt>Use&nbsp;`SetInitialSize`</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetCaret"><strong>SetCaret</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetCaret">SetCaret</a>(self,&nbsp;Caret&nbsp;caret)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;caret&nbsp;associated&nbsp;with&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetClientRect"><strong>SetClientRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetClientRect">SetClientRect</a>(self,&nbsp;Rect&nbsp;rect)<br>
+&nbsp;<br>
+This&nbsp;sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;client&nbsp;area&nbsp;in&nbsp;pixels.&nbsp;Using&nbsp;this<br>
+function&nbsp;to&nbsp;size&nbsp;a&nbsp;window&nbsp;tends&nbsp;to&nbsp;be&nbsp;more&nbsp;device-independent&nbsp;than<br>
+wx.Window.SetSize,&nbsp;since&nbsp;the&nbsp;application&nbsp;need&nbsp;not&nbsp;worry&nbsp;about&nbsp;what<br>
+dimensions&nbsp;the&nbsp;border&nbsp;or&nbsp;title&nbsp;bar&nbsp;have&nbsp;when&nbsp;trying&nbsp;to&nbsp;fit&nbsp;the&nbsp;window<br>
+around&nbsp;panel&nbsp;items,&nbsp;for&nbsp;example.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetClientSize"><strong>SetClientSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetClientSize">SetClientSize</a>(self,&nbsp;Size&nbsp;size)<br>
+&nbsp;<br>
+This&nbsp;sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;client&nbsp;area&nbsp;in&nbsp;pixels.&nbsp;Using&nbsp;this<br>
+function&nbsp;to&nbsp;size&nbsp;a&nbsp;window&nbsp;tends&nbsp;to&nbsp;be&nbsp;more&nbsp;device-independent&nbsp;than<br>
+wx.Window.SetSize,&nbsp;since&nbsp;the&nbsp;application&nbsp;need&nbsp;not&nbsp;worry&nbsp;about&nbsp;what<br>
+dimensions&nbsp;the&nbsp;border&nbsp;or&nbsp;title&nbsp;bar&nbsp;have&nbsp;when&nbsp;trying&nbsp;to&nbsp;fit&nbsp;the&nbsp;window<br>
+around&nbsp;panel&nbsp;items,&nbsp;for&nbsp;example.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetClientSizeWH"><strong>SetClientSizeWH</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetClientSizeWH">SetClientSizeWH</a>(self,&nbsp;int&nbsp;width,&nbsp;int&nbsp;height)<br>
+&nbsp;<br>
+This&nbsp;sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;client&nbsp;area&nbsp;in&nbsp;pixels.&nbsp;Using&nbsp;this<br>
+function&nbsp;to&nbsp;size&nbsp;a&nbsp;window&nbsp;tends&nbsp;to&nbsp;be&nbsp;more&nbsp;device-independent&nbsp;than<br>
+wx.Window.SetSize,&nbsp;since&nbsp;the&nbsp;application&nbsp;need&nbsp;not&nbsp;worry&nbsp;about&nbsp;what<br>
+dimensions&nbsp;the&nbsp;border&nbsp;or&nbsp;title&nbsp;bar&nbsp;have&nbsp;when&nbsp;trying&nbsp;to&nbsp;fit&nbsp;the&nbsp;window<br>
+around&nbsp;panel&nbsp;items,&nbsp;for&nbsp;example.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetConstraints"><strong>SetConstraints</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetConstraints">SetConstraints</a>(self,&nbsp;LayoutConstraints&nbsp;constraints)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;window&nbsp;to&nbsp;have&nbsp;the&nbsp;given&nbsp;layout&nbsp;constraints.&nbsp;If&nbsp;an&nbsp;existing<br>
+layout&nbsp;constraints&nbsp;object&nbsp;is&nbsp;already&nbsp;owned&nbsp;by&nbsp;the&nbsp;window,&nbsp;it&nbsp;will&nbsp;be<br>
+deleted.&nbsp;&nbsp;Pass&nbsp;None&nbsp;to&nbsp;disassociate&nbsp;and&nbsp;delete&nbsp;the&nbsp;window's&nbsp;current<br>
+constraints.<br>
+&nbsp;<br>
+You&nbsp;must&nbsp;call&nbsp;SetAutoLayout&nbsp;to&nbsp;tell&nbsp;a&nbsp;window&nbsp;to&nbsp;use&nbsp;the&nbsp;constraints<br>
+automatically&nbsp;in&nbsp;its&nbsp;default&nbsp;EVT_SIZE&nbsp;handler;&nbsp;otherwise,&nbsp;you&nbsp;must<br>
+handle&nbsp;EVT_SIZE&nbsp;yourself&nbsp;and&nbsp;call&nbsp;<a href="#AuiNoteBook-Layout">Layout</a>()&nbsp;explicitly.&nbsp;When&nbsp;setting<br>
+both&nbsp;a&nbsp;wx.LayoutConstraints&nbsp;and&nbsp;a&nbsp;wx.Sizer,&nbsp;only&nbsp;the&nbsp;sizer&nbsp;will&nbsp;have<br>
+effect.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetContainingSizer"><strong>SetContainingSizer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetContainingSizer">SetContainingSizer</a>(self,&nbsp;Sizer&nbsp;sizer)<br>
+&nbsp;<br>
+This&nbsp;normally&nbsp;does&nbsp;not&nbsp;need&nbsp;to&nbsp;be&nbsp;called&nbsp;by&nbsp;application&nbsp;code.&nbsp;It&nbsp;is<br>
+called&nbsp;internally&nbsp;when&nbsp;a&nbsp;window&nbsp;is&nbsp;added&nbsp;to&nbsp;a&nbsp;sizer,&nbsp;and&nbsp;is&nbsp;used&nbsp;so<br>
+the&nbsp;window&nbsp;can&nbsp;remove&nbsp;itself&nbsp;from&nbsp;the&nbsp;sizer&nbsp;when&nbsp;it&nbsp;is&nbsp;destroyed.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetCursor"><strong>SetCursor</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetCursor">SetCursor</a>(self,&nbsp;Cursor&nbsp;cursor)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;window's&nbsp;cursor.&nbsp;Notice&nbsp;that&nbsp;the&nbsp;window&nbsp;cursor&nbsp;also&nbsp;sets&nbsp;it<br>
+for&nbsp;the&nbsp;children&nbsp;of&nbsp;the&nbsp;window&nbsp;implicitly.<br>
+&nbsp;<br>
+The&nbsp;cursor&nbsp;may&nbsp;be&nbsp;wx.NullCursor&nbsp;in&nbsp;which&nbsp;case&nbsp;the&nbsp;window&nbsp;cursor&nbsp;will<br>
+be&nbsp;reset&nbsp;back&nbsp;to&nbsp;default.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetDimensions"><strong>SetDimensions</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetDimensions">SetDimensions</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y,&nbsp;int&nbsp;width,&nbsp;int&nbsp;height,&nbsp;int&nbsp;sizeFlags=SIZE_AUTO)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;The&nbsp;sizeFlags<br>
+parameter&nbsp;indicates&nbsp;the&nbsp;interpretation&nbsp;of&nbsp;the&nbsp;other&nbsp;params&nbsp;if&nbsp;they&nbsp;are<br>
+equal&nbsp;to&nbsp;-1.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_AUTO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;should&nbsp;be&nbsp;used.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_USE_EXISTING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing&nbsp;dimensions&nbsp;should&nbsp;be&nbsp;used&nbsp;if<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE&nbsp;&nbsp;&nbsp;&nbsp;Allow&nbsp;dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;values.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetDoubleBuffered"><strong>SetDoubleBuffered</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetDoubleBuffered">SetDoubleBuffered</a>(self,&nbsp;bool&nbsp;on)<br>
+&nbsp;<br>
+Put&nbsp;the&nbsp;native&nbsp;window&nbsp;into&nbsp;double&nbsp;buffered&nbsp;or&nbsp;composited&nbsp;mode.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetDropTarget"><strong>SetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetDropTarget">SetDropTarget</a>(self,&nbsp;DropTarget&nbsp;dropTarget)<br>
+&nbsp;<br>
+Associates&nbsp;a&nbsp;drop&nbsp;target&nbsp;with&nbsp;this&nbsp;window.&nbsp;&nbsp;If&nbsp;the&nbsp;window&nbsp;already&nbsp;has<br>
+a&nbsp;drop&nbsp;target,&nbsp;it&nbsp;is&nbsp;deleted.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetEventHandler"><strong>SetEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetEventHandler">SetEventHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;event&nbsp;handler&nbsp;for&nbsp;this&nbsp;window.&nbsp;&nbsp;An&nbsp;event&nbsp;handler&nbsp;is&nbsp;an&nbsp;object<br>
+that&nbsp;is&nbsp;capable&nbsp;of&nbsp;processing&nbsp;the&nbsp;events&nbsp;sent&nbsp;to&nbsp;a&nbsp;window.&nbsp;&nbsp;(In&nbsp;other<br>
+words,&nbsp;is&nbsp;able&nbsp;to&nbsp;dispatch&nbsp;the&nbsp;events&nbsp;to&nbsp;handler&nbsp;function.)&nbsp;&nbsp;By<br>
+default,&nbsp;the&nbsp;window&nbsp;is&nbsp;its&nbsp;own&nbsp;event&nbsp;handler,&nbsp;but&nbsp;an&nbsp;application&nbsp;may<br>
+wish&nbsp;to&nbsp;substitute&nbsp;another,&nbsp;for&nbsp;example&nbsp;to&nbsp;allow&nbsp;central<br>
+implementation&nbsp;of&nbsp;event-handling&nbsp;for&nbsp;a&nbsp;variety&nbsp;of&nbsp;different&nbsp;window<br>
+classes.<br>
+&nbsp;<br>
+It&nbsp;is&nbsp;usually&nbsp;better&nbsp;to&nbsp;use&nbsp;`wx.Window.PushEventHandler`&nbsp;since&nbsp;this&nbsp;sets<br>
+up&nbsp;a&nbsp;chain&nbsp;of&nbsp;event&nbsp;handlers,&nbsp;where&nbsp;an&nbsp;event&nbsp;not&nbsp;handled&nbsp;by&nbsp;one&nbsp;event<br>
+handler&nbsp;is&nbsp;handed&nbsp;off&nbsp;to&nbsp;the&nbsp;next&nbsp;one&nbsp;in&nbsp;the&nbsp;chain.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetExtraStyle"><strong>SetExtraStyle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetExtraStyle">SetExtraStyle</a>(self,&nbsp;long&nbsp;exStyle)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;extra&nbsp;style&nbsp;bits&nbsp;for&nbsp;the&nbsp;window.&nbsp;&nbsp;Extra&nbsp;styles&nbsp;are&nbsp;the&nbsp;less<br>
+often&nbsp;used&nbsp;style&nbsp;bits&nbsp;which&nbsp;can't&nbsp;be&nbsp;set&nbsp;with&nbsp;the&nbsp;constructor&nbsp;or&nbsp;with<br>
+<a href="#AuiNoteBook-SetWindowStyleFlag">SetWindowStyleFlag</a>()</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetFocus"><strong>SetFocus</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetFocus">SetFocus</a>(self)<br>
+&nbsp;<br>
+Set's&nbsp;the&nbsp;focus&nbsp;to&nbsp;this&nbsp;window,&nbsp;allowing&nbsp;it&nbsp;to&nbsp;receive&nbsp;keyboard&nbsp;input.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetFocusFromKbd"><strong>SetFocusFromKbd</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetFocusFromKbd">SetFocusFromKbd</a>(self)<br>
+&nbsp;<br>
+Set&nbsp;focus&nbsp;to&nbsp;this&nbsp;window&nbsp;as&nbsp;the&nbsp;result&nbsp;of&nbsp;a&nbsp;keyboard&nbsp;action.&nbsp;&nbsp;Normally<br>
+only&nbsp;called&nbsp;internally.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetFont"><strong>SetFont</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetFont">SetFont</a>(self,&nbsp;Font&nbsp;font)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;font&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetForegroundColour"><strong>SetForegroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetForegroundColour">SetForegroundColour</a>(self,&nbsp;Colour&nbsp;colour)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;foreground&nbsp;colour&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;Returns&nbsp;True&nbsp;is&nbsp;the&nbsp;colour<br>
+was&nbsp;changed.&nbsp;&nbsp;The&nbsp;interpretation&nbsp;of&nbsp;foreground&nbsp;colour&nbsp;is&nbsp;dependent&nbsp;on<br>
+the&nbsp;window&nbsp;class;&nbsp;it&nbsp;may&nbsp;be&nbsp;the&nbsp;text&nbsp;colour&nbsp;or&nbsp;other&nbsp;colour,&nbsp;or&nbsp;it&nbsp;may<br>
+not&nbsp;be&nbsp;used&nbsp;at&nbsp;all.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetHelpText"><strong>SetHelpText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetHelpText">SetHelpText</a>(self,&nbsp;String&nbsp;text)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;help&nbsp;text&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;context-sensitive&nbsp;help&nbsp;for&nbsp;this<br>
+window.&nbsp;&nbsp;Note&nbsp;that&nbsp;the&nbsp;text&nbsp;is&nbsp;actually&nbsp;stored&nbsp;by&nbsp;the&nbsp;current<br>
+`wx.HelpProvider`&nbsp;implementation,&nbsp;and&nbsp;not&nbsp;in&nbsp;the&nbsp;window&nbsp;object&nbsp;itself.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetHelpTextForId"><strong>SetHelpTextForId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetHelpTextForId">SetHelpTextForId</a>(self,&nbsp;String&nbsp;text)<br>
+&nbsp;<br>
+Associate&nbsp;this&nbsp;help&nbsp;text&nbsp;with&nbsp;all&nbsp;windows&nbsp;with&nbsp;the&nbsp;same&nbsp;id&nbsp;as&nbsp;this<br>
+one.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetId"><strong>SetId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetId">SetId</a>(self,&nbsp;int&nbsp;winid)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;identifier&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;Each&nbsp;window&nbsp;has&nbsp;an&nbsp;integer<br>
+identifier.&nbsp;If&nbsp;the&nbsp;application&nbsp;has&nbsp;not&nbsp;provided&nbsp;one,&nbsp;an&nbsp;identifier<br>
+will&nbsp;be&nbsp;generated.&nbsp;Normally,&nbsp;the&nbsp;identifier&nbsp;should&nbsp;be&nbsp;provided&nbsp;on<br>
+creation&nbsp;and&nbsp;should&nbsp;not&nbsp;be&nbsp;modified&nbsp;subsequently.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetInitialSize"><strong>SetInitialSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetInitialSize">SetInitialSize</a>(self,&nbsp;Size&nbsp;size=DefaultSize)<br>
+&nbsp;<br>
+A&nbsp;'Smart'&nbsp;SetSize&nbsp;that&nbsp;will&nbsp;fill&nbsp;in&nbsp;default&nbsp;size&nbsp;components&nbsp;with&nbsp;the<br>
+window's&nbsp;*best&nbsp;size*&nbsp;values.&nbsp;&nbsp;Also&nbsp;set's&nbsp;the&nbsp;minsize&nbsp;for&nbsp;use&nbsp;with&nbsp;sizers.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetLabel"><strong>SetLabel</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetLabel">SetLabel</a>(self,&nbsp;String&nbsp;label)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;text&nbsp;which&nbsp;the&nbsp;window&nbsp;shows&nbsp;in&nbsp;its&nbsp;label&nbsp;if&nbsp;applicable.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetLayoutDirection"><strong>SetLayoutDirection</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetLayoutDirection">SetLayoutDirection</a>(self,&nbsp;int&nbsp;dir)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;layout&nbsp;direction&nbsp;(LTR&nbsp;or&nbsp;RTL)&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetMaxSize"><strong>SetMaxSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetMaxSize">SetMaxSize</a>(self,&nbsp;Size&nbsp;maxSize)<br>
+&nbsp;<br>
+A&nbsp;more&nbsp;convenient&nbsp;method&nbsp;than&nbsp;`SetSizeHints`&nbsp;for&nbsp;setting&nbsp;just&nbsp;the<br>
+max&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetMinSize"><strong>SetMinSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetMinSize">SetMinSize</a>(self,&nbsp;Size&nbsp;minSize)<br>
+&nbsp;<br>
+A&nbsp;more&nbsp;convenient&nbsp;method&nbsp;than&nbsp;`SetSizeHints`&nbsp;for&nbsp;setting&nbsp;just&nbsp;the<br>
+min&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetName"><strong>SetName</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetName">SetName</a>(self,&nbsp;String&nbsp;name)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;window's&nbsp;name.&nbsp;&nbsp;The&nbsp;window&nbsp;name&nbsp;is&nbsp;used&nbsp;for&nbsp;ressource&nbsp;setting<br>
+in&nbsp;X,&nbsp;it&nbsp;is&nbsp;not&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;window&nbsp;title/label</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetOwnBackgroundColour"><strong>SetOwnBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetOwnBackgroundColour">SetOwnBackgroundColour</a>(self,&nbsp;Colour&nbsp;colour)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetOwnFont"><strong>SetOwnFont</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetOwnFont">SetOwnFont</a>(self,&nbsp;Font&nbsp;font)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetOwnForegroundColour"><strong>SetOwnForegroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetOwnForegroundColour">SetOwnForegroundColour</a>(self,&nbsp;Colour&nbsp;colour)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetPosition"><strong>SetPosition</strong></a> = Move(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Move">Move</a>(self,&nbsp;Point&nbsp;pt,&nbsp;int&nbsp;flags=SIZE_USE_EXISTING)<br>
+&nbsp;<br>
+Moves&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;given&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetRect"><strong>SetRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetRect">SetRect</a>(self,&nbsp;Rect&nbsp;rect,&nbsp;int&nbsp;sizeFlags=SIZE_AUTO)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels&nbsp;using&nbsp;a&nbsp;wx.Rect.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetScrollPos"><strong>SetScrollPos</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetScrollPos">SetScrollPos</a>(self,&nbsp;int&nbsp;orientation,&nbsp;int&nbsp;pos,&nbsp;bool&nbsp;refresh=True)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;position&nbsp;of&nbsp;one&nbsp;of&nbsp;the&nbsp;built-in&nbsp;scrollbars.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetScrollbar"><strong>SetScrollbar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetScrollbar">SetScrollbar</a>(self,&nbsp;int&nbsp;orientation,&nbsp;int&nbsp;position,&nbsp;int&nbsp;thumbSize,&nbsp;int&nbsp;range,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool&nbsp;refresh=True)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;scrollbar&nbsp;properties&nbsp;of&nbsp;a&nbsp;built-in&nbsp;scrollbar.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetSize"><strong>SetSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetSize">SetSize</a>(self,&nbsp;Size&nbsp;size)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetSizeHints"><strong>SetSizeHints</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetSizeHints">SetSizeHints</a>(self,&nbsp;int&nbsp;minW,&nbsp;int&nbsp;minH,&nbsp;int&nbsp;maxW=-1,&nbsp;int&nbsp;maxH=-1,&nbsp;int&nbsp;incW=-1,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;incH=-1)<br>
+&nbsp;<br>
+Allows&nbsp;specification&nbsp;of&nbsp;minimum&nbsp;and&nbsp;maximum&nbsp;window&nbsp;sizes,&nbsp;and&nbsp;window<br>
+size&nbsp;increments.&nbsp;If&nbsp;a&nbsp;pair&nbsp;of&nbsp;values&nbsp;is&nbsp;not&nbsp;set&nbsp;(or&nbsp;set&nbsp;to&nbsp;-1),&nbsp;the<br>
+default&nbsp;values&nbsp;will&nbsp;be&nbsp;used.&nbsp;&nbsp;If&nbsp;this&nbsp;function&nbsp;is&nbsp;called,&nbsp;the&nbsp;user<br>
+will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;size&nbsp;the&nbsp;window&nbsp;outside&nbsp;the&nbsp;given&nbsp;bounds&nbsp;(if&nbsp;it&nbsp;is<br>
+a&nbsp;top-level&nbsp;window.)&nbsp;&nbsp;Sizers&nbsp;will&nbsp;also&nbsp;inspect&nbsp;the&nbsp;minimum&nbsp;window&nbsp;size<br>
+and&nbsp;will&nbsp;use&nbsp;that&nbsp;value&nbsp;if&nbsp;set&nbsp;when&nbsp;calculating&nbsp;layout.<br>
+&nbsp;<br>
+The&nbsp;resizing&nbsp;increments&nbsp;are&nbsp;only&nbsp;significant&nbsp;under&nbsp;Motif&nbsp;or&nbsp;Xt.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetSizeHintsSz"><strong>SetSizeHintsSz</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetSizeHintsSz">SetSizeHintsSz</a>(self,&nbsp;Size&nbsp;minSize,&nbsp;Size&nbsp;maxSize=DefaultSize,&nbsp;Size&nbsp;incSize=DefaultSize)<br>
+&nbsp;<br>
+Allows&nbsp;specification&nbsp;of&nbsp;minimum&nbsp;and&nbsp;maximum&nbsp;window&nbsp;sizes,&nbsp;and&nbsp;window<br>
+size&nbsp;increments.&nbsp;If&nbsp;a&nbsp;pair&nbsp;of&nbsp;values&nbsp;is&nbsp;not&nbsp;set&nbsp;(or&nbsp;set&nbsp;to&nbsp;-1),&nbsp;the<br>
+default&nbsp;values&nbsp;will&nbsp;be&nbsp;used.&nbsp;&nbsp;If&nbsp;this&nbsp;function&nbsp;is&nbsp;called,&nbsp;the&nbsp;user<br>
+will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;size&nbsp;the&nbsp;window&nbsp;outside&nbsp;the&nbsp;given&nbsp;bounds&nbsp;(if&nbsp;it&nbsp;is<br>
+a&nbsp;top-level&nbsp;window.)&nbsp;&nbsp;Sizers&nbsp;will&nbsp;also&nbsp;inspect&nbsp;the&nbsp;minimum&nbsp;window&nbsp;size<br>
+and&nbsp;will&nbsp;use&nbsp;that&nbsp;value&nbsp;if&nbsp;set&nbsp;when&nbsp;calculating&nbsp;layout.<br>
+&nbsp;<br>
+The&nbsp;resizing&nbsp;increments&nbsp;are&nbsp;only&nbsp;significant&nbsp;under&nbsp;Motif&nbsp;or&nbsp;Xt.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetSizeWH"><strong>SetSizeWH</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetSizeWH">SetSizeWH</a>(self,&nbsp;int&nbsp;width,&nbsp;int&nbsp;height)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetSizer"><strong>SetSizer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetSizer">SetSizer</a>(self,&nbsp;Sizer&nbsp;sizer,&nbsp;bool&nbsp;deleteOld=True)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;window&nbsp;to&nbsp;have&nbsp;the&nbsp;given&nbsp;layout&nbsp;sizer.&nbsp;The&nbsp;window&nbsp;will&nbsp;then<br>
+own&nbsp;the&nbsp;object,&nbsp;and&nbsp;will&nbsp;take&nbsp;care&nbsp;of&nbsp;its&nbsp;deletion.&nbsp;If&nbsp;an&nbsp;existing<br>
+layout&nbsp;sizer&nbsp;object&nbsp;is&nbsp;already&nbsp;owned&nbsp;by&nbsp;the&nbsp;window,&nbsp;it&nbsp;will&nbsp;be&nbsp;deleted<br>
+if&nbsp;the&nbsp;deleteOld&nbsp;parameter&nbsp;is&nbsp;true.&nbsp;Note&nbsp;that&nbsp;this&nbsp;function&nbsp;will&nbsp;also<br>
+call&nbsp;SetAutoLayout&nbsp;implicitly&nbsp;with&nbsp;a&nbsp;True&nbsp;parameter&nbsp;if&nbsp;the&nbsp;sizer&nbsp;is<br>
+non-None,&nbsp;and&nbsp;False&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetSizerAndFit"><strong>SetSizerAndFit</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetSizerAndFit">SetSizerAndFit</a>(self,&nbsp;Sizer&nbsp;sizer,&nbsp;bool&nbsp;deleteOld=True)<br>
+&nbsp;<br>
+The&nbsp;same&nbsp;as&nbsp;SetSizer,&nbsp;except&nbsp;it&nbsp;also&nbsp;sets&nbsp;the&nbsp;size&nbsp;hints&nbsp;for&nbsp;the<br>
+window&nbsp;based&nbsp;on&nbsp;the&nbsp;sizer's&nbsp;minimum&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetThemeEnabled"><strong>SetThemeEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetThemeEnabled">SetThemeEnabled</a>(self,&nbsp;bool&nbsp;enableTheme)<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;tells&nbsp;a&nbsp;window&nbsp;if&nbsp;it&nbsp;should&nbsp;use&nbsp;the&nbsp;system's&nbsp;"theme"<br>
+&nbsp;code&nbsp;to&nbsp;draw&nbsp;the&nbsp;windows'&nbsp;background&nbsp;instead&nbsp;if&nbsp;its&nbsp;own&nbsp;background<br>
+&nbsp;drawing&nbsp;code.&nbsp;This&nbsp;will&nbsp;only&nbsp;have&nbsp;an&nbsp;effect&nbsp;on&nbsp;platforms&nbsp;that&nbsp;support<br>
+&nbsp;the&nbsp;notion&nbsp;of&nbsp;themes&nbsp;in&nbsp;user&nbsp;defined&nbsp;windows.&nbsp;One&nbsp;such&nbsp;platform&nbsp;is<br>
+&nbsp;GTK+&nbsp;where&nbsp;windows&nbsp;can&nbsp;have&nbsp;(very&nbsp;colourful)&nbsp;backgrounds&nbsp;defined&nbsp;by&nbsp;a<br>
+&nbsp;user's&nbsp;selected&nbsp;theme.<br>
+&nbsp;<br>
+Dialogs,&nbsp;notebook&nbsp;pages&nbsp;and&nbsp;the&nbsp;status&nbsp;bar&nbsp;have&nbsp;this&nbsp;flag&nbsp;set&nbsp;to&nbsp;true<br>
+by&nbsp;default&nbsp;so&nbsp;that&nbsp;the&nbsp;default&nbsp;look&nbsp;and&nbsp;feel&nbsp;is&nbsp;simulated&nbsp;best.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetToolTip"><strong>SetToolTip</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetToolTip">SetToolTip</a>(self,&nbsp;ToolTip&nbsp;tip)<br>
+&nbsp;<br>
+Attach&nbsp;a&nbsp;tooltip&nbsp;to&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetToolTipString"><strong>SetToolTipString</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetToolTipString">SetToolTipString</a>(self,&nbsp;String&nbsp;tip)<br>
+&nbsp;<br>
+Attach&nbsp;a&nbsp;tooltip&nbsp;to&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetTransparent"><strong>SetTransparent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetTransparent">SetTransparent</a>(self,&nbsp;byte&nbsp;alpha)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Attempt&nbsp;to&nbsp;set&nbsp;the&nbsp;transparency&nbsp;of&nbsp;this&nbsp;window&nbsp;to&nbsp;the&nbsp;``alpha``&nbsp;value,<br>
+returns&nbsp;True&nbsp;on&nbsp;success.&nbsp;&nbsp;The&nbsp;``alpha``&nbsp;value&nbsp;is&nbsp;an&nbsp;integer&nbsp;in&nbsp;the<br>
+range&nbsp;of&nbsp;0&nbsp;to&nbsp;255,&nbsp;where&nbsp;0&nbsp;is&nbsp;fully&nbsp;transparent&nbsp;and&nbsp;255&nbsp;is&nbsp;fully<br>
+opaque.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetValidator"><strong>SetValidator</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetValidator">SetValidator</a>(self,&nbsp;Validator&nbsp;validator)<br>
+&nbsp;<br>
+Deletes&nbsp;the&nbsp;current&nbsp;validator&nbsp;(if&nbsp;any)&nbsp;and&nbsp;sets&nbsp;the&nbsp;window&nbsp;validator,<br>
+having&nbsp;called&nbsp;wx.Validator.Clone&nbsp;to&nbsp;create&nbsp;a&nbsp;new&nbsp;validator&nbsp;of&nbsp;this<br>
+type.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetVirtualSize"><strong>SetVirtualSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetVirtualSize">SetVirtualSize</a>(self,&nbsp;Size&nbsp;size)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;the&nbsp;virtual&nbsp;size&nbsp;of&nbsp;a&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;For&nbsp;most&nbsp;windows&nbsp;this<br>
+is&nbsp;just&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window,&nbsp;but&nbsp;for&nbsp;some&nbsp;like&nbsp;scrolled<br>
+windows&nbsp;it&nbsp;is&nbsp;more&nbsp;or&nbsp;less&nbsp;independent&nbsp;of&nbsp;the&nbsp;screen&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetVirtualSizeHints"><strong>SetVirtualSizeHints</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetVirtualSizeHints">SetVirtualSizeHints</a>(self,&nbsp;int&nbsp;minW,&nbsp;int&nbsp;minH,&nbsp;int&nbsp;maxW=-1,&nbsp;int&nbsp;maxH=-1)<br>
+&nbsp;<br>
+Allows&nbsp;specification&nbsp;of&nbsp;minimum&nbsp;and&nbsp;maximum&nbsp;virtual&nbsp;window&nbsp;sizes.&nbsp;If&nbsp;a<br>
+pair&nbsp;of&nbsp;values&nbsp;is&nbsp;not&nbsp;set&nbsp;(or&nbsp;set&nbsp;to&nbsp;-1),&nbsp;the&nbsp;default&nbsp;values&nbsp;will&nbsp;be<br>
+used.&nbsp;&nbsp;If&nbsp;this&nbsp;function&nbsp;is&nbsp;called,&nbsp;the&nbsp;user&nbsp;will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;size<br>
+the&nbsp;virtual&nbsp;area&nbsp;of&nbsp;the&nbsp;window&nbsp;outside&nbsp;the&nbsp;given&nbsp;bounds.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetVirtualSizeHintsSz"><strong>SetVirtualSizeHintsSz</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetVirtualSizeHintsSz">SetVirtualSizeHintsSz</a>(self,&nbsp;Size&nbsp;minSize,&nbsp;Size&nbsp;maxSize=DefaultSize)<br>
+&nbsp;<br>
+Allows&nbsp;specification&nbsp;of&nbsp;minimum&nbsp;and&nbsp;maximum&nbsp;virtual&nbsp;window&nbsp;sizes.&nbsp;If&nbsp;a<br>
+pair&nbsp;of&nbsp;values&nbsp;is&nbsp;not&nbsp;set&nbsp;(or&nbsp;set&nbsp;to&nbsp;-1),&nbsp;the&nbsp;default&nbsp;values&nbsp;will&nbsp;be<br>
+used.&nbsp;&nbsp;If&nbsp;this&nbsp;function&nbsp;is&nbsp;called,&nbsp;the&nbsp;user&nbsp;will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;size<br>
+the&nbsp;virtual&nbsp;area&nbsp;of&nbsp;the&nbsp;window&nbsp;outside&nbsp;the&nbsp;given&nbsp;bounds.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetVirtualSizeWH"><strong>SetVirtualSizeWH</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetVirtualSizeWH">SetVirtualSizeWH</a>(self,&nbsp;int&nbsp;w,&nbsp;int&nbsp;h)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;the&nbsp;virtual&nbsp;size&nbsp;of&nbsp;a&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;For&nbsp;most&nbsp;windows&nbsp;this<br>
+is&nbsp;just&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window,&nbsp;but&nbsp;for&nbsp;some&nbsp;like&nbsp;scrolled<br>
+windows&nbsp;it&nbsp;is&nbsp;more&nbsp;or&nbsp;less&nbsp;independent&nbsp;of&nbsp;the&nbsp;screen&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetWindowStyle"><strong>SetWindowStyle</strong></a> = SetWindowStyleFlag(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetWindowStyleFlag">SetWindowStyleFlag</a>(self,&nbsp;long&nbsp;style)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;style&nbsp;of&nbsp;the&nbsp;window.&nbsp;Please&nbsp;note&nbsp;that&nbsp;some&nbsp;styles&nbsp;cannot&nbsp;be<br>
+changed&nbsp;after&nbsp;the&nbsp;window&nbsp;creation&nbsp;and&nbsp;that&nbsp;<a href="#AuiNoteBook-Refresh">Refresh</a>()&nbsp;might&nbsp;need&nbsp;to&nbsp;be<br>
+called&nbsp;after&nbsp;changing&nbsp;the&nbsp;others&nbsp;for&nbsp;the&nbsp;change&nbsp;to&nbsp;take&nbsp;place<br>
+immediately.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetWindowStyleFlag"><strong>SetWindowStyleFlag</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetWindowStyleFlag">SetWindowStyleFlag</a>(self,&nbsp;long&nbsp;style)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;style&nbsp;of&nbsp;the&nbsp;window.&nbsp;Please&nbsp;note&nbsp;that&nbsp;some&nbsp;styles&nbsp;cannot&nbsp;be<br>
+changed&nbsp;after&nbsp;the&nbsp;window&nbsp;creation&nbsp;and&nbsp;that&nbsp;<a href="#AuiNoteBook-Refresh">Refresh</a>()&nbsp;might&nbsp;need&nbsp;to&nbsp;be<br>
+called&nbsp;after&nbsp;changing&nbsp;the&nbsp;others&nbsp;for&nbsp;the&nbsp;change&nbsp;to&nbsp;take&nbsp;place<br>
+immediately.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetWindowVariant"><strong>SetWindowVariant</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetWindowVariant">SetWindowVariant</a>(self,&nbsp;int&nbsp;variant)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;variant&nbsp;of&nbsp;the&nbsp;window/font&nbsp;size&nbsp;to&nbsp;use&nbsp;for&nbsp;this&nbsp;window,&nbsp;if<br>
+the&nbsp;platform&nbsp;supports&nbsp;variants,&nbsp;for&nbsp;example,&nbsp;wxMac.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ShouldInheritColours"><strong>ShouldInheritColours</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ShouldInheritColours">ShouldInheritColours</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Return&nbsp;true&nbsp;from&nbsp;here&nbsp;to&nbsp;allow&nbsp;the&nbsp;colours&nbsp;of&nbsp;this&nbsp;window&nbsp;to&nbsp;be<br>
+changed&nbsp;by&nbsp;InheritAttributes,&nbsp;returning&nbsp;false&nbsp;forbids&nbsp;inheriting&nbsp;them<br>
+from&nbsp;the&nbsp;parent&nbsp;window.<br>
+&nbsp;<br>
+The&nbsp;base&nbsp;class&nbsp;version&nbsp;returns&nbsp;false,&nbsp;but&nbsp;this&nbsp;method&nbsp;is&nbsp;overridden&nbsp;in<br>
+wxControl&nbsp;where&nbsp;it&nbsp;returns&nbsp;true.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Show"><strong>Show</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Show">Show</a>(self,&nbsp;bool&nbsp;show=True)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Shows&nbsp;or&nbsp;hides&nbsp;the&nbsp;window.&nbsp;You&nbsp;may&nbsp;need&nbsp;to&nbsp;call&nbsp;Raise&nbsp;for&nbsp;a&nbsp;top&nbsp;level<br>
+window&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;bring&nbsp;it&nbsp;to&nbsp;top,&nbsp;although&nbsp;this&nbsp;is&nbsp;not&nbsp;needed&nbsp;if<br>
+Show&nbsp;is&nbsp;called&nbsp;immediately&nbsp;after&nbsp;the&nbsp;frame&nbsp;creation.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if<br>
+the&nbsp;window&nbsp;has&nbsp;been&nbsp;shown&nbsp;or&nbsp;hidden&nbsp;or&nbsp;False&nbsp;if&nbsp;nothing&nbsp;was&nbsp;done<br>
+because&nbsp;it&nbsp;already&nbsp;was&nbsp;in&nbsp;the&nbsp;requested&nbsp;state.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Thaw"><strong>Thaw</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Thaw">Thaw</a>(self)<br>
+&nbsp;<br>
+Reenables&nbsp;window&nbsp;updating&nbsp;after&nbsp;a&nbsp;previous&nbsp;call&nbsp;to&nbsp;Freeze.&nbsp;&nbsp;Calls&nbsp;to<br>
+Freeze/Thaw&nbsp;may&nbsp;be&nbsp;nested,&nbsp;so&nbsp;Thaw&nbsp;must&nbsp;be&nbsp;called&nbsp;the&nbsp;same&nbsp;number&nbsp;of<br>
+times&nbsp;that&nbsp;Freeze&nbsp;was&nbsp;before&nbsp;the&nbsp;window&nbsp;will&nbsp;be&nbsp;updated.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ToggleWindowStyle"><strong>ToggleWindowStyle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ToggleWindowStyle">ToggleWindowStyle</a>(self,&nbsp;int&nbsp;flag)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Turn&nbsp;the&nbsp;flag&nbsp;on&nbsp;if&nbsp;it&nbsp;had&nbsp;been&nbsp;turned&nbsp;off&nbsp;before&nbsp;and&nbsp;vice&nbsp;versa,<br>
+returns&nbsp;True&nbsp;if&nbsp;the&nbsp;flag&nbsp;is&nbsp;turned&nbsp;on&nbsp;by&nbsp;this&nbsp;function&nbsp;call.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-TransferDataFromWindow"><strong>TransferDataFromWindow</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-TransferDataFromWindow">TransferDataFromWindow</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Transfers&nbsp;values&nbsp;from&nbsp;child&nbsp;controls&nbsp;to&nbsp;data&nbsp;areas&nbsp;specified&nbsp;by&nbsp;their<br>
+validators.&nbsp;Returns&nbsp;false&nbsp;if&nbsp;a&nbsp;transfer&nbsp;failed.&nbsp;&nbsp;If&nbsp;the&nbsp;window&nbsp;has<br>
+wx.WS_EX_VALIDATE_RECURSIVELY&nbsp;extra&nbsp;style&nbsp;flag&nbsp;set,&nbsp;the&nbsp;method&nbsp;will<br>
+also&nbsp;call&nbsp;<a href="#AuiNoteBook-TransferDataFromWindow">TransferDataFromWindow</a>()&nbsp;of&nbsp;all&nbsp;child&nbsp;windows.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-TransferDataToWindow"><strong>TransferDataToWindow</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-TransferDataToWindow">TransferDataToWindow</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Transfers&nbsp;values&nbsp;to&nbsp;child&nbsp;controls&nbsp;from&nbsp;data&nbsp;areas&nbsp;specified&nbsp;by&nbsp;their<br>
+validators.&nbsp;&nbsp;If&nbsp;the&nbsp;window&nbsp;has&nbsp;wx.WS_EX_VALIDATE_RECURSIVELY&nbsp;extra<br>
+style&nbsp;flag&nbsp;set,&nbsp;the&nbsp;method&nbsp;will&nbsp;also&nbsp;call&nbsp;<a href="#AuiNoteBook-TransferDataToWindow">TransferDataToWindow</a>()&nbsp;of<br>
+all&nbsp;child&nbsp;windows.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-UnregisterHotKey"><strong>UnregisterHotKey</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-UnregisterHotKey">UnregisterHotKey</a>(self,&nbsp;int&nbsp;hotkeyId)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Unregisters&nbsp;a&nbsp;system&nbsp;wide&nbsp;hotkey.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Update"><strong>Update</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Update">Update</a>(self)<br>
+&nbsp;<br>
+Calling&nbsp;this&nbsp;method&nbsp;immediately&nbsp;repaints&nbsp;the&nbsp;invalidated&nbsp;area&nbsp;of&nbsp;the<br>
+window&nbsp;instead&nbsp;of&nbsp;waiting&nbsp;for&nbsp;the&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;happen,&nbsp;(normally<br>
+this&nbsp;would&nbsp;usually&nbsp;only&nbsp;happen&nbsp;when&nbsp;the&nbsp;flow&nbsp;of&nbsp;control&nbsp;returns&nbsp;to&nbsp;the<br>
+event&nbsp;loop.)&nbsp;&nbsp;Notice&nbsp;that&nbsp;this&nbsp;function&nbsp;doesn't&nbsp;refresh&nbsp;the&nbsp;window&nbsp;and<br>
+does&nbsp;nothing&nbsp;if&nbsp;the&nbsp;window&nbsp;has&nbsp;been&nbsp;already&nbsp;repainted.&nbsp;&nbsp;Use&nbsp;`Refresh`<br>
+first&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;immediately&nbsp;redraw&nbsp;the&nbsp;window&nbsp;(or&nbsp;some&nbsp;portion&nbsp;of<br>
+it)&nbsp;unconditionally.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-UpdateWindowUI"><strong>UpdateWindowUI</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-UpdateWindowUI">UpdateWindowUI</a>(self,&nbsp;long&nbsp;flags=UPDATE_UI_NONE)<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;sends&nbsp;EVT_UPDATE_UI&nbsp;events&nbsp;to&nbsp;the&nbsp;window.&nbsp;The&nbsp;particular<br>
+implementation&nbsp;depends&nbsp;on&nbsp;the&nbsp;window;&nbsp;for&nbsp;example&nbsp;a&nbsp;wx.ToolBar&nbsp;will<br>
+send&nbsp;an&nbsp;update&nbsp;UI&nbsp;event&nbsp;for&nbsp;each&nbsp;toolbar&nbsp;button,&nbsp;and&nbsp;a&nbsp;wx.Frame&nbsp;will<br>
+send&nbsp;an&nbsp;update&nbsp;UI&nbsp;event&nbsp;for&nbsp;each&nbsp;menubar&nbsp;menu&nbsp;item.&nbsp;You&nbsp;can&nbsp;call&nbsp;this<br>
+function&nbsp;from&nbsp;your&nbsp;application&nbsp;to&nbsp;ensure&nbsp;that&nbsp;your&nbsp;UI&nbsp;is&nbsp;up-to-date&nbsp;at<br>
+a&nbsp;particular&nbsp;point&nbsp;in&nbsp;time&nbsp;(as&nbsp;far&nbsp;as&nbsp;your&nbsp;EVT_UPDATE_UI&nbsp;handlers&nbsp;are<br>
+concerned).&nbsp;This&nbsp;may&nbsp;be&nbsp;necessary&nbsp;if&nbsp;you&nbsp;have&nbsp;called<br>
+`wx.UpdateUIEvent.SetMode`&nbsp;or&nbsp;`wx.UpdateUIEvent.SetUpdateInterval`&nbsp;to<br>
+limit&nbsp;the&nbsp;overhead&nbsp;that&nbsp;wxWindows&nbsp;incurs&nbsp;by&nbsp;sending&nbsp;update&nbsp;UI&nbsp;events<br>
+in&nbsp;idle&nbsp;time.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-UseBgCol"><strong>UseBgCol</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-UseBgCol">UseBgCol</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Validate"><strong>Validate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Validate">Validate</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Validates&nbsp;the&nbsp;current&nbsp;values&nbsp;of&nbsp;the&nbsp;child&nbsp;controls&nbsp;using&nbsp;their<br>
+validators.&nbsp;&nbsp;If&nbsp;the&nbsp;window&nbsp;has&nbsp;wx.WS_EX_VALIDATE_RECURSIVELY&nbsp;extra<br>
+style&nbsp;flag&nbsp;set,&nbsp;the&nbsp;method&nbsp;will&nbsp;also&nbsp;call&nbsp;<a href="#AuiNoteBook-Validate">Validate</a>()&nbsp;of&nbsp;all&nbsp;child<br>
+windows.&nbsp;&nbsp;Returns&nbsp;false&nbsp;if&nbsp;any&nbsp;of&nbsp;the&nbsp;validations&nbsp;failed.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-WarpPointer"><strong>WarpPointer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-WarpPointer">WarpPointer</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y)<br>
+&nbsp;<br>
+Moves&nbsp;the&nbsp;pointer&nbsp;to&nbsp;the&nbsp;given&nbsp;position&nbsp;on&nbsp;the&nbsp;window.<br>
+&nbsp;<br>
+NOTE:&nbsp;This&nbsp;function&nbsp;is&nbsp;not&nbsp;supported&nbsp;under&nbsp;Mac&nbsp;because&nbsp;Apple&nbsp;Human<br>
+Interface&nbsp;Guidelines&nbsp;forbid&nbsp;moving&nbsp;the&nbsp;mouse&nbsp;cursor&nbsp;programmatically.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-WindowToClientSize"><strong>WindowToClientSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-WindowToClientSize">WindowToClientSize</a>(self,&nbsp;Size&nbsp;size)&nbsp;-&gt;&nbsp;Size</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="wx._core.html#Window">wx._core.Window</a>:<br>
+<dl><dt><a name="AuiNoteBook-FindFocus"><strong>FindFocus</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-FindFocus">FindFocus</a>()&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;window&nbsp;or&nbsp;control&nbsp;that&nbsp;currently&nbsp;has&nbsp;the&nbsp;keyboard&nbsp;focus,<br>
+or&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetCapture"><strong>GetCapture</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetCapture">GetCapture</a>()&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;window&nbsp;which&nbsp;currently&nbsp;captures&nbsp;the&nbsp;mouse&nbsp;or&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-NewControlId"><strong>NewControlId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-NewControlId">NewControlId</a>()&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Generate&nbsp;a&nbsp;control&nbsp;id&nbsp;for&nbsp;the&nbsp;controls&nbsp;which&nbsp;were&nbsp;not&nbsp;given&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-NextControlId"><strong>NextControlId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-NextControlId">NextControlId</a>(int&nbsp;winid)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;id&nbsp;of&nbsp;the&nbsp;control&nbsp;following&nbsp;the&nbsp;one&nbsp;with&nbsp;the&nbsp;given<br>
+autogenerated)&nbsp;id</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-PrevControlId"><strong>PrevControlId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-PrevControlId">PrevControlId</a>(int&nbsp;winid)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;id&nbsp;of&nbsp;the&nbsp;control&nbsp;preceding&nbsp;the&nbsp;one&nbsp;with&nbsp;the&nbsp;given<br>
+autogenerated)&nbsp;id</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="wx._core.html#Window">wx._core.Window</a>:<br>
+<dl><dt><strong>AcceleratorTable</strong></dt>
+<dd><tt>See&nbsp;`GetAcceleratorTable`&nbsp;and&nbsp;`SetAcceleratorTable`</tt></dd>
+</dl>
+<dl><dt><strong>AutoLayout</strong></dt>
+<dd><tt>See&nbsp;`GetAutoLayout`&nbsp;and&nbsp;`SetAutoLayout`</tt></dd>
+</dl>
+<dl><dt><strong>BackgroundColour</strong></dt>
+<dd><tt>See&nbsp;`GetBackgroundColour`&nbsp;and&nbsp;`SetBackgroundColour`</tt></dd>
+</dl>
+<dl><dt><strong>BackgroundStyle</strong></dt>
+<dd><tt>See&nbsp;`GetBackgroundStyle`&nbsp;and&nbsp;`SetBackgroundStyle`</tt></dd>
+</dl>
+<dl><dt><strong>BestSize</strong></dt>
+<dd><tt>See&nbsp;`GetBestSize`</tt></dd>
+</dl>
+<dl><dt><strong>BestVirtualSize</strong></dt>
+<dd><tt>See&nbsp;`GetBestVirtualSize`</tt></dd>
+</dl>
+<dl><dt><strong>Border</strong></dt>
+<dd><tt>See&nbsp;`GetBorder`</tt></dd>
+</dl>
+<dl><dt><strong>Caret</strong></dt>
+<dd><tt>See&nbsp;`GetCaret`&nbsp;and&nbsp;`SetCaret`</tt></dd>
+</dl>
+<dl><dt><strong>CharHeight</strong></dt>
+<dd><tt>See&nbsp;`GetCharHeight`</tt></dd>
+</dl>
+<dl><dt><strong>CharWidth</strong></dt>
+<dd><tt>See&nbsp;`GetCharWidth`</tt></dd>
+</dl>
+<dl><dt><strong>Children</strong></dt>
+<dd><tt>See&nbsp;`GetChildren`</tt></dd>
+</dl>
+<dl><dt><strong>ClientAreaOrigin</strong></dt>
+<dd><tt>See&nbsp;`GetClientAreaOrigin`</tt></dd>
+</dl>
+<dl><dt><strong>ClientRect</strong></dt>
+<dd><tt>See&nbsp;`GetClientRect`&nbsp;and&nbsp;`SetClientRect`</tt></dd>
+</dl>
+<dl><dt><strong>ClientSize</strong></dt>
+<dd><tt>See&nbsp;`GetClientSize`&nbsp;and&nbsp;`SetClientSize`</tt></dd>
+</dl>
+<dl><dt><strong>Constraints</strong></dt>
+<dd><tt>See&nbsp;`GetConstraints`&nbsp;and&nbsp;`SetConstraints`</tt></dd>
+</dl>
+<dl><dt><strong>ContainingSizer</strong></dt>
+<dd><tt>See&nbsp;`GetContainingSizer`&nbsp;and&nbsp;`SetContainingSizer`</tt></dd>
+</dl>
+<dl><dt><strong>Cursor</strong></dt>
+<dd><tt>See&nbsp;`GetCursor`&nbsp;and&nbsp;`SetCursor`</tt></dd>
+</dl>
+<dl><dt><strong>DefaultAttributes</strong></dt>
+<dd><tt>See&nbsp;`GetDefaultAttributes`</tt></dd>
+</dl>
+<dl><dt><strong>DropTarget</strong></dt>
+<dd><tt>See&nbsp;`GetDropTarget`&nbsp;and&nbsp;`SetDropTarget`</tt></dd>
+</dl>
+<dl><dt><strong>EffectiveMinSize</strong></dt>
+<dd><tt>See&nbsp;`GetEffectiveMinSize`</tt></dd>
+</dl>
+<dl><dt><strong>Enabled</strong></dt>
+<dd><tt>See&nbsp;`IsEnabled`&nbsp;and&nbsp;`Enable`</tt></dd>
+</dl>
+<dl><dt><strong>EventHandler</strong></dt>
+<dd><tt>See&nbsp;`GetEventHandler`&nbsp;and&nbsp;`SetEventHandler`</tt></dd>
+</dl>
+<dl><dt><strong>ExtraStyle</strong></dt>
+<dd><tt>See&nbsp;`GetExtraStyle`&nbsp;and&nbsp;`SetExtraStyle`</tt></dd>
+</dl>
+<dl><dt><strong>Font</strong></dt>
+<dd><tt>See&nbsp;`GetFont`&nbsp;and&nbsp;`SetFont`</tt></dd>
+</dl>
+<dl><dt><strong>ForegroundColour</strong></dt>
+<dd><tt>See&nbsp;`GetForegroundColour`&nbsp;and&nbsp;`SetForegroundColour`</tt></dd>
+</dl>
+<dl><dt><strong>GrandParent</strong></dt>
+<dd><tt>See&nbsp;`GetGrandParent`</tt></dd>
+</dl>
+<dl><dt><strong>GtkWidget</strong></dt>
+<dd><tt>GetGtkWidget(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+On&nbsp;wxGTK&nbsp;returns&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the&nbsp;GtkWidget&nbsp;for&nbsp;this&nbsp;window&nbsp;as&nbsp;a&nbsp;long<br>
+integer.&nbsp;&nbsp;On&nbsp;the&nbsp;other&nbsp;platforms&nbsp;this&nbsp;method&nbsp;returns&nbsp;zero.</tt></dd>
+</dl>
+<dl><dt><strong>Handle</strong></dt>
+<dd><tt>See&nbsp;`GetHandle`</tt></dd>
+</dl>
+<dl><dt><strong>HelpText</strong></dt>
+<dd><tt>See&nbsp;`GetHelpText`&nbsp;and&nbsp;`SetHelpText`</tt></dd>
+</dl>
+<dl><dt><strong>Id</strong></dt>
+<dd><tt>See&nbsp;`GetId`&nbsp;and&nbsp;`SetId`</tt></dd>
+</dl>
+<dl><dt><strong>Label</strong></dt>
+<dd><tt>See&nbsp;`GetLabel`&nbsp;and&nbsp;`SetLabel`</tt></dd>
+</dl>
+<dl><dt><strong>LayoutDirection</strong></dt>
+<dd><tt>See&nbsp;`GetLayoutDirection`&nbsp;and&nbsp;`SetLayoutDirection`</tt></dd>
+</dl>
+<dl><dt><strong>MaxHeight</strong></dt>
+<dd><tt>See&nbsp;`GetMaxHeight`</tt></dd>
+</dl>
+<dl><dt><strong>MaxSize</strong></dt>
+<dd><tt>See&nbsp;`GetMaxSize`&nbsp;and&nbsp;`SetMaxSize`</tt></dd>
+</dl>
+<dl><dt><strong>MaxWidth</strong></dt>
+<dd><tt>See&nbsp;`GetMaxWidth`</tt></dd>
+</dl>
+<dl><dt><strong>MinHeight</strong></dt>
+<dd><tt>See&nbsp;`GetMinHeight`</tt></dd>
+</dl>
+<dl><dt><strong>MinSize</strong></dt>
+<dd><tt>See&nbsp;`GetMinSize`&nbsp;and&nbsp;`SetMinSize`</tt></dd>
+</dl>
+<dl><dt><strong>MinWidth</strong></dt>
+<dd><tt>See&nbsp;`GetMinWidth`</tt></dd>
+</dl>
+<dl><dt><strong>Name</strong></dt>
+<dd><tt>See&nbsp;`GetName`&nbsp;and&nbsp;`SetName`</tt></dd>
+</dl>
+<dl><dt><strong>Parent</strong></dt>
+<dd><tt>See&nbsp;`GetParent`</tt></dd>
+</dl>
+<dl><dt><strong>Position</strong></dt>
+<dd><tt>See&nbsp;`GetPosition`&nbsp;and&nbsp;`SetPosition`</tt></dd>
+</dl>
+<dl><dt><strong>Rect</strong></dt>
+<dd><tt>See&nbsp;`GetRect`&nbsp;and&nbsp;`SetRect`</tt></dd>
+</dl>
+<dl><dt><strong>ScreenPosition</strong></dt>
+<dd><tt>See&nbsp;`GetScreenPosition`</tt></dd>
+</dl>
+<dl><dt><strong>ScreenRect</strong></dt>
+<dd><tt>See&nbsp;`GetScreenRect`</tt></dd>
+</dl>
+<dl><dt><strong>Shown</strong></dt>
+<dd><tt>See&nbsp;`IsShown`&nbsp;and&nbsp;`Show`</tt></dd>
+</dl>
+<dl><dt><strong>Size</strong></dt>
+<dd><tt>See&nbsp;`GetSize`&nbsp;and&nbsp;`SetSize`</tt></dd>
+</dl>
+<dl><dt><strong>Sizer</strong></dt>
+<dd><tt>See&nbsp;`GetSizer`&nbsp;and&nbsp;`SetSizer`</tt></dd>
+</dl>
+<dl><dt><strong>ThemeEnabled</strong></dt>
+<dd><tt>See&nbsp;`GetThemeEnabled`&nbsp;and&nbsp;`SetThemeEnabled`</tt></dd>
+</dl>
+<dl><dt><strong>ToolTip</strong></dt>
+<dd><tt>See&nbsp;`GetToolTip`&nbsp;and&nbsp;`SetToolTip`</tt></dd>
+</dl>
+<dl><dt><strong>TopLevel</strong></dt>
+<dd><tt>See&nbsp;`IsTopLevel`</tt></dd>
+</dl>
+<dl><dt><strong>TopLevelParent</strong></dt>
+<dd><tt>See&nbsp;`GetTopLevelParent`</tt></dd>
+</dl>
+<dl><dt><strong>UpdateClientRect</strong></dt>
+<dd><tt>See&nbsp;`GetUpdateClientRect`</tt></dd>
+</dl>
+<dl><dt><strong>UpdateRegion</strong></dt>
+<dd><tt>See&nbsp;`GetUpdateRegion`</tt></dd>
+</dl>
+<dl><dt><strong>Validator</strong></dt>
+<dd><tt>See&nbsp;`GetValidator`&nbsp;and&nbsp;`SetValidator`</tt></dd>
+</dl>
+<dl><dt><strong>VirtualSize</strong></dt>
+<dd><tt>See&nbsp;`GetVirtualSize`&nbsp;and&nbsp;`SetVirtualSize`</tt></dd>
+</dl>
+<dl><dt><strong>WindowStyle</strong></dt>
+<dd><tt>See&nbsp;`GetWindowStyle`&nbsp;and&nbsp;`SetWindowStyle`</tt></dd>
+</dl>
+<dl><dt><strong>WindowStyleFlag</strong></dt>
+<dd><tt>See&nbsp;`GetWindowStyleFlag`&nbsp;and&nbsp;`SetWindowStyleFlag`</tt></dd>
+</dl>
+<dl><dt><strong>WindowVariant</strong></dt>
+<dd><tt>See&nbsp;`GetWindowVariant`&nbsp;and&nbsp;`SetWindowVariant`</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="wx._core.html#EvtHandler">wx._core.EvtHandler</a>:<br>
+<dl><dt><a name="AuiNoteBook-AddPendingEvent"><strong>AddPendingEvent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-AddPendingEvent">AddPendingEvent</a>(self,&nbsp;Event&nbsp;event)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Bind"><strong>Bind</strong></a>(self, event, handler, source<font color="#909090">=None</font>, id<font color="#909090">=-1</font>, id2<font color="#909090">=-1</font>)</dt><dd><tt>Bind&nbsp;an&nbsp;event&nbsp;to&nbsp;an&nbsp;event&nbsp;handler.<br>
+&nbsp;<br>
+:param&nbsp;event:&nbsp;One&nbsp;of&nbsp;the&nbsp;EVT_*&nbsp;objects&nbsp;that&nbsp;specifies&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;of&nbsp;event&nbsp;to&nbsp;bind,<br>
+&nbsp;<br>
+:param&nbsp;handler:&nbsp;A&nbsp;callable&nbsp;object&nbsp;to&nbsp;be&nbsp;invoked&nbsp;when&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;event&nbsp;is&nbsp;delivered&nbsp;to&nbsp;self.&nbsp;&nbsp;Pass&nbsp;None&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disconnect&nbsp;an&nbsp;event&nbsp;handler.<br>
+&nbsp;<br>
+:param&nbsp;source:&nbsp;Sometimes&nbsp;the&nbsp;event&nbsp;originates&nbsp;from&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;different&nbsp;window&nbsp;than&nbsp;self,&nbsp;but&nbsp;you&nbsp;still<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;want&nbsp;to&nbsp;catch&nbsp;it&nbsp;in&nbsp;self.&nbsp;&nbsp;(For&nbsp;example,&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button&nbsp;event&nbsp;delivered&nbsp;to&nbsp;a&nbsp;frame.)&nbsp;&nbsp;By<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;passing&nbsp;the&nbsp;source&nbsp;of&nbsp;the&nbsp;event,&nbsp;the&nbsp;event<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handling&nbsp;system&nbsp;is&nbsp;able&nbsp;to&nbsp;differentiate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;between&nbsp;the&nbsp;same&nbsp;event&nbsp;type&nbsp;from&nbsp;different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controls.<br>
+&nbsp;<br>
+:param&nbsp;id:&nbsp;Used&nbsp;to&nbsp;spcify&nbsp;the&nbsp;event&nbsp;source&nbsp;by&nbsp;ID&nbsp;instead<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;instance.<br>
+&nbsp;<br>
+:param&nbsp;id2:&nbsp;Used&nbsp;when&nbsp;it&nbsp;is&nbsp;desirable&nbsp;to&nbsp;bind&nbsp;a&nbsp;handler<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;a&nbsp;range&nbsp;of&nbsp;IDs,&nbsp;such&nbsp;as&nbsp;with&nbsp;EVT_MENU_RANGE.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Connect"><strong>Connect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Connect">Connect</a>(self,&nbsp;int&nbsp;id,&nbsp;int&nbsp;lastId,&nbsp;int&nbsp;eventType,&nbsp;PyObject&nbsp;func)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Disconnect"><strong>Disconnect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-Disconnect">Disconnect</a>(self,&nbsp;int&nbsp;id,&nbsp;int&nbsp;lastId=-1,&nbsp;EventType&nbsp;eventType=wxEVT_NULL,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PyObject&nbsp;func=None)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetEvtHandlerEnabled"><strong>GetEvtHandlerEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetEvtHandlerEnabled">GetEvtHandlerEnabled</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetNextHandler"><strong>GetNextHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetNextHandler">GetNextHandler</a>(self)&nbsp;-&gt;&nbsp;EvtHandler</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-GetPreviousHandler"><strong>GetPreviousHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetPreviousHandler">GetPreviousHandler</a>(self)&nbsp;-&gt;&nbsp;EvtHandler</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ProcessEvent"><strong>ProcessEvent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ProcessEvent">ProcessEvent</a>(self,&nbsp;Event&nbsp;event)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-ProcessPendingEvents"><strong>ProcessPendingEvents</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-ProcessPendingEvents">ProcessPendingEvents</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetEvtHandlerEnabled"><strong>SetEvtHandlerEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetEvtHandlerEnabled">SetEvtHandlerEnabled</a>(self,&nbsp;bool&nbsp;enabled)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetNextHandler"><strong>SetNextHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetNextHandler">SetNextHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-SetPreviousHandler"><strong>SetPreviousHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-SetPreviousHandler">SetPreviousHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-Unbind"><strong>Unbind</strong></a>(self, event, source<font color="#909090">=None</font>, id<font color="#909090">=-1</font>, id2<font color="#909090">=-1</font>, handler<font color="#909090">=None</font>)</dt><dd><tt>Disconnects&nbsp;the&nbsp;event&nbsp;handler&nbsp;binding&nbsp;for&nbsp;event&nbsp;from&nbsp;self.<br>
+Returns&nbsp;True&nbsp;if&nbsp;successful.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="wx._core.html#EvtHandler">wx._core.EvtHandler</a>:<br>
+<dl><dt><strong>EvtHandlerEnabled</strong></dt>
+<dd><tt>See&nbsp;`GetEvtHandlerEnabled`&nbsp;and&nbsp;`SetEvtHandlerEnabled`</tt></dd>
+</dl>
+<dl><dt><strong>NextHandler</strong></dt>
+<dd><tt>See&nbsp;`GetNextHandler`&nbsp;and&nbsp;`SetNextHandler`</tt></dd>
+</dl>
+<dl><dt><strong>PreviousHandler</strong></dt>
+<dd><tt>See&nbsp;`GetPreviousHandler`&nbsp;and&nbsp;`SetPreviousHandler`</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="wx._core.html#Object">wx._core.Object</a>:<br>
+<dl><dt><a name="AuiNoteBook-GetClassName"><strong>GetClassName</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-GetClassName">GetClassName</a>(self)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;class&nbsp;name&nbsp;of&nbsp;the&nbsp;C++&nbsp;class&nbsp;using&nbsp;wxRTTI.</tt></dd></dl>
+
+<dl><dt><a name="AuiNoteBook-IsSameAs"><strong>IsSameAs</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#AuiNoteBook-IsSameAs">IsSameAs</a>(self,&nbsp;Object&nbsp;p)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+For&nbsp;wx.Objects&nbsp;that&nbsp;use&nbsp;C++&nbsp;reference&nbsp;counting&nbsp;internally,&nbsp;this&nbsp;method<br>
+can&nbsp;be&nbsp;used&nbsp;to&nbsp;determine&nbsp;if&nbsp;two&nbsp;objects&nbsp;are&nbsp;referencing&nbsp;the&nbsp;same&nbsp;data<br>
+object.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="wx._core.html#Object">wx._core.Object</a>:<br>
+<dl><dt><strong>ClassName</strong></dt>
+<dd><tt>See&nbsp;`GetClassName`</tt></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

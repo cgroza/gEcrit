@@ -1,0 +1,75 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module logClass</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>logClass</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/cgroza/Projects/gEcrit/bin/logClass.py">/home/cgroza/Projects/gEcrit/bin/logClass.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="keyword.html">keyword</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top><a href="wx.html">wx</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="logClass.html#Logger">Logger</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Logger">class <strong>Logger</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Logger">Logger</a><br>
+&nbsp;<br>
+Provides&nbsp;function&nbsp;to&nbsp;record&nbsp;applications&nbsp;activity,&nbsp;view&nbsp;the&nbsp;log,&nbsp;and<br>
+erasing&nbsp;it.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Logger-AddLogEntry"><strong>AddLogEntry</strong></a>(self, entry)</dt><dd><tt>AddLogEntry<br>
+&nbsp;<br>
+Opens&nbsp;the&nbsp;log&nbsp;file&nbsp;and&nbsp;appends&nbsp;a&nbsp;string&nbsp;with<br>
+the&nbsp;format&nbsp;date,time&nbsp;:&nbsp;string&nbsp;to&nbsp;it.<br>
+The&nbsp;string&nbsp;is&nbsp;received&nbsp;from&nbsp;its&nbsp;argument.</tt></dd></dl>
+
+<dl><dt><a name="Logger-EraseLog"><strong>EraseLog</strong></a>(self, event)</dt><dd><tt>EraseLog<br>
+&nbsp;<br>
+Opens&nbsp;the&nbsp;log&nbsp;file&nbsp;and&nbsp;erases&nbsp;its&nbsp;contents.</tt></dd></dl>
+
+<dl><dt><a name="Logger-ReadLog"><strong>ReadLog</strong></a>(self)</dt><dd><tt>ReadLog<br>
+&nbsp;<br>
+Reads&nbsp;the&nbsp;log&nbsp;file&nbsp;and&nbsp;returns&nbsp;a&nbsp;string&nbsp;with&nbsp;its&nbsp;contents.</tt></dd></dl>
+
+<dl><dt><a name="Logger-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>Config</strong> = &lt;configClass.ConfigNanny instance&gt;<br>
+<strong>Log</strong> = &lt;logClass.Logger instance&gt;<br>
+<strong>SyntCol</strong> = &lt;SyntaxHighlight.SyntaxColorizer instance&gt;<br>
+<strong>keywords</strong> = {'cpp': ['auto', 'const', 'double', 'float', 'int', 'short', 'struct', 'unsigned', 'break', 'continue', 'else', 'for', 'long', 'signed', 'switch', 'void', 'case', 'default', 'enum', 'goto', ...], 'java': ['abstract', 'continue', 'for', 'new', 'switch', 'assert', 'default', 'package', 'synchronized', 'boolean', 'do', 'if', 'private', 'this', 'break', 'double', 'implements', 'protected', 'throw', 'byte', ...], 'py': ['and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'exec', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', ...], 'pyw': ['and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'exec', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', ...], 'rb': ['alias', 'andBEGIN', 'begin', 'break', 'case', 'class', 'def', 'defined', 'do', 'else', 'elsif', 'END', 'end,ensure', 'false', 'for', 'if', 'in', 'module', 'next', 'nil', ...]}</td></tr></table>
+</body></html>

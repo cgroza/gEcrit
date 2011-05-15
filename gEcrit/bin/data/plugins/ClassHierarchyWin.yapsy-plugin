@@ -1,0 +1,9 @@
+[Core]
+Name = Class Hierarchy Tree
+Module = ClassHierarchyWin
+
+[Documentation]
+Author = Groza Cristian
+Version = 0.1
+Website = http://www.sourceforge/projects/gecrit
+Description = Provides a class hierarchy tree.

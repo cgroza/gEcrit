@@ -1,0 +1,344 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module yapsy.PluginManager</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="yapsy.html"><font color="#ffffff">yapsy</font></a>.PluginManager</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/cgroza/Projects/gEcrit/bin/yapsy/PluginManager.py">/home/cgroza/Projects/gEcrit/bin/yapsy/PluginManager.py</a></font></td></tr></table>
+    <p><tt>Role<br>
+====<br>
+&nbsp;<br>
+The&nbsp;``<a href="#PluginManager">PluginManager</a>``&nbsp;loads&nbsp;plugins&nbsp;that&nbsp;enforce&nbsp;the&nbsp;`Plugin<br>
+Description&nbsp;Policy`_,&nbsp;and&nbsp;offers&nbsp;the&nbsp;most&nbsp;simple&nbsp;methods&nbsp;to&nbsp;activate<br>
+and&nbsp;deactivate&nbsp;the&nbsp;plugins&nbsp;once&nbsp;they&nbsp;are&nbsp;loaded.<br>
+&nbsp;<br>
+..&nbsp;note::&nbsp;It&nbsp;may&nbsp;also&nbsp;classify&nbsp;the&nbsp;plugins&nbsp;in&nbsp;various&nbsp;categories,&nbsp;but<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this&nbsp;behaviour&nbsp;is&nbsp;optional&nbsp;and&nbsp;if&nbsp;not&nbsp;specified&nbsp;elseway&nbsp;all<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plugins&nbsp;are&nbsp;stored&nbsp;in&nbsp;the&nbsp;same&nbsp;default&nbsp;category.<br>
+&nbsp;<br>
+..&nbsp;note::&nbsp;It&nbsp;is&nbsp;often&nbsp;more&nbsp;useful&nbsp;to&nbsp;have&nbsp;the&nbsp;plugin&nbsp;manager&nbsp;behave<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;like&nbsp;singleton,&nbsp;this&nbsp;functionality&nbsp;is&nbsp;provided&nbsp;by<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``<a href="#PluginManagerSingleton">PluginManagerSingleton</a>``<br>
+&nbsp;<br>
+&nbsp;<br>
+Plugin&nbsp;Description&nbsp;Policy<br>
+=========================<br>
+&nbsp;<br>
+When&nbsp;creating&nbsp;a&nbsp;``<a href="#PluginManager">PluginManager</a>``&nbsp;instance,&nbsp;one&nbsp;should&nbsp;provide&nbsp;it&nbsp;with<br>
+a&nbsp;list&nbsp;of&nbsp;directories&nbsp;where&nbsp;plugins&nbsp;may&nbsp;be&nbsp;found.&nbsp;In&nbsp;each&nbsp;directory,<br>
+a&nbsp;plugin&nbsp;should&nbsp;contain&nbsp;the&nbsp;following&nbsp;elements:<br>
+&nbsp;<br>
+For&nbsp;a&nbsp;&nbsp;*Standard*&nbsp;plugin:<br>
+&nbsp;<br>
+&nbsp;&nbsp;``myplugin.yapsy-plugin``<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;*plugin&nbsp;info&nbsp;file*&nbsp;identical&nbsp;to&nbsp;the&nbsp;one&nbsp;previously&nbsp;described.<br>
+&nbsp;<br>
+&nbsp;&nbsp;``myplugin``<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;directory&nbsp;ontaining&nbsp;an&nbsp;actual&nbsp;Python&nbsp;plugin&nbsp;(ie&nbsp;with&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``__init__.py``&nbsp;file&nbsp;that&nbsp;makes&nbsp;it&nbsp;importable).&nbsp;The&nbsp;upper<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;namespace&nbsp;of&nbsp;the&nbsp;plugin&nbsp;should&nbsp;present&nbsp;a&nbsp;class&nbsp;inheriting&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;``IPlugin``&nbsp;interface&nbsp;(the&nbsp;same&nbsp;remarks&nbsp;apply&nbsp;here&nbsp;as&nbsp;in&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;previous&nbsp;case).<br>
+&nbsp;<br>
+&nbsp;<br>
+For&nbsp;a&nbsp;*Single&nbsp;file*&nbsp;plugin:<br>
+&nbsp;<br>
+&nbsp;&nbsp;``myplugin.yapsy-plugin``<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;*plugin&nbsp;info&nbsp;file*&nbsp;which&nbsp;is&nbsp;identified&nbsp;thanks&nbsp;to&nbsp;its&nbsp;extension,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;see&nbsp;the&nbsp;`Plugin&nbsp;Info&nbsp;File&nbsp;Format`_&nbsp;to&nbsp;see&nbsp;what&nbsp;should&nbsp;be&nbsp;in&nbsp;this<br>
+&nbsp;&nbsp;&nbsp;&nbsp;file.<br>
+&nbsp;<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;extension&nbsp;is&nbsp;customisable&nbsp;at&nbsp;the&nbsp;``<a href="#PluginManager">PluginManager</a>``'s<br>
+&nbsp;&nbsp;&nbsp;&nbsp;instanciation,&nbsp;since&nbsp;one&nbsp;may&nbsp;usually&nbsp;prefer&nbsp;the&nbsp;extension&nbsp;to&nbsp;bear<br>
+&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;application&nbsp;name.<br>
+&nbsp;<br>
+&nbsp;&nbsp;``myplugin.py``<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;source&nbsp;of&nbsp;the&nbsp;plugin.&nbsp;This&nbsp;file&nbsp;should&nbsp;at&nbsp;least&nbsp;define&nbsp;a&nbsp;class<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inheriting&nbsp;the&nbsp;``IPlugin``&nbsp;interface.&nbsp;This&nbsp;class&nbsp;will&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;instanciated&nbsp;at&nbsp;plugin&nbsp;loading&nbsp;and&nbsp;it&nbsp;will&nbsp;be&nbsp;notified&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;activation/deactivation&nbsp;events.<br>
+&nbsp;<br>
+&nbsp;<br>
+Plugin&nbsp;Info&nbsp;File&nbsp;Format<br>
+-----------------------<br>
+&nbsp;<br>
+The&nbsp;plugin&nbsp;info&nbsp;file&nbsp;gathers,&nbsp;as&nbsp;its&nbsp;name&nbsp;suggests,&nbsp;some&nbsp;basic<br>
+information&nbsp;about&nbsp;the&nbsp;plugin.<br>
+&nbsp;<br>
+-&nbsp;it&nbsp;gives&nbsp;crucial&nbsp;information&nbsp;needed&nbsp;to&nbsp;be&nbsp;able&nbsp;to&nbsp;load&nbsp;the&nbsp;plugin<br>
+&nbsp;<br>
+-&nbsp;it&nbsp;provides&nbsp;some&nbsp;documentation&nbsp;like&nbsp;information&nbsp;like&nbsp;the&nbsp;plugin<br>
+&nbsp;&nbsp;author's&nbsp;name&nbsp;and&nbsp;a&nbsp;short&nbsp;description&nbsp;fo&nbsp;the&nbsp;plugin&nbsp;functionality.<br>
+&nbsp;<br>
+Here&nbsp;is&nbsp;an&nbsp;example&nbsp;of&nbsp;what&nbsp;such&nbsp;a&nbsp;file&nbsp;should&nbsp;contain::<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Core]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Name&nbsp;=&nbsp;My&nbsp;plugin&nbsp;Name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Module&nbsp;=&nbsp;the_name_of_the_pluginto_load_with_no_py_ending<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Documentation]<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Description&nbsp;=&nbsp;What&nbsp;my&nbsp;plugin&nbsp;broadly&nbsp;does<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Author&nbsp;=&nbsp;My&nbsp;very&nbsp;own&nbsp;name<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Version&nbsp;=&nbsp;0.1<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Website&nbsp;=&nbsp;My&nbsp;very&nbsp;own&nbsp;website<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Version&nbsp;=&nbsp;the_version_number_of_the_plugin<br>
+&nbsp;<br>
+&nbsp;<br>
+..&nbsp;note::&nbsp;From&nbsp;such&nbsp;plugin&nbsp;descriptions,&nbsp;the&nbsp;``<a href="#PluginManager">PluginManager</a>``&nbsp;will<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;built&nbsp;its&nbsp;own&nbsp;representations&nbsp;of&nbsp;the&nbsp;plugins&nbsp;as&nbsp;instances&nbsp;of<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;the&nbsp;:doc:`PluginInfo`&nbsp;class.<br>
+&nbsp;<br>
+&nbsp;<br>
+Extensibility<br>
+=============<br>
+&nbsp;<br>
+Several&nbsp;mechanisms&nbsp;have&nbsp;been&nbsp;put&nbsp;up&nbsp;to&nbsp;help&nbsp;extending&nbsp;the&nbsp;basic<br>
+functionalities&nbsp;of&nbsp;the&nbsp;proivided&nbsp;classes.<br>
+&nbsp;<br>
+A&nbsp;few&nbsp;*hints*&nbsp;to&nbsp;help&nbsp;you&nbsp;extend&nbsp;those&nbsp;classes:<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;new&nbsp;functionalities&nbsp;do&nbsp;not&nbsp;overlap&nbsp;the&nbsp;ones&nbsp;already<br>
+implemented,&nbsp;then&nbsp;they&nbsp;should&nbsp;be&nbsp;implemented&nbsp;as&nbsp;a&nbsp;Decorator&nbsp;class&nbsp;of&nbsp;the<br>
+base&nbsp;plugin.&nbsp;This&nbsp;should&nbsp;be&nbsp;done&nbsp;by&nbsp;inheriting&nbsp;the<br>
+``PluginManagerDecorator``.<br>
+&nbsp;<br>
+If&nbsp;this&nbsp;previous&nbsp;way&nbsp;is&nbsp;not&nbsp;possible,&nbsp;then&nbsp;the&nbsp;functionalities&nbsp;should<br>
+be&nbsp;added&nbsp;as&nbsp;a&nbsp;subclass&nbsp;of&nbsp;``<a href="#PluginManager">PluginManager</a>``.<br>
+&nbsp;<br>
+..&nbsp;note::&nbsp;The&nbsp;first&nbsp;method&nbsp;is&nbsp;highly&nbsp;prefered&nbsp;since&nbsp;it&nbsp;makes&nbsp;it<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;possible&nbsp;to&nbsp;have&nbsp;a&nbsp;more&nbsp;flexible&nbsp;design&nbsp;where&nbsp;one&nbsp;can&nbsp;pick<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;several&nbsp;functionalities&nbsp;and&nbsp;litterally&nbsp;*add*&nbsp;them&nbsp;to&nbsp;get&nbsp;an<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="__builtin__.html#object">object</a>&nbsp;corresponding&nbsp;to&nbsp;one's&nbsp;precise&nbsp;needs.<br>
+&nbsp;<br>
+API<br>
+===</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="ConfigParser.html">ConfigParser</a><br>
+</td><td width="25%" valign=top><a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="yapsy.PluginManager.html#PluginManager">PluginManager</a>
+</font></dt><dt><font face="helvetica, arial"><a href="yapsy.PluginManager.html#PluginManagerSingleton">PluginManagerSingleton</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PluginManager">class <strong>PluginManager</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Manage&nbsp;several&nbsp;plugins&nbsp;by&nbsp;ordering&nbsp;them&nbsp;in&nbsp;categories.<br>
+&nbsp;<br>
+The&nbsp;mechanism&nbsp;for&nbsp;searching&nbsp;and&nbsp;loading&nbsp;the&nbsp;plugins&nbsp;is&nbsp;already<br>
+implemented&nbsp;in&nbsp;this&nbsp;class&nbsp;so&nbsp;that&nbsp;it&nbsp;can&nbsp;be&nbsp;used&nbsp;directly&nbsp;(hence<br>
+it&nbsp;can&nbsp;be&nbsp;considered&nbsp;as&nbsp;a&nbsp;bit&nbsp;more&nbsp;than&nbsp;a&nbsp;mere&nbsp;interface)<br>
+&nbsp;<br>
+The&nbsp;file&nbsp;describing&nbsp;a&nbsp;plugin&nbsp;must&nbsp;be&nbsp;written&nbsp;in&nbsp;the&nbsp;syntax<br>
+compatible&nbsp;with&nbsp;Python's&nbsp;ConfigParser&nbsp;module&nbsp;as&nbsp;in&nbsp;the<br>
+`Plugin&nbsp;Info&nbsp;File&nbsp;Format`_<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="PluginManager-__init__"><strong>__init__</strong></a>(self, categories_filter<font color="#909090">={'Default': &lt;class 'yapsy.IPlugin.IPlugin'&gt;}</font>, directories_list<font color="#909090">=None</font>, plugin_info_ext<font color="#909090">='yapsy-plugin'</font>)</dt><dd><tt>Initialize&nbsp;the&nbsp;mapping&nbsp;of&nbsp;the&nbsp;categories&nbsp;and&nbsp;set&nbsp;the&nbsp;list&nbsp;of<br>
+directories&nbsp;where&nbsp;plugins&nbsp;may&nbsp;be.&nbsp;This&nbsp;can&nbsp;also&nbsp;be&nbsp;set&nbsp;by<br>
+direct&nbsp;call&nbsp;the&nbsp;methods:<br>
+&nbsp;<br>
+-&nbsp;``setCategoriesFilter``&nbsp;for&nbsp;``categories_filter``<br>
+-&nbsp;``setPluginPlaces``&nbsp;for&nbsp;``directories_list``<br>
+-&nbsp;``setPluginInfoExtension``&nbsp;for&nbsp;``plugin_info_ext``<br>
+&nbsp;<br>
+You&nbsp;may&nbsp;look&nbsp;at&nbsp;these&nbsp;function's&nbsp;documentation&nbsp;for&nbsp;the&nbsp;meaning<br>
+of&nbsp;each&nbsp;corresponding&nbsp;arguments.</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-activatePluginByName"><strong>activatePluginByName</strong></a>(self, name, category<font color="#909090">='Default'</font>)</dt><dd><tt>Activate&nbsp;a&nbsp;plugin&nbsp;corresponding&nbsp;to&nbsp;a&nbsp;given&nbsp;category&nbsp;+&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-appendPluginCandidate"><strong>appendPluginCandidate</strong></a>(self, candidateTuple)</dt><dd><tt>Append&nbsp;a&nbsp;new&nbsp;candidate&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;plugins&nbsp;that&nbsp;should&nbsp;be&nbsp;loaded.<br>
+&nbsp;<br>
+The&nbsp;candidate&nbsp;must&nbsp;be&nbsp;represented&nbsp;by&nbsp;the&nbsp;same&nbsp;tuple&nbsp;described<br>
+in&nbsp;``getPluginCandidates``.<br>
+&nbsp;<br>
+..&nbsp;warning:&nbsp;locatePlugins&nbsp;must&nbsp;be&nbsp;called&nbsp;before&nbsp;!</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-appendPluginToCategory"><strong>appendPluginToCategory</strong></a>(self, plugin, category_name)</dt><dd><tt>Append&nbsp;a&nbsp;new&nbsp;plugin&nbsp;to&nbsp;the&nbsp;given&nbsp;category.</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-collectPlugins"><strong>collectPlugins</strong></a>(self)</dt><dd><tt>Walk&nbsp;through&nbsp;the&nbsp;plugins'&nbsp;places&nbsp;and&nbsp;look&nbsp;for&nbsp;plugins.&nbsp;&nbsp;Then<br>
+for&nbsp;each&nbsp;plugin&nbsp;candidate&nbsp;look&nbsp;for&nbsp;its&nbsp;category,&nbsp;load&nbsp;it&nbsp;and<br>
+stores&nbsp;it&nbsp;in&nbsp;the&nbsp;appropriate&nbsp;slot&nbsp;of&nbsp;the&nbsp;category_mapping.</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-deactivatePluginByName"><strong>deactivatePluginByName</strong></a>(self, name, category<font color="#909090">='Default'</font>)</dt><dd><tt>Desactivate&nbsp;a&nbsp;plugin&nbsp;corresponding&nbsp;to&nbsp;a&nbsp;given&nbsp;category&nbsp;+&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-gatherBasicPluginInfo"><strong>gatherBasicPluginInfo</strong></a>(self, directory, filename)</dt><dd><tt>Gather&nbsp;some&nbsp;basic&nbsp;documentation&nbsp;about&nbsp;the&nbsp;plugin&nbsp;described&nbsp;by<br>
+it's&nbsp;info&nbsp;file&nbsp;(found&nbsp;at&nbsp;'directory/filename').<br>
+&nbsp;<br>
+Return&nbsp;an&nbsp;instance&nbsp;of&nbsp;``self.<strong>plugin_info_cls</strong>``&nbsp;gathering&nbsp;the<br>
+required&nbsp;informations.<br>
+&nbsp;<br>
+See&nbsp;also:<br>
+&nbsp;<br>
+&nbsp;&nbsp;``self.<strong>_gatherCorePluginInfo</strong>``</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-getAllPlugins"><strong>getAllPlugins</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;list&nbsp;of&nbsp;all&nbsp;plugins&nbsp;(belonging&nbsp;to&nbsp;all&nbsp;categories).</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-getCategories"><strong>getCategories</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;list&nbsp;of&nbsp;all&nbsp;categories.</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-getPluginByName"><strong>getPluginByName</strong></a>(self, name, category<font color="#909090">='Default'</font>)</dt><dd><tt>Get&nbsp;the&nbsp;plugin&nbsp;correspoding&nbsp;to&nbsp;a&nbsp;given&nbsp;category&nbsp;and&nbsp;name</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-getPluginCandidates"><strong>getPluginCandidates</strong></a>(self)</dt><dd><tt>Return&nbsp;the&nbsp;list&nbsp;of&nbsp;possible&nbsp;plugins.<br>
+&nbsp;<br>
+Each&nbsp;possible&nbsp;plugin&nbsp;(ie&nbsp;a&nbsp;candidate)&nbsp;is&nbsp;described&nbsp;by&nbsp;a&nbsp;3-uple:<br>
+(info&nbsp;file&nbsp;path,&nbsp;python&nbsp;file&nbsp;path,&nbsp;plugin&nbsp;info&nbsp;instance)<br>
+&nbsp;<br>
+..&nbsp;warning:&nbsp;locatePlugins&nbsp;must&nbsp;be&nbsp;called&nbsp;before&nbsp;!</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-getPluginInfoClass"><strong>getPluginInfoClass</strong></a>(self)</dt><dd><tt>Get&nbsp;the&nbsp;class&nbsp;that&nbsp;holds&nbsp;PluginInfo.&nbsp;The&nbsp;class&nbsp;should&nbsp;inherit<br>
+from&nbsp;``PluginInfo``.</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-getPluginsOfCategory"><strong>getPluginsOfCategory</strong></a>(self, category_name)</dt><dd><tt>Return&nbsp;the&nbsp;list&nbsp;of&nbsp;all&nbsp;plugins&nbsp;belonging&nbsp;to&nbsp;a&nbsp;category.</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-loadPlugins"><strong>loadPlugins</strong></a>(self, callback<font color="#909090">=None</font>)</dt><dd><tt>Load&nbsp;the&nbsp;candidate&nbsp;plugins&nbsp;that&nbsp;have&nbsp;been&nbsp;identified&nbsp;through&nbsp;a<br>
+previous&nbsp;call&nbsp;to&nbsp;locatePlugins.&nbsp;&nbsp;For&nbsp;each&nbsp;plugin&nbsp;candidate<br>
+look&nbsp;for&nbsp;its&nbsp;category,&nbsp;load&nbsp;it&nbsp;and&nbsp;store&nbsp;it&nbsp;in&nbsp;the&nbsp;appropriate<br>
+slot&nbsp;of&nbsp;the&nbsp;``category_mapping``.<br>
+&nbsp;<br>
+If&nbsp;a&nbsp;callback&nbsp;function&nbsp;is&nbsp;specified,&nbsp;call&nbsp;it&nbsp;before&nbsp;every&nbsp;load<br>
+attempt.&nbsp;&nbsp;The&nbsp;``plugin_info``&nbsp;instance&nbsp;is&nbsp;passed&nbsp;as&nbsp;an&nbsp;argument&nbsp;to<br>
+the&nbsp;callback.</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-locatePlugins"><strong>locatePlugins</strong></a>(self)</dt><dd><tt>Walk&nbsp;through&nbsp;the&nbsp;plugins'&nbsp;places&nbsp;and&nbsp;look&nbsp;for&nbsp;plugins.<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;number&nbsp;of&nbsp;plugins&nbsp;found.</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-removePluginCandidate"><strong>removePluginCandidate</strong></a>(self, candidateTuple)</dt><dd><tt>Remove&nbsp;a&nbsp;given&nbsp;candidate&nbsp;from&nbsp;the&nbsp;list&nbsp;of&nbsp;plugins&nbsp;that&nbsp;should&nbsp;be&nbsp;loaded.<br>
+&nbsp;<br>
+The&nbsp;candidate&nbsp;must&nbsp;be&nbsp;represented&nbsp;by&nbsp;the&nbsp;same&nbsp;tuple&nbsp;described<br>
+in&nbsp;``getPluginCandidates``.<br>
+&nbsp;<br>
+..&nbsp;warning:&nbsp;locatePlugins&nbsp;must&nbsp;be&nbsp;called&nbsp;before&nbsp;!</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-removePluginFromCategory"><strong>removePluginFromCategory</strong></a>(self, plugin, category_name)</dt><dd><tt>Remove&nbsp;a&nbsp;plugin&nbsp;from&nbsp;the&nbsp;category&nbsp;where&nbsp;it's&nbsp;assumed&nbsp;to&nbsp;belong.</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-setCategoriesFilter"><strong>setCategoriesFilter</strong></a>(self, categories_filter)</dt><dd><tt>Set&nbsp;the&nbsp;categories&nbsp;of&nbsp;plugins&nbsp;to&nbsp;be&nbsp;looked&nbsp;for&nbsp;as&nbsp;well&nbsp;as&nbsp;the<br>
+way&nbsp;to&nbsp;recognise&nbsp;them.<br>
+&nbsp;<br>
+The&nbsp;``categories_filter``&nbsp;first&nbsp;defines&nbsp;the&nbsp;various&nbsp;categories<br>
+in&nbsp;which&nbsp;the&nbsp;plugins&nbsp;will&nbsp;be&nbsp;stored&nbsp;via&nbsp;its&nbsp;keys&nbsp;and&nbsp;it&nbsp;also<br>
+defines&nbsp;the&nbsp;interface&nbsp;tha&nbsp;has&nbsp;to&nbsp;be&nbsp;inherited&nbsp;by&nbsp;the&nbsp;actual<br>
+plugin&nbsp;class&nbsp;belonging&nbsp;to&nbsp;each&nbsp;category.</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-setPluginInfoClass"><strong>setPluginInfoClass</strong></a>(self, picls)</dt><dd><tt>Set&nbsp;the&nbsp;class&nbsp;that&nbsp;holds&nbsp;PluginInfo.&nbsp;The&nbsp;class&nbsp;should&nbsp;inherit<br>
+from&nbsp;``PluginInfo``.</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-setPluginInfoExtension"><strong>setPluginInfoExtension</strong></a>(self, plugin_info_ext)</dt><dd><tt>Set&nbsp;the&nbsp;extension&nbsp;that&nbsp;identifies&nbsp;a&nbsp;plugin&nbsp;info&nbsp;file.<br>
+&nbsp;<br>
+The&nbsp;``plugin_info_ext``&nbsp;is&nbsp;the&nbsp;extension&nbsp;that&nbsp;will&nbsp;have&nbsp;the<br>
+informative&nbsp;files&nbsp;describing&nbsp;the&nbsp;plugins&nbsp;and&nbsp;that&nbsp;are&nbsp;used&nbsp;to<br>
+actually&nbsp;detect&nbsp;the&nbsp;presence&nbsp;of&nbsp;a&nbsp;plugin&nbsp;(see<br>
+``collectPlugins``).</tt></dd></dl>
+
+<dl><dt><a name="PluginManager-setPluginPlaces"><strong>setPluginPlaces</strong></a>(self, directories_list)</dt><dd><tt>Set&nbsp;the&nbsp;list&nbsp;of&nbsp;directories&nbsp;where&nbsp;to&nbsp;look&nbsp;for&nbsp;plugin&nbsp;places.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PluginManagerSingleton">class <strong>PluginManagerSingleton</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Singleton&nbsp;version&nbsp;of&nbsp;the&nbsp;most&nbsp;basic&nbsp;plugin&nbsp;manager.<br>
+&nbsp;<br>
+Being&nbsp;a&nbsp;singleton,&nbsp;this&nbsp;class&nbsp;should&nbsp;not&nbsp;be&nbsp;initialised&nbsp;explicitly<br>
+and&nbsp;the&nbsp;``get``&nbsp;classmethod&nbsp;must&nbsp;be&nbsp;called&nbsp;instead.<br>
+&nbsp;<br>
+To&nbsp;call&nbsp;one&nbsp;of&nbsp;this&nbsp;class's&nbsp;methods&nbsp;you&nbsp;have&nbsp;to&nbsp;use&nbsp;the&nbsp;``get``<br>
+method&nbsp;in&nbsp;the&nbsp;following&nbsp;way:<br>
+``<a href="#PluginManagerSingleton">PluginManagerSingleton</a>.<a href="#PluginManagerSingleton-get">get</a>().themethodname(theargs)``<br>
+&nbsp;<br>
+To&nbsp;set&nbsp;up&nbsp;the&nbsp;various&nbsp;coonfigurables&nbsp;variables&nbsp;of&nbsp;the<br>
+<a href="#PluginManager">PluginManager</a>'s&nbsp;behaviour&nbsp;please&nbsp;call&nbsp;explicitly&nbsp;the&nbsp;following<br>
+methods:<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;``setCategoriesFilter``&nbsp;for&nbsp;``categories_filter``<br>
+&nbsp;&nbsp;-&nbsp;``setPluginPlaces``&nbsp;for&nbsp;``directories_list``<br>
+&nbsp;&nbsp;-&nbsp;``setPluginInfoExtension``&nbsp;for&nbsp;``plugin_info_ext``<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="PluginManagerSingleton-__init__"><strong>__init__</strong></a>(self)</dt><dd><tt>Initialisation:&nbsp;this&nbsp;class&nbsp;should&nbsp;not&nbsp;be&nbsp;initialised<br>
+explicitly&nbsp;and&nbsp;the&nbsp;``get``&nbsp;classmethod&nbsp;must&nbsp;be&nbsp;called&nbsp;instead.<br>
+&nbsp;<br>
+To&nbsp;set&nbsp;up&nbsp;the&nbsp;various&nbsp;configurables&nbsp;variables&nbsp;of&nbsp;the<br>
+<a href="#PluginManager">PluginManager</a>'s&nbsp;behaviour&nbsp;please&nbsp;call&nbsp;explicitly&nbsp;the&nbsp;following<br>
+methods:<br>
+&nbsp;<br>
+&nbsp;&nbsp;-&nbsp;``setCategoriesFilter``&nbsp;for&nbsp;``categories_filter``<br>
+&nbsp;&nbsp;-&nbsp;``setPluginPlaces``&nbsp;for&nbsp;``directories_list``<br>
+&nbsp;&nbsp;-&nbsp;``setPluginInfoExtension``&nbsp;for&nbsp;``plugin_info_ext``</tt></dd></dl>
+
+<hr>
+Class methods defined here:<br>
+<dl><dt><a name="PluginManagerSingleton-get"><strong>get</strong></a>(self)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Actually&nbsp;create&nbsp;an&nbsp;instance</tt></dd></dl>
+
+<dl><dt><a name="PluginManagerSingleton-setBehaviour"><strong>setBehaviour</strong></a>(self, list_of_pmd)<font color="#909090"><font face="helvetica, arial"> from <a href="__builtin__.html#type">__builtin__.type</a></font></font></dt><dd><tt>Set&nbsp;the&nbsp;functionalities&nbsp;handled&nbsp;by&nbsp;the&nbsp;plugin&nbsp;manager&nbsp;by<br>
+giving&nbsp;a&nbsp;list&nbsp;of&nbsp;``<a href="#PluginManager">PluginManager</a>``&nbsp;decorators.<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;shouldn't&nbsp;be&nbsp;called&nbsp;several&nbsp;time&nbsp;in&nbsp;a&nbsp;same<br>
+process,&nbsp;but&nbsp;if&nbsp;it&nbsp;is&nbsp;only&nbsp;the&nbsp;first&nbsp;call&nbsp;will&nbsp;have&nbsp;an&nbsp;effect.<br>
+&nbsp;<br>
+It&nbsp;also&nbsp;has&nbsp;an&nbsp;effect&nbsp;only&nbsp;if&nbsp;called&nbsp;before&nbsp;the&nbsp;initialisation<br>
+of&nbsp;the&nbsp;singleton.<br>
+&nbsp;<br>
+In&nbsp;cases&nbsp;where&nbsp;the&nbsp;function&nbsp;is&nbsp;indeed&nbsp;going&nbsp;to&nbsp;change&nbsp;anything<br>
+the&nbsp;``True``&nbsp;value&nbsp;is&nbsp;return,&nbsp;in&nbsp;all&nbsp;other&nbsp;cases,&nbsp;the&nbsp;``False``<br>
+value&nbsp;is&nbsp;returned.</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>PLUGIN_NAME_FORBIDEN_STRING</strong> = ';;'</td></tr></table>
+</body></html>

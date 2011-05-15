@@ -1,0 +1,2060 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module editorClass</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>editorClass</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/cgroza/Projects/gEcrit/bin/editorClass.py">/home/cgroza/Projects/gEcrit/bin/editorClass.py</a></font></td></tr></table>
+    <p><tt>#&nbsp;-*-&nbsp;coding:&nbsp;utf-8&nbsp;-*-</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="AutoCompletition.html">AutoCompletition</a><br>
+<a href="Exceptions.html">Exceptions</a><br>
+<a href="cPickle.html">cPickle</a><br>
+<a href="collections.html">collections</a><br>
+</td><td width="25%" valign=top><a href="wx.lib.colourselect.html">wx.lib.colourselect</a><br>
+<a href="keyword.html">keyword</a><br>
+<a href="logging.html">logging</a><br>
+<a href="os.html">os</a><br>
+</td><td width="25%" valign=top><a href="re.html">re</a><br>
+<a href="sys.html">sys</a><br>
+<a href="time.html">time</a><br>
+<a href="types.html">types</a><br>
+</td><td width="25%" valign=top><a href="wx.html">wx</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="wx._windows.html#Frame">wx._windows.Frame</a>(<a href="wx._windows.html#TopLevelWindow">wx._windows.TopLevelWindow</a>)
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="editorClass.html#Editor">Editor</a>
+</font></dt></dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Editor">class <strong>Editor</strong></a>(<a href="wx._windows.html#Frame">wx._windows.Frame</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt><a href="#Editor">Editor</a><br>
+&nbsp;<br>
+This&nbsp;class&nbsp;is&nbsp;the&nbsp;entry&nbsp;point&nbsp;in&nbsp;the&nbsp;program.<br>
+It&nbsp;creates&nbsp;all&nbsp;the&nbsp;user&nbsp;interface&nbsp;and&nbsp;initializes<br>
+the&nbsp;required&nbsp;objects&nbsp;and&nbsp;classes.<br>
+The&nbsp;functions&nbsp;that&nbsp;cannot&nbsp;go&nbsp;into&nbsp;another&nbsp;objects<br>
+for&nbsp;diverse&nbsp;reasons&nbsp;go&nbsp;here.<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="editorClass.html#Editor">Editor</a></dd>
+<dd><a href="wx._windows.html#Frame">wx._windows.Frame</a></dd>
+<dd><a href="wx._windows.html#TopLevelWindow">wx._windows.TopLevelWindow</a></dd>
+<dd><a href="wx._core.html#Window">wx._core.Window</a></dd>
+<dd><a href="wx._core.html#EvtHandler">wx._core.EvtHandler</a></dd>
+<dd><a href="wx._core.html#Object">wx._core.Object</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="Editor-AddPaneToAui"><strong>AddPaneToAui</strong></a>(self, widget, pane_info)</dt><dd><tt>"AddPaneToAui<br>
+@widget&nbsp;the&nbsp;widget&nbsp;to&nbsp;be&nbsp;added<br>
+@pane&nbsp;needs&nbsp;to&nbsp;be&nbsp;an&nbsp;AuiPaneInfo&nbsp;object.<br>
+&nbsp;<br>
+Adds&nbsp;the&nbsp;pane&nbsp;to&nbsp;the&nbsp;aui&nbsp;manager.</tt></dd></dl>
+
+<dl><dt><a name="Editor-AddToBottomPanel"><strong>AddToBottomPanel</strong></a>(self, panel, name)</dt><dd><tt>AddToBottomPanel<br>
+&nbsp;<br>
+Adds&nbsp;the&nbsp;suplied&nbsp;panel&nbsp;to&nbsp;the&nbsp;lower&nbsp;notebook&nbsp;with&nbsp;tho&nbsp;supplied<br>
+name&nbsp;label.</tt></dd></dl>
+
+<dl><dt><a name="Editor-AddToMenuBar"><strong>AddToMenuBar</strong></a>(self, label, menu)</dt><dd><tt>AddToMenuBar<br>
+&nbsp;<br>
+@id&nbsp;The&nbsp;id&nbsp;of&nbsp;the&nbsp;new&nbsp;menu&nbsp;entry.<br>
+@label&nbsp;The&nbsp;label&nbsp;of&nbsp;the&nbsp;new&nbsp;menu&nbsp;entry.<br>
+@menu&nbsp;A&nbsp;wx.Menu&nbsp;object&nbsp;which&nbsp;will&nbsp;be&nbsp;added&nbsp;in&nbsp;the&nbsp;Plugins&nbsp;menu.<br>
+&nbsp;<br>
+Adds&nbsp;a&nbsp;wx.Menu&nbsp;object&nbsp;to&nbsp;menubar.</tt></dd></dl>
+
+<dl><dt><a name="Editor-AddToSidePanel"><strong>AddToSidePanel</strong></a>(self, panel, name)</dt><dd><tt>AddToSidePanel<br>
+&nbsp;<br>
+Adds&nbsp;the&nbsp;suplied&nbsp;panel&nbsp;to&nbsp;the&nbsp;side&nbsp;notebook&nbsp;with&nbsp;tho&nbsp;supplied<br>
+name&nbsp;label.</tt></dd></dl>
+
+<dl><dt><a name="Editor-AddToolbarToAui"><strong>AddToolbarToAui</strong></a>(self, toolbar, pane_info)</dt><dd><tt>AddToosbartoAui<br>
+&nbsp;<br>
+@toolbar&nbsp;the&nbsp;wx.Toolbar&nbsp;object<br>
+@pane_info&nbsp;needs&nbsp;to&nbsp;be&nbsp;a&nbsp;wx.AuiPaneInfo&nbsp;object&nbsp;with&nbsp;it's&nbsp;name&nbsp;and&nbsp;caption<br>
+defined.</tt></dd></dl>
+
+<dl><dt><a name="Editor-BindMenubarEvent"><strong>BindMenubarEvent</strong></a>(self, item, function)</dt><dd><tt>BindMenuBarEvent<br>
+&nbsp;<br>
+@item&nbsp;The&nbsp;menu&nbsp;entry&nbsp;object&nbsp;which&nbsp;to&nbsp;be&nbsp;bint.<br>
+&nbsp;<br>
+@function&nbsp;The&nbsp;function&nbsp;the&nbsp;item&nbsp;to&nbsp;be&nbsp;bint&nbsp;to.<br>
+&nbsp;<br>
+Binds&nbsp;a&nbsp;wx.EVT_MENU&nbsp;event&nbsp;to&nbsp;the&nbsp;suplied&nbsp;function.</tt></dd></dl>
+
+<dl><dt><a name="Editor-CreateNewDocument"><strong>CreateNewDocument</strong></a>(self, name)</dt><dd><tt>CreateNewDocument<br>
+&nbsp;<br>
+@name&nbsp;a&nbsp;string&nbsp;to&nbsp;be&nbsp;given&nbsp;to&nbsp;the&nbsp;new&nbsp;document&nbsp;as&nbsp;a&nbsp;name.<br>
+&nbsp;<br>
+Creates&nbsp;a&nbsp;new&nbsp;empty&nbsp;document.<br>
+Returns&nbsp;a&nbsp;reference&nbsp;to&nbsp;the&nbsp;now&nbsp;StcControl</tt></dd></dl>
+
+<dl><dt><a name="Editor-DeleteBottomPage"><strong>DeleteBottomPage</strong></a>(self, name)</dt><dd><tt>DeleteBottomPage<br>
+&nbsp;<br>
+Deletes&nbsp;the&nbsp;tab&nbsp;named&nbsp;name&nbsp;from&nbsp;the&nbsp;lower&nbsp;notebook.</tt></dd></dl>
+
+<dl><dt><a name="Editor-DeleteSidePage"><strong>DeleteSidePage</strong></a>(self, name)</dt><dd><tt>DeleteSidePage<br>
+&nbsp;<br>
+Deletes&nbsp;the&nbsp;tab&nbsp;named&nbsp;name&nbsp;from&nbsp;the&nbsp;side&nbsp;notebook.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetAllDocuments"><strong>GetAllDocuments</strong></a>(self)</dt><dd><tt>GetALlDocuments<br>
+&nbsp;<br>
+Returns&nbsp;all&nbsp;existing&nbsp;buffers.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetAuiManager"><strong>GetAuiManager</strong></a>(self)</dt><dd><tt>GetAuiManager<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;AuiManager&nbsp;that&nbsp;is&nbsp;responsable&nbsp;for&nbsp;window&nbsp;layout.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetBottomPanel"><strong>GetBottomPanel</strong></a>(self)</dt><dd><tt>GetBottomPanel<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;lower&nbsp;notebook.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetCurrentDocument"><strong>GetCurrentDocument</strong></a>(self)</dt><dd><tt>GetCurrentDocument<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;selected&nbsp;active&nbsp;buffer&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetSidePanel"><strong>GetSidePanel</strong></a>(self)</dt><dd><tt>GetSidePanel<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;side&nbsp;notebook.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetTabManager"><strong>GetTabManager</strong></a>(self)</dt><dd><tt>GetTabManager<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;AuiNoteBook&nbsp;that&nbsp;is&nbsp;resposible&nbsp;for&nbsp;tabs&nbsp;management.</tt></dd></dl>
+
+<dl><dt><a name="Editor-LoadSessionFile"><strong>LoadSessionFile</strong></a>(self)</dt><dd><tt>LoadSessionFile<br>
+&nbsp;<br>
+Loads&nbsp;the&nbsp;session&nbsp;file&nbsp;if&nbsp;it&nbsp;exists.<br>
+If&nbsp;it&nbsp;does&nbsp;not,&nbsp;creates&nbsp;an&nbsp;instance.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ManageCloseTab"><strong>ManageCloseTab</strong></a>(self, event, text_id)</dt><dd><tt>ManageCloseTab<br>
+&nbsp;<br>
+Manages&nbsp;the&nbsp;process&nbsp;of&nbsp;closing&nbsp;a&nbsp;tab.<br>
+Checks&nbsp;if&nbsp;document&nbsp;is&nbsp;saved,&nbsp;prompts&nbsp;the&nbsp;user&nbsp;if&nbsp;not.<br>
+If&nbsp;this&nbsp;is&nbsp;the&nbsp;last&nbsp;tab&nbsp;in&nbsp;the&nbsp;application,&nbsp;it&nbsp;closes&nbsp;the<br>
+terminals,&nbsp;the&nbsp;window&nbsp;and&nbsp;kills&nbsp;the&nbsp;application.<br>
+If&nbsp;not,&nbsp;it&nbsp;decreases&nbsp;the&nbsp;number&nbsp;of&nbsp;tabs&nbsp;and&nbsp;delted&nbsp;the&nbsp;AUI<br>
+NETBOOK&nbsp;page.</tt></dd></dl>
+
+<dl><dt><a name="Editor-NewTab"><strong>NewTab</strong></a>(self, event, nb, TargetFile)</dt><dd><tt>NewTab<br>
+&nbsp;<br>
+Creates&nbsp;a&nbsp;new&nbsp;AUI&nbsp;NOTEBOOK&nbsp;tab,&nbsp;adds&nbsp;the&nbsp;contents,<br>
+initializez&nbsp;a&nbsp;STC&nbsp;object&nbsp;for&nbsp;it&nbsp;and&nbsp;binds&nbsp;some&nbsp;of&nbsp;its&nbsp;events.<br>
+Creates&nbsp;the&nbsp;sidebar,&nbsp;adds&nbsp;a&nbsp;notebook&nbsp;and&nbsp;adds&nbsp;its&nbsp;utilities<br>
+in&nbsp;its&nbsp;tabs.</tt></dd></dl>
+
+<dl><dt><a name="Editor-OnAbout"><strong>OnAbout</strong></a>(self, event)</dt><dd><tt>OnAbout<br>
+&nbsp;<br>
+Shows&nbsp;the&nbsp;about&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-OnFullScreen"><strong>OnFullScreen</strong></a>(self, event)</dt><dd><tt>OnFullScreen<br>
+&nbsp;<br>
+Makes&nbsp;the&nbsp;main&nbsp;window&nbsp;fullscreen.</tt></dd></dl>
+
+<dl><dt><a name="Editor-OnGotoBox"><strong>OnGotoBox</strong></a>(self, event, text_id)</dt><dd><tt>OnGotoBox<br>
+&nbsp;<br>
+Finds&nbsp;the&nbsp;current&nbsp;document,&nbsp;and&nbsp;scrolls&nbsp;to&nbsp;the&nbsp;line&nbsp;indicated<br>
+by&nbsp;its&nbsp;input&nbsp;upon&nbsp;the&nbsp;Return&nbsp;key.</tt></dd></dl>
+
+<dl><dt><a name="Editor-OnOpenFile"><strong>OnOpenFile</strong></a>(self, event)</dt><dd><tt>OnOpenFile<br>
+&nbsp;<br>
+Collects&nbsp;a&nbsp;path&nbsp;for&nbsp;a&nbsp;new&nbsp;file&nbsp;via&nbsp;a&nbsp;file&nbsp;dialog.</tt></dd></dl>
+
+<dl><dt><a name="Editor-OnPrefs"><strong>OnPrefs</strong></a>(self, event)</dt><dd><tt>OnPrefs<br>
+&nbsp;<br>
+Shows&nbsp;the&nbsp;preferences&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-OnPrint"><strong>OnPrint</strong></a>(self, event)</dt><dd><tt>OnPrint<br>
+&nbsp;<br>
+Finds&nbsp;the&nbsp;document,&nbsp;sets&nbsp;the&nbsp;prints&nbsp;name,&nbsp;and&nbsp;calls&nbsp;the<br>
+wxPython&nbsp;toolkit&nbsp;to&nbsp;print&nbsp;the&nbsp;contents</tt></dd></dl>
+
+<dl><dt><a name="Editor-OnQuit"><strong>OnQuit</strong></a>(self, event)</dt><dd><tt>OnQuit<br>
+&nbsp;<br>
+Closes&nbsp;the&nbsp;main&nbsp;window,&nbsp;stops&nbsp;the&nbsp;terminals,&nbsp;and&nbsp;kills&nbsp;the<br>
+application&nbsp;process.<br>
+It&nbsp;promps&nbsp;the&nbsp;user&nbsp;for&nbsp;confirmation.</tt></dd></dl>
+
+<dl><dt><a name="Editor-OnRun"><strong>OnRun</strong></a>(self, event, text_id)</dt><dd><tt>Runs&nbsp;the&nbsp;current&nbsp;document&nbsp;in&nbsp;a&nbsp;xterm&nbsp;window,&nbsp;for&nbsp;testing.</tt></dd></dl>
+
+<dl><dt><a name="Editor-OpenFile"><strong>OpenFile</strong></a>(self, paths)</dt><dd><tt>OpenFile<br>
+&nbsp;<br>
+Calls&nbsp;NewTab&nbsp;with&nbsp;the&nbsp;collected&nbsp;path.<br>
+Supports&nbsp;multiple&nbsp;path&nbsp;selection.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Quit"><strong>Quit</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="Editor-RemoveFromMenubar"><strong>RemoveFromMenubar</strong></a>(self, menu)</dt><dd><tt>RemoveFromMenubar<br>
+&nbsp;<br>
+Removes&nbsp;the&nbsp;supplied&nbsp;argument&nbsp;menu&nbsp;from&nbsp;the&nbsp;plugins&nbsp;submenu.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ResetStatus"><strong>ResetStatus</strong></a>(self, event)</dt><dd><tt>ResetStatus<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;status&nbsp;bar&nbsp;status&nbsp;to&nbsp;nothing.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SaveAll"><strong>SaveAll</strong></a>(self, event)</dt><dd><tt>SaveAll<br>
+&nbsp;<br>
+Saves&nbsp;all&nbsp;the&nbsp;current&nbsp;documents&nbsp;using&nbsp;the<br>
+objects&nbsp;Save&nbsp;function.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SaveSessionFile"><strong>SaveSessionFile</strong></a>(self, event)</dt><dd><tt>SaveSessionFile<br>
+&nbsp;<br>
+Reccords&nbsp;the&nbsp;application&nbsp;state&nbsp;and&nbsp;saves&nbsp;it&nbsp;to&nbsp;disk&nbsp;via&nbsp;the<br>
+session&nbsp;instance.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetStatus"><strong>SetStatus</strong></a>(self, event, text)</dt><dd><tt>ResetStatus<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;status&nbsp;of&nbsp;statusbar.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ToggleBottomPanel"><strong>ToggleBottomPanel</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="Editor-ToggleSidePanel"><strong>ToggleSidePanel</strong></a>(self, event)</dt></dl>
+
+<dl><dt><a name="Editor-__init__"><strong>__init__</strong></a>(self, id, parent)</dt><dd><tt>__init__<br>
+&nbsp;<br>
+Creates&nbsp;the&nbsp;user&nbsp;interface.<br>
+Initializez&nbsp;the&nbsp;terminals&nbsp;if&nbsp;enabled.<br>
+Creates&nbsp;the&nbsp;required&nbsp;GUI&nbsp;and&nbsp;non&nbsp;GUI&nbsp;objects.</tt></dd></dl>
+
+<hr>
+Methods inherited from <a href="wx._windows.html#Frame">wx._windows.Frame</a>:<br>
+<dl><dt><a name="Editor-Command"><strong>Command</strong></a> = ProcessCommand(*args, **kwargs)</dt><dd><tt><a href="#Editor-ProcessCommand">ProcessCommand</a>(self,&nbsp;int&nbsp;winid)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-Create"><strong>Create</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Create">Create</a>(self,&nbsp;Window&nbsp;parent,&nbsp;int&nbsp;id=-1,&nbsp;String&nbsp;title=EmptyString,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;Point&nbsp;pos=DefaultPosition,&nbsp;Size&nbsp;size=DefaultSize,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;long&nbsp;style=DEFAULT_FRAME_STYLE,&nbsp;String&nbsp;name=FrameNameStr)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-CreateStatusBar"><strong>CreateStatusBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-CreateStatusBar">CreateStatusBar</a>(self,&nbsp;int&nbsp;number=1,&nbsp;long&nbsp;style=DEFAULT_STATUSBAR_STYLE,&nbsp;int&nbsp;winid=0,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;name=StatusLineNameStr)&nbsp;-&gt;&nbsp;StatusBar</tt></dd></dl>
+
+<dl><dt><a name="Editor-CreateToolBar"><strong>CreateToolBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-CreateToolBar">CreateToolBar</a>(self,&nbsp;long&nbsp;style=-1,&nbsp;int&nbsp;winid=-1,&nbsp;String&nbsp;name=ToolBarNameStr)&nbsp;-&gt;&nbsp;wxToolBar</tt></dd></dl>
+
+<dl><dt><a name="Editor-DoGiveHelp"><strong>DoGiveHelp</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-DoGiveHelp">DoGiveHelp</a>(self,&nbsp;String&nbsp;text,&nbsp;bool&nbsp;show)</tt></dd></dl>
+
+<dl><dt><a name="Editor-DoMenuUpdates"><strong>DoMenuUpdates</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-DoMenuUpdates">DoMenuUpdates</a>(self,&nbsp;Menu&nbsp;menu=None)</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetMenuBar"><strong>GetMenuBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetMenuBar">GetMenuBar</a>(self)&nbsp;-&gt;&nbsp;MenuBar</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetStatusBar"><strong>GetStatusBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetStatusBar">GetStatusBar</a>(self)&nbsp;-&gt;&nbsp;StatusBar</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetStatusBarPane"><strong>GetStatusBarPane</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetStatusBarPane">GetStatusBarPane</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetToolBar"><strong>GetToolBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetToolBar">GetToolBar</a>(self)&nbsp;-&gt;&nbsp;wxToolBar</tt></dd></dl>
+
+<dl><dt><a name="Editor-PopStatusText"><strong>PopStatusText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-PopStatusText">PopStatusText</a>(self,&nbsp;int&nbsp;number=0)</tt></dd></dl>
+
+<dl><dt><a name="Editor-ProcessCommand"><strong>ProcessCommand</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ProcessCommand">ProcessCommand</a>(self,&nbsp;int&nbsp;winid)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-PushStatusText"><strong>PushStatusText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-PushStatusText">PushStatusText</a>(self,&nbsp;String&nbsp;text,&nbsp;int&nbsp;number=0)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SendSizeEvent"><strong>SendSizeEvent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SendSizeEvent">SendSizeEvent</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetMenuBar"><strong>SetMenuBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetMenuBar">SetMenuBar</a>(self,&nbsp;MenuBar&nbsp;menubar)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetStatusBar"><strong>SetStatusBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetStatusBar">SetStatusBar</a>(self,&nbsp;StatusBar&nbsp;statBar)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetStatusBarPane"><strong>SetStatusBarPane</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetStatusBarPane">SetStatusBarPane</a>(self,&nbsp;int&nbsp;n)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetStatusText"><strong>SetStatusText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetStatusText">SetStatusText</a>(self,&nbsp;String&nbsp;text,&nbsp;int&nbsp;number=0)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetStatusWidths"><strong>SetStatusWidths</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetStatusWidths">SetStatusWidths</a>(self,&nbsp;int&nbsp;widths)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetToolBar"><strong>SetToolBar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetToolBar">SetToolBar</a>(self,&nbsp;wxToolBar&nbsp;toolbar)</tt></dd></dl>
+
+<dl><dt><a name="Editor-__repr__"><strong>__repr__</strong></a> = _swig_repr(self)</dt></dl>
+
+<hr>
+Static methods inherited from <a href="wx._windows.html#Frame">wx._windows.Frame</a>:<br>
+<dl><dt><a name="Editor-GetClassDefaultAttributes"><strong>GetClassDefaultAttributes</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetClassDefaultAttributes">GetClassDefaultAttributes</a>(int&nbsp;variant=WINDOW_VARIANT_NORMAL)&nbsp;-&gt;&nbsp;VisualAttributes<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;default&nbsp;attributes&nbsp;for&nbsp;this&nbsp;class.&nbsp;&nbsp;This&nbsp;is&nbsp;useful&nbsp;if&nbsp;you&nbsp;want<br>
+to&nbsp;use&nbsp;the&nbsp;same&nbsp;font&nbsp;or&nbsp;colour&nbsp;in&nbsp;your&nbsp;own&nbsp;control&nbsp;as&nbsp;in&nbsp;a&nbsp;standard<br>
+control&nbsp;--&nbsp;which&nbsp;is&nbsp;a&nbsp;much&nbsp;better&nbsp;idea&nbsp;than&nbsp;hard&nbsp;coding&nbsp;specific<br>
+colours&nbsp;or&nbsp;fonts&nbsp;which&nbsp;might&nbsp;look&nbsp;completely&nbsp;out&nbsp;of&nbsp;place&nbsp;on&nbsp;the<br>
+user's&nbsp;system,&nbsp;especially&nbsp;if&nbsp;it&nbsp;uses&nbsp;themes.<br>
+&nbsp;<br>
+The&nbsp;variant&nbsp;parameter&nbsp;is&nbsp;only&nbsp;relevant&nbsp;under&nbsp;Mac&nbsp;currently&nbsp;and&nbsp;is<br>
+ignore&nbsp;under&nbsp;other&nbsp;platforms.&nbsp;Under&nbsp;Mac,&nbsp;it&nbsp;will&nbsp;change&nbsp;the&nbsp;size&nbsp;of<br>
+the&nbsp;returned&nbsp;font.&nbsp;See&nbsp;`wx.Window.SetWindowVariant`&nbsp;for&nbsp;more&nbsp;about<br>
+this.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="wx._windows.html#Frame">wx._windows.Frame</a>:<br>
+<dl><dt><strong>MenuBar</strong></dt>
+<dd><tt>See&nbsp;`GetMenuBar`&nbsp;and&nbsp;`SetMenuBar`</tt></dd>
+</dl>
+<dl><dt><strong>StatusBar</strong></dt>
+<dd><tt>See&nbsp;`GetStatusBar`&nbsp;and&nbsp;`SetStatusBar`</tt></dd>
+</dl>
+<dl><dt><strong>StatusBarPane</strong></dt>
+<dd><tt>See&nbsp;`GetStatusBarPane`&nbsp;and&nbsp;`SetStatusBarPane`</tt></dd>
+</dl>
+<dl><dt><strong>ToolBar</strong></dt>
+<dd><tt>See&nbsp;`GetToolBar`&nbsp;and&nbsp;`SetToolBar`</tt></dd>
+</dl>
+<dl><dt><strong>thisown</strong></dt>
+<dd><tt>The&nbsp;membership&nbsp;flag</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="wx._windows.html#TopLevelWindow">wx._windows.TopLevelWindow</a>:<br>
+<dl><dt><a name="Editor-CenterOnScreen"><strong>CenterOnScreen</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-CenterOnScreen">CenterOnScreen</a>(self,&nbsp;int&nbsp;dir=BOTH)<br>
+&nbsp;<br>
+Center&nbsp;the&nbsp;window&nbsp;on&nbsp;screen</tt></dd></dl>
+
+<dl><dt><a name="Editor-CentreOnScreen"><strong>CentreOnScreen</strong></a> = CenterOnScreen(*args, **kwargs)</dt><dd><tt><a href="#Editor-CenterOnScreen">CenterOnScreen</a>(self,&nbsp;int&nbsp;dir=BOTH)<br>
+&nbsp;<br>
+Center&nbsp;the&nbsp;window&nbsp;on&nbsp;screen</tt></dd></dl>
+
+<dl><dt><a name="Editor-EnableCloseButton"><strong>EnableCloseButton</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-EnableCloseButton">EnableCloseButton</a>(self,&nbsp;bool&nbsp;enable)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetDefaultItem"><strong>GetDefaultItem</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetDefaultItem">GetDefaultItem</a>(self)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;default&nbsp;child&nbsp;of&nbsp;this&nbsp;parent,&nbsp;i.e.&nbsp;the&nbsp;one&nbsp;which&nbsp;is&nbsp;activated<br>
+by&nbsp;pressing&nbsp;&lt;Enter&gt;&nbsp;such&nbsp;as&nbsp;the&nbsp;OK&nbsp;button&nbsp;on&nbsp;a&nbsp;wx.Dialog.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetIcon"><strong>GetIcon</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetIcon">GetIcon</a>(self)&nbsp;-&gt;&nbsp;Icon</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetTitle"><strong>GetTitle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetTitle">GetTitle</a>(self)&nbsp;-&gt;&nbsp;String</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetTmpDefaultItem"><strong>GetTmpDefaultItem</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetTmpDefaultItem">GetTmpDefaultItem</a>(self)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;temporary&nbsp;default&nbsp;item,&nbsp;which&nbsp;can&nbsp;be&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Iconize"><strong>Iconize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Iconize">Iconize</a>(self,&nbsp;bool&nbsp;iconize=True)</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsActive"><strong>IsActive</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsActive">IsActive</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsAlwaysMaximized"><strong>IsAlwaysMaximized</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsAlwaysMaximized">IsAlwaysMaximized</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsFullScreen"><strong>IsFullScreen</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsFullScreen">IsFullScreen</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsIconized"><strong>IsIconized</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsIconized">IsIconized</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsMaximized"><strong>IsMaximized</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsMaximized">IsMaximized</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-MacGetMetalAppearance"><strong>MacGetMetalAppearance</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-MacGetMetalAppearance">MacGetMetalAppearance</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-MacGetTopLevelWindowRef"><strong>MacGetTopLevelWindowRef</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-MacGetTopLevelWindowRef">MacGetTopLevelWindowRef</a>(self)&nbsp;-&gt;&nbsp;long</tt></dd></dl>
+
+<dl><dt><a name="Editor-MacGetUnifiedAppearance"><strong>MacGetUnifiedAppearance</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-MacGetUnifiedAppearance">MacGetUnifiedAppearance</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-MacSetMetalAppearance"><strong>MacSetMetalAppearance</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-MacSetMetalAppearance">MacSetMetalAppearance</a>(self,&nbsp;bool&nbsp;on)</tt></dd></dl>
+
+<dl><dt><a name="Editor-Maximize"><strong>Maximize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Maximize">Maximize</a>(self,&nbsp;bool&nbsp;maximize=True)</tt></dd></dl>
+
+<dl><dt><a name="Editor-RequestUserAttention"><strong>RequestUserAttention</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-RequestUserAttention">RequestUserAttention</a>(self,&nbsp;int&nbsp;flags=USER_ATTENTION_INFO)</tt></dd></dl>
+
+<dl><dt><a name="Editor-Restore"><strong>Restore</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Restore">Restore</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetDefaultItem"><strong>SetDefaultItem</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetDefaultItem">SetDefaultItem</a>(self,&nbsp;Window&nbsp;child)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Set&nbsp;this&nbsp;child&nbsp;as&nbsp;default,&nbsp;return&nbsp;the&nbsp;old&nbsp;default.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetIcon"><strong>SetIcon</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetIcon">SetIcon</a>(self,&nbsp;Icon&nbsp;icon)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetIcons"><strong>SetIcons</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetIcons">SetIcons</a>(self,&nbsp;wxIconBundle&nbsp;icons)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetShape"><strong>SetShape</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetShape">SetShape</a>(self,&nbsp;Region&nbsp;region)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetTitle"><strong>SetTitle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetTitle">SetTitle</a>(self,&nbsp;String&nbsp;title)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetTmpDefaultItem"><strong>SetTmpDefaultItem</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetTmpDefaultItem">SetTmpDefaultItem</a>(self,&nbsp;Window&nbsp;win)<br>
+&nbsp;<br>
+Set&nbsp;this&nbsp;child&nbsp;as&nbsp;temporary&nbsp;default</tt></dd></dl>
+
+<dl><dt><a name="Editor-ShowFullScreen"><strong>ShowFullScreen</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ShowFullScreen">ShowFullScreen</a>(self,&nbsp;bool&nbsp;show,&nbsp;long&nbsp;style=FULLSCREEN_ALL)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="wx._windows.html#TopLevelWindow">wx._windows.TopLevelWindow</a>:<br>
+<dl><dt><strong>DefaultItem</strong></dt>
+<dd><tt>See&nbsp;`GetDefaultItem`&nbsp;and&nbsp;`SetDefaultItem`</tt></dd>
+</dl>
+<dl><dt><strong>Icon</strong></dt>
+<dd><tt>See&nbsp;`GetIcon`&nbsp;and&nbsp;`SetIcon`</tt></dd>
+</dl>
+<dl><dt><strong>Title</strong></dt>
+<dd><tt>See&nbsp;`GetTitle`&nbsp;and&nbsp;`SetTitle`</tt></dd>
+</dl>
+<dl><dt><strong>TmpDefaultItem</strong></dt>
+<dd><tt>See&nbsp;`GetTmpDefaultItem`&nbsp;and&nbsp;`SetTmpDefaultItem`</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="wx._core.html#Window">wx._core.Window</a>:<br>
+<dl><dt><a name="Editor-AcceptsFocus"><strong>AcceptsFocus</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-AcceptsFocus">AcceptsFocus</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Can&nbsp;this&nbsp;window&nbsp;have&nbsp;focus?</tt></dd></dl>
+
+<dl><dt><a name="Editor-AcceptsFocusFromKeyboard"><strong>AcceptsFocusFromKeyboard</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-AcceptsFocusFromKeyboard">AcceptsFocusFromKeyboard</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Can&nbsp;this&nbsp;window&nbsp;be&nbsp;given&nbsp;focus&nbsp;by&nbsp;keyboard&nbsp;navigation?&nbsp;if&nbsp;not,&nbsp;the<br>
+only&nbsp;way&nbsp;to&nbsp;give&nbsp;it&nbsp;focus&nbsp;(provided&nbsp;it&nbsp;accepts&nbsp;it&nbsp;at&nbsp;all)&nbsp;is&nbsp;to&nbsp;click<br>
+it.</tt></dd></dl>
+
+<dl><dt><a name="Editor-AddChild"><strong>AddChild</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-AddChild">AddChild</a>(self,&nbsp;Window&nbsp;child)<br>
+&nbsp;<br>
+Adds&nbsp;a&nbsp;child&nbsp;window.&nbsp;This&nbsp;is&nbsp;called&nbsp;automatically&nbsp;by&nbsp;window&nbsp;creation<br>
+functions&nbsp;so&nbsp;should&nbsp;not&nbsp;be&nbsp;required&nbsp;by&nbsp;the&nbsp;application&nbsp;programmer.</tt></dd></dl>
+
+<dl><dt><a name="Editor-AdjustForLayoutDirection"><strong>AdjustForLayoutDirection</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-AdjustForLayoutDirection">AdjustForLayoutDirection</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;width,&nbsp;int&nbsp;widthTotal)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Mirror&nbsp;coordinates&nbsp;for&nbsp;RTL&nbsp;layout&nbsp;if&nbsp;this&nbsp;window&nbsp;uses&nbsp;it&nbsp;and&nbsp;if&nbsp;the<br>
+mirroring&nbsp;is&nbsp;not&nbsp;done&nbsp;automatically&nbsp;like&nbsp;Win32.</tt></dd></dl>
+
+<dl><dt><a name="Editor-AssociateHandle"><strong>AssociateHandle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-AssociateHandle">AssociateHandle</a>(self,&nbsp;long&nbsp;handle)<br>
+&nbsp;<br>
+Associate&nbsp;the&nbsp;window&nbsp;with&nbsp;a&nbsp;new&nbsp;native&nbsp;handle</tt></dd></dl>
+
+<dl><dt><a name="Editor-CacheBestSize"><strong>CacheBestSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-CacheBestSize">CacheBestSize</a>(self,&nbsp;Size&nbsp;size)<br>
+&nbsp;<br>
+Cache&nbsp;the&nbsp;best&nbsp;size&nbsp;so&nbsp;it&nbsp;doesn't&nbsp;need&nbsp;to&nbsp;be&nbsp;calculated&nbsp;again,&nbsp;(at&nbsp;least&nbsp;until<br>
+some&nbsp;properties&nbsp;of&nbsp;the&nbsp;window&nbsp;change.)</tt></dd></dl>
+
+<dl><dt><a name="Editor-CanSetTransparent"><strong>CanSetTransparent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-CanSetTransparent">CanSetTransparent</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;``True``&nbsp;if&nbsp;the&nbsp;platform&nbsp;supports&nbsp;setting&nbsp;the&nbsp;transparency&nbsp;for<br>
+this&nbsp;window.&nbsp;&nbsp;Note&nbsp;that&nbsp;this&nbsp;method&nbsp;will&nbsp;err&nbsp;on&nbsp;the&nbsp;side&nbsp;of&nbsp;caution,<br>
+so&nbsp;it&nbsp;is&nbsp;possible&nbsp;that&nbsp;this&nbsp;will&nbsp;return&nbsp;``False``&nbsp;when&nbsp;it&nbsp;is&nbsp;in&nbsp;fact<br>
+possible&nbsp;to&nbsp;set&nbsp;the&nbsp;transparency.<br>
+&nbsp;<br>
+NOTE:&nbsp;On&nbsp;X-windows&nbsp;systems&nbsp;the&nbsp;X&nbsp;server&nbsp;must&nbsp;have&nbsp;the&nbsp;composite<br>
+extension&nbsp;loaded,&nbsp;and&nbsp;there&nbsp;must&nbsp;be&nbsp;a&nbsp;composite&nbsp;manager&nbsp;program&nbsp;(such<br>
+as&nbsp;xcompmgr)&nbsp;running.</tt></dd></dl>
+
+<dl><dt><a name="Editor-CaptureMouse"><strong>CaptureMouse</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-CaptureMouse">CaptureMouse</a>(self)<br>
+&nbsp;<br>
+Directs&nbsp;all&nbsp;mouse&nbsp;input&nbsp;to&nbsp;this&nbsp;window.&nbsp;Call&nbsp;wx.Window.ReleaseMouse&nbsp;to<br>
+release&nbsp;the&nbsp;capture.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;wxWindows&nbsp;maintains&nbsp;the&nbsp;stack&nbsp;of&nbsp;windows&nbsp;having&nbsp;captured&nbsp;the<br>
+mouse&nbsp;and&nbsp;when&nbsp;the&nbsp;mouse&nbsp;is&nbsp;released&nbsp;the&nbsp;capture&nbsp;returns&nbsp;to&nbsp;the&nbsp;window<br>
+which&nbsp;had&nbsp;had&nbsp;captured&nbsp;it&nbsp;previously&nbsp;and&nbsp;it&nbsp;is&nbsp;only&nbsp;really&nbsp;released&nbsp;if<br>
+there&nbsp;were&nbsp;no&nbsp;previous&nbsp;window.&nbsp;In&nbsp;particular,&nbsp;this&nbsp;means&nbsp;that&nbsp;you&nbsp;must<br>
+release&nbsp;the&nbsp;mouse&nbsp;as&nbsp;many&nbsp;times&nbsp;as&nbsp;you&nbsp;capture&nbsp;it,&nbsp;unless&nbsp;the&nbsp;window<br>
+receives&nbsp;the&nbsp;`wx.MouseCaptureLostEvent`&nbsp;event.<br>
+&nbsp;<br>
+Any&nbsp;application&nbsp;which&nbsp;captures&nbsp;the&nbsp;mouse&nbsp;in&nbsp;the&nbsp;beginning&nbsp;of&nbsp;some<br>
+operation&nbsp;*must*&nbsp;handle&nbsp;`wx.MouseCaptureLostEvent`&nbsp;and&nbsp;cancel&nbsp;this<br>
+operation&nbsp;when&nbsp;it&nbsp;receives&nbsp;the&nbsp;event.&nbsp;The&nbsp;event&nbsp;handler&nbsp;must&nbsp;not<br>
+recapture&nbsp;mouse.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Center"><strong>Center</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Center">Center</a>(self,&nbsp;int&nbsp;direction=BOTH)<br>
+&nbsp;<br>
+Centers&nbsp;the&nbsp;window.&nbsp;&nbsp;The&nbsp;parameter&nbsp;specifies&nbsp;the&nbsp;direction&nbsp;for<br>
+centering,&nbsp;and&nbsp;may&nbsp;be&nbsp;wx.HORIZONTAL,&nbsp;wx.VERTICAL&nbsp;or&nbsp;wx.BOTH.&nbsp;It&nbsp;may<br>
+also&nbsp;include&nbsp;wx.CENTER_ON_SCREEN&nbsp;flag&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;center&nbsp;the&nbsp;window<br>
+on&nbsp;the&nbsp;entire&nbsp;screen&nbsp;and&nbsp;not&nbsp;on&nbsp;its&nbsp;parent&nbsp;window.&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a<br>
+top-level&nbsp;window&nbsp;and&nbsp;has&nbsp;no&nbsp;parent&nbsp;then&nbsp;it&nbsp;will&nbsp;always&nbsp;be&nbsp;centered<br>
+relative&nbsp;to&nbsp;the&nbsp;screen.</tt></dd></dl>
+
+<dl><dt><a name="Editor-CenterOnParent"><strong>CenterOnParent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-CenterOnParent">CenterOnParent</a>(self,&nbsp;int&nbsp;dir=BOTH)<br>
+&nbsp;<br>
+Center&nbsp;with&nbsp;respect&nbsp;to&nbsp;the&nbsp;the&nbsp;parent&nbsp;window</tt></dd></dl>
+
+<dl><dt><a name="Editor-Centre"><strong>Centre</strong></a> = Center(*args, **kwargs)</dt><dd><tt><a href="#Editor-Center">Center</a>(self,&nbsp;int&nbsp;direction=BOTH)<br>
+&nbsp;<br>
+Centers&nbsp;the&nbsp;window.&nbsp;&nbsp;The&nbsp;parameter&nbsp;specifies&nbsp;the&nbsp;direction&nbsp;for<br>
+centering,&nbsp;and&nbsp;may&nbsp;be&nbsp;wx.HORIZONTAL,&nbsp;wx.VERTICAL&nbsp;or&nbsp;wx.BOTH.&nbsp;It&nbsp;may<br>
+also&nbsp;include&nbsp;wx.CENTER_ON_SCREEN&nbsp;flag&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;center&nbsp;the&nbsp;window<br>
+on&nbsp;the&nbsp;entire&nbsp;screen&nbsp;and&nbsp;not&nbsp;on&nbsp;its&nbsp;parent&nbsp;window.&nbsp;&nbsp;If&nbsp;it&nbsp;is&nbsp;a<br>
+top-level&nbsp;window&nbsp;and&nbsp;has&nbsp;no&nbsp;parent&nbsp;then&nbsp;it&nbsp;will&nbsp;always&nbsp;be&nbsp;centered<br>
+relative&nbsp;to&nbsp;the&nbsp;screen.</tt></dd></dl>
+
+<dl><dt><a name="Editor-CentreOnParent"><strong>CentreOnParent</strong></a> = CenterOnParent(*args, **kwargs)</dt><dd><tt><a href="#Editor-CenterOnParent">CenterOnParent</a>(self,&nbsp;int&nbsp;dir=BOTH)<br>
+&nbsp;<br>
+Center&nbsp;with&nbsp;respect&nbsp;to&nbsp;the&nbsp;the&nbsp;parent&nbsp;window</tt></dd></dl>
+
+<dl><dt><a name="Editor-ClearBackground"><strong>ClearBackground</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ClearBackground">ClearBackground</a>(self)<br>
+&nbsp;<br>
+Clears&nbsp;the&nbsp;window&nbsp;by&nbsp;filling&nbsp;it&nbsp;with&nbsp;the&nbsp;current&nbsp;background<br>
+colour.&nbsp;Does&nbsp;not&nbsp;cause&nbsp;an&nbsp;erase&nbsp;background&nbsp;event&nbsp;to&nbsp;be&nbsp;generated.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ClientToScreen"><strong>ClientToScreen</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ClientToScreen">ClientToScreen</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Converts&nbsp;to&nbsp;screen&nbsp;coordinates&nbsp;from&nbsp;coordinates&nbsp;relative&nbsp;to&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ClientToScreenXY"><strong>ClientToScreenXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ClientToScreenXY">ClientToScreenXY</a>(int&nbsp;x,&nbsp;int&nbsp;y)&nbsp;-&gt;&nbsp;(x,y)<br>
+&nbsp;<br>
+Converts&nbsp;to&nbsp;screen&nbsp;coordinates&nbsp;from&nbsp;coordinates&nbsp;relative&nbsp;to&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ClientToWindowSize"><strong>ClientToWindowSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ClientToWindowSize">ClientToWindowSize</a>(self,&nbsp;Size&nbsp;size)&nbsp;-&gt;&nbsp;Size</tt></dd></dl>
+
+<dl><dt><a name="Editor-Close"><strong>Close</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Close">Close</a>(self,&nbsp;bool&nbsp;force=False)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;simply&nbsp;generates&nbsp;a&nbsp;EVT_CLOSE&nbsp;event&nbsp;whose&nbsp;handler&nbsp;usually<br>
+tries&nbsp;to&nbsp;close&nbsp;the&nbsp;window.&nbsp;It&nbsp;doesn't&nbsp;close&nbsp;the&nbsp;window&nbsp;itself,<br>
+however.&nbsp;&nbsp;If&nbsp;force&nbsp;is&nbsp;False&nbsp;(the&nbsp;default)&nbsp;then&nbsp;the&nbsp;window's&nbsp;close<br>
+handler&nbsp;will&nbsp;be&nbsp;allowed&nbsp;to&nbsp;veto&nbsp;the&nbsp;destruction&nbsp;of&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ConvertDialogPointToPixels"><strong>ConvertDialogPointToPixels</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ConvertDialogPointToPixels">ConvertDialogPointToPixels</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Converts&nbsp;a&nbsp;point&nbsp;or&nbsp;size&nbsp;from&nbsp;dialog&nbsp;units&nbsp;to&nbsp;pixels.&nbsp;&nbsp;Dialog&nbsp;units<br>
+are&nbsp;used&nbsp;for&nbsp;maintaining&nbsp;a&nbsp;dialog's&nbsp;proportions&nbsp;even&nbsp;if&nbsp;the&nbsp;font<br>
+changes.&nbsp;For&nbsp;the&nbsp;x&nbsp;dimension,&nbsp;the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the<br>
+average&nbsp;character&nbsp;width&nbsp;and&nbsp;then&nbsp;divided&nbsp;by&nbsp;4.&nbsp;For&nbsp;the&nbsp;y&nbsp;dimension,<br>
+the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;average&nbsp;character&nbsp;height&nbsp;and<br>
+then&nbsp;divided&nbsp;by&nbsp;8.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ConvertDialogSizeToPixels"><strong>ConvertDialogSizeToPixels</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ConvertDialogSizeToPixels">ConvertDialogSizeToPixels</a>(self,&nbsp;Size&nbsp;sz)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Converts&nbsp;a&nbsp;point&nbsp;or&nbsp;size&nbsp;from&nbsp;dialog&nbsp;units&nbsp;to&nbsp;pixels.&nbsp;&nbsp;Dialog&nbsp;units<br>
+are&nbsp;used&nbsp;for&nbsp;maintaining&nbsp;a&nbsp;dialog's&nbsp;proportions&nbsp;even&nbsp;if&nbsp;the&nbsp;font<br>
+changes.&nbsp;For&nbsp;the&nbsp;x&nbsp;dimension,&nbsp;the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the<br>
+average&nbsp;character&nbsp;width&nbsp;and&nbsp;then&nbsp;divided&nbsp;by&nbsp;4.&nbsp;For&nbsp;the&nbsp;y&nbsp;dimension,<br>
+the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;average&nbsp;character&nbsp;height&nbsp;and<br>
+then&nbsp;divided&nbsp;by&nbsp;8.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ConvertPixelPointToDialog"><strong>ConvertPixelPointToDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ConvertPixelPointToDialog">ConvertPixelPointToDialog</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point</tt></dd></dl>
+
+<dl><dt><a name="Editor-ConvertPixelSizeToDialog"><strong>ConvertPixelSizeToDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ConvertPixelSizeToDialog">ConvertPixelSizeToDialog</a>(self,&nbsp;Size&nbsp;sz)&nbsp;-&gt;&nbsp;Size</tt></dd></dl>
+
+<dl><dt><a name="Editor-DLG_PNT"><strong>DLG_PNT</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-DLG_PNT">DLG_PNT</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Converts&nbsp;a&nbsp;point&nbsp;or&nbsp;size&nbsp;from&nbsp;dialog&nbsp;units&nbsp;to&nbsp;pixels.&nbsp;&nbsp;Dialog&nbsp;units<br>
+are&nbsp;used&nbsp;for&nbsp;maintaining&nbsp;a&nbsp;dialog's&nbsp;proportions&nbsp;even&nbsp;if&nbsp;the&nbsp;font<br>
+changes.&nbsp;For&nbsp;the&nbsp;x&nbsp;dimension,&nbsp;the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the<br>
+average&nbsp;character&nbsp;width&nbsp;and&nbsp;then&nbsp;divided&nbsp;by&nbsp;4.&nbsp;For&nbsp;the&nbsp;y&nbsp;dimension,<br>
+the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;average&nbsp;character&nbsp;height&nbsp;and<br>
+then&nbsp;divided&nbsp;by&nbsp;8.</tt></dd></dl>
+
+<dl><dt><a name="Editor-DLG_SZE"><strong>DLG_SZE</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-DLG_SZE">DLG_SZE</a>(self,&nbsp;Size&nbsp;sz)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Converts&nbsp;a&nbsp;point&nbsp;or&nbsp;size&nbsp;from&nbsp;dialog&nbsp;units&nbsp;to&nbsp;pixels.&nbsp;&nbsp;Dialog&nbsp;units<br>
+are&nbsp;used&nbsp;for&nbsp;maintaining&nbsp;a&nbsp;dialog's&nbsp;proportions&nbsp;even&nbsp;if&nbsp;the&nbsp;font<br>
+changes.&nbsp;For&nbsp;the&nbsp;x&nbsp;dimension,&nbsp;the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the<br>
+average&nbsp;character&nbsp;width&nbsp;and&nbsp;then&nbsp;divided&nbsp;by&nbsp;4.&nbsp;For&nbsp;the&nbsp;y&nbsp;dimension,<br>
+the&nbsp;dialog&nbsp;units&nbsp;are&nbsp;multiplied&nbsp;by&nbsp;the&nbsp;average&nbsp;character&nbsp;height&nbsp;and<br>
+then&nbsp;divided&nbsp;by&nbsp;8.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Destroy"><strong>Destroy</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Destroy">Destroy</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Destroys&nbsp;the&nbsp;window&nbsp;safely.&nbsp;&nbsp;Frames&nbsp;and&nbsp;dialogs&nbsp;are&nbsp;not&nbsp;destroyed<br>
+immediately&nbsp;when&nbsp;this&nbsp;function&nbsp;is&nbsp;called&nbsp;--&nbsp;they&nbsp;are&nbsp;added&nbsp;to&nbsp;a&nbsp;list<br>
+of&nbsp;windows&nbsp;to&nbsp;be&nbsp;deleted&nbsp;on&nbsp;idle&nbsp;time,&nbsp;when&nbsp;all&nbsp;the&nbsp;window's&nbsp;events<br>
+have&nbsp;been&nbsp;processed.&nbsp;This&nbsp;prevents&nbsp;problems&nbsp;with&nbsp;events&nbsp;being&nbsp;sent&nbsp;to<br>
+non-existent&nbsp;windows.<br>
+&nbsp;<br>
+Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;window&nbsp;has&nbsp;either&nbsp;been&nbsp;successfully&nbsp;deleted,&nbsp;or&nbsp;it<br>
+has&nbsp;been&nbsp;added&nbsp;to&nbsp;the&nbsp;list&nbsp;of&nbsp;windows&nbsp;pending&nbsp;real&nbsp;deletion.</tt></dd></dl>
+
+<dl><dt><a name="Editor-DestroyChildren"><strong>DestroyChildren</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-DestroyChildren">DestroyChildren</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Destroys&nbsp;all&nbsp;children&nbsp;of&nbsp;a&nbsp;window.&nbsp;Called&nbsp;automatically&nbsp;by&nbsp;the<br>
+destructor.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Disable"><strong>Disable</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Disable">Disable</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Disables&nbsp;the&nbsp;window,&nbsp;same&nbsp;as&nbsp;<a href="#Editor-Enable">Enable</a>(false).</tt></dd></dl>
+
+<dl><dt><a name="Editor-DissociateHandle"><strong>DissociateHandle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-DissociateHandle">DissociateHandle</a>(self)<br>
+&nbsp;<br>
+Dissociate&nbsp;the&nbsp;current&nbsp;native&nbsp;handle&nbsp;from&nbsp;the&nbsp;window</tt></dd></dl>
+
+<dl><dt><a name="Editor-DragAcceptFiles"><strong>DragAcceptFiles</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-DragAcceptFiles">DragAcceptFiles</a>(self,&nbsp;bool&nbsp;accept)<br>
+&nbsp;<br>
+Enables&nbsp;or&nbsp;disables&nbsp;eligibility&nbsp;for&nbsp;drop&nbsp;file&nbsp;events,&nbsp;EVT_DROP_FILES.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Enable"><strong>Enable</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Enable">Enable</a>(self,&nbsp;bool&nbsp;enable=True)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Enable&nbsp;or&nbsp;disable&nbsp;the&nbsp;window&nbsp;for&nbsp;user&nbsp;input.&nbsp;Note&nbsp;that&nbsp;when&nbsp;a&nbsp;parent<br>
+window&nbsp;is&nbsp;disabled,&nbsp;all&nbsp;of&nbsp;its&nbsp;children&nbsp;are&nbsp;disabled&nbsp;as&nbsp;well&nbsp;and&nbsp;they<br>
+are&nbsp;reenabled&nbsp;again&nbsp;when&nbsp;the&nbsp;parent&nbsp;is.&nbsp;&nbsp;Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;window<br>
+has&nbsp;been&nbsp;enabled&nbsp;or&nbsp;disabled,&nbsp;false&nbsp;if&nbsp;nothing&nbsp;was&nbsp;done,&nbsp;i.e.&nbsp;if&nbsp;the<br>
+window&nbsp;had&nbsp;already&nbsp;been&nbsp;in&nbsp;the&nbsp;specified&nbsp;state.</tt></dd></dl>
+
+<dl><dt><a name="Editor-FindWindowById"><strong>FindWindowById</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-FindWindowById">FindWindowById</a>(self,&nbsp;long&nbsp;winid)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Find&nbsp;a&nbsp;child&nbsp;of&nbsp;this&nbsp;window&nbsp;by&nbsp;window&nbsp;ID</tt></dd></dl>
+
+<dl><dt><a name="Editor-FindWindowByLabel"><strong>FindWindowByLabel</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-FindWindowByLabel">FindWindowByLabel</a>(self,&nbsp;String&nbsp;label)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Find&nbsp;a&nbsp;child&nbsp;of&nbsp;this&nbsp;window&nbsp;by&nbsp;label</tt></dd></dl>
+
+<dl><dt><a name="Editor-FindWindowByName"><strong>FindWindowByName</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-FindWindowByName">FindWindowByName</a>(self,&nbsp;String&nbsp;name)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Find&nbsp;a&nbsp;child&nbsp;of&nbsp;this&nbsp;window&nbsp;by&nbsp;name</tt></dd></dl>
+
+<dl><dt><a name="Editor-Fit"><strong>Fit</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Fit">Fit</a>(self)<br>
+&nbsp;<br>
+Sizes&nbsp;the&nbsp;window&nbsp;so&nbsp;that&nbsp;it&nbsp;fits&nbsp;around&nbsp;its&nbsp;subwindows.&nbsp;This&nbsp;function<br>
+won't&nbsp;do&nbsp;anything&nbsp;if&nbsp;there&nbsp;are&nbsp;no&nbsp;subwindows&nbsp;and&nbsp;will&nbsp;only&nbsp;really&nbsp;work<br>
+correctly&nbsp;if&nbsp;sizers&nbsp;are&nbsp;used&nbsp;for&nbsp;the&nbsp;subwindows&nbsp;layout.&nbsp;Also,&nbsp;if&nbsp;the<br>
+window&nbsp;has&nbsp;exactly&nbsp;one&nbsp;subwindow&nbsp;it&nbsp;is&nbsp;better&nbsp;(faster&nbsp;and&nbsp;the&nbsp;result<br>
+is&nbsp;more&nbsp;precise&nbsp;as&nbsp;Fit&nbsp;adds&nbsp;some&nbsp;margin&nbsp;to&nbsp;account&nbsp;for&nbsp;fuzziness&nbsp;of<br>
+its&nbsp;calculations)&nbsp;to&nbsp;call&nbsp;window.<a href="#Editor-SetClientSize">SetClientSize</a>(child.<a href="#Editor-GetSize">GetSize</a>())<br>
+instead&nbsp;of&nbsp;calling&nbsp;Fit.</tt></dd></dl>
+
+<dl><dt><a name="Editor-FitInside"><strong>FitInside</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-FitInside">FitInside</a>(self)<br>
+&nbsp;<br>
+Similar&nbsp;to&nbsp;Fit,&nbsp;but&nbsp;sizes&nbsp;the&nbsp;interior&nbsp;(virtual)&nbsp;size&nbsp;of&nbsp;a<br>
+window.&nbsp;Mainly&nbsp;useful&nbsp;with&nbsp;scrolled&nbsp;windows&nbsp;to&nbsp;reset&nbsp;scrollbars&nbsp;after<br>
+sizing&nbsp;changes&nbsp;that&nbsp;do&nbsp;not&nbsp;trigger&nbsp;a&nbsp;size&nbsp;event,&nbsp;and/or&nbsp;scrolled<br>
+windows&nbsp;without&nbsp;an&nbsp;interior&nbsp;sizer.&nbsp;This&nbsp;function&nbsp;similarly&nbsp;won't&nbsp;do<br>
+anything&nbsp;if&nbsp;there&nbsp;are&nbsp;no&nbsp;subwindows.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Freeze"><strong>Freeze</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Freeze">Freeze</a>(self)<br>
+&nbsp;<br>
+Freezes&nbsp;the&nbsp;window&nbsp;or,&nbsp;in&nbsp;other&nbsp;words,&nbsp;prevents&nbsp;any&nbsp;updates&nbsp;from<br>
+taking&nbsp;place&nbsp;on&nbsp;screen,&nbsp;the&nbsp;window&nbsp;is&nbsp;not&nbsp;redrawn&nbsp;at&nbsp;all.&nbsp;Thaw&nbsp;must&nbsp;be<br>
+called&nbsp;to&nbsp;reenable&nbsp;window&nbsp;redrawing.&nbsp;&nbsp;Calls&nbsp;to&nbsp;Freeze/Thaw&nbsp;may&nbsp;be<br>
+nested,&nbsp;with&nbsp;the&nbsp;actual&nbsp;Thaw&nbsp;being&nbsp;delayed&nbsp;until&nbsp;all&nbsp;the&nbsp;nesting&nbsp;has<br>
+been&nbsp;undone.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;useful&nbsp;for&nbsp;visual&nbsp;appearance&nbsp;optimization&nbsp;(for&nbsp;example,<br>
+it&nbsp;is&nbsp;a&nbsp;good&nbsp;idea&nbsp;to&nbsp;use&nbsp;it&nbsp;before&nbsp;inserting&nbsp;large&nbsp;amount&nbsp;of&nbsp;text&nbsp;into<br>
+a&nbsp;wxTextCtrl&nbsp;under&nbsp;wxGTK)&nbsp;but&nbsp;is&nbsp;not&nbsp;implemented&nbsp;on&nbsp;all&nbsp;platforms&nbsp;nor<br>
+for&nbsp;all&nbsp;controls&nbsp;so&nbsp;it&nbsp;is&nbsp;mostly&nbsp;just&nbsp;a&nbsp;hint&nbsp;to&nbsp;wxWindows&nbsp;and&nbsp;not&nbsp;a<br>
+mandatory&nbsp;directive.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetAcceleratorTable"><strong>GetAcceleratorTable</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetAcceleratorTable">GetAcceleratorTable</a>(self)&nbsp;-&gt;&nbsp;AcceleratorTable<br>
+&nbsp;<br>
+Gets&nbsp;the&nbsp;accelerator&nbsp;table&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetAdjustedBestSize"><strong>GetAdjustedBestSize</strong></a> = deprecatedWrapper(*args, **kwargs)</dt><dd><tt>Use&nbsp;`GetEffectiveMinSize`&nbsp;instead.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetAutoLayout"><strong>GetAutoLayout</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetAutoLayout">GetAutoLayout</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;current&nbsp;autoLayout&nbsp;setting</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetBackgroundColour"><strong>GetBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetBackgroundColour">GetBackgroundColour</a>(self)&nbsp;-&gt;&nbsp;Colour<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;background&nbsp;colour&nbsp;of&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetBackgroundStyle"><strong>GetBackgroundStyle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetBackgroundStyle">GetBackgroundStyle</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;background&nbsp;style&nbsp;of&nbsp;the&nbsp;window.<br>
+&nbsp;<br>
+:see:&nbsp;`SetBackgroundStyle`</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetBestFittingSize"><strong>GetBestFittingSize</strong></a> = deprecatedWrapper(*args, **kwargs)</dt><dd><tt>Use&nbsp;`GetEffectiveMinSize`&nbsp;instead.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetBestSize"><strong>GetBestSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetBestSize">GetBestSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;returns&nbsp;the&nbsp;best&nbsp;acceptable&nbsp;minimal&nbsp;size&nbsp;for&nbsp;the<br>
+window,&nbsp;if&nbsp;applicable.&nbsp;For&nbsp;example,&nbsp;for&nbsp;a&nbsp;static&nbsp;text&nbsp;control,&nbsp;it&nbsp;will<br>
+be&nbsp;the&nbsp;minimal&nbsp;size&nbsp;such&nbsp;that&nbsp;the&nbsp;control&nbsp;label&nbsp;is&nbsp;not&nbsp;truncated.&nbsp;For<br>
+windows&nbsp;containing&nbsp;subwindows&nbsp;(such&nbsp;as&nbsp;wx.Panel),&nbsp;the&nbsp;size&nbsp;returned&nbsp;by<br>
+this&nbsp;function&nbsp;will&nbsp;be&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;size&nbsp;the&nbsp;window&nbsp;would&nbsp;have&nbsp;had<br>
+after&nbsp;calling&nbsp;Fit.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetBestSizeTuple"><strong>GetBestSizeTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetBestSizeTuple">GetBestSizeTuple</a>()&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;returns&nbsp;the&nbsp;best&nbsp;acceptable&nbsp;minimal&nbsp;size&nbsp;for&nbsp;the<br>
+window,&nbsp;if&nbsp;applicable.&nbsp;For&nbsp;example,&nbsp;for&nbsp;a&nbsp;static&nbsp;text&nbsp;control,&nbsp;it&nbsp;will<br>
+be&nbsp;the&nbsp;minimal&nbsp;size&nbsp;such&nbsp;that&nbsp;the&nbsp;control&nbsp;label&nbsp;is&nbsp;not&nbsp;truncated.&nbsp;For<br>
+windows&nbsp;containing&nbsp;subwindows&nbsp;(such&nbsp;as&nbsp;wx.Panel),&nbsp;the&nbsp;size&nbsp;returned&nbsp;by<br>
+this&nbsp;function&nbsp;will&nbsp;be&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;size&nbsp;the&nbsp;window&nbsp;would&nbsp;have&nbsp;had<br>
+after&nbsp;calling&nbsp;Fit.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetBestVirtualSize"><strong>GetBestVirtualSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetBestVirtualSize">GetBestVirtualSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;largest&nbsp;of&nbsp;ClientSize&nbsp;and&nbsp;BestSize&nbsp;(as&nbsp;determined&nbsp;by&nbsp;a<br>
+sizer,&nbsp;interior&nbsp;children,&nbsp;or&nbsp;other&nbsp;means)</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetBorder"><strong>GetBorder</strong></a>(*args)</dt><dd><tt><a href="#Editor-GetBorder">GetBorder</a>(self,&nbsp;long&nbsp;flags)&nbsp;-&gt;&nbsp;int<br>
+<a href="#Editor-GetBorder">GetBorder</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;border&nbsp;for&nbsp;the&nbsp;flags&nbsp;of&nbsp;this&nbsp;window</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetCaret"><strong>GetCaret</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetCaret">GetCaret</a>(self)&nbsp;-&gt;&nbsp;Caret<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;caret&nbsp;associated&nbsp;with&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetCharHeight"><strong>GetCharHeight</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetCharHeight">GetCharHeight</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;(average)&nbsp;character&nbsp;size&nbsp;for&nbsp;the&nbsp;current&nbsp;font.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetCharWidth"><strong>GetCharWidth</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetCharWidth">GetCharWidth</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;(average)&nbsp;character&nbsp;size&nbsp;for&nbsp;the&nbsp;current&nbsp;font.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetChildren"><strong>GetChildren</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetChildren">GetChildren</a>(self)&nbsp;-&gt;&nbsp;WindowList<br>
+&nbsp;<br>
+Returns&nbsp;an&nbsp;object&nbsp;containing&nbsp;a&nbsp;list&nbsp;of&nbsp;the&nbsp;window's&nbsp;children.&nbsp;&nbsp;The<br>
+object&nbsp;provides&nbsp;a&nbsp;Python&nbsp;sequence-like&nbsp;interface&nbsp;over&nbsp;the&nbsp;internal<br>
+list&nbsp;maintained&nbsp;by&nbsp;the&nbsp;window..</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetClientAreaOrigin"><strong>GetClientAreaOrigin</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetClientAreaOrigin">GetClientAreaOrigin</a>(self)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;origin&nbsp;of&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window&nbsp;relative&nbsp;to&nbsp;the<br>
+window's&nbsp;top&nbsp;left&nbsp;corner&nbsp;(the&nbsp;client&nbsp;area&nbsp;may&nbsp;be&nbsp;shifted&nbsp;because&nbsp;of<br>
+the&nbsp;borders,&nbsp;scrollbars,&nbsp;other&nbsp;decorations...)</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetClientRect"><strong>GetClientRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetClientRect">GetClientRect</a>(self)&nbsp;-&gt;&nbsp;Rect<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;client&nbsp;area&nbsp;position&nbsp;and&nbsp;size&nbsp;as&nbsp;a&nbsp;`wx.Rect`&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetClientSize"><strong>GetClientSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetClientSize">GetClientSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+This&nbsp;gets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window's&nbsp;'client&nbsp;area'&nbsp;in&nbsp;pixels.&nbsp;The&nbsp;client<br>
+area&nbsp;is&nbsp;the&nbsp;area&nbsp;which&nbsp;may&nbsp;be&nbsp;drawn&nbsp;on&nbsp;by&nbsp;the&nbsp;programmer,&nbsp;excluding<br>
+title&nbsp;bar,&nbsp;border,&nbsp;scrollbars,&nbsp;etc.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetClientSizeTuple"><strong>GetClientSizeTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetClientSizeTuple">GetClientSizeTuple</a>()&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+This&nbsp;gets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window's&nbsp;'client&nbsp;area'&nbsp;in&nbsp;pixels.&nbsp;The&nbsp;client<br>
+area&nbsp;is&nbsp;the&nbsp;area&nbsp;which&nbsp;may&nbsp;be&nbsp;drawn&nbsp;on&nbsp;by&nbsp;the&nbsp;programmer,&nbsp;excluding<br>
+title&nbsp;bar,&nbsp;border,&nbsp;scrollbars,&nbsp;etc.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetConstraints"><strong>GetConstraints</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetConstraints">GetConstraints</a>(self)&nbsp;-&gt;&nbsp;LayoutConstraints<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the&nbsp;window's&nbsp;layout&nbsp;constraints,&nbsp;or&nbsp;None&nbsp;if&nbsp;there<br>
+are&nbsp;none.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetContainingSizer"><strong>GetContainingSizer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetContainingSizer">GetContainingSizer</a>(self)&nbsp;-&gt;&nbsp;Sizer<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;sizer&nbsp;that&nbsp;this&nbsp;window&nbsp;is&nbsp;a&nbsp;member&nbsp;of,&nbsp;if&nbsp;any,&nbsp;otherwise&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetCursor"><strong>GetCursor</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetCursor">GetCursor</a>(self)&nbsp;-&gt;&nbsp;Cursor<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;cursor&nbsp;associated&nbsp;with&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetDefaultAttributes"><strong>GetDefaultAttributes</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetDefaultAttributes">GetDefaultAttributes</a>(self)&nbsp;-&gt;&nbsp;VisualAttributes<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;default&nbsp;attributes&nbsp;for&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;class.&nbsp;&nbsp;This&nbsp;is<br>
+useful&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;use&nbsp;the&nbsp;same&nbsp;font&nbsp;or&nbsp;colour&nbsp;in&nbsp;your&nbsp;own&nbsp;control<br>
+as&nbsp;in&nbsp;a&nbsp;standard&nbsp;control&nbsp;--&nbsp;which&nbsp;is&nbsp;a&nbsp;much&nbsp;better&nbsp;idea&nbsp;than&nbsp;hard<br>
+coding&nbsp;specific&nbsp;colours&nbsp;or&nbsp;fonts&nbsp;which&nbsp;might&nbsp;look&nbsp;completely&nbsp;out&nbsp;of<br>
+place&nbsp;on&nbsp;the&nbsp;user's&nbsp;system,&nbsp;especially&nbsp;if&nbsp;it&nbsp;uses&nbsp;themes.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetDropTarget"><strong>GetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetDropTarget">GetDropTarget</a>(self)&nbsp;-&gt;&nbsp;DropTarget<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;associated&nbsp;drop&nbsp;target,&nbsp;which&nbsp;may&nbsp;be&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetEffectiveMinSize"><strong>GetEffectiveMinSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetEffectiveMinSize">GetEffectiveMinSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;will&nbsp;merge&nbsp;the&nbsp;window's&nbsp;best&nbsp;size&nbsp;into&nbsp;the&nbsp;window's<br>
+minimum&nbsp;size,&nbsp;giving&nbsp;priority&nbsp;to&nbsp;the&nbsp;min&nbsp;size&nbsp;components,&nbsp;and&nbsp;returns<br>
+the&nbsp;results.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetEventHandler"><strong>GetEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetEventHandler">GetEventHandler</a>(self)&nbsp;-&gt;&nbsp;EvtHandler<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;event&nbsp;handler&nbsp;for&nbsp;this&nbsp;window.&nbsp;By&nbsp;default,&nbsp;the&nbsp;window&nbsp;is<br>
+its&nbsp;own&nbsp;event&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetExtraStyle"><strong>GetExtraStyle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetExtraStyle">GetExtraStyle</a>(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;extra&nbsp;style&nbsp;bits&nbsp;for&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetFont"><strong>GetFont</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetFont">GetFont</a>(self)&nbsp;-&gt;&nbsp;Font<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;default&nbsp;font&nbsp;used&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetForegroundColour"><strong>GetForegroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetForegroundColour">GetForegroundColour</a>(self)&nbsp;-&gt;&nbsp;Colour<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;foreground&nbsp;colour&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;The&nbsp;interpretation&nbsp;of<br>
+foreground&nbsp;colour&nbsp;is&nbsp;dependent&nbsp;on&nbsp;the&nbsp;window&nbsp;class;&nbsp;it&nbsp;may&nbsp;be&nbsp;the&nbsp;text<br>
+colour&nbsp;or&nbsp;other&nbsp;colour,&nbsp;or&nbsp;it&nbsp;may&nbsp;not&nbsp;be&nbsp;used&nbsp;at&nbsp;all.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetFullTextExtent"><strong>GetFullTextExtent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetFullTextExtent">GetFullTextExtent</a>(String&nbsp;string,&nbsp;Font&nbsp;font=None)&nbsp;-&gt;<br>
+&nbsp;&nbsp;&nbsp;(width,&nbsp;height,&nbsp;descent,&nbsp;externalLeading)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;width,&nbsp;height,&nbsp;decent&nbsp;and&nbsp;leading&nbsp;of&nbsp;the&nbsp;text&nbsp;using&nbsp;the<br>
+current&nbsp;or&nbsp;specified&nbsp;font.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetGrandParent"><strong>GetGrandParent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetGrandParent">GetGrandParent</a>(self)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;parent&nbsp;of&nbsp;the&nbsp;parent&nbsp;of&nbsp;this&nbsp;window,&nbsp;or&nbsp;None&nbsp;if&nbsp;there<br>
+isn't&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetGtkWidget"><strong>GetGtkWidget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetGtkWidget">GetGtkWidget</a>(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+On&nbsp;wxGTK&nbsp;returns&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the&nbsp;GtkWidget&nbsp;for&nbsp;this&nbsp;window&nbsp;as&nbsp;a&nbsp;long<br>
+integer.&nbsp;&nbsp;On&nbsp;the&nbsp;other&nbsp;platforms&nbsp;this&nbsp;method&nbsp;returns&nbsp;zero.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetHandle"><strong>GetHandle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetHandle">GetHandle</a>(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;platform-specific&nbsp;handle&nbsp;(as&nbsp;a&nbsp;long&nbsp;integer)&nbsp;of&nbsp;the<br>
+physical&nbsp;window.&nbsp;&nbsp;On&nbsp;wxMSW&nbsp;this&nbsp;is&nbsp;the&nbsp;win32&nbsp;window&nbsp;handle,&nbsp;on&nbsp;wxGTK<br>
+it&nbsp;is&nbsp;the&nbsp;XWindow&nbsp;ID,&nbsp;and&nbsp;on&nbsp;wxMac&nbsp;it&nbsp;is&nbsp;the&nbsp;ControlRef.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetHelpText"><strong>GetHelpText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetHelpText">GetHelpText</a>(self)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Gets&nbsp;the&nbsp;help&nbsp;text&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;context-sensitive&nbsp;help&nbsp;for&nbsp;this<br>
+window.&nbsp;&nbsp;Note&nbsp;that&nbsp;the&nbsp;text&nbsp;is&nbsp;actually&nbsp;stored&nbsp;by&nbsp;the&nbsp;current<br>
+`wx.HelpProvider`&nbsp;implementation,&nbsp;and&nbsp;not&nbsp;in&nbsp;the&nbsp;window&nbsp;object&nbsp;itself.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetHelpTextAtPoint"><strong>GetHelpTextAtPoint</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetHelpTextAtPoint">GetHelpTextAtPoint</a>(self,&nbsp;Point&nbsp;pt,&nbsp;wxHelpEvent::Origin&nbsp;origin)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;help&nbsp;string&nbsp;associated&nbsp;with&nbsp;the&nbsp;given&nbsp;position&nbsp;in&nbsp;this&nbsp;window.<br>
+&nbsp;<br>
+Notice&nbsp;that&nbsp;pt&nbsp;may&nbsp;be&nbsp;invalid&nbsp;if&nbsp;event&nbsp;origin&nbsp;is&nbsp;keyboard&nbsp;or&nbsp;unknown<br>
+and&nbsp;this&nbsp;method&nbsp;should&nbsp;return&nbsp;the&nbsp;global&nbsp;window&nbsp;help&nbsp;text&nbsp;then</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetId"><strong>GetId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetId">GetId</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;identifier&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;Each&nbsp;window&nbsp;has&nbsp;an&nbsp;integer<br>
+identifier.&nbsp;If&nbsp;the&nbsp;application&nbsp;has&nbsp;not&nbsp;provided&nbsp;one&nbsp;(or&nbsp;the&nbsp;default&nbsp;Id<br>
+-1&nbsp;is&nbsp;used)&nbsp;then&nbsp;an&nbsp;unique&nbsp;identifier&nbsp;with&nbsp;a&nbsp;negative&nbsp;value&nbsp;will&nbsp;be<br>
+generated.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetLabel"><strong>GetLabel</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetLabel">GetLabel</a>(self)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Generic&nbsp;way&nbsp;of&nbsp;getting&nbsp;a&nbsp;label&nbsp;from&nbsp;any&nbsp;window,&nbsp;for&nbsp;identification<br>
+purposes.&nbsp;&nbsp;The&nbsp;interpretation&nbsp;of&nbsp;this&nbsp;function&nbsp;differs&nbsp;from&nbsp;class&nbsp;to<br>
+class.&nbsp;For&nbsp;frames&nbsp;and&nbsp;dialogs,&nbsp;the&nbsp;value&nbsp;returned&nbsp;is&nbsp;the&nbsp;title.&nbsp;For<br>
+buttons&nbsp;or&nbsp;static&nbsp;text&nbsp;controls,&nbsp;it&nbsp;is&nbsp;the&nbsp;button&nbsp;text.&nbsp;This&nbsp;function<br>
+can&nbsp;be&nbsp;useful&nbsp;for&nbsp;meta-programs&nbsp;such&nbsp;as&nbsp;testing&nbsp;tools&nbsp;or&nbsp;special-needs<br>
+access&nbsp;programs)which&nbsp;need&nbsp;to&nbsp;identify&nbsp;windows&nbsp;by&nbsp;name.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetLayoutDirection"><strong>GetLayoutDirection</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetLayoutDirection">GetLayoutDirection</a>(self)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;layout&nbsp;direction&nbsp;(LTR&nbsp;or&nbsp;RTL)&nbsp;for&nbsp;this&nbsp;window.&nbsp;&nbsp;Returns<br>
+``wx.Layout_Default``&nbsp;if&nbsp;layout&nbsp;direction&nbsp;is&nbsp;not&nbsp;supported.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetMaxHeight"><strong>GetMaxHeight</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetMaxHeight">GetMaxHeight</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetMaxSize"><strong>GetMaxSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetMaxSize">GetMaxSize</a>(self)&nbsp;-&gt;&nbsp;Size</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetMaxWidth"><strong>GetMaxWidth</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetMaxWidth">GetMaxWidth</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetMinHeight"><strong>GetMinHeight</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetMinHeight">GetMinHeight</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetMinSize"><strong>GetMinSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetMinSize">GetMinSize</a>(self)&nbsp;-&gt;&nbsp;Size</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetMinWidth"><strong>GetMinWidth</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetMinWidth">GetMinWidth</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetName"><strong>GetName</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetName">GetName</a>(self)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;windows&nbsp;name.&nbsp;&nbsp;This&nbsp;name&nbsp;is&nbsp;not&nbsp;guaranteed&nbsp;to&nbsp;be&nbsp;unique;<br>
+it&nbsp;is&nbsp;up&nbsp;to&nbsp;the&nbsp;programmer&nbsp;to&nbsp;supply&nbsp;an&nbsp;appropriate&nbsp;name&nbsp;in&nbsp;the&nbsp;window<br>
+constructor&nbsp;or&nbsp;via&nbsp;wx.Window.SetName.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetParent"><strong>GetParent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetParent">GetParent</a>(self)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;parent&nbsp;window&nbsp;of&nbsp;this&nbsp;window,&nbsp;or&nbsp;None&nbsp;if&nbsp;there&nbsp;isn't&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetPosition"><strong>GetPosition</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetPosition">GetPosition</a>(self)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;window's&nbsp;position.&nbsp;&nbsp;Notice&nbsp;that&nbsp;the&nbsp;position&nbsp;is&nbsp;in&nbsp;client<br>
+coordinates&nbsp;for&nbsp;child&nbsp;windows&nbsp;and&nbsp;screen&nbsp;coordinates&nbsp;for&nbsp;the&nbsp;top&nbsp;level<br>
+ones,&nbsp;use&nbsp;`GetScreenPosition`&nbsp;if&nbsp;you&nbsp;need&nbsp;screen&nbsp;coordinates&nbsp;for&nbsp;all<br>
+kinds&nbsp;of&nbsp;windows.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetPositionTuple"><strong>GetPositionTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetPositionTuple">GetPositionTuple</a>()&nbsp;-&gt;&nbsp;(x,y)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;window's&nbsp;position.&nbsp;&nbsp;Notice&nbsp;that&nbsp;the&nbsp;position&nbsp;is&nbsp;in&nbsp;client<br>
+coordinates&nbsp;for&nbsp;child&nbsp;windows&nbsp;and&nbsp;screen&nbsp;coordinates&nbsp;for&nbsp;the&nbsp;top&nbsp;level<br>
+ones,&nbsp;use&nbsp;`GetScreenPosition`&nbsp;if&nbsp;you&nbsp;need&nbsp;screen&nbsp;coordinates&nbsp;for&nbsp;all<br>
+kinds&nbsp;of&nbsp;windows.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetRect"><strong>GetRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetRect">GetRect</a>(self)&nbsp;-&gt;&nbsp;Rect<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;size&nbsp;and&nbsp;position&nbsp;of&nbsp;the&nbsp;window&nbsp;as&nbsp;a&nbsp;`wx.Rect`&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetScreenPosition"><strong>GetScreenPosition</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetScreenPosition">GetScreenPosition</a>(self)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;position&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;screen&nbsp;coordinantes.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetScreenPositionTuple"><strong>GetScreenPositionTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetScreenPositionTuple">GetScreenPositionTuple</a>()&nbsp;-&gt;&nbsp;(x,y)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;position&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;screen&nbsp;coordinantes.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetScreenRect"><strong>GetScreenRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetScreenRect">GetScreenRect</a>(self)&nbsp;-&gt;&nbsp;Rect<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;size&nbsp;and&nbsp;position&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;screen&nbsp;coordinantes&nbsp;as<br>
+a&nbsp;`wx.Rect`&nbsp;object.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetScrollPos"><strong>GetScrollPos</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetScrollPos">GetScrollPos</a>(self,&nbsp;int&nbsp;orientation)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;built-in&nbsp;scrollbar&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetScrollRange"><strong>GetScrollRange</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetScrollRange">GetScrollRange</a>(self,&nbsp;int&nbsp;orientation)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;built-in&nbsp;scrollbar&nbsp;range.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetScrollThumb"><strong>GetScrollThumb</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetScrollThumb">GetScrollThumb</a>(self,&nbsp;int&nbsp;orientation)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;built-in&nbsp;scrollbar&nbsp;thumb&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetSize"><strong>GetSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetSize">GetSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetSizeTuple"><strong>GetSizeTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetSizeTuple">GetSizeTuple</a>()&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetSizer"><strong>GetSizer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetSizer">GetSizer</a>(self)&nbsp;-&gt;&nbsp;Sizer<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;sizer&nbsp;associated&nbsp;with&nbsp;the&nbsp;window&nbsp;by&nbsp;a&nbsp;previous&nbsp;call&nbsp;to<br>
+SetSizer&nbsp;or&nbsp;None&nbsp;if&nbsp;there&nbsp;isn't&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetTextExtent"><strong>GetTextExtent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetTextExtent">GetTextExtent</a>(String&nbsp;string)&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;width&nbsp;and&nbsp;height&nbsp;of&nbsp;the&nbsp;text&nbsp;using&nbsp;the&nbsp;current&nbsp;font.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetThemeEnabled"><strong>GetThemeEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetThemeEnabled">GetThemeEnabled</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;themeEnabled&nbsp;flag.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetToolTip"><strong>GetToolTip</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetToolTip">GetToolTip</a>(self)&nbsp;-&gt;&nbsp;ToolTip<br>
+&nbsp;<br>
+get&nbsp;the&nbsp;associated&nbsp;tooltip&nbsp;or&nbsp;None&nbsp;if&nbsp;none</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetTopLevelParent"><strong>GetTopLevelParent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetTopLevelParent">GetTopLevelParent</a>(self)&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;first&nbsp;frame&nbsp;or&nbsp;dialog&nbsp;in&nbsp;this&nbsp;window's&nbsp;parental&nbsp;hierarchy.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetUpdateClientRect"><strong>GetUpdateClientRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetUpdateClientRect">GetUpdateClientRect</a>(self)&nbsp;-&gt;&nbsp;Rect<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;update&nbsp;rectangle&nbsp;region&nbsp;bounding&nbsp;box&nbsp;in&nbsp;client&nbsp;coords.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetUpdateRegion"><strong>GetUpdateRegion</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetUpdateRegion">GetUpdateRegion</a>(self)&nbsp;-&gt;&nbsp;Region<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;region&nbsp;specifying&nbsp;which&nbsp;parts&nbsp;of&nbsp;the&nbsp;window&nbsp;have&nbsp;been<br>
+damaged.&nbsp;Should&nbsp;only&nbsp;be&nbsp;called&nbsp;within&nbsp;an&nbsp;EVT_PAINT&nbsp;handler.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetValidator"><strong>GetValidator</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetValidator">GetValidator</a>(self)&nbsp;-&gt;&nbsp;Validator<br>
+&nbsp;<br>
+Returns&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the&nbsp;current&nbsp;validator&nbsp;for&nbsp;the&nbsp;window,&nbsp;or&nbsp;None&nbsp;if<br>
+there&nbsp;is&nbsp;none.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetVirtualSize"><strong>GetVirtualSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetVirtualSize">GetVirtualSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;the&nbsp;virtual&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;For&nbsp;most&nbsp;windows<br>
+this&nbsp;is&nbsp;just&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window,&nbsp;but&nbsp;for&nbsp;some&nbsp;like&nbsp;scrolled<br>
+windows&nbsp;it&nbsp;is&nbsp;more&nbsp;or&nbsp;less&nbsp;independent&nbsp;of&nbsp;the&nbsp;screen&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetVirtualSizeTuple"><strong>GetVirtualSizeTuple</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetVirtualSizeTuple">GetVirtualSizeTuple</a>()&nbsp;-&gt;&nbsp;(width,&nbsp;height)<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;the&nbsp;virtual&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;For&nbsp;most&nbsp;windows<br>
+this&nbsp;is&nbsp;just&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window,&nbsp;but&nbsp;for&nbsp;some&nbsp;like&nbsp;scrolled<br>
+windows&nbsp;it&nbsp;is&nbsp;more&nbsp;or&nbsp;less&nbsp;independent&nbsp;of&nbsp;the&nbsp;screen&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetWindowBorderSize"><strong>GetWindowBorderSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetWindowBorderSize">GetWindowBorderSize</a>(self)&nbsp;-&gt;&nbsp;Size<br>
+&nbsp;<br>
+Return&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;left/right&nbsp;and&nbsp;top/bottom&nbsp;borders.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetWindowStyle"><strong>GetWindowStyle</strong></a> = GetWindowStyleFlag(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetWindowStyleFlag">GetWindowStyleFlag</a>(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+Gets&nbsp;the&nbsp;window&nbsp;style&nbsp;that&nbsp;was&nbsp;passed&nbsp;to&nbsp;the&nbsp;constructor&nbsp;or&nbsp;Create<br>
+method.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetWindowStyleFlag"><strong>GetWindowStyleFlag</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetWindowStyleFlag">GetWindowStyleFlag</a>(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+Gets&nbsp;the&nbsp;window&nbsp;style&nbsp;that&nbsp;was&nbsp;passed&nbsp;to&nbsp;the&nbsp;constructor&nbsp;or&nbsp;Create<br>
+method.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetWindowVariant"><strong>GetWindowVariant</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetWindowVariant">GetWindowVariant</a>(self)&nbsp;-&gt;&nbsp;int</tt></dd></dl>
+
+<dl><dt><a name="Editor-HasCapture"><strong>HasCapture</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-HasCapture">HasCapture</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;this&nbsp;window&nbsp;has&nbsp;the&nbsp;current&nbsp;mouse&nbsp;capture.</tt></dd></dl>
+
+<dl><dt><a name="Editor-HasFlag"><strong>HasFlag</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-HasFlag">HasFlag</a>(self,&nbsp;int&nbsp;flag)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Test&nbsp;if&nbsp;the&nbsp;given&nbsp;style&nbsp;is&nbsp;set&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-HasMultiplePages"><strong>HasMultiplePages</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-HasMultiplePages">HasMultiplePages</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-HasScrollbar"><strong>HasScrollbar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-HasScrollbar">HasScrollbar</a>(self,&nbsp;int&nbsp;orient)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Does&nbsp;the&nbsp;window&nbsp;have&nbsp;the&nbsp;scrollbar&nbsp;for&nbsp;this&nbsp;orientation?</tt></dd></dl>
+
+<dl><dt><a name="Editor-HasTransparentBackground"><strong>HasTransparentBackground</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-HasTransparentBackground">HasTransparentBackground</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;True&nbsp;if&nbsp;this&nbsp;window's&nbsp;background&nbsp;is&nbsp;transparent&nbsp;(as,&nbsp;for<br>
+example,&nbsp;for&nbsp;`wx.StaticText`)&nbsp;and&nbsp;should&nbsp;show&nbsp;the&nbsp;parent&nbsp;window's<br>
+background.<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;mostly&nbsp;used&nbsp;internally&nbsp;by&nbsp;the&nbsp;library&nbsp;itself&nbsp;and&nbsp;you<br>
+normally&nbsp;shouldn't&nbsp;have&nbsp;to&nbsp;call&nbsp;it.&nbsp;You&nbsp;may,&nbsp;however,&nbsp;have&nbsp;to&nbsp;override<br>
+it&nbsp;in&nbsp;your&nbsp;custom&nbsp;control&nbsp;classes&nbsp;to&nbsp;ensure&nbsp;that&nbsp;background&nbsp;is&nbsp;painted<br>
+correctly.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Hide"><strong>Hide</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Hide">Hide</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Equivalent&nbsp;to&nbsp;calling&nbsp;<a href="#Editor-Show">Show</a>(False).</tt></dd></dl>
+
+<dl><dt><a name="Editor-HitTest"><strong>HitTest</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-HitTest">HitTest</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Test&nbsp;where&nbsp;the&nbsp;given&nbsp;(in&nbsp;client&nbsp;coords)&nbsp;point&nbsp;lies</tt></dd></dl>
+
+<dl><dt><a name="Editor-HitTestXY"><strong>HitTestXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-HitTestXY">HitTestXY</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Test&nbsp;where&nbsp;the&nbsp;given&nbsp;(in&nbsp;client&nbsp;coords)&nbsp;point&nbsp;lies</tt></dd></dl>
+
+<dl><dt><a name="Editor-InheritAttributes"><strong>InheritAttributes</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-InheritAttributes">InheritAttributes</a>(self)<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;is&nbsp;(or&nbsp;should&nbsp;be,&nbsp;in&nbsp;case&nbsp;of&nbsp;custom&nbsp;controls)&nbsp;called<br>
+during&nbsp;window&nbsp;creation&nbsp;to&nbsp;intelligently&nbsp;set&nbsp;up&nbsp;the&nbsp;window&nbsp;visual<br>
+attributes,&nbsp;that&nbsp;is&nbsp;the&nbsp;font&nbsp;and&nbsp;the&nbsp;foreground&nbsp;and&nbsp;background<br>
+colours.<br>
+&nbsp;<br>
+By&nbsp;'intelligently'&nbsp;the&nbsp;following&nbsp;is&nbsp;meant:&nbsp;by&nbsp;default,&nbsp;all&nbsp;windows&nbsp;use<br>
+their&nbsp;own&nbsp;default&nbsp;attributes.&nbsp;However&nbsp;if&nbsp;some&nbsp;of&nbsp;the&nbsp;parent's<br>
+attributes&nbsp;are&nbsp;explicitly&nbsp;changed&nbsp;(that&nbsp;is,&nbsp;using&nbsp;SetFont&nbsp;and&nbsp;not<br>
+SetOwnFont)&nbsp;and&nbsp;if&nbsp;the&nbsp;corresponding&nbsp;attribute&nbsp;hadn't&nbsp;been<br>
+explicitly&nbsp;set&nbsp;for&nbsp;this&nbsp;window&nbsp;itself,&nbsp;then&nbsp;this&nbsp;window&nbsp;takes&nbsp;the&nbsp;same<br>
+value&nbsp;as&nbsp;used&nbsp;by&nbsp;the&nbsp;parent.&nbsp;In&nbsp;addition,&nbsp;if&nbsp;the&nbsp;window&nbsp;overrides<br>
+ShouldInheritColours&nbsp;to&nbsp;return&nbsp;false,&nbsp;the&nbsp;colours&nbsp;will&nbsp;not&nbsp;be&nbsp;changed<br>
+no&nbsp;matter&nbsp;what&nbsp;and&nbsp;only&nbsp;the&nbsp;font&nbsp;might.<br>
+&nbsp;<br>
+This&nbsp;rather&nbsp;complicated&nbsp;logic&nbsp;is&nbsp;necessary&nbsp;in&nbsp;order&nbsp;to&nbsp;accommodate&nbsp;the<br>
+different&nbsp;usage&nbsp;scenarios.&nbsp;The&nbsp;most&nbsp;common&nbsp;one&nbsp;is&nbsp;when&nbsp;all&nbsp;default<br>
+attributes&nbsp;are&nbsp;used&nbsp;and&nbsp;in&nbsp;this&nbsp;case,&nbsp;nothing&nbsp;should&nbsp;be&nbsp;inherited&nbsp;as<br>
+in&nbsp;modern&nbsp;GUIs&nbsp;different&nbsp;controls&nbsp;use&nbsp;different&nbsp;fonts&nbsp;(and&nbsp;colours)<br>
+than&nbsp;their&nbsp;siblings&nbsp;so&nbsp;they&nbsp;can't&nbsp;inherit&nbsp;the&nbsp;same&nbsp;value&nbsp;from&nbsp;the<br>
+parent.&nbsp;However&nbsp;it&nbsp;was&nbsp;also&nbsp;deemed&nbsp;desirable&nbsp;to&nbsp;allow&nbsp;to&nbsp;simply&nbsp;change<br>
+the&nbsp;attributes&nbsp;of&nbsp;all&nbsp;children&nbsp;at&nbsp;once&nbsp;by&nbsp;just&nbsp;changing&nbsp;the&nbsp;font&nbsp;or<br>
+colour&nbsp;of&nbsp;their&nbsp;common&nbsp;parent,&nbsp;hence&nbsp;in&nbsp;this&nbsp;case&nbsp;we&nbsp;do&nbsp;inherit&nbsp;the<br>
+parents&nbsp;attributes.</tt></dd></dl>
+
+<dl><dt><a name="Editor-InheritsBackgroundColour"><strong>InheritsBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-InheritsBackgroundColour">InheritsBackgroundColour</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-InitDialog"><strong>InitDialog</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-InitDialog">InitDialog</a>(self)<br>
+&nbsp;<br>
+Sends&nbsp;an&nbsp;EVT_INIT_DIALOG&nbsp;event,&nbsp;whose&nbsp;handler&nbsp;usually&nbsp;transfers&nbsp;data<br>
+to&nbsp;the&nbsp;dialog&nbsp;via&nbsp;validators.</tt></dd></dl>
+
+<dl><dt><a name="Editor-InvalidateBestSize"><strong>InvalidateBestSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-InvalidateBestSize">InvalidateBestSize</a>(self)<br>
+&nbsp;<br>
+Reset&nbsp;the&nbsp;cached&nbsp;best&nbsp;size&nbsp;value&nbsp;so&nbsp;it&nbsp;will&nbsp;be&nbsp;recalculated&nbsp;the&nbsp;next<br>
+time&nbsp;it&nbsp;is&nbsp;needed.</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsBeingDeleted"><strong>IsBeingDeleted</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsBeingDeleted">IsBeingDeleted</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Is&nbsp;the&nbsp;window&nbsp;in&nbsp;the&nbsp;process&nbsp;of&nbsp;being&nbsp;deleted?</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsDoubleBuffered"><strong>IsDoubleBuffered</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsDoubleBuffered">IsDoubleBuffered</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;``True``&nbsp;if&nbsp;the&nbsp;window&nbsp;contents&nbsp;is&nbsp;double-buffered&nbsp;by&nbsp;the<br>
+system,&nbsp;i.e.&nbsp;if&nbsp;any&nbsp;drawing&nbsp;done&nbsp;on&nbsp;the&nbsp;window&nbsp;is&nbsp;really&nbsp;done&nbsp;on&nbsp;a<br>
+temporary&nbsp;backing&nbsp;surface&nbsp;and&nbsp;transferred&nbsp;to&nbsp;the&nbsp;screen&nbsp;all&nbsp;at&nbsp;once<br>
+later.</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsEnabled"><strong>IsEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsEnabled">IsEnabled</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;window&nbsp;is&nbsp;enabled&nbsp;for&nbsp;input,&nbsp;false&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsExposed"><strong>IsExposed</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsExposed">IsExposed</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y,&nbsp;int&nbsp;w=1,&nbsp;int&nbsp;h=1)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;given&nbsp;point&nbsp;or&nbsp;rectangle&nbsp;area&nbsp;has&nbsp;been&nbsp;exposed<br>
+since&nbsp;the&nbsp;last&nbsp;repaint.&nbsp;Call&nbsp;this&nbsp;in&nbsp;an&nbsp;paint&nbsp;event&nbsp;handler&nbsp;to<br>
+optimize&nbsp;redrawing&nbsp;by&nbsp;only&nbsp;redrawing&nbsp;those&nbsp;areas,&nbsp;which&nbsp;have&nbsp;been<br>
+exposed.</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsExposedPoint"><strong>IsExposedPoint</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsExposedPoint">IsExposedPoint</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;given&nbsp;point&nbsp;or&nbsp;rectangle&nbsp;area&nbsp;has&nbsp;been&nbsp;exposed<br>
+since&nbsp;the&nbsp;last&nbsp;repaint.&nbsp;Call&nbsp;this&nbsp;in&nbsp;an&nbsp;paint&nbsp;event&nbsp;handler&nbsp;to<br>
+optimize&nbsp;redrawing&nbsp;by&nbsp;only&nbsp;redrawing&nbsp;those&nbsp;areas,&nbsp;which&nbsp;have&nbsp;been<br>
+exposed.</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsExposedRect"><strong>IsExposedRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsExposedRect">IsExposedRect</a>(self,&nbsp;Rect&nbsp;rect)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;given&nbsp;point&nbsp;or&nbsp;rectangle&nbsp;area&nbsp;has&nbsp;been&nbsp;exposed<br>
+since&nbsp;the&nbsp;last&nbsp;repaint.&nbsp;Call&nbsp;this&nbsp;in&nbsp;an&nbsp;paint&nbsp;event&nbsp;handler&nbsp;to<br>
+optimize&nbsp;redrawing&nbsp;by&nbsp;only&nbsp;redrawing&nbsp;those&nbsp;areas,&nbsp;which&nbsp;have&nbsp;been<br>
+exposed.</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsFrozen"><strong>IsFrozen</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsFrozen">IsFrozen</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;``True``&nbsp;if&nbsp;the&nbsp;window&nbsp;has&nbsp;been&nbsp;frozen&nbsp;and&nbsp;not&nbsp;thawed&nbsp;yet.<br>
+&nbsp;<br>
+:see:&nbsp;`Freeze`&nbsp;and&nbsp;`Thaw`</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsRetained"><strong>IsRetained</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsRetained">IsRetained</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;window&nbsp;is&nbsp;retained,&nbsp;false&nbsp;otherwise.&nbsp;&nbsp;Retained<br>
+windows&nbsp;are&nbsp;only&nbsp;available&nbsp;on&nbsp;X&nbsp;platforms.</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsShown"><strong>IsShown</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsShown">IsShown</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;window&nbsp;is&nbsp;shown,&nbsp;false&nbsp;if&nbsp;it&nbsp;has&nbsp;been&nbsp;hidden.</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsShownOnScreen"><strong>IsShownOnScreen</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsShownOnScreen">IsShownOnScreen</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;``True``&nbsp;if&nbsp;the&nbsp;window&nbsp;is&nbsp;physically&nbsp;visible&nbsp;on&nbsp;the&nbsp;screen,<br>
+i.e.&nbsp;it&nbsp;is&nbsp;shown&nbsp;and&nbsp;all&nbsp;its&nbsp;parents&nbsp;up&nbsp;to&nbsp;the&nbsp;toplevel&nbsp;window&nbsp;are<br>
+shown&nbsp;as&nbsp;well.</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsTopLevel"><strong>IsTopLevel</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsTopLevel">IsTopLevel</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;true&nbsp;if&nbsp;the&nbsp;given&nbsp;window&nbsp;is&nbsp;a&nbsp;top-level&nbsp;one.&nbsp;Currently&nbsp;all<br>
+frames&nbsp;and&nbsp;dialogs&nbsp;are&nbsp;always&nbsp;considered&nbsp;to&nbsp;be&nbsp;top-level&nbsp;windows&nbsp;(even<br>
+if&nbsp;they&nbsp;have&nbsp;a&nbsp;parent&nbsp;window).</tt></dd></dl>
+
+<dl><dt><a name="Editor-Layout"><strong>Layout</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Layout">Layout</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Invokes&nbsp;the&nbsp;constraint-based&nbsp;layout&nbsp;algorithm&nbsp;or&nbsp;the&nbsp;sizer-based<br>
+algorithm&nbsp;for&nbsp;this&nbsp;window.&nbsp;&nbsp;See&nbsp;SetAutoLayout:&nbsp;when&nbsp;auto&nbsp;layout&nbsp;is&nbsp;on,<br>
+this&nbsp;function&nbsp;gets&nbsp;called&nbsp;automatically&nbsp;by&nbsp;the&nbsp;default&nbsp;EVT_SIZE<br>
+handler&nbsp;when&nbsp;the&nbsp;window&nbsp;is&nbsp;resized.</tt></dd></dl>
+
+<dl><dt><a name="Editor-LineDown"><strong>LineDown</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-LineDown">LineDown</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;just&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;<a href="#Editor-ScrollLines">ScrollLines</a>(1).</tt></dd></dl>
+
+<dl><dt><a name="Editor-LineUp"><strong>LineUp</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-LineUp">LineUp</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;just&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;<a href="#Editor-ScrollLines">ScrollLines</a>(-1).</tt></dd></dl>
+
+<dl><dt><a name="Editor-Lower"><strong>Lower</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Lower">Lower</a>(self)<br>
+&nbsp;<br>
+Lowers&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;bottom&nbsp;of&nbsp;the&nbsp;window&nbsp;hierarchy.&nbsp;&nbsp;In&nbsp;current<br>
+version&nbsp;of&nbsp;wxWidgets&nbsp;this&nbsp;works&nbsp;both&nbsp;for&nbsp;managed&nbsp;and&nbsp;child&nbsp;windows.</tt></dd></dl>
+
+<dl><dt><a name="Editor-MakeModal"><strong>MakeModal</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-MakeModal">MakeModal</a>(self,&nbsp;bool&nbsp;modal=True)<br>
+&nbsp;<br>
+Disables&nbsp;all&nbsp;other&nbsp;windows&nbsp;in&nbsp;the&nbsp;application&nbsp;so&nbsp;that&nbsp;the&nbsp;user&nbsp;can<br>
+only&nbsp;interact&nbsp;with&nbsp;this&nbsp;window.&nbsp;&nbsp;Passing&nbsp;False&nbsp;will&nbsp;reverse&nbsp;this<br>
+effect.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Move"><strong>Move</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Move">Move</a>(self,&nbsp;Point&nbsp;pt,&nbsp;int&nbsp;flags=SIZE_USE_EXISTING)<br>
+&nbsp;<br>
+Moves&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;given&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="Editor-MoveAfterInTabOrder"><strong>MoveAfterInTabOrder</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-MoveAfterInTabOrder">MoveAfterInTabOrder</a>(self,&nbsp;Window&nbsp;win)<br>
+&nbsp;<br>
+Moves&nbsp;this&nbsp;window&nbsp;in&nbsp;the&nbsp;tab&nbsp;navigation&nbsp;order&nbsp;after&nbsp;the&nbsp;specified<br>
+sibling&nbsp;window.&nbsp;&nbsp;This&nbsp;means&nbsp;that&nbsp;when&nbsp;the&nbsp;user&nbsp;presses&nbsp;the&nbsp;TAB&nbsp;key&nbsp;on<br>
+that&nbsp;other&nbsp;window,&nbsp;the&nbsp;focus&nbsp;switches&nbsp;to&nbsp;this&nbsp;window.<br>
+&nbsp;<br>
+The&nbsp;default&nbsp;tab&nbsp;order&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;creation&nbsp;order.&nbsp;&nbsp;This&nbsp;function<br>
+and&nbsp;`MoveBeforeInTabOrder`&nbsp;allow&nbsp;to&nbsp;change&nbsp;it&nbsp;after&nbsp;creating&nbsp;all&nbsp;the<br>
+windows.</tt></dd></dl>
+
+<dl><dt><a name="Editor-MoveBeforeInTabOrder"><strong>MoveBeforeInTabOrder</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-MoveBeforeInTabOrder">MoveBeforeInTabOrder</a>(self,&nbsp;Window&nbsp;win)<br>
+&nbsp;<br>
+Same&nbsp;as&nbsp;`MoveAfterInTabOrder`&nbsp;except&nbsp;that&nbsp;it&nbsp;inserts&nbsp;this&nbsp;window&nbsp;just<br>
+before&nbsp;win&nbsp;instead&nbsp;of&nbsp;putting&nbsp;it&nbsp;right&nbsp;after&nbsp;it.</tt></dd></dl>
+
+<dl><dt><a name="Editor-MoveXY"><strong>MoveXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-MoveXY">MoveXY</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y,&nbsp;int&nbsp;flags=SIZE_USE_EXISTING)<br>
+&nbsp;<br>
+Moves&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;given&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Navigate"><strong>Navigate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Navigate">Navigate</a>(self,&nbsp;int&nbsp;flags=NavigationKeyEvent.IsForward)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Does&nbsp;keyboard&nbsp;navigation&nbsp;from&nbsp;this&nbsp;window&nbsp;to&nbsp;another,&nbsp;by&nbsp;sending&nbsp;a<br>
+`wx.NavigationKeyEvent`.</tt></dd></dl>
+
+<dl><dt><a name="Editor-PageDown"><strong>PageDown</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-PageDown">PageDown</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;just&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;<a href="#Editor-ScrollPages">ScrollPages</a>(1).</tt></dd></dl>
+
+<dl><dt><a name="Editor-PageUp"><strong>PageUp</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-PageUp">PageUp</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+This&nbsp;is&nbsp;just&nbsp;a&nbsp;wrapper&nbsp;for&nbsp;<a href="#Editor-ScrollPages">ScrollPages</a>(-1).</tt></dd></dl>
+
+<dl><dt><a name="Editor-PopEventHandler"><strong>PopEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-PopEventHandler">PopEventHandler</a>(self,&nbsp;bool&nbsp;deleteHandler=False)&nbsp;-&gt;&nbsp;EvtHandler<br>
+&nbsp;<br>
+Removes&nbsp;and&nbsp;returns&nbsp;the&nbsp;top-most&nbsp;event&nbsp;handler&nbsp;on&nbsp;the&nbsp;event&nbsp;handler<br>
+stack.&nbsp;&nbsp;If&nbsp;deleteHandler&nbsp;is&nbsp;True&nbsp;then&nbsp;the&nbsp;wx.EvtHandler&nbsp;object&nbsp;will&nbsp;be<br>
+destroyed&nbsp;after&nbsp;it&nbsp;is&nbsp;popped,&nbsp;and&nbsp;``None``&nbsp;will&nbsp;be&nbsp;returned&nbsp;instead.</tt></dd></dl>
+
+<dl><dt><a name="Editor-PopupMenu"><strong>PopupMenu</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-PopupMenu">PopupMenu</a>(self,&nbsp;Menu&nbsp;menu,&nbsp;Point&nbsp;pos=DefaultPosition)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Pops&nbsp;up&nbsp;the&nbsp;given&nbsp;menu&nbsp;at&nbsp;the&nbsp;specified&nbsp;coordinates,&nbsp;relative&nbsp;to&nbsp;this&nbsp;window,<br>
+and&nbsp;returns&nbsp;control&nbsp;when&nbsp;the&nbsp;user&nbsp;has&nbsp;dismissed&nbsp;the&nbsp;menu.&nbsp;If&nbsp;a&nbsp;menu&nbsp;item&nbsp;is<br>
+selected,&nbsp;the&nbsp;corresponding&nbsp;menu&nbsp;event&nbsp;is&nbsp;generated&nbsp;and&nbsp;will&nbsp;be&nbsp;processed&nbsp;as<br>
+usual.&nbsp;&nbsp;If&nbsp;the&nbsp;default&nbsp;position&nbsp;is&nbsp;given&nbsp;then&nbsp;the&nbsp;current&nbsp;position&nbsp;of&nbsp;the<br>
+mouse&nbsp;cursor&nbsp;will&nbsp;be&nbsp;used.</tt></dd></dl>
+
+<dl><dt><a name="Editor-PopupMenuXY"><strong>PopupMenuXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-PopupMenuXY">PopupMenuXY</a>(self,&nbsp;Menu&nbsp;menu,&nbsp;int&nbsp;x=-1,&nbsp;int&nbsp;y=-1)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Pops&nbsp;up&nbsp;the&nbsp;given&nbsp;menu&nbsp;at&nbsp;the&nbsp;specified&nbsp;coordinates,&nbsp;relative&nbsp;to&nbsp;this&nbsp;window,<br>
+and&nbsp;returns&nbsp;control&nbsp;when&nbsp;the&nbsp;user&nbsp;has&nbsp;dismissed&nbsp;the&nbsp;menu.&nbsp;If&nbsp;a&nbsp;menu&nbsp;item&nbsp;is<br>
+selected,&nbsp;the&nbsp;corresponding&nbsp;menu&nbsp;event&nbsp;is&nbsp;generated&nbsp;and&nbsp;will&nbsp;be&nbsp;processed&nbsp;as<br>
+usual.&nbsp;&nbsp;If&nbsp;the&nbsp;default&nbsp;position&nbsp;is&nbsp;given&nbsp;then&nbsp;the&nbsp;current&nbsp;position&nbsp;of&nbsp;the<br>
+mouse&nbsp;cursor&nbsp;will&nbsp;be&nbsp;used.</tt></dd></dl>
+
+<dl><dt><a name="Editor-PostCreate"><strong>PostCreate</strong></a>(self, pre)</dt><dd><tt>Phase&nbsp;3&nbsp;of&nbsp;the&nbsp;2-phase&nbsp;create&nbsp;&lt;wink!&gt;<br>
+Call&nbsp;this&nbsp;method&nbsp;after&nbsp;precreating&nbsp;the&nbsp;window&nbsp;with&nbsp;the&nbsp;2-phase&nbsp;create&nbsp;method.</tt></dd></dl>
+
+<dl><dt><a name="Editor-PrepareDC"><strong>PrepareDC</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-PrepareDC">PrepareDC</a>(self,&nbsp;DC&nbsp;dc)<br>
+&nbsp;<br>
+Call&nbsp;this&nbsp;function&nbsp;to&nbsp;prepare&nbsp;the&nbsp;device&nbsp;context&nbsp;for&nbsp;drawing&nbsp;a<br>
+scrolled&nbsp;image.&nbsp;It&nbsp;sets&nbsp;the&nbsp;device&nbsp;origin&nbsp;according&nbsp;to&nbsp;the&nbsp;current<br>
+scroll&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="Editor-PushEventHandler"><strong>PushEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-PushEventHandler">PushEventHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)<br>
+&nbsp;<br>
+Pushes&nbsp;this&nbsp;event&nbsp;handler&nbsp;onto&nbsp;the&nbsp;event&nbsp;handler&nbsp;stack&nbsp;for&nbsp;the&nbsp;window.<br>
+An&nbsp;event&nbsp;handler&nbsp;is&nbsp;an&nbsp;object&nbsp;that&nbsp;is&nbsp;capable&nbsp;of&nbsp;processing&nbsp;the&nbsp;events<br>
+sent&nbsp;to&nbsp;a&nbsp;window.&nbsp;&nbsp;(In&nbsp;other&nbsp;words,&nbsp;is&nbsp;able&nbsp;to&nbsp;dispatch&nbsp;the&nbsp;events&nbsp;to&nbsp;a<br>
+handler&nbsp;function.)&nbsp;&nbsp;By&nbsp;default,&nbsp;the&nbsp;window&nbsp;is&nbsp;its&nbsp;own&nbsp;event&nbsp;handler,<br>
+but&nbsp;an&nbsp;application&nbsp;may&nbsp;wish&nbsp;to&nbsp;substitute&nbsp;another,&nbsp;for&nbsp;example&nbsp;to<br>
+allow&nbsp;central&nbsp;implementation&nbsp;of&nbsp;event-handling&nbsp;for&nbsp;a&nbsp;variety&nbsp;of<br>
+different&nbsp;window&nbsp;classes.<br>
+&nbsp;<br>
+wx.Window.PushEventHandler&nbsp;allows&nbsp;an&nbsp;application&nbsp;to&nbsp;set&nbsp;up&nbsp;a&nbsp;chain&nbsp;of<br>
+event&nbsp;handlers,&nbsp;where&nbsp;an&nbsp;event&nbsp;not&nbsp;handled&nbsp;by&nbsp;one&nbsp;event&nbsp;handler&nbsp;is<br>
+handed&nbsp;to&nbsp;the&nbsp;next&nbsp;one&nbsp;in&nbsp;the&nbsp;chain.&nbsp;&nbsp;Use&nbsp;`wx.Window.PopEventHandler`<br>
+to&nbsp;remove&nbsp;the&nbsp;event&nbsp;handler.&nbsp;&nbsp;Ownership&nbsp;of&nbsp;the&nbsp;handler&nbsp;is&nbsp;*not*&nbsp;given<br>
+to&nbsp;the&nbsp;window,&nbsp;so&nbsp;you&nbsp;should&nbsp;be&nbsp;sure&nbsp;to&nbsp;pop&nbsp;the&nbsp;handler&nbsp;before&nbsp;the<br>
+window&nbsp;is&nbsp;destroyed&nbsp;and&nbsp;either&nbsp;let&nbsp;PopEventHandler&nbsp;destroy&nbsp;it,&nbsp;or&nbsp;call<br>
+its&nbsp;Destroy&nbsp;method&nbsp;yourself.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Raise"><strong>Raise</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Raise">Raise</a>(self)<br>
+&nbsp;<br>
+Raises&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;top&nbsp;of&nbsp;the&nbsp;window&nbsp;hierarchy.&nbsp;&nbsp;In&nbsp;current<br>
+version&nbsp;of&nbsp;wxWidgets&nbsp;this&nbsp;works&nbsp;both&nbsp;for&nbsp;managed&nbsp;and&nbsp;child&nbsp;windows.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Refresh"><strong>Refresh</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Refresh">Refresh</a>(self,&nbsp;bool&nbsp;eraseBackground=True,&nbsp;Rect&nbsp;rect=None)<br>
+&nbsp;<br>
+Mark&nbsp;the&nbsp;specified&nbsp;rectangle&nbsp;(or&nbsp;the&nbsp;whole&nbsp;window)&nbsp;as&nbsp;"dirty"&nbsp;so&nbsp;it<br>
+will&nbsp;be&nbsp;repainted.&nbsp;&nbsp;Causes&nbsp;an&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;be&nbsp;generated&nbsp;and&nbsp;sent<br>
+to&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-RefreshRect"><strong>RefreshRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-RefreshRect">RefreshRect</a>(self,&nbsp;Rect&nbsp;rect,&nbsp;bool&nbsp;eraseBackground=True)<br>
+&nbsp;<br>
+Redraws&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;given&nbsp;rectangle:&nbsp;the&nbsp;area&nbsp;inside&nbsp;it&nbsp;will<br>
+be&nbsp;repainted.&nbsp;&nbsp;This&nbsp;is&nbsp;the&nbsp;same&nbsp;as&nbsp;Refresh&nbsp;but&nbsp;has&nbsp;a&nbsp;nicer&nbsp;syntax.</tt></dd></dl>
+
+<dl><dt><a name="Editor-RegisterHotKey"><strong>RegisterHotKey</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-RegisterHotKey">RegisterHotKey</a>(self,&nbsp;int&nbsp;hotkeyId,&nbsp;int&nbsp;modifiers,&nbsp;int&nbsp;keycode)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Registers&nbsp;a&nbsp;system&nbsp;wide&nbsp;hotkey.&nbsp;Every&nbsp;time&nbsp;the&nbsp;user&nbsp;presses&nbsp;the&nbsp;hotkey<br>
+registered&nbsp;here,&nbsp;this&nbsp;window&nbsp;will&nbsp;receive&nbsp;a&nbsp;hotkey&nbsp;event.&nbsp;It&nbsp;will<br>
+receive&nbsp;the&nbsp;event&nbsp;even&nbsp;if&nbsp;the&nbsp;application&nbsp;is&nbsp;in&nbsp;the&nbsp;background&nbsp;and<br>
+does&nbsp;not&nbsp;have&nbsp;the&nbsp;input&nbsp;focus&nbsp;because&nbsp;the&nbsp;user&nbsp;is&nbsp;working&nbsp;with&nbsp;some<br>
+other&nbsp;application.&nbsp;&nbsp;To&nbsp;bind&nbsp;an&nbsp;event&nbsp;handler&nbsp;function&nbsp;to&nbsp;this&nbsp;hotkey<br>
+use&nbsp;EVT_HOTKEY&nbsp;with&nbsp;an&nbsp;id&nbsp;equal&nbsp;to&nbsp;hotkeyId.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;the<br>
+hotkey&nbsp;was&nbsp;registered&nbsp;successfully.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ReleaseMouse"><strong>ReleaseMouse</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ReleaseMouse">ReleaseMouse</a>(self)<br>
+&nbsp;<br>
+Releases&nbsp;mouse&nbsp;input&nbsp;captured&nbsp;with&nbsp;wx.Window.CaptureMouse.</tt></dd></dl>
+
+<dl><dt><a name="Editor-RemoveChild"><strong>RemoveChild</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-RemoveChild">RemoveChild</a>(self,&nbsp;Window&nbsp;child)<br>
+&nbsp;<br>
+Removes&nbsp;a&nbsp;child&nbsp;window.&nbsp;This&nbsp;is&nbsp;called&nbsp;automatically&nbsp;by&nbsp;window<br>
+deletion&nbsp;functions&nbsp;so&nbsp;should&nbsp;not&nbsp;be&nbsp;required&nbsp;by&nbsp;the&nbsp;application<br>
+programmer.</tt></dd></dl>
+
+<dl><dt><a name="Editor-RemoveEventHandler"><strong>RemoveEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-RemoveEventHandler">RemoveEventHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Find&nbsp;the&nbsp;given&nbsp;handler&nbsp;in&nbsp;the&nbsp;event&nbsp;handler&nbsp;chain&nbsp;and&nbsp;remove&nbsp;(but&nbsp;not<br>
+delete)&nbsp;it&nbsp;from&nbsp;the&nbsp;event&nbsp;handler&nbsp;chain,&nbsp;returns&nbsp;True&nbsp;if&nbsp;it&nbsp;was&nbsp;found<br>
+and&nbsp;False&nbsp;otherwise&nbsp;(this&nbsp;also&nbsp;results&nbsp;in&nbsp;an&nbsp;assert&nbsp;failure&nbsp;so&nbsp;this<br>
+function&nbsp;should&nbsp;only&nbsp;be&nbsp;called&nbsp;when&nbsp;the&nbsp;handler&nbsp;is&nbsp;supposed&nbsp;to&nbsp;be<br>
+there.)</tt></dd></dl>
+
+<dl><dt><a name="Editor-Reparent"><strong>Reparent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Reparent">Reparent</a>(self,&nbsp;Window&nbsp;newParent)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Reparents&nbsp;the&nbsp;window,&nbsp;i.e&nbsp;the&nbsp;window&nbsp;will&nbsp;be&nbsp;removed&nbsp;from&nbsp;its&nbsp;current<br>
+parent&nbsp;window&nbsp;(e.g.&nbsp;a&nbsp;non-standard&nbsp;toolbar&nbsp;in&nbsp;a&nbsp;wxFrame)&nbsp;and&nbsp;then<br>
+re-inserted&nbsp;into&nbsp;another.&nbsp;Available&nbsp;on&nbsp;Windows&nbsp;and&nbsp;GTK.&nbsp;&nbsp;Returns&nbsp;True<br>
+if&nbsp;the&nbsp;parent&nbsp;was&nbsp;changed,&nbsp;False&nbsp;otherwise&nbsp;(error&nbsp;or&nbsp;newParent&nbsp;==<br>
+oldParent)</tt></dd></dl>
+
+<dl><dt><a name="Editor-ScreenToClient"><strong>ScreenToClient</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ScreenToClient">ScreenToClient</a>(self,&nbsp;Point&nbsp;pt)&nbsp;-&gt;&nbsp;Point<br>
+&nbsp;<br>
+Converts&nbsp;from&nbsp;screen&nbsp;to&nbsp;client&nbsp;window&nbsp;coordinates.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ScreenToClientXY"><strong>ScreenToClientXY</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ScreenToClientXY">ScreenToClientXY</a>(int&nbsp;x,&nbsp;int&nbsp;y)&nbsp;-&gt;&nbsp;(x,y)<br>
+&nbsp;<br>
+Converts&nbsp;from&nbsp;screen&nbsp;to&nbsp;client&nbsp;window&nbsp;coordinates.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ScrollLines"><strong>ScrollLines</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ScrollLines">ScrollLines</a>(self,&nbsp;int&nbsp;lines)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;platform&nbsp;and&nbsp;window&nbsp;class&nbsp;supports&nbsp;it,&nbsp;scrolls&nbsp;the&nbsp;window&nbsp;by<br>
+the&nbsp;given&nbsp;number&nbsp;of&nbsp;lines&nbsp;down,&nbsp;if&nbsp;lines&nbsp;is&nbsp;positive,&nbsp;or&nbsp;up&nbsp;if&nbsp;lines<br>
+is&nbsp;negative.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;window&nbsp;was&nbsp;scrolled,&nbsp;False&nbsp;if&nbsp;it&nbsp;was<br>
+already&nbsp;on&nbsp;top/bottom&nbsp;and&nbsp;nothing&nbsp;was&nbsp;done.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ScrollPages"><strong>ScrollPages</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ScrollPages">ScrollPages</a>(self,&nbsp;int&nbsp;pages)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;platform&nbsp;and&nbsp;window&nbsp;class&nbsp;supports&nbsp;it,&nbsp;scrolls&nbsp;the&nbsp;window&nbsp;by<br>
+the&nbsp;given&nbsp;number&nbsp;of&nbsp;pages&nbsp;down,&nbsp;if&nbsp;pages&nbsp;is&nbsp;positive,&nbsp;or&nbsp;up&nbsp;if&nbsp;pages<br>
+is&nbsp;negative.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;window&nbsp;was&nbsp;scrolled,&nbsp;False&nbsp;if&nbsp;it&nbsp;was<br>
+already&nbsp;on&nbsp;top/bottom&nbsp;and&nbsp;nothing&nbsp;was&nbsp;done.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ScrollWindow"><strong>ScrollWindow</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ScrollWindow">ScrollWindow</a>(self,&nbsp;int&nbsp;dx,&nbsp;int&nbsp;dy,&nbsp;Rect&nbsp;rect=None)<br>
+&nbsp;<br>
+Physically&nbsp;scrolls&nbsp;the&nbsp;pixels&nbsp;in&nbsp;the&nbsp;window&nbsp;and&nbsp;move&nbsp;child&nbsp;windows<br>
+accordingly.&nbsp;&nbsp;Use&nbsp;this&nbsp;function&nbsp;to&nbsp;optimise&nbsp;your&nbsp;scrolling<br>
+implementations,&nbsp;to&nbsp;minimise&nbsp;the&nbsp;area&nbsp;that&nbsp;must&nbsp;be&nbsp;redrawn.&nbsp;Note&nbsp;that<br>
+it&nbsp;is&nbsp;rarely&nbsp;required&nbsp;to&nbsp;call&nbsp;this&nbsp;function&nbsp;from&nbsp;a&nbsp;user&nbsp;program.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetAcceleratorTable"><strong>SetAcceleratorTable</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetAcceleratorTable">SetAcceleratorTable</a>(self,&nbsp;AcceleratorTable&nbsp;accel)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;accelerator&nbsp;table&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetAutoLayout"><strong>SetAutoLayout</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetAutoLayout">SetAutoLayout</a>(self,&nbsp;bool&nbsp;autoLayout)<br>
+&nbsp;<br>
+Determines&nbsp;whether&nbsp;the&nbsp;Layout&nbsp;function&nbsp;will&nbsp;be&nbsp;called&nbsp;automatically<br>
+when&nbsp;the&nbsp;window&nbsp;is&nbsp;resized.&nbsp;&nbsp;lease&nbsp;note&nbsp;that&nbsp;this&nbsp;only&nbsp;happens&nbsp;for&nbsp;the<br>
+windows&nbsp;usually&nbsp;used&nbsp;to&nbsp;contain&nbsp;children,&nbsp;namely&nbsp;`wx.Panel`&nbsp;and<br>
+`wx.TopLevelWindow`&nbsp;(and&nbsp;the&nbsp;classes&nbsp;deriving&nbsp;from&nbsp;them).<br>
+&nbsp;<br>
+This&nbsp;method&nbsp;is&nbsp;called&nbsp;implicitly&nbsp;by&nbsp;`SetSizer`&nbsp;but&nbsp;if&nbsp;you&nbsp;use<br>
+`SetConstraints`&nbsp;you&nbsp;should&nbsp;call&nbsp;it&nbsp;manually&nbsp;or&nbsp;otherwise&nbsp;the&nbsp;window<br>
+layout&nbsp;won't&nbsp;be&nbsp;correctly&nbsp;updated&nbsp;when&nbsp;its&nbsp;size&nbsp;changes.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetBackgroundColour"><strong>SetBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetBackgroundColour">SetBackgroundColour</a>(self,&nbsp;Colour&nbsp;colour)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;background&nbsp;colour&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if&nbsp;the&nbsp;colour<br>
+was&nbsp;changed.&nbsp;&nbsp;The&nbsp;background&nbsp;colour&nbsp;is&nbsp;usually&nbsp;painted&nbsp;by&nbsp;the&nbsp;default<br>
+EVT_ERASE_BACKGROUND&nbsp;event&nbsp;handler&nbsp;function&nbsp;under&nbsp;Windows&nbsp;and<br>
+automatically&nbsp;under&nbsp;GTK.&nbsp;&nbsp;Using&nbsp;`wx.NullColour`&nbsp;will&nbsp;reset&nbsp;the&nbsp;window<br>
+to&nbsp;the&nbsp;default&nbsp;background&nbsp;colour.<br>
+&nbsp;<br>
+Note&nbsp;that&nbsp;setting&nbsp;the&nbsp;background&nbsp;colour&nbsp;may&nbsp;not&nbsp;cause&nbsp;an&nbsp;immediate<br>
+refresh,&nbsp;so&nbsp;you&nbsp;may&nbsp;wish&nbsp;to&nbsp;call&nbsp;`ClearBackground`&nbsp;or&nbsp;`Refresh`&nbsp;after<br>
+calling&nbsp;this&nbsp;function.<br>
+&nbsp;<br>
+Using&nbsp;this&nbsp;function&nbsp;will&nbsp;disable&nbsp;attempts&nbsp;to&nbsp;use&nbsp;themes&nbsp;for&nbsp;this<br>
+window,&nbsp;if&nbsp;the&nbsp;system&nbsp;supports&nbsp;them.&nbsp;&nbsp;Use&nbsp;with&nbsp;care&nbsp;since&nbsp;usually&nbsp;the<br>
+themes&nbsp;represent&nbsp;the&nbsp;appearance&nbsp;chosen&nbsp;by&nbsp;the&nbsp;user&nbsp;to&nbsp;be&nbsp;used&nbsp;for&nbsp;all<br>
+applications&nbsp;on&nbsp;the&nbsp;system.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetBackgroundStyle"><strong>SetBackgroundStyle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetBackgroundStyle">SetBackgroundStyle</a>(self,&nbsp;int&nbsp;style)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;background&nbsp;style&nbsp;of&nbsp;the&nbsp;window.&nbsp;The&nbsp;background&nbsp;style<br>
+indicates&nbsp;how&nbsp;the&nbsp;background&nbsp;of&nbsp;the&nbsp;window&nbsp;is&nbsp;drawn.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;======================&nbsp;&nbsp;========================================<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wx.BG_STYLE_SYSTEM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;background&nbsp;colour&nbsp;or&nbsp;pattern&nbsp;should<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;be&nbsp;determined&nbsp;by&nbsp;the&nbsp;system<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wx.BG_STYLE_COLOUR&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;background&nbsp;should&nbsp;be&nbsp;a&nbsp;solid&nbsp;colour<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wx.BG_STYLE_CUSTOM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The&nbsp;background&nbsp;will&nbsp;be&nbsp;implemented&nbsp;by&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;application.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;======================&nbsp;&nbsp;========================================<br>
+&nbsp;<br>
+On&nbsp;GTK+,&nbsp;use&nbsp;of&nbsp;wx.BG_STYLE_CUSTOM&nbsp;allows&nbsp;the&nbsp;flicker-free&nbsp;drawing&nbsp;of<br>
+a&nbsp;custom&nbsp;background,&nbsp;such&nbsp;as&nbsp;a&nbsp;tiled&nbsp;bitmap.&nbsp;Currently&nbsp;the&nbsp;style&nbsp;has<br>
+no&nbsp;effect&nbsp;on&nbsp;other&nbsp;platforms.<br>
+&nbsp;<br>
+:see:&nbsp;`GetBackgroundStyle`,&nbsp;`SetBackgroundColour`</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetBestFittingSize"><strong>SetBestFittingSize</strong></a> = deprecatedWrapper(*args, **kwargs)</dt><dd><tt>Use&nbsp;`SetInitialSize`</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetCaret"><strong>SetCaret</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetCaret">SetCaret</a>(self,&nbsp;Caret&nbsp;caret)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;caret&nbsp;associated&nbsp;with&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetClientRect"><strong>SetClientRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetClientRect">SetClientRect</a>(self,&nbsp;Rect&nbsp;rect)<br>
+&nbsp;<br>
+This&nbsp;sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;client&nbsp;area&nbsp;in&nbsp;pixels.&nbsp;Using&nbsp;this<br>
+function&nbsp;to&nbsp;size&nbsp;a&nbsp;window&nbsp;tends&nbsp;to&nbsp;be&nbsp;more&nbsp;device-independent&nbsp;than<br>
+wx.Window.SetSize,&nbsp;since&nbsp;the&nbsp;application&nbsp;need&nbsp;not&nbsp;worry&nbsp;about&nbsp;what<br>
+dimensions&nbsp;the&nbsp;border&nbsp;or&nbsp;title&nbsp;bar&nbsp;have&nbsp;when&nbsp;trying&nbsp;to&nbsp;fit&nbsp;the&nbsp;window<br>
+around&nbsp;panel&nbsp;items,&nbsp;for&nbsp;example.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetClientSize"><strong>SetClientSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetClientSize">SetClientSize</a>(self,&nbsp;Size&nbsp;size)<br>
+&nbsp;<br>
+This&nbsp;sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;client&nbsp;area&nbsp;in&nbsp;pixels.&nbsp;Using&nbsp;this<br>
+function&nbsp;to&nbsp;size&nbsp;a&nbsp;window&nbsp;tends&nbsp;to&nbsp;be&nbsp;more&nbsp;device-independent&nbsp;than<br>
+wx.Window.SetSize,&nbsp;since&nbsp;the&nbsp;application&nbsp;need&nbsp;not&nbsp;worry&nbsp;about&nbsp;what<br>
+dimensions&nbsp;the&nbsp;border&nbsp;or&nbsp;title&nbsp;bar&nbsp;have&nbsp;when&nbsp;trying&nbsp;to&nbsp;fit&nbsp;the&nbsp;window<br>
+around&nbsp;panel&nbsp;items,&nbsp;for&nbsp;example.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetClientSizeWH"><strong>SetClientSizeWH</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetClientSizeWH">SetClientSizeWH</a>(self,&nbsp;int&nbsp;width,&nbsp;int&nbsp;height)<br>
+&nbsp;<br>
+This&nbsp;sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;client&nbsp;area&nbsp;in&nbsp;pixels.&nbsp;Using&nbsp;this<br>
+function&nbsp;to&nbsp;size&nbsp;a&nbsp;window&nbsp;tends&nbsp;to&nbsp;be&nbsp;more&nbsp;device-independent&nbsp;than<br>
+wx.Window.SetSize,&nbsp;since&nbsp;the&nbsp;application&nbsp;need&nbsp;not&nbsp;worry&nbsp;about&nbsp;what<br>
+dimensions&nbsp;the&nbsp;border&nbsp;or&nbsp;title&nbsp;bar&nbsp;have&nbsp;when&nbsp;trying&nbsp;to&nbsp;fit&nbsp;the&nbsp;window<br>
+around&nbsp;panel&nbsp;items,&nbsp;for&nbsp;example.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetConstraints"><strong>SetConstraints</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetConstraints">SetConstraints</a>(self,&nbsp;LayoutConstraints&nbsp;constraints)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;window&nbsp;to&nbsp;have&nbsp;the&nbsp;given&nbsp;layout&nbsp;constraints.&nbsp;If&nbsp;an&nbsp;existing<br>
+layout&nbsp;constraints&nbsp;object&nbsp;is&nbsp;already&nbsp;owned&nbsp;by&nbsp;the&nbsp;window,&nbsp;it&nbsp;will&nbsp;be<br>
+deleted.&nbsp;&nbsp;Pass&nbsp;None&nbsp;to&nbsp;disassociate&nbsp;and&nbsp;delete&nbsp;the&nbsp;window's&nbsp;current<br>
+constraints.<br>
+&nbsp;<br>
+You&nbsp;must&nbsp;call&nbsp;SetAutoLayout&nbsp;to&nbsp;tell&nbsp;a&nbsp;window&nbsp;to&nbsp;use&nbsp;the&nbsp;constraints<br>
+automatically&nbsp;in&nbsp;its&nbsp;default&nbsp;EVT_SIZE&nbsp;handler;&nbsp;otherwise,&nbsp;you&nbsp;must<br>
+handle&nbsp;EVT_SIZE&nbsp;yourself&nbsp;and&nbsp;call&nbsp;<a href="#Editor-Layout">Layout</a>()&nbsp;explicitly.&nbsp;When&nbsp;setting<br>
+both&nbsp;a&nbsp;wx.LayoutConstraints&nbsp;and&nbsp;a&nbsp;wx.Sizer,&nbsp;only&nbsp;the&nbsp;sizer&nbsp;will&nbsp;have<br>
+effect.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetContainingSizer"><strong>SetContainingSizer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetContainingSizer">SetContainingSizer</a>(self,&nbsp;Sizer&nbsp;sizer)<br>
+&nbsp;<br>
+This&nbsp;normally&nbsp;does&nbsp;not&nbsp;need&nbsp;to&nbsp;be&nbsp;called&nbsp;by&nbsp;application&nbsp;code.&nbsp;It&nbsp;is<br>
+called&nbsp;internally&nbsp;when&nbsp;a&nbsp;window&nbsp;is&nbsp;added&nbsp;to&nbsp;a&nbsp;sizer,&nbsp;and&nbsp;is&nbsp;used&nbsp;so<br>
+the&nbsp;window&nbsp;can&nbsp;remove&nbsp;itself&nbsp;from&nbsp;the&nbsp;sizer&nbsp;when&nbsp;it&nbsp;is&nbsp;destroyed.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetCursor"><strong>SetCursor</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetCursor">SetCursor</a>(self,&nbsp;Cursor&nbsp;cursor)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;window's&nbsp;cursor.&nbsp;Notice&nbsp;that&nbsp;the&nbsp;window&nbsp;cursor&nbsp;also&nbsp;sets&nbsp;it<br>
+for&nbsp;the&nbsp;children&nbsp;of&nbsp;the&nbsp;window&nbsp;implicitly.<br>
+&nbsp;<br>
+The&nbsp;cursor&nbsp;may&nbsp;be&nbsp;wx.NullCursor&nbsp;in&nbsp;which&nbsp;case&nbsp;the&nbsp;window&nbsp;cursor&nbsp;will<br>
+be&nbsp;reset&nbsp;back&nbsp;to&nbsp;default.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetDimensions"><strong>SetDimensions</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetDimensions">SetDimensions</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y,&nbsp;int&nbsp;width,&nbsp;int&nbsp;height,&nbsp;int&nbsp;sizeFlags=SIZE_AUTO)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;The&nbsp;sizeFlags<br>
+parameter&nbsp;indicates&nbsp;the&nbsp;interpretation&nbsp;of&nbsp;the&nbsp;other&nbsp;params&nbsp;if&nbsp;they&nbsp;are<br>
+equal&nbsp;to&nbsp;-1.<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_AUTO&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A&nbsp;-1&nbsp;indicates&nbsp;that&nbsp;a&nbsp;class-specific<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;should&nbsp;be&nbsp;used.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wx.SIZE_USE_EXISTING&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Existing&nbsp;dimensions&nbsp;should&nbsp;be&nbsp;used&nbsp;if<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-1&nbsp;values&nbsp;are&nbsp;supplied.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;wxSIZE_ALLOW_MINUS_ONE&nbsp;&nbsp;&nbsp;&nbsp;Allow&nbsp;dimensions&nbsp;of&nbsp;-1&nbsp;and&nbsp;less&nbsp;to&nbsp;be<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;interpreted&nbsp;as&nbsp;real&nbsp;dimensions,&nbsp;not<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;default&nbsp;values.<br>
+&nbsp;&nbsp;&nbsp;&nbsp;========================&nbsp;&nbsp;======================================</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetDoubleBuffered"><strong>SetDoubleBuffered</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetDoubleBuffered">SetDoubleBuffered</a>(self,&nbsp;bool&nbsp;on)<br>
+&nbsp;<br>
+Put&nbsp;the&nbsp;native&nbsp;window&nbsp;into&nbsp;double&nbsp;buffered&nbsp;or&nbsp;composited&nbsp;mode.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetDropTarget"><strong>SetDropTarget</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetDropTarget">SetDropTarget</a>(self,&nbsp;DropTarget&nbsp;dropTarget)<br>
+&nbsp;<br>
+Associates&nbsp;a&nbsp;drop&nbsp;target&nbsp;with&nbsp;this&nbsp;window.&nbsp;&nbsp;If&nbsp;the&nbsp;window&nbsp;already&nbsp;has<br>
+a&nbsp;drop&nbsp;target,&nbsp;it&nbsp;is&nbsp;deleted.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetEventHandler"><strong>SetEventHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetEventHandler">SetEventHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;event&nbsp;handler&nbsp;for&nbsp;this&nbsp;window.&nbsp;&nbsp;An&nbsp;event&nbsp;handler&nbsp;is&nbsp;an&nbsp;object<br>
+that&nbsp;is&nbsp;capable&nbsp;of&nbsp;processing&nbsp;the&nbsp;events&nbsp;sent&nbsp;to&nbsp;a&nbsp;window.&nbsp;&nbsp;(In&nbsp;other<br>
+words,&nbsp;is&nbsp;able&nbsp;to&nbsp;dispatch&nbsp;the&nbsp;events&nbsp;to&nbsp;handler&nbsp;function.)&nbsp;&nbsp;By<br>
+default,&nbsp;the&nbsp;window&nbsp;is&nbsp;its&nbsp;own&nbsp;event&nbsp;handler,&nbsp;but&nbsp;an&nbsp;application&nbsp;may<br>
+wish&nbsp;to&nbsp;substitute&nbsp;another,&nbsp;for&nbsp;example&nbsp;to&nbsp;allow&nbsp;central<br>
+implementation&nbsp;of&nbsp;event-handling&nbsp;for&nbsp;a&nbsp;variety&nbsp;of&nbsp;different&nbsp;window<br>
+classes.<br>
+&nbsp;<br>
+It&nbsp;is&nbsp;usually&nbsp;better&nbsp;to&nbsp;use&nbsp;`wx.Window.PushEventHandler`&nbsp;since&nbsp;this&nbsp;sets<br>
+up&nbsp;a&nbsp;chain&nbsp;of&nbsp;event&nbsp;handlers,&nbsp;where&nbsp;an&nbsp;event&nbsp;not&nbsp;handled&nbsp;by&nbsp;one&nbsp;event<br>
+handler&nbsp;is&nbsp;handed&nbsp;off&nbsp;to&nbsp;the&nbsp;next&nbsp;one&nbsp;in&nbsp;the&nbsp;chain.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetExtraStyle"><strong>SetExtraStyle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetExtraStyle">SetExtraStyle</a>(self,&nbsp;long&nbsp;exStyle)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;extra&nbsp;style&nbsp;bits&nbsp;for&nbsp;the&nbsp;window.&nbsp;&nbsp;Extra&nbsp;styles&nbsp;are&nbsp;the&nbsp;less<br>
+often&nbsp;used&nbsp;style&nbsp;bits&nbsp;which&nbsp;can't&nbsp;be&nbsp;set&nbsp;with&nbsp;the&nbsp;constructor&nbsp;or&nbsp;with<br>
+<a href="#Editor-SetWindowStyleFlag">SetWindowStyleFlag</a>()</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetFocus"><strong>SetFocus</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetFocus">SetFocus</a>(self)<br>
+&nbsp;<br>
+Set's&nbsp;the&nbsp;focus&nbsp;to&nbsp;this&nbsp;window,&nbsp;allowing&nbsp;it&nbsp;to&nbsp;receive&nbsp;keyboard&nbsp;input.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetFocusFromKbd"><strong>SetFocusFromKbd</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetFocusFromKbd">SetFocusFromKbd</a>(self)<br>
+&nbsp;<br>
+Set&nbsp;focus&nbsp;to&nbsp;this&nbsp;window&nbsp;as&nbsp;the&nbsp;result&nbsp;of&nbsp;a&nbsp;keyboard&nbsp;action.&nbsp;&nbsp;Normally<br>
+only&nbsp;called&nbsp;internally.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetFont"><strong>SetFont</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetFont">SetFont</a>(self,&nbsp;Font&nbsp;font)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;font&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetForegroundColour"><strong>SetForegroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetForegroundColour">SetForegroundColour</a>(self,&nbsp;Colour&nbsp;colour)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;foreground&nbsp;colour&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;Returns&nbsp;True&nbsp;is&nbsp;the&nbsp;colour<br>
+was&nbsp;changed.&nbsp;&nbsp;The&nbsp;interpretation&nbsp;of&nbsp;foreground&nbsp;colour&nbsp;is&nbsp;dependent&nbsp;on<br>
+the&nbsp;window&nbsp;class;&nbsp;it&nbsp;may&nbsp;be&nbsp;the&nbsp;text&nbsp;colour&nbsp;or&nbsp;other&nbsp;colour,&nbsp;or&nbsp;it&nbsp;may<br>
+not&nbsp;be&nbsp;used&nbsp;at&nbsp;all.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetHelpText"><strong>SetHelpText</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetHelpText">SetHelpText</a>(self,&nbsp;String&nbsp;text)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;help&nbsp;text&nbsp;to&nbsp;be&nbsp;used&nbsp;as&nbsp;context-sensitive&nbsp;help&nbsp;for&nbsp;this<br>
+window.&nbsp;&nbsp;Note&nbsp;that&nbsp;the&nbsp;text&nbsp;is&nbsp;actually&nbsp;stored&nbsp;by&nbsp;the&nbsp;current<br>
+`wx.HelpProvider`&nbsp;implementation,&nbsp;and&nbsp;not&nbsp;in&nbsp;the&nbsp;window&nbsp;object&nbsp;itself.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetHelpTextForId"><strong>SetHelpTextForId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetHelpTextForId">SetHelpTextForId</a>(self,&nbsp;String&nbsp;text)<br>
+&nbsp;<br>
+Associate&nbsp;this&nbsp;help&nbsp;text&nbsp;with&nbsp;all&nbsp;windows&nbsp;with&nbsp;the&nbsp;same&nbsp;id&nbsp;as&nbsp;this<br>
+one.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetId"><strong>SetId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetId">SetId</a>(self,&nbsp;int&nbsp;winid)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;identifier&nbsp;of&nbsp;the&nbsp;window.&nbsp;&nbsp;Each&nbsp;window&nbsp;has&nbsp;an&nbsp;integer<br>
+identifier.&nbsp;If&nbsp;the&nbsp;application&nbsp;has&nbsp;not&nbsp;provided&nbsp;one,&nbsp;an&nbsp;identifier<br>
+will&nbsp;be&nbsp;generated.&nbsp;Normally,&nbsp;the&nbsp;identifier&nbsp;should&nbsp;be&nbsp;provided&nbsp;on<br>
+creation&nbsp;and&nbsp;should&nbsp;not&nbsp;be&nbsp;modified&nbsp;subsequently.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetInitialSize"><strong>SetInitialSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetInitialSize">SetInitialSize</a>(self,&nbsp;Size&nbsp;size=DefaultSize)<br>
+&nbsp;<br>
+A&nbsp;'Smart'&nbsp;SetSize&nbsp;that&nbsp;will&nbsp;fill&nbsp;in&nbsp;default&nbsp;size&nbsp;components&nbsp;with&nbsp;the<br>
+window's&nbsp;*best&nbsp;size*&nbsp;values.&nbsp;&nbsp;Also&nbsp;set's&nbsp;the&nbsp;minsize&nbsp;for&nbsp;use&nbsp;with&nbsp;sizers.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetLabel"><strong>SetLabel</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetLabel">SetLabel</a>(self,&nbsp;String&nbsp;label)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;text&nbsp;which&nbsp;the&nbsp;window&nbsp;shows&nbsp;in&nbsp;its&nbsp;label&nbsp;if&nbsp;applicable.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetLayoutDirection"><strong>SetLayoutDirection</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetLayoutDirection">SetLayoutDirection</a>(self,&nbsp;int&nbsp;dir)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;layout&nbsp;direction&nbsp;(LTR&nbsp;or&nbsp;RTL)&nbsp;for&nbsp;this&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetMaxSize"><strong>SetMaxSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetMaxSize">SetMaxSize</a>(self,&nbsp;Size&nbsp;maxSize)<br>
+&nbsp;<br>
+A&nbsp;more&nbsp;convenient&nbsp;method&nbsp;than&nbsp;`SetSizeHints`&nbsp;for&nbsp;setting&nbsp;just&nbsp;the<br>
+max&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetMinSize"><strong>SetMinSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetMinSize">SetMinSize</a>(self,&nbsp;Size&nbsp;minSize)<br>
+&nbsp;<br>
+A&nbsp;more&nbsp;convenient&nbsp;method&nbsp;than&nbsp;`SetSizeHints`&nbsp;for&nbsp;setting&nbsp;just&nbsp;the<br>
+min&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetName"><strong>SetName</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetName">SetName</a>(self,&nbsp;String&nbsp;name)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;window's&nbsp;name.&nbsp;&nbsp;The&nbsp;window&nbsp;name&nbsp;is&nbsp;used&nbsp;for&nbsp;ressource&nbsp;setting<br>
+in&nbsp;X,&nbsp;it&nbsp;is&nbsp;not&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;window&nbsp;title/label</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetOwnBackgroundColour"><strong>SetOwnBackgroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetOwnBackgroundColour">SetOwnBackgroundColour</a>(self,&nbsp;Colour&nbsp;colour)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetOwnFont"><strong>SetOwnFont</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetOwnFont">SetOwnFont</a>(self,&nbsp;Font&nbsp;font)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetOwnForegroundColour"><strong>SetOwnForegroundColour</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetOwnForegroundColour">SetOwnForegroundColour</a>(self,&nbsp;Colour&nbsp;colour)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetPosition"><strong>SetPosition</strong></a> = Move(*args, **kwargs)</dt><dd><tt><a href="#Editor-Move">Move</a>(self,&nbsp;Point&nbsp;pt,&nbsp;int&nbsp;flags=SIZE_USE_EXISTING)<br>
+&nbsp;<br>
+Moves&nbsp;the&nbsp;window&nbsp;to&nbsp;the&nbsp;given&nbsp;position.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetRect"><strong>SetRect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetRect">SetRect</a>(self,&nbsp;Rect&nbsp;rect,&nbsp;int&nbsp;sizeFlags=SIZE_AUTO)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;position&nbsp;and&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels&nbsp;using&nbsp;a&nbsp;wx.Rect.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetScrollPos"><strong>SetScrollPos</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetScrollPos">SetScrollPos</a>(self,&nbsp;int&nbsp;orientation,&nbsp;int&nbsp;pos,&nbsp;bool&nbsp;refresh=True)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;position&nbsp;of&nbsp;one&nbsp;of&nbsp;the&nbsp;built-in&nbsp;scrollbars.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetScrollbar"><strong>SetScrollbar</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetScrollbar">SetScrollbar</a>(self,&nbsp;int&nbsp;orientation,&nbsp;int&nbsp;position,&nbsp;int&nbsp;thumbSize,&nbsp;int&nbsp;range,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;bool&nbsp;refresh=True)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;scrollbar&nbsp;properties&nbsp;of&nbsp;a&nbsp;built-in&nbsp;scrollbar.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetSize"><strong>SetSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetSize">SetSize</a>(self,&nbsp;Size&nbsp;size)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetSizeHints"><strong>SetSizeHints</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetSizeHints">SetSizeHints</a>(self,&nbsp;int&nbsp;minW,&nbsp;int&nbsp;minH,&nbsp;int&nbsp;maxW=-1,&nbsp;int&nbsp;maxH=-1,&nbsp;int&nbsp;incW=-1,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;incH=-1)<br>
+&nbsp;<br>
+Allows&nbsp;specification&nbsp;of&nbsp;minimum&nbsp;and&nbsp;maximum&nbsp;window&nbsp;sizes,&nbsp;and&nbsp;window<br>
+size&nbsp;increments.&nbsp;If&nbsp;a&nbsp;pair&nbsp;of&nbsp;values&nbsp;is&nbsp;not&nbsp;set&nbsp;(or&nbsp;set&nbsp;to&nbsp;-1),&nbsp;the<br>
+default&nbsp;values&nbsp;will&nbsp;be&nbsp;used.&nbsp;&nbsp;If&nbsp;this&nbsp;function&nbsp;is&nbsp;called,&nbsp;the&nbsp;user<br>
+will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;size&nbsp;the&nbsp;window&nbsp;outside&nbsp;the&nbsp;given&nbsp;bounds&nbsp;(if&nbsp;it&nbsp;is<br>
+a&nbsp;top-level&nbsp;window.)&nbsp;&nbsp;Sizers&nbsp;will&nbsp;also&nbsp;inspect&nbsp;the&nbsp;minimum&nbsp;window&nbsp;size<br>
+and&nbsp;will&nbsp;use&nbsp;that&nbsp;value&nbsp;if&nbsp;set&nbsp;when&nbsp;calculating&nbsp;layout.<br>
+&nbsp;<br>
+The&nbsp;resizing&nbsp;increments&nbsp;are&nbsp;only&nbsp;significant&nbsp;under&nbsp;Motif&nbsp;or&nbsp;Xt.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetSizeHintsSz"><strong>SetSizeHintsSz</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetSizeHintsSz">SetSizeHintsSz</a>(self,&nbsp;Size&nbsp;minSize,&nbsp;Size&nbsp;maxSize=DefaultSize,&nbsp;Size&nbsp;incSize=DefaultSize)<br>
+&nbsp;<br>
+Allows&nbsp;specification&nbsp;of&nbsp;minimum&nbsp;and&nbsp;maximum&nbsp;window&nbsp;sizes,&nbsp;and&nbsp;window<br>
+size&nbsp;increments.&nbsp;If&nbsp;a&nbsp;pair&nbsp;of&nbsp;values&nbsp;is&nbsp;not&nbsp;set&nbsp;(or&nbsp;set&nbsp;to&nbsp;-1),&nbsp;the<br>
+default&nbsp;values&nbsp;will&nbsp;be&nbsp;used.&nbsp;&nbsp;If&nbsp;this&nbsp;function&nbsp;is&nbsp;called,&nbsp;the&nbsp;user<br>
+will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;size&nbsp;the&nbsp;window&nbsp;outside&nbsp;the&nbsp;given&nbsp;bounds&nbsp;(if&nbsp;it&nbsp;is<br>
+a&nbsp;top-level&nbsp;window.)&nbsp;&nbsp;Sizers&nbsp;will&nbsp;also&nbsp;inspect&nbsp;the&nbsp;minimum&nbsp;window&nbsp;size<br>
+and&nbsp;will&nbsp;use&nbsp;that&nbsp;value&nbsp;if&nbsp;set&nbsp;when&nbsp;calculating&nbsp;layout.<br>
+&nbsp;<br>
+The&nbsp;resizing&nbsp;increments&nbsp;are&nbsp;only&nbsp;significant&nbsp;under&nbsp;Motif&nbsp;or&nbsp;Xt.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetSizeWH"><strong>SetSizeWH</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetSizeWH">SetSizeWH</a>(self,&nbsp;int&nbsp;width,&nbsp;int&nbsp;height)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;window&nbsp;in&nbsp;pixels.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetSizer"><strong>SetSizer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetSizer">SetSizer</a>(self,&nbsp;Sizer&nbsp;sizer,&nbsp;bool&nbsp;deleteOld=True)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;window&nbsp;to&nbsp;have&nbsp;the&nbsp;given&nbsp;layout&nbsp;sizer.&nbsp;The&nbsp;window&nbsp;will&nbsp;then<br>
+own&nbsp;the&nbsp;object,&nbsp;and&nbsp;will&nbsp;take&nbsp;care&nbsp;of&nbsp;its&nbsp;deletion.&nbsp;If&nbsp;an&nbsp;existing<br>
+layout&nbsp;sizer&nbsp;object&nbsp;is&nbsp;already&nbsp;owned&nbsp;by&nbsp;the&nbsp;window,&nbsp;it&nbsp;will&nbsp;be&nbsp;deleted<br>
+if&nbsp;the&nbsp;deleteOld&nbsp;parameter&nbsp;is&nbsp;true.&nbsp;Note&nbsp;that&nbsp;this&nbsp;function&nbsp;will&nbsp;also<br>
+call&nbsp;SetAutoLayout&nbsp;implicitly&nbsp;with&nbsp;a&nbsp;True&nbsp;parameter&nbsp;if&nbsp;the&nbsp;sizer&nbsp;is<br>
+non-None,&nbsp;and&nbsp;False&nbsp;otherwise.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetSizerAndFit"><strong>SetSizerAndFit</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetSizerAndFit">SetSizerAndFit</a>(self,&nbsp;Sizer&nbsp;sizer,&nbsp;bool&nbsp;deleteOld=True)<br>
+&nbsp;<br>
+The&nbsp;same&nbsp;as&nbsp;SetSizer,&nbsp;except&nbsp;it&nbsp;also&nbsp;sets&nbsp;the&nbsp;size&nbsp;hints&nbsp;for&nbsp;the<br>
+window&nbsp;based&nbsp;on&nbsp;the&nbsp;sizer's&nbsp;minimum&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetThemeEnabled"><strong>SetThemeEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetThemeEnabled">SetThemeEnabled</a>(self,&nbsp;bool&nbsp;enableTheme)<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;tells&nbsp;a&nbsp;window&nbsp;if&nbsp;it&nbsp;should&nbsp;use&nbsp;the&nbsp;system's&nbsp;"theme"<br>
+&nbsp;code&nbsp;to&nbsp;draw&nbsp;the&nbsp;windows'&nbsp;background&nbsp;instead&nbsp;if&nbsp;its&nbsp;own&nbsp;background<br>
+&nbsp;drawing&nbsp;code.&nbsp;This&nbsp;will&nbsp;only&nbsp;have&nbsp;an&nbsp;effect&nbsp;on&nbsp;platforms&nbsp;that&nbsp;support<br>
+&nbsp;the&nbsp;notion&nbsp;of&nbsp;themes&nbsp;in&nbsp;user&nbsp;defined&nbsp;windows.&nbsp;One&nbsp;such&nbsp;platform&nbsp;is<br>
+&nbsp;GTK+&nbsp;where&nbsp;windows&nbsp;can&nbsp;have&nbsp;(very&nbsp;colourful)&nbsp;backgrounds&nbsp;defined&nbsp;by&nbsp;a<br>
+&nbsp;user's&nbsp;selected&nbsp;theme.<br>
+&nbsp;<br>
+Dialogs,&nbsp;notebook&nbsp;pages&nbsp;and&nbsp;the&nbsp;status&nbsp;bar&nbsp;have&nbsp;this&nbsp;flag&nbsp;set&nbsp;to&nbsp;true<br>
+by&nbsp;default&nbsp;so&nbsp;that&nbsp;the&nbsp;default&nbsp;look&nbsp;and&nbsp;feel&nbsp;is&nbsp;simulated&nbsp;best.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetToolTip"><strong>SetToolTip</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetToolTip">SetToolTip</a>(self,&nbsp;ToolTip&nbsp;tip)<br>
+&nbsp;<br>
+Attach&nbsp;a&nbsp;tooltip&nbsp;to&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetToolTipString"><strong>SetToolTipString</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetToolTipString">SetToolTipString</a>(self,&nbsp;String&nbsp;tip)<br>
+&nbsp;<br>
+Attach&nbsp;a&nbsp;tooltip&nbsp;to&nbsp;the&nbsp;window.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetTransparent"><strong>SetTransparent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetTransparent">SetTransparent</a>(self,&nbsp;byte&nbsp;alpha)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Attempt&nbsp;to&nbsp;set&nbsp;the&nbsp;transparency&nbsp;of&nbsp;this&nbsp;window&nbsp;to&nbsp;the&nbsp;``alpha``&nbsp;value,<br>
+returns&nbsp;True&nbsp;on&nbsp;success.&nbsp;&nbsp;The&nbsp;``alpha``&nbsp;value&nbsp;is&nbsp;an&nbsp;integer&nbsp;in&nbsp;the<br>
+range&nbsp;of&nbsp;0&nbsp;to&nbsp;255,&nbsp;where&nbsp;0&nbsp;is&nbsp;fully&nbsp;transparent&nbsp;and&nbsp;255&nbsp;is&nbsp;fully<br>
+opaque.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetValidator"><strong>SetValidator</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetValidator">SetValidator</a>(self,&nbsp;Validator&nbsp;validator)<br>
+&nbsp;<br>
+Deletes&nbsp;the&nbsp;current&nbsp;validator&nbsp;(if&nbsp;any)&nbsp;and&nbsp;sets&nbsp;the&nbsp;window&nbsp;validator,<br>
+having&nbsp;called&nbsp;wx.Validator.Clone&nbsp;to&nbsp;create&nbsp;a&nbsp;new&nbsp;validator&nbsp;of&nbsp;this<br>
+type.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetVirtualSize"><strong>SetVirtualSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetVirtualSize">SetVirtualSize</a>(self,&nbsp;Size&nbsp;size)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;the&nbsp;virtual&nbsp;size&nbsp;of&nbsp;a&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;For&nbsp;most&nbsp;windows&nbsp;this<br>
+is&nbsp;just&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window,&nbsp;but&nbsp;for&nbsp;some&nbsp;like&nbsp;scrolled<br>
+windows&nbsp;it&nbsp;is&nbsp;more&nbsp;or&nbsp;less&nbsp;independent&nbsp;of&nbsp;the&nbsp;screen&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetVirtualSizeHints"><strong>SetVirtualSizeHints</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetVirtualSizeHints">SetVirtualSizeHints</a>(self,&nbsp;int&nbsp;minW,&nbsp;int&nbsp;minH,&nbsp;int&nbsp;maxW=-1,&nbsp;int&nbsp;maxH=-1)<br>
+&nbsp;<br>
+Allows&nbsp;specification&nbsp;of&nbsp;minimum&nbsp;and&nbsp;maximum&nbsp;virtual&nbsp;window&nbsp;sizes.&nbsp;If&nbsp;a<br>
+pair&nbsp;of&nbsp;values&nbsp;is&nbsp;not&nbsp;set&nbsp;(or&nbsp;set&nbsp;to&nbsp;-1),&nbsp;the&nbsp;default&nbsp;values&nbsp;will&nbsp;be<br>
+used.&nbsp;&nbsp;If&nbsp;this&nbsp;function&nbsp;is&nbsp;called,&nbsp;the&nbsp;user&nbsp;will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;size<br>
+the&nbsp;virtual&nbsp;area&nbsp;of&nbsp;the&nbsp;window&nbsp;outside&nbsp;the&nbsp;given&nbsp;bounds.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetVirtualSizeHintsSz"><strong>SetVirtualSizeHintsSz</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetVirtualSizeHintsSz">SetVirtualSizeHintsSz</a>(self,&nbsp;Size&nbsp;minSize,&nbsp;Size&nbsp;maxSize=DefaultSize)<br>
+&nbsp;<br>
+Allows&nbsp;specification&nbsp;of&nbsp;minimum&nbsp;and&nbsp;maximum&nbsp;virtual&nbsp;window&nbsp;sizes.&nbsp;If&nbsp;a<br>
+pair&nbsp;of&nbsp;values&nbsp;is&nbsp;not&nbsp;set&nbsp;(or&nbsp;set&nbsp;to&nbsp;-1),&nbsp;the&nbsp;default&nbsp;values&nbsp;will&nbsp;be<br>
+used.&nbsp;&nbsp;If&nbsp;this&nbsp;function&nbsp;is&nbsp;called,&nbsp;the&nbsp;user&nbsp;will&nbsp;not&nbsp;be&nbsp;able&nbsp;to&nbsp;size<br>
+the&nbsp;virtual&nbsp;area&nbsp;of&nbsp;the&nbsp;window&nbsp;outside&nbsp;the&nbsp;given&nbsp;bounds.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetVirtualSizeWH"><strong>SetVirtualSizeWH</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetVirtualSizeWH">SetVirtualSizeWH</a>(self,&nbsp;int&nbsp;w,&nbsp;int&nbsp;h)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;the&nbsp;virtual&nbsp;size&nbsp;of&nbsp;a&nbsp;window&nbsp;in&nbsp;pixels.&nbsp;&nbsp;For&nbsp;most&nbsp;windows&nbsp;this<br>
+is&nbsp;just&nbsp;the&nbsp;client&nbsp;area&nbsp;of&nbsp;the&nbsp;window,&nbsp;but&nbsp;for&nbsp;some&nbsp;like&nbsp;scrolled<br>
+windows&nbsp;it&nbsp;is&nbsp;more&nbsp;or&nbsp;less&nbsp;independent&nbsp;of&nbsp;the&nbsp;screen&nbsp;window&nbsp;size.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetWindowStyle"><strong>SetWindowStyle</strong></a> = SetWindowStyleFlag(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetWindowStyleFlag">SetWindowStyleFlag</a>(self,&nbsp;long&nbsp;style)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;style&nbsp;of&nbsp;the&nbsp;window.&nbsp;Please&nbsp;note&nbsp;that&nbsp;some&nbsp;styles&nbsp;cannot&nbsp;be<br>
+changed&nbsp;after&nbsp;the&nbsp;window&nbsp;creation&nbsp;and&nbsp;that&nbsp;<a href="#Editor-Refresh">Refresh</a>()&nbsp;might&nbsp;need&nbsp;to&nbsp;be<br>
+called&nbsp;after&nbsp;changing&nbsp;the&nbsp;others&nbsp;for&nbsp;the&nbsp;change&nbsp;to&nbsp;take&nbsp;place<br>
+immediately.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetWindowStyleFlag"><strong>SetWindowStyleFlag</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetWindowStyleFlag">SetWindowStyleFlag</a>(self,&nbsp;long&nbsp;style)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;style&nbsp;of&nbsp;the&nbsp;window.&nbsp;Please&nbsp;note&nbsp;that&nbsp;some&nbsp;styles&nbsp;cannot&nbsp;be<br>
+changed&nbsp;after&nbsp;the&nbsp;window&nbsp;creation&nbsp;and&nbsp;that&nbsp;<a href="#Editor-Refresh">Refresh</a>()&nbsp;might&nbsp;need&nbsp;to&nbsp;be<br>
+called&nbsp;after&nbsp;changing&nbsp;the&nbsp;others&nbsp;for&nbsp;the&nbsp;change&nbsp;to&nbsp;take&nbsp;place<br>
+immediately.</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetWindowVariant"><strong>SetWindowVariant</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetWindowVariant">SetWindowVariant</a>(self,&nbsp;int&nbsp;variant)<br>
+&nbsp;<br>
+Sets&nbsp;the&nbsp;variant&nbsp;of&nbsp;the&nbsp;window/font&nbsp;size&nbsp;to&nbsp;use&nbsp;for&nbsp;this&nbsp;window,&nbsp;if<br>
+the&nbsp;platform&nbsp;supports&nbsp;variants,&nbsp;for&nbsp;example,&nbsp;wxMac.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ShouldInheritColours"><strong>ShouldInheritColours</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ShouldInheritColours">ShouldInheritColours</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Return&nbsp;true&nbsp;from&nbsp;here&nbsp;to&nbsp;allow&nbsp;the&nbsp;colours&nbsp;of&nbsp;this&nbsp;window&nbsp;to&nbsp;be<br>
+changed&nbsp;by&nbsp;InheritAttributes,&nbsp;returning&nbsp;false&nbsp;forbids&nbsp;inheriting&nbsp;them<br>
+from&nbsp;the&nbsp;parent&nbsp;window.<br>
+&nbsp;<br>
+The&nbsp;base&nbsp;class&nbsp;version&nbsp;returns&nbsp;false,&nbsp;but&nbsp;this&nbsp;method&nbsp;is&nbsp;overridden&nbsp;in<br>
+wxControl&nbsp;where&nbsp;it&nbsp;returns&nbsp;true.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Show"><strong>Show</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Show">Show</a>(self,&nbsp;bool&nbsp;show=True)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Shows&nbsp;or&nbsp;hides&nbsp;the&nbsp;window.&nbsp;You&nbsp;may&nbsp;need&nbsp;to&nbsp;call&nbsp;Raise&nbsp;for&nbsp;a&nbsp;top&nbsp;level<br>
+window&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;bring&nbsp;it&nbsp;to&nbsp;top,&nbsp;although&nbsp;this&nbsp;is&nbsp;not&nbsp;needed&nbsp;if<br>
+Show&nbsp;is&nbsp;called&nbsp;immediately&nbsp;after&nbsp;the&nbsp;frame&nbsp;creation.&nbsp;&nbsp;Returns&nbsp;True&nbsp;if<br>
+the&nbsp;window&nbsp;has&nbsp;been&nbsp;shown&nbsp;or&nbsp;hidden&nbsp;or&nbsp;False&nbsp;if&nbsp;nothing&nbsp;was&nbsp;done<br>
+because&nbsp;it&nbsp;already&nbsp;was&nbsp;in&nbsp;the&nbsp;requested&nbsp;state.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Thaw"><strong>Thaw</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Thaw">Thaw</a>(self)<br>
+&nbsp;<br>
+Reenables&nbsp;window&nbsp;updating&nbsp;after&nbsp;a&nbsp;previous&nbsp;call&nbsp;to&nbsp;Freeze.&nbsp;&nbsp;Calls&nbsp;to<br>
+Freeze/Thaw&nbsp;may&nbsp;be&nbsp;nested,&nbsp;so&nbsp;Thaw&nbsp;must&nbsp;be&nbsp;called&nbsp;the&nbsp;same&nbsp;number&nbsp;of<br>
+times&nbsp;that&nbsp;Freeze&nbsp;was&nbsp;before&nbsp;the&nbsp;window&nbsp;will&nbsp;be&nbsp;updated.</tt></dd></dl>
+
+<dl><dt><a name="Editor-ToggleWindowStyle"><strong>ToggleWindowStyle</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ToggleWindowStyle">ToggleWindowStyle</a>(self,&nbsp;int&nbsp;flag)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Turn&nbsp;the&nbsp;flag&nbsp;on&nbsp;if&nbsp;it&nbsp;had&nbsp;been&nbsp;turned&nbsp;off&nbsp;before&nbsp;and&nbsp;vice&nbsp;versa,<br>
+returns&nbsp;True&nbsp;if&nbsp;the&nbsp;flag&nbsp;is&nbsp;turned&nbsp;on&nbsp;by&nbsp;this&nbsp;function&nbsp;call.</tt></dd></dl>
+
+<dl><dt><a name="Editor-TransferDataFromWindow"><strong>TransferDataFromWindow</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-TransferDataFromWindow">TransferDataFromWindow</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Transfers&nbsp;values&nbsp;from&nbsp;child&nbsp;controls&nbsp;to&nbsp;data&nbsp;areas&nbsp;specified&nbsp;by&nbsp;their<br>
+validators.&nbsp;Returns&nbsp;false&nbsp;if&nbsp;a&nbsp;transfer&nbsp;failed.&nbsp;&nbsp;If&nbsp;the&nbsp;window&nbsp;has<br>
+wx.WS_EX_VALIDATE_RECURSIVELY&nbsp;extra&nbsp;style&nbsp;flag&nbsp;set,&nbsp;the&nbsp;method&nbsp;will<br>
+also&nbsp;call&nbsp;<a href="#Editor-TransferDataFromWindow">TransferDataFromWindow</a>()&nbsp;of&nbsp;all&nbsp;child&nbsp;windows.</tt></dd></dl>
+
+<dl><dt><a name="Editor-TransferDataToWindow"><strong>TransferDataToWindow</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-TransferDataToWindow">TransferDataToWindow</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Transfers&nbsp;values&nbsp;to&nbsp;child&nbsp;controls&nbsp;from&nbsp;data&nbsp;areas&nbsp;specified&nbsp;by&nbsp;their<br>
+validators.&nbsp;&nbsp;If&nbsp;the&nbsp;window&nbsp;has&nbsp;wx.WS_EX_VALIDATE_RECURSIVELY&nbsp;extra<br>
+style&nbsp;flag&nbsp;set,&nbsp;the&nbsp;method&nbsp;will&nbsp;also&nbsp;call&nbsp;<a href="#Editor-TransferDataToWindow">TransferDataToWindow</a>()&nbsp;of<br>
+all&nbsp;child&nbsp;windows.</tt></dd></dl>
+
+<dl><dt><a name="Editor-UnregisterHotKey"><strong>UnregisterHotKey</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-UnregisterHotKey">UnregisterHotKey</a>(self,&nbsp;int&nbsp;hotkeyId)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Unregisters&nbsp;a&nbsp;system&nbsp;wide&nbsp;hotkey.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Update"><strong>Update</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Update">Update</a>(self)<br>
+&nbsp;<br>
+Calling&nbsp;this&nbsp;method&nbsp;immediately&nbsp;repaints&nbsp;the&nbsp;invalidated&nbsp;area&nbsp;of&nbsp;the<br>
+window&nbsp;instead&nbsp;of&nbsp;waiting&nbsp;for&nbsp;the&nbsp;EVT_PAINT&nbsp;event&nbsp;to&nbsp;happen,&nbsp;(normally<br>
+this&nbsp;would&nbsp;usually&nbsp;only&nbsp;happen&nbsp;when&nbsp;the&nbsp;flow&nbsp;of&nbsp;control&nbsp;returns&nbsp;to&nbsp;the<br>
+event&nbsp;loop.)&nbsp;&nbsp;Notice&nbsp;that&nbsp;this&nbsp;function&nbsp;doesn't&nbsp;refresh&nbsp;the&nbsp;window&nbsp;and<br>
+does&nbsp;nothing&nbsp;if&nbsp;the&nbsp;window&nbsp;has&nbsp;been&nbsp;already&nbsp;repainted.&nbsp;&nbsp;Use&nbsp;`Refresh`<br>
+first&nbsp;if&nbsp;you&nbsp;want&nbsp;to&nbsp;immediately&nbsp;redraw&nbsp;the&nbsp;window&nbsp;(or&nbsp;some&nbsp;portion&nbsp;of<br>
+it)&nbsp;unconditionally.</tt></dd></dl>
+
+<dl><dt><a name="Editor-UpdateWindowUI"><strong>UpdateWindowUI</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-UpdateWindowUI">UpdateWindowUI</a>(self,&nbsp;long&nbsp;flags=UPDATE_UI_NONE)<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;sends&nbsp;EVT_UPDATE_UI&nbsp;events&nbsp;to&nbsp;the&nbsp;window.&nbsp;The&nbsp;particular<br>
+implementation&nbsp;depends&nbsp;on&nbsp;the&nbsp;window;&nbsp;for&nbsp;example&nbsp;a&nbsp;wx.ToolBar&nbsp;will<br>
+send&nbsp;an&nbsp;update&nbsp;UI&nbsp;event&nbsp;for&nbsp;each&nbsp;toolbar&nbsp;button,&nbsp;and&nbsp;a&nbsp;wx.<a href="wx._windows.html#Frame">Frame</a>&nbsp;will<br>
+send&nbsp;an&nbsp;update&nbsp;UI&nbsp;event&nbsp;for&nbsp;each&nbsp;menubar&nbsp;menu&nbsp;item.&nbsp;You&nbsp;can&nbsp;call&nbsp;this<br>
+function&nbsp;from&nbsp;your&nbsp;application&nbsp;to&nbsp;ensure&nbsp;that&nbsp;your&nbsp;UI&nbsp;is&nbsp;up-to-date&nbsp;at<br>
+a&nbsp;particular&nbsp;point&nbsp;in&nbsp;time&nbsp;(as&nbsp;far&nbsp;as&nbsp;your&nbsp;EVT_UPDATE_UI&nbsp;handlers&nbsp;are<br>
+concerned).&nbsp;This&nbsp;may&nbsp;be&nbsp;necessary&nbsp;if&nbsp;you&nbsp;have&nbsp;called<br>
+`wx.UpdateUIEvent.SetMode`&nbsp;or&nbsp;`wx.UpdateUIEvent.SetUpdateInterval`&nbsp;to<br>
+limit&nbsp;the&nbsp;overhead&nbsp;that&nbsp;wxWindows&nbsp;incurs&nbsp;by&nbsp;sending&nbsp;update&nbsp;UI&nbsp;events<br>
+in&nbsp;idle&nbsp;time.</tt></dd></dl>
+
+<dl><dt><a name="Editor-UseBgCol"><strong>UseBgCol</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-UseBgCol">UseBgCol</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-Validate"><strong>Validate</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Validate">Validate</a>(self)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+Validates&nbsp;the&nbsp;current&nbsp;values&nbsp;of&nbsp;the&nbsp;child&nbsp;controls&nbsp;using&nbsp;their<br>
+validators.&nbsp;&nbsp;If&nbsp;the&nbsp;window&nbsp;has&nbsp;wx.WS_EX_VALIDATE_RECURSIVELY&nbsp;extra<br>
+style&nbsp;flag&nbsp;set,&nbsp;the&nbsp;method&nbsp;will&nbsp;also&nbsp;call&nbsp;<a href="#Editor-Validate">Validate</a>()&nbsp;of&nbsp;all&nbsp;child<br>
+windows.&nbsp;&nbsp;Returns&nbsp;false&nbsp;if&nbsp;any&nbsp;of&nbsp;the&nbsp;validations&nbsp;failed.</tt></dd></dl>
+
+<dl><dt><a name="Editor-WarpPointer"><strong>WarpPointer</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-WarpPointer">WarpPointer</a>(self,&nbsp;int&nbsp;x,&nbsp;int&nbsp;y)<br>
+&nbsp;<br>
+Moves&nbsp;the&nbsp;pointer&nbsp;to&nbsp;the&nbsp;given&nbsp;position&nbsp;on&nbsp;the&nbsp;window.<br>
+&nbsp;<br>
+NOTE:&nbsp;This&nbsp;function&nbsp;is&nbsp;not&nbsp;supported&nbsp;under&nbsp;Mac&nbsp;because&nbsp;Apple&nbsp;Human<br>
+Interface&nbsp;Guidelines&nbsp;forbid&nbsp;moving&nbsp;the&nbsp;mouse&nbsp;cursor&nbsp;programmatically.</tt></dd></dl>
+
+<dl><dt><a name="Editor-WindowToClientSize"><strong>WindowToClientSize</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-WindowToClientSize">WindowToClientSize</a>(self,&nbsp;Size&nbsp;size)&nbsp;-&gt;&nbsp;Size</tt></dd></dl>
+
+<hr>
+Static methods inherited from <a href="wx._core.html#Window">wx._core.Window</a>:<br>
+<dl><dt><a name="Editor-FindFocus"><strong>FindFocus</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-FindFocus">FindFocus</a>()&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;window&nbsp;or&nbsp;control&nbsp;that&nbsp;currently&nbsp;has&nbsp;the&nbsp;keyboard&nbsp;focus,<br>
+or&nbsp;None.</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetCapture"><strong>GetCapture</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetCapture">GetCapture</a>()&nbsp;-&gt;&nbsp;Window<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;window&nbsp;which&nbsp;currently&nbsp;captures&nbsp;the&nbsp;mouse&nbsp;or&nbsp;None</tt></dd></dl>
+
+<dl><dt><a name="Editor-NewControlId"><strong>NewControlId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-NewControlId">NewControlId</a>()&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Generate&nbsp;a&nbsp;control&nbsp;id&nbsp;for&nbsp;the&nbsp;controls&nbsp;which&nbsp;were&nbsp;not&nbsp;given&nbsp;one.</tt></dd></dl>
+
+<dl><dt><a name="Editor-NextControlId"><strong>NextControlId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-NextControlId">NextControlId</a>(int&nbsp;winid)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;id&nbsp;of&nbsp;the&nbsp;control&nbsp;following&nbsp;the&nbsp;one&nbsp;with&nbsp;the&nbsp;given<br>
+autogenerated)&nbsp;id</tt></dd></dl>
+
+<dl><dt><a name="Editor-PrevControlId"><strong>PrevControlId</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-PrevControlId">PrevControlId</a>(int&nbsp;winid)&nbsp;-&gt;&nbsp;int<br>
+&nbsp;<br>
+Get&nbsp;the&nbsp;id&nbsp;of&nbsp;the&nbsp;control&nbsp;preceding&nbsp;the&nbsp;one&nbsp;with&nbsp;the&nbsp;given<br>
+autogenerated)&nbsp;id</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="wx._core.html#Window">wx._core.Window</a>:<br>
+<dl><dt><strong>AcceleratorTable</strong></dt>
+<dd><tt>See&nbsp;`GetAcceleratorTable`&nbsp;and&nbsp;`SetAcceleratorTable`</tt></dd>
+</dl>
+<dl><dt><strong>AutoLayout</strong></dt>
+<dd><tt>See&nbsp;`GetAutoLayout`&nbsp;and&nbsp;`SetAutoLayout`</tt></dd>
+</dl>
+<dl><dt><strong>BackgroundColour</strong></dt>
+<dd><tt>See&nbsp;`GetBackgroundColour`&nbsp;and&nbsp;`SetBackgroundColour`</tt></dd>
+</dl>
+<dl><dt><strong>BackgroundStyle</strong></dt>
+<dd><tt>See&nbsp;`GetBackgroundStyle`&nbsp;and&nbsp;`SetBackgroundStyle`</tt></dd>
+</dl>
+<dl><dt><strong>BestSize</strong></dt>
+<dd><tt>See&nbsp;`GetBestSize`</tt></dd>
+</dl>
+<dl><dt><strong>BestVirtualSize</strong></dt>
+<dd><tt>See&nbsp;`GetBestVirtualSize`</tt></dd>
+</dl>
+<dl><dt><strong>Border</strong></dt>
+<dd><tt>See&nbsp;`GetBorder`</tt></dd>
+</dl>
+<dl><dt><strong>Caret</strong></dt>
+<dd><tt>See&nbsp;`GetCaret`&nbsp;and&nbsp;`SetCaret`</tt></dd>
+</dl>
+<dl><dt><strong>CharHeight</strong></dt>
+<dd><tt>See&nbsp;`GetCharHeight`</tt></dd>
+</dl>
+<dl><dt><strong>CharWidth</strong></dt>
+<dd><tt>See&nbsp;`GetCharWidth`</tt></dd>
+</dl>
+<dl><dt><strong>Children</strong></dt>
+<dd><tt>See&nbsp;`GetChildren`</tt></dd>
+</dl>
+<dl><dt><strong>ClientAreaOrigin</strong></dt>
+<dd><tt>See&nbsp;`GetClientAreaOrigin`</tt></dd>
+</dl>
+<dl><dt><strong>ClientRect</strong></dt>
+<dd><tt>See&nbsp;`GetClientRect`&nbsp;and&nbsp;`SetClientRect`</tt></dd>
+</dl>
+<dl><dt><strong>ClientSize</strong></dt>
+<dd><tt>See&nbsp;`GetClientSize`&nbsp;and&nbsp;`SetClientSize`</tt></dd>
+</dl>
+<dl><dt><strong>Constraints</strong></dt>
+<dd><tt>See&nbsp;`GetConstraints`&nbsp;and&nbsp;`SetConstraints`</tt></dd>
+</dl>
+<dl><dt><strong>ContainingSizer</strong></dt>
+<dd><tt>See&nbsp;`GetContainingSizer`&nbsp;and&nbsp;`SetContainingSizer`</tt></dd>
+</dl>
+<dl><dt><strong>Cursor</strong></dt>
+<dd><tt>See&nbsp;`GetCursor`&nbsp;and&nbsp;`SetCursor`</tt></dd>
+</dl>
+<dl><dt><strong>DefaultAttributes</strong></dt>
+<dd><tt>See&nbsp;`GetDefaultAttributes`</tt></dd>
+</dl>
+<dl><dt><strong>DropTarget</strong></dt>
+<dd><tt>See&nbsp;`GetDropTarget`&nbsp;and&nbsp;`SetDropTarget`</tt></dd>
+</dl>
+<dl><dt><strong>EffectiveMinSize</strong></dt>
+<dd><tt>See&nbsp;`GetEffectiveMinSize`</tt></dd>
+</dl>
+<dl><dt><strong>Enabled</strong></dt>
+<dd><tt>See&nbsp;`IsEnabled`&nbsp;and&nbsp;`Enable`</tt></dd>
+</dl>
+<dl><dt><strong>EventHandler</strong></dt>
+<dd><tt>See&nbsp;`GetEventHandler`&nbsp;and&nbsp;`SetEventHandler`</tt></dd>
+</dl>
+<dl><dt><strong>ExtraStyle</strong></dt>
+<dd><tt>See&nbsp;`GetExtraStyle`&nbsp;and&nbsp;`SetExtraStyle`</tt></dd>
+</dl>
+<dl><dt><strong>Font</strong></dt>
+<dd><tt>See&nbsp;`GetFont`&nbsp;and&nbsp;`SetFont`</tt></dd>
+</dl>
+<dl><dt><strong>ForegroundColour</strong></dt>
+<dd><tt>See&nbsp;`GetForegroundColour`&nbsp;and&nbsp;`SetForegroundColour`</tt></dd>
+</dl>
+<dl><dt><strong>GrandParent</strong></dt>
+<dd><tt>See&nbsp;`GetGrandParent`</tt></dd>
+</dl>
+<dl><dt><strong>GtkWidget</strong></dt>
+<dd><tt>GetGtkWidget(self)&nbsp;-&gt;&nbsp;long<br>
+&nbsp;<br>
+On&nbsp;wxGTK&nbsp;returns&nbsp;a&nbsp;pointer&nbsp;to&nbsp;the&nbsp;GtkWidget&nbsp;for&nbsp;this&nbsp;window&nbsp;as&nbsp;a&nbsp;long<br>
+integer.&nbsp;&nbsp;On&nbsp;the&nbsp;other&nbsp;platforms&nbsp;this&nbsp;method&nbsp;returns&nbsp;zero.</tt></dd>
+</dl>
+<dl><dt><strong>Handle</strong></dt>
+<dd><tt>See&nbsp;`GetHandle`</tt></dd>
+</dl>
+<dl><dt><strong>HelpText</strong></dt>
+<dd><tt>See&nbsp;`GetHelpText`&nbsp;and&nbsp;`SetHelpText`</tt></dd>
+</dl>
+<dl><dt><strong>Id</strong></dt>
+<dd><tt>See&nbsp;`GetId`&nbsp;and&nbsp;`SetId`</tt></dd>
+</dl>
+<dl><dt><strong>Label</strong></dt>
+<dd><tt>See&nbsp;`GetLabel`&nbsp;and&nbsp;`SetLabel`</tt></dd>
+</dl>
+<dl><dt><strong>LayoutDirection</strong></dt>
+<dd><tt>See&nbsp;`GetLayoutDirection`&nbsp;and&nbsp;`SetLayoutDirection`</tt></dd>
+</dl>
+<dl><dt><strong>MaxHeight</strong></dt>
+<dd><tt>See&nbsp;`GetMaxHeight`</tt></dd>
+</dl>
+<dl><dt><strong>MaxSize</strong></dt>
+<dd><tt>See&nbsp;`GetMaxSize`&nbsp;and&nbsp;`SetMaxSize`</tt></dd>
+</dl>
+<dl><dt><strong>MaxWidth</strong></dt>
+<dd><tt>See&nbsp;`GetMaxWidth`</tt></dd>
+</dl>
+<dl><dt><strong>MinHeight</strong></dt>
+<dd><tt>See&nbsp;`GetMinHeight`</tt></dd>
+</dl>
+<dl><dt><strong>MinSize</strong></dt>
+<dd><tt>See&nbsp;`GetMinSize`&nbsp;and&nbsp;`SetMinSize`</tt></dd>
+</dl>
+<dl><dt><strong>MinWidth</strong></dt>
+<dd><tt>See&nbsp;`GetMinWidth`</tt></dd>
+</dl>
+<dl><dt><strong>Name</strong></dt>
+<dd><tt>See&nbsp;`GetName`&nbsp;and&nbsp;`SetName`</tt></dd>
+</dl>
+<dl><dt><strong>Parent</strong></dt>
+<dd><tt>See&nbsp;`GetParent`</tt></dd>
+</dl>
+<dl><dt><strong>Position</strong></dt>
+<dd><tt>See&nbsp;`GetPosition`&nbsp;and&nbsp;`SetPosition`</tt></dd>
+</dl>
+<dl><dt><strong>Rect</strong></dt>
+<dd><tt>See&nbsp;`GetRect`&nbsp;and&nbsp;`SetRect`</tt></dd>
+</dl>
+<dl><dt><strong>ScreenPosition</strong></dt>
+<dd><tt>See&nbsp;`GetScreenPosition`</tt></dd>
+</dl>
+<dl><dt><strong>ScreenRect</strong></dt>
+<dd><tt>See&nbsp;`GetScreenRect`</tt></dd>
+</dl>
+<dl><dt><strong>Shown</strong></dt>
+<dd><tt>See&nbsp;`IsShown`&nbsp;and&nbsp;`Show`</tt></dd>
+</dl>
+<dl><dt><strong>Size</strong></dt>
+<dd><tt>See&nbsp;`GetSize`&nbsp;and&nbsp;`SetSize`</tt></dd>
+</dl>
+<dl><dt><strong>Sizer</strong></dt>
+<dd><tt>See&nbsp;`GetSizer`&nbsp;and&nbsp;`SetSizer`</tt></dd>
+</dl>
+<dl><dt><strong>ThemeEnabled</strong></dt>
+<dd><tt>See&nbsp;`GetThemeEnabled`&nbsp;and&nbsp;`SetThemeEnabled`</tt></dd>
+</dl>
+<dl><dt><strong>ToolTip</strong></dt>
+<dd><tt>See&nbsp;`GetToolTip`&nbsp;and&nbsp;`SetToolTip`</tt></dd>
+</dl>
+<dl><dt><strong>TopLevel</strong></dt>
+<dd><tt>See&nbsp;`IsTopLevel`</tt></dd>
+</dl>
+<dl><dt><strong>TopLevelParent</strong></dt>
+<dd><tt>See&nbsp;`GetTopLevelParent`</tt></dd>
+</dl>
+<dl><dt><strong>UpdateClientRect</strong></dt>
+<dd><tt>See&nbsp;`GetUpdateClientRect`</tt></dd>
+</dl>
+<dl><dt><strong>UpdateRegion</strong></dt>
+<dd><tt>See&nbsp;`GetUpdateRegion`</tt></dd>
+</dl>
+<dl><dt><strong>Validator</strong></dt>
+<dd><tt>See&nbsp;`GetValidator`&nbsp;and&nbsp;`SetValidator`</tt></dd>
+</dl>
+<dl><dt><strong>VirtualSize</strong></dt>
+<dd><tt>See&nbsp;`GetVirtualSize`&nbsp;and&nbsp;`SetVirtualSize`</tt></dd>
+</dl>
+<dl><dt><strong>WindowStyle</strong></dt>
+<dd><tt>See&nbsp;`GetWindowStyle`&nbsp;and&nbsp;`SetWindowStyle`</tt></dd>
+</dl>
+<dl><dt><strong>WindowStyleFlag</strong></dt>
+<dd><tt>See&nbsp;`GetWindowStyleFlag`&nbsp;and&nbsp;`SetWindowStyleFlag`</tt></dd>
+</dl>
+<dl><dt><strong>WindowVariant</strong></dt>
+<dd><tt>See&nbsp;`GetWindowVariant`&nbsp;and&nbsp;`SetWindowVariant`</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="wx._core.html#EvtHandler">wx._core.EvtHandler</a>:<br>
+<dl><dt><a name="Editor-AddPendingEvent"><strong>AddPendingEvent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-AddPendingEvent">AddPendingEvent</a>(self,&nbsp;Event&nbsp;event)</tt></dd></dl>
+
+<dl><dt><a name="Editor-Bind"><strong>Bind</strong></a>(self, event, handler, source<font color="#909090">=None</font>, id<font color="#909090">=-1</font>, id2<font color="#909090">=-1</font>)</dt><dd><tt>Bind&nbsp;an&nbsp;event&nbsp;to&nbsp;an&nbsp;event&nbsp;handler.<br>
+&nbsp;<br>
+:param&nbsp;event:&nbsp;One&nbsp;of&nbsp;the&nbsp;EVT_*&nbsp;objects&nbsp;that&nbsp;specifies&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type&nbsp;of&nbsp;event&nbsp;to&nbsp;bind,<br>
+&nbsp;<br>
+:param&nbsp;handler:&nbsp;A&nbsp;callable&nbsp;object&nbsp;to&nbsp;be&nbsp;invoked&nbsp;when&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;event&nbsp;is&nbsp;delivered&nbsp;to&nbsp;self.&nbsp;&nbsp;Pass&nbsp;None&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disconnect&nbsp;an&nbsp;event&nbsp;handler.<br>
+&nbsp;<br>
+:param&nbsp;source:&nbsp;Sometimes&nbsp;the&nbsp;event&nbsp;originates&nbsp;from&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;different&nbsp;window&nbsp;than&nbsp;self,&nbsp;but&nbsp;you&nbsp;still<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;want&nbsp;to&nbsp;catch&nbsp;it&nbsp;in&nbsp;self.&nbsp;&nbsp;(For&nbsp;example,&nbsp;a<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;button&nbsp;event&nbsp;delivered&nbsp;to&nbsp;a&nbsp;frame.)&nbsp;&nbsp;By<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;passing&nbsp;the&nbsp;source&nbsp;of&nbsp;the&nbsp;event,&nbsp;the&nbsp;event<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;handling&nbsp;system&nbsp;is&nbsp;able&nbsp;to&nbsp;differentiate<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;between&nbsp;the&nbsp;same&nbsp;event&nbsp;type&nbsp;from&nbsp;different<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;controls.<br>
+&nbsp;<br>
+:param&nbsp;id:&nbsp;Used&nbsp;to&nbsp;spcify&nbsp;the&nbsp;event&nbsp;source&nbsp;by&nbsp;ID&nbsp;instead<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of&nbsp;instance.<br>
+&nbsp;<br>
+:param&nbsp;id2:&nbsp;Used&nbsp;when&nbsp;it&nbsp;is&nbsp;desirable&nbsp;to&nbsp;bind&nbsp;a&nbsp;handler<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;a&nbsp;range&nbsp;of&nbsp;IDs,&nbsp;such&nbsp;as&nbsp;with&nbsp;EVT_MENU_RANGE.</tt></dd></dl>
+
+<dl><dt><a name="Editor-Connect"><strong>Connect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Connect">Connect</a>(self,&nbsp;int&nbsp;id,&nbsp;int&nbsp;lastId,&nbsp;int&nbsp;eventType,&nbsp;PyObject&nbsp;func)</tt></dd></dl>
+
+<dl><dt><a name="Editor-Disconnect"><strong>Disconnect</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-Disconnect">Disconnect</a>(self,&nbsp;int&nbsp;id,&nbsp;int&nbsp;lastId=-1,&nbsp;EventType&nbsp;eventType=wxEVT_NULL,&nbsp;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;PyObject&nbsp;func=None)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetEvtHandlerEnabled"><strong>GetEvtHandlerEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetEvtHandlerEnabled">GetEvtHandlerEnabled</a>(self)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetNextHandler"><strong>GetNextHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetNextHandler">GetNextHandler</a>(self)&nbsp;-&gt;&nbsp;EvtHandler</tt></dd></dl>
+
+<dl><dt><a name="Editor-GetPreviousHandler"><strong>GetPreviousHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetPreviousHandler">GetPreviousHandler</a>(self)&nbsp;-&gt;&nbsp;EvtHandler</tt></dd></dl>
+
+<dl><dt><a name="Editor-ProcessEvent"><strong>ProcessEvent</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ProcessEvent">ProcessEvent</a>(self,&nbsp;Event&nbsp;event)&nbsp;-&gt;&nbsp;bool</tt></dd></dl>
+
+<dl><dt><a name="Editor-ProcessPendingEvents"><strong>ProcessPendingEvents</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-ProcessPendingEvents">ProcessPendingEvents</a>(self)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetEvtHandlerEnabled"><strong>SetEvtHandlerEnabled</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetEvtHandlerEnabled">SetEvtHandlerEnabled</a>(self,&nbsp;bool&nbsp;enabled)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetNextHandler"><strong>SetNextHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetNextHandler">SetNextHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)</tt></dd></dl>
+
+<dl><dt><a name="Editor-SetPreviousHandler"><strong>SetPreviousHandler</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-SetPreviousHandler">SetPreviousHandler</a>(self,&nbsp;EvtHandler&nbsp;handler)</tt></dd></dl>
+
+<dl><dt><a name="Editor-Unbind"><strong>Unbind</strong></a>(self, event, source<font color="#909090">=None</font>, id<font color="#909090">=-1</font>, id2<font color="#909090">=-1</font>, handler<font color="#909090">=None</font>)</dt><dd><tt>Disconnects&nbsp;the&nbsp;event&nbsp;handler&nbsp;binding&nbsp;for&nbsp;event&nbsp;from&nbsp;self.<br>
+Returns&nbsp;True&nbsp;if&nbsp;successful.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="wx._core.html#EvtHandler">wx._core.EvtHandler</a>:<br>
+<dl><dt><strong>EvtHandlerEnabled</strong></dt>
+<dd><tt>See&nbsp;`GetEvtHandlerEnabled`&nbsp;and&nbsp;`SetEvtHandlerEnabled`</tt></dd>
+</dl>
+<dl><dt><strong>NextHandler</strong></dt>
+<dd><tt>See&nbsp;`GetNextHandler`&nbsp;and&nbsp;`SetNextHandler`</tt></dd>
+</dl>
+<dl><dt><strong>PreviousHandler</strong></dt>
+<dd><tt>See&nbsp;`GetPreviousHandler`&nbsp;and&nbsp;`SetPreviousHandler`</tt></dd>
+</dl>
+<hr>
+Methods inherited from <a href="wx._core.html#Object">wx._core.Object</a>:<br>
+<dl><dt><a name="Editor-GetClassName"><strong>GetClassName</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-GetClassName">GetClassName</a>(self)&nbsp;-&gt;&nbsp;String<br>
+&nbsp;<br>
+Returns&nbsp;the&nbsp;class&nbsp;name&nbsp;of&nbsp;the&nbsp;C++&nbsp;class&nbsp;using&nbsp;wxRTTI.</tt></dd></dl>
+
+<dl><dt><a name="Editor-IsSameAs"><strong>IsSameAs</strong></a>(*args, **kwargs)</dt><dd><tt><a href="#Editor-IsSameAs">IsSameAs</a>(self,&nbsp;Object&nbsp;p)&nbsp;-&gt;&nbsp;bool<br>
+&nbsp;<br>
+For&nbsp;wx.Objects&nbsp;that&nbsp;use&nbsp;C++&nbsp;reference&nbsp;counting&nbsp;internally,&nbsp;this&nbsp;method<br>
+can&nbsp;be&nbsp;used&nbsp;to&nbsp;determine&nbsp;if&nbsp;two&nbsp;objects&nbsp;are&nbsp;referencing&nbsp;the&nbsp;same&nbsp;data<br>
+object.</tt></dd></dl>
+
+<hr>
+Data descriptors inherited from <a href="wx._core.html#Object">wx._core.Object</a>:<br>
+<dl><dt><strong>ClassName</strong></dt>
+<dd><tt>See&nbsp;`GetClassName`</tt></dd>
+</dl>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-main"><strong>main</strong></a>()</dt></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>AutoComp</strong> = &lt;AutoCompletition.AutoComplet instance&gt;<br>
+<strong>ColPal</strong> = &lt;SyntaxColor.ColorPFrame;  &gt;<br>
+<strong>Config</strong> = &lt;configClass.ConfigNanny instance&gt;<br>
+<strong>FindRepl</strong> = &lt;FindReplaceText.SearchReplace instance&gt;<br>
+<strong>Log</strong> = &lt;logClass.Logger instance&gt;<br>
+<strong>SyntCol</strong> = &lt;SyntaxHighlight.SyntaxColorizer instance&gt;<br>
+<strong>keywords</strong> = {'cpp': ['auto', 'const', 'double', 'float', 'int', 'short', 'struct', 'unsigned', 'break', 'continue', 'else', 'for', 'long', 'signed', 'switch', 'void', 'case', 'default', 'enum', 'goto', ...], 'java': ['abstract', 'continue', 'for', 'new', 'switch', 'assert', 'default', 'package', 'synchronized', 'boolean', 'do', 'if', 'private', 'this', 'break', 'double', 'implements', 'protected', 'throw', 'byte', ...], 'py': ['and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'exec', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', ...], 'pyw': ['and', 'as', 'assert', 'break', 'class', 'continue', 'def', 'del', 'elif', 'else', 'except', 'exec', 'finally', 'for', 'from', 'global', 'if', 'import', 'in', 'is', ...], 'rb': ['alias', 'andBEGIN', 'begin', 'break', 'case', 'class', 'def', 'defined', 'do', 'else', 'elsif', 'END', 'end,ensure', 'false', 'for', 'if', 'in', 'module', 'next', 'nil', ...]}</td></tr></table>
+</body></html>

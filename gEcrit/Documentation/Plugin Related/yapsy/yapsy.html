@@ -1,0 +1,156 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: package yapsy</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>yapsy</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/cgroza/Projects/gEcrit/bin/yapsy/__init__.py">/home/cgroza/Projects/gEcrit/bin/yapsy/__init__.py</a></font></td></tr></table>
+    <p><tt>Overview<br>
+========<br>
+&nbsp;<br>
+Yapsy's&nbsp;main&nbsp;purpose&nbsp;is&nbsp;to&nbsp;offer&nbsp;a&nbsp;way&nbsp;to&nbsp;easily&nbsp;design&nbsp;a&nbsp;plugin<br>
+system&nbsp;in&nbsp;Python,&nbsp;and&nbsp;motivated&nbsp;by&nbsp;the&nbsp;fact&nbsp;that&nbsp;many&nbsp;other&nbsp;Python<br>
+plugin&nbsp;system&nbsp;are&nbsp;either&nbsp;too&nbsp;complicated&nbsp;for&nbsp;a&nbsp;basic&nbsp;use&nbsp;or&nbsp;depend&nbsp;on<br>
+a&nbsp;lot&nbsp;of&nbsp;libraries.&nbsp;Yapsy&nbsp;only&nbsp;depends&nbsp;on&nbsp;Python's&nbsp;standard&nbsp;library.<br>
+&nbsp;<br>
+|yapsy|&nbsp;basically&nbsp;defines&nbsp;two&nbsp;core&nbsp;classes:<br>
+&nbsp;<br>
+-&nbsp;a&nbsp;fully&nbsp;functional&nbsp;though&nbsp;very&nbsp;simple&nbsp;``PluginManager``&nbsp;class<br>
+&nbsp;<br>
+-&nbsp;an&nbsp;interface&nbsp;``IPlugin``&nbsp;which&nbsp;defines&nbsp;the&nbsp;interface&nbsp;of&nbsp;plugin<br>
+&nbsp;&nbsp;instances&nbsp;handled&nbsp;by&nbsp;the&nbsp;``PluginManager``<br>
+&nbsp;<br>
+&nbsp;<br>
+Getting&nbsp;started<br>
+===============<br>
+&nbsp;<br>
+The&nbsp;basic&nbsp;classes&nbsp;defined&nbsp;by&nbsp;|yapsy|&nbsp;should&nbsp;work&nbsp;"as&nbsp;is"&nbsp;and&nbsp;enable<br>
+you&nbsp;to&nbsp;load&nbsp;and&nbsp;activate&nbsp;your&nbsp;plugins.&nbsp;So&nbsp;that&nbsp;the&nbsp;following&nbsp;code<br>
+should&nbsp;get&nbsp;you&nbsp;a&nbsp;fully&nbsp;working&nbsp;plugin&nbsp;management&nbsp;system::<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;from&nbsp;yapsy.PluginManager&nbsp;import&nbsp;PluginManager<br>
+&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;#&nbsp;Build&nbsp;the&nbsp;manager<br>
+&nbsp;&nbsp;&nbsp;simplePluginManager&nbsp;=&nbsp;PluginManager()<br>
+&nbsp;&nbsp;&nbsp;#&nbsp;Tell&nbsp;it&nbsp;the&nbsp;default&nbsp;place(s)&nbsp;where&nbsp;to&nbsp;find&nbsp;plugins<br>
+&nbsp;&nbsp;&nbsp;simplePluginManager.setPluginPlaces(["path/to/myplugins"])<br>
+&nbsp;&nbsp;&nbsp;#&nbsp;Load&nbsp;all&nbsp;plugins<br>
+&nbsp;&nbsp;&nbsp;simplePluginManager.collectPlugins()<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;#&nbsp;Activate&nbsp;all&nbsp;loaded&nbsp;plugins<br>
+&nbsp;&nbsp;&nbsp;for&nbsp;pluginInfo&nbsp;in&nbsp;simplePluginManager.getAllPlugins():<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;simplePluginManager.activatePluginByName(pluginInfo.name)<br>
+&nbsp;&nbsp;&nbsp;<br>
+&nbsp;&nbsp;&nbsp;<br>
+..&nbsp;_extend:<br>
+&nbsp;<br>
+Extensibility<br>
+=============<br>
+&nbsp;<br>
+For&nbsp;applications&nbsp;that&nbsp;require&nbsp;the&nbsp;plugins&nbsp;and&nbsp;their&nbsp;managers&nbsp;to&nbsp;be<br>
+more&nbsp;sophisticated,&nbsp;several&nbsp;techniques&nbsp;make&nbsp;such&nbsp;enhancement&nbsp;easy.&nbsp;The<br>
+following&nbsp;sections&nbsp;detail&nbsp;the&nbsp;three&nbsp;most&nbsp;frequent&nbsp;needs&nbsp;for&nbsp;extensions<br>
+and&nbsp;what&nbsp;you&nbsp;can&nbsp;do&nbsp;about&nbsp;it.<br>
+&nbsp;<br>
+&nbsp;<br>
+More&nbsp;sophisticated&nbsp;plugin&nbsp;classes<br>
+---------------------------------<br>
+&nbsp;<br>
+You&nbsp;can&nbsp;define&nbsp;a&nbsp;plugin&nbsp;class&nbsp;with&nbsp;a&nbsp;richer&nbsp;interface&nbsp;that<br>
+``IPlugin``,&nbsp;so&nbsp;long&nbsp;as&nbsp;it&nbsp;inherits&nbsp;from&nbsp;IPlugin,&nbsp;it&nbsp;should&nbsp;work&nbsp;the<br>
+same.&nbsp;The&nbsp;only&nbsp;thing&nbsp;you&nbsp;need&nbsp;to&nbsp;know&nbsp;is&nbsp;that&nbsp;the&nbsp;plugin&nbsp;instance&nbsp;is<br>
+accessible&nbsp;via&nbsp;the&nbsp;``PluginInfo``&nbsp;instance&nbsp;from&nbsp;its<br>
+``PluginInfo.plugin_object``.<br>
+&nbsp;<br>
+&nbsp;<br>
+It&nbsp;is&nbsp;also&nbsp;possible&nbsp;to&nbsp;define&nbsp;a&nbsp;wider&nbsp;variety&nbsp;of&nbsp;plugins,&nbsp;by&nbsp;defining<br>
+as&nbsp;much&nbsp;subclasses&nbsp;of&nbsp;IPlugin.&nbsp;But&nbsp;in&nbsp;such&nbsp;a&nbsp;case&nbsp;you&nbsp;have&nbsp;to&nbsp;inform<br>
+the&nbsp;manager&nbsp;about&nbsp;that&nbsp;before&nbsp;collecting&nbsp;plugins::<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;#&nbsp;Build&nbsp;the&nbsp;manager<br>
+&nbsp;&nbsp;&nbsp;simplePluginManager&nbsp;=&nbsp;PluginManager()<br>
+&nbsp;&nbsp;&nbsp;#&nbsp;Tell&nbsp;it&nbsp;the&nbsp;default&nbsp;place(s)&nbsp;where&nbsp;to&nbsp;find&nbsp;plugins<br>
+&nbsp;&nbsp;&nbsp;simplePluginManager.setPluginPlaces(["path/to/myplugins"])<br>
+&nbsp;&nbsp;&nbsp;#&nbsp;Define&nbsp;the&nbsp;various&nbsp;categories&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;different<br>
+&nbsp;&nbsp;&nbsp;#&nbsp;kinds&nbsp;of&nbsp;plugins&nbsp;you&nbsp;have&nbsp;defined<br>
+&nbsp;&nbsp;&nbsp;simplePluginManager.setCategoriesFilter({<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Playback"&nbsp;:&nbsp;IPlaybackPlugin,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"SongInfo"&nbsp;:&nbsp;ISongInfoPlugin,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Visualization"&nbsp;:&nbsp;IVisualisation,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<br>
+&nbsp;<br>
+Enhance&nbsp;the&nbsp;manager's&nbsp;interface<br>
+-------------------------------<br>
+&nbsp;<br>
+To&nbsp;make&nbsp;the&nbsp;plugin&nbsp;manager&nbsp;more&nbsp;helpful&nbsp;to&nbsp;the&nbsp;other&nbsp;components&nbsp;of&nbsp;an<br>
+application,&nbsp;you&nbsp;should&nbsp;consider&nbsp;decorating&nbsp;it.<br>
+&nbsp;<br>
+Actually&nbsp;a&nbsp;"template"&nbsp;for&nbsp;such&nbsp;decoration&nbsp;is&nbsp;provided&nbsp;as<br>
+:doc:`PluginManagerDecorator`,&nbsp;which&nbsp;must&nbsp;be&nbsp;inherited&nbsp;in&nbsp;order&nbsp;to<br>
+implement&nbsp;the&nbsp;right&nbsp;decorator&nbsp;for&nbsp;your&nbsp;application.<br>
+&nbsp;<br>
+Such&nbsp;decorators&nbsp;can&nbsp;be&nbsp;chained,&nbsp;so&nbsp;that&nbsp;you&nbsp;can&nbsp;take&nbsp;advantage&nbsp;of&nbsp;the&nbsp;ready-made&nbsp;decorators&nbsp;such&nbsp;as:<br>
+&nbsp;<br>
+:doc:`ConfigurablePluginManager`<br>
+&nbsp;<br>
+&nbsp;&nbsp;Implements&nbsp;a&nbsp;``PluginManager``&nbsp;that&nbsp;uses&nbsp;a&nbsp;configuration&nbsp;file&nbsp;to<br>
+&nbsp;&nbsp;save&nbsp;the&nbsp;plugins&nbsp;to&nbsp;be&nbsp;activated&nbsp;by&nbsp;default&nbsp;and&nbsp;also&nbsp;grants&nbsp;access<br>
+&nbsp;&nbsp;to&nbsp;this&nbsp;file&nbsp;to&nbsp;the&nbsp;plugins.<br>
+&nbsp;<br>
+&nbsp;<br>
+:doc:`AutoInstallPluginManager`<br>
+&nbsp;<br>
+&nbsp;&nbsp;Automatically&nbsp;copy&nbsp;the&nbsp;plugin&nbsp;files&nbsp;to&nbsp;the&nbsp;right&nbsp;plugin&nbsp;directory.&nbsp;<br>
+&nbsp;<br>
+&nbsp;<br>
+Modify&nbsp;the&nbsp;way&nbsp;plugins&nbsp;are&nbsp;loaded<br>
+---------------------------------<br>
+&nbsp;<br>
+&nbsp;<br>
+To&nbsp;tweak&nbsp;the&nbsp;plugin&nbsp;loading&nbsp;phase&nbsp;it&nbsp;is&nbsp;highly&nbsp;advised&nbsp;to&nbsp;re-implement<br>
+your&nbsp;own&nbsp;manager&nbsp;class.<br>
+&nbsp;<br>
+The&nbsp;nice&nbsp;thing&nbsp;is,&nbsp;if&nbsp;your&nbsp;new&nbsp;manager&nbsp;&nbsp;inherits&nbsp;``PluginManager``,&nbsp;then&nbsp;it&nbsp;will&nbsp;naturally&nbsp;fit&nbsp;as&nbsp;the&nbsp;start&nbsp;point&nbsp;of&nbsp;any&nbsp;decoration&nbsp;chain.&nbsp;You&nbsp;just&nbsp;have&nbsp;to&nbsp;provide&nbsp;an&nbsp;instance&nbsp;of&nbsp;this&nbsp;new&nbsp;manager&nbsp;to&nbsp;the&nbsp;first&nbsp;decorators,&nbsp;like&nbsp;in&nbsp;the&nbsp;following::<br>
+&nbsp;<br>
+&nbsp;&nbsp;&nbsp;#&nbsp;build&nbsp;and&nbsp;configure&nbsp;a&nbsp;specific&nbsp;manager<br>
+&nbsp;&nbsp;&nbsp;baseManager&nbsp;=&nbsp;MyNewManager()<br>
+&nbsp;&nbsp;&nbsp;#&nbsp;start&nbsp;decorating&nbsp;this&nbsp;manager&nbsp;to&nbsp;add&nbsp;some&nbsp;more&nbsp;responsibilities<br>
+&nbsp;&nbsp;&nbsp;myFirstDecorator&nbsp;=&nbsp;AFirstPluginManagerDecorator(baseManager)<br>
+&nbsp;&nbsp;&nbsp;#&nbsp;add&nbsp;even&nbsp;more&nbsp;stuff<br>
+&nbsp;&nbsp;&nbsp;mySecondDecorator&nbsp;=&nbsp;ASecondPluginManagerDecorator(myFirstDecorator)<br>
+&nbsp;<br>
+..&nbsp;note::&nbsp;Some&nbsp;decorators&nbsp;have&nbsp;been&nbsp;implemented&nbsp;that&nbsp;modify&nbsp;the&nbsp;way<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;plugins&nbsp;are&nbsp;loaded,&nbsp;this&nbsp;is&nbsp;however&nbsp;not&nbsp;the&nbsp;easiest&nbsp;way&nbsp;to<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;do&nbsp;it&nbsp;and&nbsp;it&nbsp;makes&nbsp;it&nbsp;harder&nbsp;to&nbsp;build&nbsp;a&nbsp;chain&nbsp;of&nbsp;decoration<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;that&nbsp;would&nbsp;include&nbsp;these&nbsp;decorators.&nbsp;&nbsp;Among&nbsp;those&nbsp;are<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:doc:`VersionedPluginManager`&nbsp;and<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:doc:`FilteredPluginManager`</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Package Contents</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="yapsy.AutoInstallPluginManager.html">AutoInstallPluginManager</a><br>
+<a href="yapsy.ConfigurablePluginManager.html">ConfigurablePluginManager</a><br>
+</td><td width="25%" valign=top><a href="yapsy.FilteredPluginManager.html">FilteredPluginManager</a><br>
+<a href="yapsy.IPlugin.html">IPlugin</a><br>
+</td><td width="25%" valign=top><a href="yapsy.PluginInfo.html">PluginInfo</a><br>
+<a href="yapsy.PluginManager.html">PluginManager</a><br>
+</td><td width="25%" valign=top><a href="yapsy.PluginManagerDecorator.html">PluginManagerDecorator</a><br>
+<a href="yapsy.VersionedPluginManager.html">VersionedPluginManager</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__docformat__</strong> = 'restructuredtext en'</td></tr></table>
+</body></html>

@@ -1,0 +1,9 @@
+[Core]
+Name = Abbreviation Completion
+Module = AbbreviationCompletion
+
+[Documentation]
+Author = Groza Cristian
+Version = 0.1
+Website = http://www.sourceforge/projects/gecrit
+Description = Provides abbreviation replacement to speed up typing long words.

@@ -1,157 +1,181 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+
 import wx.lib.inspection
-import sys
+import sys, types
 import collections
-import wx.richtext
-from TinyFeatures import *
 from configClass import *
 from logClass import *
 from aboutClass import *
 from SyntaxHighlight import *
-from Fonts import *
 from ConfigWindow import *
 from PrintDialog import *
 from FindReplaceText import *
-from SourceBrowser import *
 from AutoCompletition import *
-from ShellEmulator import *
-from PastebinDialog import *
-from SyntaxChecker import *
 from StcControl import *
-from DirTreeCtrl import *
 from Menu import *
 from Toolbar import *
+from gEcritPluginManager import *
+from yapsy.PluginManager import PluginManager
+from data.plugins.categories import *
+from AuiNoteBook import *
+from gEcritSession import *
+import Exceptions
+import wx.aui
+
+import gettext
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 
 class Editor(wx.Frame):
+    """
+    Editor
+
+    This class is the entry point in the program.
+    It creates all the user interface and initializes
+    the required objects and classes.
+    The functions that cannot go into another objects
+    for diverse reasons go here.
+    """
+
+    def dummy_tr(self, tr):
+        return tr
 
     def __init__(self, id, parent):
+        """
+        __init__
+
+        Creates the user interface.
+        Initializez the terminals if enabled.
+        Creates the required GUI and non GUI objects.
+
+        """
         SHELLTAB_ID = 4002
-        BASH_ID = 4000
-        PY_ID = 4001
+        SIDEPANEL_ID = 3999
+
+        try:
+            self.presLang = gettext.translation("gEcrit", "./locale")
+            self._ = self.presLang.ugettext
+            self.presLang.install()
+        except:
+            print "Translation for local language not found."
+            self._ = self.dummy_tr
 
         pathname = os.path.abspath(os.path.dirname((sys.argv)[0]))  #  Finding where
         os.chdir(pathname)  #  gEcrit is running
 
+        #Setting up the plugin envirenment
+
+        self.general_plugins = {}
+        self.passive_plugins = {}
+        self.plugin_manager = PluginManager(
+                    categories_filter={"General": General,
+                                       "Passives" : Passive})
+
+        #Sets YAPSY the plugin directory.
+
+        self.plugin_path = os.path.join(pathname, "data", "plugins")
+        self.plugin_manager.setPluginPlaces([self.plugin_path])
+
+        self.plugin_manager.locatePlugins()
+        #self.plugin_manager.collectPlugins()
+
+        self.plugin_manager.loadPlugins()
+
+        self.activated_plugins = Config.GetOption("ActivePlugins")
+
+        #populating the general plugin index
+        for f in self.plugin_manager.getPluginsOfCategory("General"):
+            if f.plugin_object.name in self.activated_plugins:
+                self.general_plugins[f.plugin_object.name] = f.plugin_object
+
+
+        #the passive plugins now
+
+        for p in self.plugin_manager.getPluginsOfCategory("Passives"):
+            if p.plugin_object.name in self.activated_plugins:
+                self.passive_plugins[p.plugin_object.name] = p.plugin_object
+
         self.SaveRecord = {}
         self.IdRange = []
 
+        #getting the command line file argument
         if "editorClass.py" not in (sys.argv)[-1]:
             self.TargetFile = os.path.normpath(os.path.realpath((sys.argv)[-1]))
             self.job_file = True
             Name = self.TargetFile.split("/")[-1]
-        else:
 
+        #no file was provided
+        else:
             self.job_file = False
             self.TargetFile = "New Document"  #Default Name
             Name = "New Document"
 
-        self.MainFrame = wx.Frame.__init__(self, parent, 1000, 'gEcrit',
-                size=(700, 600))
-
+        wx.Frame.__init__(self, parent, 1000, 'gEcrit', size=(700, 600))
         self.Bind(wx.EVT_CLOSE, self.OnQuit)
 
-        if Config.GetOption("StatusBar"):
-            self.StatusBar = self.CreateStatusBar()
-            self.StatusBar.SetStatusText("Done")
-            self.StatusBar.SetFieldsCount(2)
-            self.StatusBar.SetId(999)
+        #this object will handle layout and docking/undocking of widgets
+        self.aui_manager = wx.aui.AuiManager(self)
 
-        menubar = MainMenu(self)
+        #creating the status bar
+        self.StatusBar = self.CreateStatusBar()
+        self.StatusBar.SetStatusText("Done")
+        self.StatusBar.SetFieldsCount(3)
+        self.StatusBar.SetId(999)
+        if not Config.GetOption("StatusBar"):
+            self.StatusBar.Hide()
 
-        self.SetMenuBar(menubar)
+        self.menubar = MainMenu(self)
+        self.SetMenuBar(self.menubar)
 
-        mega_sizer = wx.BoxSizer(wx.VERTICAL)
 
+        #setting the application icon
         self.SetIcon(wx.Icon('icons/gEcrit.png', wx.BITMAP_TYPE_PNG))
 
+        #this variable is incremented each time we create a StcControl
         self.text_id = 0
 
-        main_splitter = wx.SplitterWindow(self, -1, style=wx.SP_3D | wx.SP_BORDER)
-        main_splitter.SetMinimumPaneSize(150)
-        tab_panel = wx.Panel(main_splitter)
-        nb_panel = wx.Panel(main_splitter)
-        nb_panel.SetId(998)  #needed in configClass.py
 
+        #finding the user home folder
         self.HOMEDIR = os.path.expanduser('~')
         os.chdir(os.path.abspath(self.HOMEDIR))
 
-        ShellTabs = wx.Notebook(tab_panel, id=SHELLTAB_ID, size=(700,
-                                100), style=wx.BORDER_SUNKEN)
+        #creating a plugin manager instance
+        self.plugin_conf_manager = gEcritPluginManager(self)
 
-        BashPanel = wx.Panel(ShellTabs)
-        PythonPanel = wx.Panel(ShellTabs)
-        self.BashShell = ShellEmulator(BashPanel, Config.GetOption("OSPath"),
-                BASH_ID)
-        self.PythonShell = ShellEmulator(PythonPanel, Config.GetOption("PyPath"),
-                PY_ID)
+        #creating the left side notebook
+        self.side_notebook = wx.aui.AuiNotebook(self, id=SIDEPANEL_ID, size=(-1,-1),
+         style=wx.BORDER_SUNKEN|wx.aui.AUI_NB_TAB_SPLIT|wx.aui.AUI_NB_TAB_MOVE|wx.aui.AUI_NB_SCROLL_BUTTONS )
 
-        python_sizer = wx.BoxSizer(wx.VERTICAL)
-        python_sizer.Add(self.PythonShell, 1, wx.ALL | wx.EXPAND)
-        PythonPanel.SetSizer(python_sizer)
-        PythonPanel.Fit()
+        #creating the bottom side notebook
+        self.bottom_notebook = wx.aui.AuiNotebook(self, id=SHELLTAB_ID, size=(-1,
+         -1), style=wx.BORDER_SUNKEN|wx.aui.AUI_NB_TAB_SPLIT|wx.aui.AUI_NB_TAB_MOVE|wx.aui.AUI_NB_SCROLL_BUTTONS )
 
-        bash_sizer = wx.BoxSizer(wx.VERTICAL)
-        bash_sizer.Add(self.BashShell, 1, wx.ALL | wx.EXPAND)
-        BashPanel.SetSizer(bash_sizer)
-        PythonPanel.Fit()
 
-        if Config.GetOption("PythonShell") or Config.GetOption("BashShell"):
-            if Config.GetOption("BashShell"):
-                self.BashShell.OnRun(0, Config.GetOption("OSPath"))
+        #the aui notebook that will manage editor tabs
+        self.nb = AuiNoteBook(parent = self)
 
-                ShellTabs.AddPage(BashPanel, "OS Shell")
-
-            if Config.GetOption("PythonShell"):
-                self.PythonShell.OnRun(0, Config.GetOption("PyPath"))
-
-                ShellTabs.AddPage(PythonPanel, "Python")
-            will_split = True
-        else:
-            will_split = False
-
-        self.nb = wx.aui.AuiNotebook(nb_panel, style=wx.aui.AUI_NB_TOP)
-        self.nb.SetId(900)  #Needed in StcControl.py
-        nb_sizer = wx.BoxSizer(wx.VERTICAL)
-        nb_sizer.Add(self.nb, 1, wx.EXPAND)
-        nb_panel.SetSizer(nb_sizer)
-        nb_panel.Fit()
-
-        tab_sizer = wx.BoxSizer(wx.VERTICAL)
-        tab_sizer.Add(ShellTabs, 1, wx.EXPAND)
-        tab_panel.SetSizer(tab_sizer)
-        tab_panel.Fit()
-
-        main_splitter_sizer = wx.BoxSizer(wx.HORIZONTAL)
-        main_splitter_sizer.Add(nb_sizer, 0, wx.EXPAND)
-        main_splitter_sizer.Add(tab_sizer)
-        main_splitter.SetSizer(main_splitter_sizer)
-        main_splitter.Fit()
-
+        #going back to application running point
         os.chdir(pathname)
 
-        main_splitter.SplitHorizontally(nb_panel, tab_panel, -1)
-
-        if not will_split:
-            main_splitter.Unsplit(tab_panel)
-
+        #binding the menubar events
         f = wx.FindWindowById
         self.Bind(wx.EVT_MENU, lambda event: self.NewTab(event,
                   "New Document", "New Document"), id=500)
-        self.Bind(wx.EVT_MENU, lambda event: self.OpenFile(event), id=
+        self.Bind(wx.EVT_MENU, lambda event: self.OnOpenFile(event), id=
                   501)
         self.Bind(wx.EVT_MENU, lambda event: f((self.IdRange)[self.nb.GetSelection()]).Save(event),
                   id=502)
         self.Bind(wx.EVT_MENU, lambda event: f((self.IdRange)[self.nb.GetSelection()]).SaveAs(event),
                   id=503)
-        self.Bind(wx.EVT_MENU, lambda event: self.OnPrint(event, (self.IdRange)[self.nb.GetSelection()]),
-                  id=504)
+        self.Bind(wx.EVT_MENU,  self.OnPrint,id=504)
         self.Bind(wx.EVT_MENU, lambda event: self.ManageCloseTab(event,
                   (self.IdRange)[self.nb.GetSelection()]), id=505)
         self.Bind(wx.EVT_MENU, lambda event: self.OnQuit(event), id=506)
-        self.Bind(wx.EVT_MENU, self.SaveAll, id=506)
+        self.Bind(wx.EVT_MENU, self.SaveAll, id=563)
+        self.Bind(wx.EVT_MENU, lambda event: f((self.IdRange)[self.nb.GetSelection()]).OnReload(event),id = 507)
 
         self.Bind(wx.EVT_MENU, lambda event: f((self.IdRange)[self.nb.GetSelection()]).OnUndo(event),
                   id=520)
@@ -165,6 +189,11 @@ class Editor(wx.Frame):
                   id=524)
         self.Bind(wx.EVT_MENU, lambda event: f((self.IdRange)[self.nb.GetSelection()]).OnSelectAll(event),
                   id=525)
+
+        self.Bind(wx.EVT_MENU, lambda event: f((self.IdRange)[self.nb.GetSelection()]).OnSelectCodeBlock(event),
+                  id=562)
+
+
         self.Bind(wx.EVT_MENU, lambda event: f((self.IdRange)[self.nb.GetSelection()]).OnInsertDate(event),
                   id=526)
         self.Bind(wx.EVT_MENU, lambda event: self.OnPrefs(event), id=527)
@@ -173,10 +202,20 @@ class Editor(wx.Frame):
         self.Bind(wx.EVT_MENU, lambda event: f((self.IdRange)[self.nb.GetSelection()]).OnIndent(event),
                   id=529)
 
-        self.Bind(wx.EVT_MENU, lambda event: FindRepl.FindDocText((self.IdRange)[self.nb.GetSelection()]),
+        self.Bind(wx.EVT_MENU, lambda event:f((self.IdRange)[self.nb.GetSelection()]).OnComment(event),
+                  id=559)
+        self.Bind(wx.EVT_MENU, lambda event:f((self.IdRange)[self.nb.GetSelection()]).OnUnComment(event),
+                  id=560)
+
+        self.Bind(wx.EVT_MENU, lambda event: FindRepl.FindDocText(event, (self.IdRange)[self.nb.GetSelection()]),
                   id=530)
-        self.Bind(wx.EVT_MENU, lambda event: FindRepl.ReplaceDocText((self.IdRange)[self.nb.GetSelection()]),
+        self.Bind(wx.EVT_MENU, lambda event: FindRepl.ReplaceDocText(event, (self.IdRange)[self.nb.GetSelection()]),
                   id=531)
+
+        self.Bind(wx.EVT_MENU, lambda event: FindRepl.FindDocText(event, (self.IdRange)[self.nb.GetSelection()],wx.stc.STC_FIND_REGEXP),
+                  id=532)
+        self.Bind(wx.EVT_MENU, lambda event: FindRepl.ReplaceDocText(event ,(self.IdRange)[self.nb.GetSelection()], wx.stc.STC_FIND_REGEXP),
+                  id=533)
 
         self.Bind(wx.EVT_MENU, lambda event: f((self.IdRange)[self.nb.GetSelection()]).OnZoomIn(event),
                   id=535)
@@ -186,226 +225,234 @@ class Editor(wx.Frame):
                   id=537)
 
         self.Bind(wx.EVT_MENU, lambda event: Config.ChangeOption("LineNumbers",
-                  menubar.IsChecked(538), self.IdRange), id=538)
+                  self.menubar.IsChecked(538), self.IdRange), id=538)
         self.Bind(wx.EVT_MENU, lambda event: Config.ChangeOption("FoldMarks",
-                  menubar.IsChecked(539), self.IdRange), id=539)
+                  self.menubar.IsChecked(539), self.IdRange), id=539)
         self.Bind(wx.EVT_MENU, lambda event: Config.ChangeOption("Whitespace",
-                  menubar.IsChecked(540), self.IdRange), id=540)
+                  self.menubar.IsChecked(540), self.IdRange), id=540)
         self.Bind(wx.EVT_MENU, lambda event: Config.ChangeOption("IndetationGuides",
-                  menubar.IsChecked(541), self.IdRange), id=541)
+                  self.menubar.IsChecked(541), self.IdRange), id=541)
         self.Bind(wx.EVT_MENU, lambda event: Config.ChangeOption("EdgeLine",
-                  menubar.IsChecked(546), self.IdRange), id=546)
+                  self.menubar.IsChecked(546), self.IdRange), id=546)
         self.Bind(wx.EVT_MENU, lambda event: Config.ChangeOption("SyntaxHighlight",
-                  menubar.IsChecked(547), self.IdRange), id=547)
-        self.Bind(wx.EVT_MENU, lambda event: Config.ChangeOption("PythonShell",
-                  menubar.IsChecked(542), self.IdRange), id=542)
-        self.Bind(wx.EVT_MENU, lambda event: Config.ChangeOption("BashShell",
-                  menubar.IsChecked(543), self.IdRange), id=543)
-        self.Bind(wx.EVT_MENU, lambda event: Config.ChangeOption("SourceBrowser",
-                  menubar.IsChecked(544), self.IdRange), id=544)
-        self.Bind(wx.EVT_MENU, lambda event: Config.ChangeOption("FileTree",
-                  menubar.IsChecked(555), self.IdRange), id=555)
+                  self.menubar.IsChecked(547), self.IdRange), id=547)
+
+
         self.Bind(wx.EVT_MENU, lambda event: Config.ChangeOption("StatusBar",
-                  menubar.IsChecked(545), self.IdRange), id=545)
+                  self.menubar.IsChecked(545), self.IdRange), id=545)
+        self.Bind(wx.EVT_MENU, self.OnFullScreen, id=557)
 
-        self.Bind(wx.EVT_MENU, lambda event: self.PastebinDlg.ShowMe(event,
-                  (self.IdRange)[self.nb.GetSelection()]), id=549)
-        self.Bind(wx.EVT_MENU, lambda event: SyntaxDoc.CheckSyntax(event,
-                  (self.IdRange)[self.nb.GetSelection()]), id=548)
+        self.Bind(wx.EVT_MENU, self.ToggleSidePanel, id = 548)
+        self.Bind(wx.EVT_MENU, self.ToggleBottomPanel, id = 549)
 
+        self.Bind(wx.EVT_MENU, lambda event: f((self.IdRange)[self.nb.GetSelection()]).OnRemoveTrails(event),id=551)
+        self.Bind(wx.EVT_MENU, lambda event: self.OnRun(event,self.IdRange[self.nb.GetSelection()]), id = 558)
+        self.Bind(wx.EVT_MENU, lambda event: f((self.IdRange)[self.nb.GetSelection()]).Tabify(event), id = 552 )
+        self.Bind(wx.EVT_MENU, lambda event: f((self.IdRange)[self.nb.GetSelection()]).UnTabify(event), id = 553 )
+
+        self.Bind(wx.EVT_MENU, self.SaveSessionFile , id = 554)
+        self.Bind(wx.EVT_MENU, gEcritSession.DeleteSessionFile , id = 555)
+        self.Bind(wx.EVT_MENU, lambda event: Config.ChangeOption("Session",self.menubar.IsChecked(556)) , id = 556)
+
+        self.Bind(wx.EVT_MENU, self.plugin_conf_manager.ShowMe, id = 564 )
         self.Bind(wx.EVT_MENU, lambda event: self.OnAbout(event), id=550)
 
+        #setting up the toolbar
         self.toolbar = MainToolbar(self, -1)
 
         self.FontCtrl = wx.FontPickerCtrl(self.toolbar, 607, size=(100,
-                30))
+                                                                    30))
 
         self.Bind(wx.EVT_FONTPICKER_CHANGED, lambda event: ChangeFont(event,
                   self.FontCtrl.GetSelectedFont(), self.IdRange))
 
+        #teh goto line text box
         self.toolbar.AddControl(self.FontCtrl)
         self.toolbar.AddControl(wx.TextCtrl(self.toolbar, 608, size=(-1,
-                                -1), style=wx.TE_PROCESS_ENTER))
+                                        -1), style=wx.TE_PROCESS_ENTER))
 
+        #Binding toolbar events
         self.Bind(wx.EVT_TOOL, lambda event: self.NewTab(event,
                   "New Document", "New Document"), id=600)
-        self.Bind(wx.EVT_TOOL, self.OpenFile, id=601)
+        self.Bind(wx.EVT_TOOL, self.OnOpenFile, id=601)
         self.Bind(wx.EVT_TOOL, lambda event: f((self.IdRange)[self.nb.GetSelection()]).Save(event),
                   id=602)
         self.Bind(wx.EVT_TOOL, lambda event: f((self.IdRange)[self.nb.GetSelection()]).SaveAs(event),
                   id=603)
         self.Bind(wx.EVT_TOOL, self.OnPrefs, id=604)
         self.Bind(wx.EVT_TOOL, self.OnQuit, id=605)
-        self.Bind(wx.EVT_TOOL, lambda event: self.ManageCloseTab(event,
-                  (self.IdRange)[self.nb.GetSelection()]), id=606)
 
         self.Bind(wx.EVT_TEXT_ENTER, lambda event: self.OnGotoBox(event,
                   (self.IdRange)[self.nb.GetSelection()]), id=608)
 
-        self.Bind(wx.EVT_TOOL, lambda event: self.OnPrint(event, (self.IdRange)[self.nb.GetSelection()]),
-                  id=609)
+        self.Bind(wx.EVT_TOOL,  self.OnPrint, id=609)
         self.Bind(wx.EVT_TOOL, lambda event: self.OnRun(event, (self.IdRange)[self.nb.GetSelection()]),
                   id=610)
 
-        self.NewTab(0, Name, self.TargetFile)
+        #Give the plugins a chance to set themselves in the system
+        #generals first
 
-        mega_sizer.Add(self.toolbar, 0)
+        for g in self.general_plugins:
+            self.general_plugins[g].Init(self)
 
-        mega_sizer.Add(main_splitter, 1, wx.EXPAND)
+        #passives now
+        for p in self.passive_plugins:
+            self.passive_plugins[p].Init(self)
 
-        self.SetSizer(mega_sizer)
-
+		#put it in the middle of the sceen
         self.Centre()
-        self.PastebinDlg = PastebinWin(self)
-        self.GoConfWin = ConfFrame = CfgFrame(self.IdRange, None)
+
+        #the preferences window
+        self.GoConfWin = ConfFrame = CfgFrame(self, self.IdRange)
+
+        #addung the pane to the aui manager.
+        self.aui_manager.AddPane(self.toolbar, wx.aui.AuiPaneInfo().Name("toolbar").Caption(self._("Toolbar")).ToolbarPane().Top().CloseButton(False))
+        self.aui_manager.AddPane(self.nb, wx.aui.AuiPaneInfo().Name("editor tabs").Caption(self._("Tabs")).CenterPane())
+        self.aui_manager.AddPane(self.bottom_notebook, wx.aui.AuiPaneInfo().Name("bottom panel").Caption(self._("Assistants and others")).Bottom().BestSize((700,150)).PinButton(True).MaximizeButton(True))
+        self.aui_manager.AddPane(self.side_notebook, wx.aui.AuiPaneInfo().Name("left_side panel").Caption(self._("Toolbox")).Left().BestSize((150,400)).PinButton(True).MaximizeButton(True))
+
+        #loading saved session if any exists and if enabled
+        if Config.GetOption("Session"):
+            self.LoadSessionFile()
+
+        #make changes visible
+        self.aui_manager.Update()
+
+
+    def LoadSessionFile(self):
+        """
+        LoadSessionFile
+
+        Loads the session file if it exists.
+        If it does not, creates an instance.
+        """
+        try:
+            self.session =  gEcritSession.LoadFromFile()
+            self.session.RestoreAppState(self)
+            self.SetStatus(0,self._ ( "Session file loaded."))
+        except Exceptions.NoSessionFile:
+            self.session = gEcritSession()
+
+    def SaveSessionFile(self, event):
+        """
+        SaveSessionFile
+
+        Reccords the application state and saves it to disk via the
+        session instance.
+        """
+        try: #testing if a session object exists
+            self.session
+        except AttributeError:
+            self.session = gEcritSession()
+
+        self.session.RecordAppState(self)
+        self.session.SaveToFile()
+        self.SetStatus(event, self._ ("Session saved."))
+
+
+
+    def OnFullScreen(self,event):
+        """
+        OnFullScreen
+
+        Makes the main window fullscreen.
+        """
+        self.ShowFullScreen(not self.IsFullScreen(),wx.FULLSCREEN_NOCAPTION)
+
 
     def OnPrefs(self, event):
+        """
+        OnPrefs
+
+        Shows the preferences window.
+        """
         self.GoConfWin.ShowMe(0)
 
-    def UpdateCords(self, event, text_id):
-        cur_doc = wx.FindWindowById(text_id)
-        if Config.GetOption("StatusBar"):
-            self.StatusBar.SetStatusText("line: " + str(cur_doc.GetCurrentLine()) +
-                    "    col: " + str(cur_doc.GetColumn(cur_doc.GetCurrentPos())),
-                    1)
-        event.Skip()
+
 
     def NewTab(self, event, nb, TargetFile):
+        """
+            NewTab
+
+            Creates a new AUI NOTEBOOK tab, adds the contents,
+            initializez a STC object for it and binds some of its events.
+            Creates the sidebar, adds a notebook and adds its utilities
+            in its tabs.
+        """
+
         if TargetFile == False:
             return
-        panel = wx.Panel(self)
-        panel.identifierTag = nb
-        TABBER = self.nb
 
-        text_id = self.text_id
-
-        splitter = wx.SplitterWindow(panel, -1, style=wx.SP_3D | wx.SP_BORDER)
-        splitter.SetMinimumPaneSize(150)
-        notebk_panel = wx.Panel(splitter)
-        side_nb = wx.Notebook(notebk_panel, -1, pos=(0, 0), size=(-1, -1))
-        side_nb.SetId(4003 + text_id)
-
-        notebk_sizer = wx.BoxSizer(wx.HORIZONTAL)
-        notebk_sizer.Add(side_nb, 1, wx.EXPAND)
-        notebk_panel.SetSizer(notebk_sizer)
-        notebk_panel.Fit()
-
+        #update recent file list
         if TargetFile != "New Document" and TargetFile != "":
+            if not os.path.exists(TargetFile):
+                wx.MessageDialog(None, self._ ("Could not load file.\nThe file ")+TargetFile+self._ (" does not exists."),self._ ("Input Error") ,wx.OK).ShowModal()
+                return
             file_dir = os.path.split(TargetFile)[0]
+            lst = Config.GetOption("RecentFiles")
+            lst.append(TargetFile)
+            Config.ChangeOption("RecentFiles",lst)
+            self.menubar.UpdateRecentFiles()
         else:
             file_dir = self.HOMEDIR + "/"
 
-        dir_ctrl_panel = wx.Panel(side_nb)
-        dir_ctrl = DirTreeCtrl(dir_ctrl_panel, -1, file_dir, pos=(0, 0),
-                               size=(-1, -1))
-        dir_ctrl.SetId(5000 + text_id)
-        dir_ctrl_pnl_sz = wx.BoxSizer(wx.VERTICAL)
-        dir_ctrl_pnl_sz.Add(dir_ctrl, 1, wx.EXPAND)
-        dir_ctrl_panel.SetSizer(dir_ctrl_pnl_sz)
-        dir_ctrl_panel.Fit()
+		#the parent of the StcControl
+        panel = wx.Panel(self)
+        panel.identifierTag = nb
 
-        dir_ctrl.Bind(wx.EVT_TREE_ITEM_ACTIVATED, lambda event: self.NewTab(event,
-                      os.path.split(dir_ctrl.GetSelectedPath(event))[-1],
-                      dir_ctrl.GetSelectedPath(event)))
+		#hiding self.text_id
+        text_id = self.text_id
 
-        src_br_panel = wx.Panel(side_nb)
-        text_panel = wx.Panel(splitter)
-        text_panel.SetId(1001 + text_id)
+        #set up the editor
+        self.TextWidget = StcTextCtrl(panel, self.text_id, TargetFile)
 
-        splitter.SplitVertically(notebk_panel, text_panel, 20)
+		#the StcControl sizer
+        text_ctrl_sizer = wx.BoxSizer(wx.HORIZONTAL)
+        text_ctrl_sizer.Add(self.TextWidget, 1, wx.EXPAND)
+        panel.SetSizer(text_ctrl_sizer)
+        panel.Fit()
 
-        self.InitSrcBr = SrcBrowser(TargetFile, nb, text_id,
-                                    src_br_panel)
+		#append the id of this StcControl to the IdRange
+        self.IdRange.append(text_id)
 
-        self.TextWidget = StcTextCtrl(text_panel, self.text_id, self.InitSrcBr,
-                TargetFile)
-
-        text_sizer = wx.BoxSizer(wx.HORIZONTAL)
-        text_sizer.Add(self.TextWidget, 1, wx.EXPAND)
-        text_panel.SetSizer(text_sizer)
-        text_panel.Fit()
-
-        self.IdRange.append(self.text_id)
         self.TextWidget.SetBufferedDraw(True)
+        #apply the font
         self.TextWidget.StyleSetFont(0, self.FontCtrl.GetSelectedFont())
 
         cur_doc = wx.FindWindowById(text_id)
 
-        cur_doc.MarkerDefine(wx.stc.STC_MARKNUM_FOLDEROPEN, wx.stc.STC_MARK_BOXMINUS,
-                             "white", "#808080")
-        cur_doc.MarkerDefine(wx.stc.STC_MARKNUM_FOLDER, wx.stc.STC_MARK_BOXPLUS,
-                             "white", "#808080")
-        cur_doc.MarkerDefine(wx.stc.STC_MARKNUM_FOLDERSUB, wx.stc.STC_MARK_VLINE,
-                             "white", "#808080")
-        cur_doc.MarkerDefine(wx.stc.STC_MARKNUM_FOLDERTAIL, wx.stc.STC_MARK_LCORNER,
-                             "white", "#808080")
-        cur_doc.MarkerDefine(wx.stc.STC_MARKNUM_FOLDEREND, wx.stc.STC_MARK_BOXPLUSCONNECTED,
-                             "white", "#808080")
-        cur_doc.MarkerDefine(wx.stc.STC_MARKNUM_FOLDEROPENMID, wx.stc.STC_MARK_BOXMINUSCONNECTED,
-                             "white", "#808080")
-        cur_doc.MarkerDefine(wx.stc.STC_MARKNUM_FOLDERMIDTAIL, wx.stc.STC_MARK_TCORNER,
-                             "white", "#808080")
-
+        #apply IDE specific configuration
         Config.ApplyIDEConfig(text_id, TargetFile.split(".")[-1])
 
-        cur_doc.SetXOffset(1)
+        #to keep trace of the modifications
+        self.SaveRecord[text_id] = wx.FindWindowById(text_id).GetText()
 
-        cur_doc.Bind(wx.EVT_KEY_DOWN, lambda event: AutoComp.OnKeyPressed(event,
-                     text_id))
-
-        cur_doc.Bind(wx.stc.EVT_STC_UPDATEUI, lambda event: self.UpdateCords(event,
-                     text_id))
-
-        cur_doc.Bind(wx.stc.EVT_STC_UPDATEUI, lambda event: OnUpdateUI(event,
-                     text_id))
-        cur_doc.Bind(wx.stc.EVT_STC_MARGINCLICK, lambda event: \
-                     OnMarginClick(event, text_id))
-
-        self.TabCount = self.text_id
-        (self.SaveRecord)[text_id] = wx.FindWindowById(text_id).GetText()
-
-        cur_doc.Bind(wx.EVT_KEY_UP, lambda event: AutoIndent(event,
-                     text_id))
-
-        src_sizer = wx.BoxSizer(wx.HORIZONTAL)
-        src_sizer.Add(self.InitSrcBr, 1, wx.EXPAND)
-        src_br_panel.SetSizer(src_sizer)
-        src_br_panel.Fit()
-
-        if Config.GetOption("SourceBrowser"):
-            side_nb.AddPage(src_br_panel, "Source Browser")
-        if Config.GetOption("FileTree"):
-            side_nb.AddPage(dir_ctrl_panel, "File Browser")
-
-        widget_sizer = wx.BoxSizer(wx.HORIZONTAL)
-        widget_sizer.Add(src_sizer, 0, wx.EXPAND)
-        widget_sizer.Add(text_sizer, 0, wx.EXPAND)
-        splitter.SetSizer(widget_sizer)
-        splitter.Fit()
-
-        if Config.GetOption("SourceBrowser") or Config.GetOption("FileTree"):
-            will_split = True
-        else:
-            will_split = False
-        if not will_split:
-            splitter.Unsplit(notebk_panel)
-
-        main_sizer = wx.BoxSizer(wx.VERTICAL)
-        main_sizer.Add(splitter, 1, wx.EXPAND)
-
-        panel.SetSizer(main_sizer)
-        main_sizer.Fit(panel)
-
+		#add the panel as a new tab
         self.nb.AddPage(panel, str(nb), select=True)
+        if TargetFile == "New Document" or TargetFile == "":
+            #notify plugins
+            for g in self.general_plugins:
+                self.general_plugins[g].NotifyNewTabOpened()
+
 
         self.text_id += 1
+        return self.TextWidget
 
     def OnRun(self, event, text_id):
+        """
+            Runs the current document in a xterm window, for testing.
+        """
         cur_doc = wx.FindWindowById(text_id)
         cur_doc.Save(0)
-        os.system("xterm -e python " + cur_doc.SaveTarget)
+        os.system("xterm -e sh runner.sh "+cur_doc.SaveTarget)
 
     def OnGotoBox(self, event, text_id):
+        """
+            OnGotoBox
+
+            Finds the current document, and scrolls to the line indicated
+            by its input upon the Return key.
+        """
         cur_doc = wx.FindWindowById(text_id)
         Goto = wx.FindWindowById(608)
 
@@ -413,95 +460,180 @@ class Editor(wx.Frame):
 
         cur_doc.ScrollToLine(scroll_pos - 1)
 
-    def OnPrint(self, event, text_id):
-        FileName = wx.FindWindowById(text_id).SaveTarget
-        if "/" not in FileName:
-            FileName = "ForPrint"
-        GoPrint = PrettyPrinter(FileName, text_id, self)
+    def OnPrint(self, event):
+        """
+            OnPrint
+
+            Finds the document, sets the prints name, and calls the
+            wxPython toolkit to print the contents
+        """
+
+        GoPrint = PrettyPrinter(self)
+        del GoPrint
 
     def OnAbout(self, event):
-        ShowAbout = AboutWindow
-        ShowAbout()
+        """
+            OnAbout
+
+            Shows the about window.
+        """
+        #ShowAbout = AboutWindow
+        show = AboutWindow()
+        del show
 
     def OnQuit(self, event):
+        """
+            OnQuit
+
+            Closes the main window, stops the terminals, and kills the
+            application process.
+            It promps the user for confirmation.
+        """
+        #warn the user
         Warn = wx.MessageDialog(None,
-                                "Please make sure that your data is\
- saved.\nAre you sure you want to quit?",
-                                "Are you sure?", style=wx.YES_NO)
+                    self._ ("Please make sure that your data is\
+ saved.\nAre you sure you want to quit?"),
+                      self._ ("Are you sure?"), style=wx.YES_NO)
         WarnAnswer = Warn.ShowModal()
-        if WarnAnswer != 5104:
-            if Config.GetOption("BashShell"):
-                self.BashShell.OnClose(event)
-            if Config.GetOption("PythonShell"):
-                self.PythonShell.OnClose(event)
-            quit()
+        if WarnAnswer != 5104: #YES
+            #call the quit method to stop the terminals and the plugins
+            self.Quit()
+
+    def Quit(self):
+        #stop ond notify all plugins of application shutdown.
+        #generals now
+        for g in self.general_plugins:
+            self.general_plugins[g].Stop()
+
+        for p in self.passive_plugins:
+            self.passive_plugins[p].Stop()
+
+        #stop the shells if activated
+
+        if Config.GetOption("Session"):
+            self.SaveSessionFile(0)
+
+        #exit status 0, all ok
+        sys.exit(0)
 
     def ManageCloseTab(self, event, text_id):
+        """
+            ManageCloseTab
+
+            Manages the process of closing a tab.
+            Checks if document is saved, prompts the user if not.
+            If this is the last tab in the application, it closes the
+            terminals, the window and kills the application.
+            If not, it decreases the number of tabs and delted the AUI
+            NETBOOK page.
+        """
         cur_doc = wx.FindWindowById(text_id)
         TextCheck = cur_doc.GetText()
+        #check if the user saved the changes
         if cur_doc.SaveRecord != TextCheck:
-            SavePrompt = wx.MessageDialog(None, "The file " + os.path.split(cur_doc.SaveTarget)[-1] +
-                    " is not saved.\n\
-Do you wish to save it?", "",
+			#if not, notify him
+            SavePrompt = wx.MessageDialog(None, self._ ("The file ") + os.path.split(cur_doc.SaveTarget)[-1] +
+                    self._ (" is not saved.\n\
+Do you wish to save it?"), "",
                     style=wx.CANCEL | wx.YES | wx.NO)
             PromptValue = SavePrompt.ShowModal()
-            if PromptValue == 5103:  #yes
+
+            if PromptValue == 5103:     #YES
                 if not cur_doc.Save(0):
+                    event.Veto()
                     return
-            elif PromptValue == 5101:
+                else:
+                    self.IdRange.remove(text_id)
 
-                                         #Cancel
-
+            elif PromptValue == 5101:   #CANCEL
+                event.Veto()
                 return
-            elif PromptValue == 5102:
-
-                pass
+            elif PromptValue == 5104:   #NO
+                self.IdRange.remove(text_id)
 
             SavePrompt.Destroy()
 
-        if self.TabCount == 0:
-            try:
-                if Config.GetOption("BashShell"):
-                    self.BashShell.OnClose(event)
-                if Config.GetOption("PythonShell"):
-                    self.PythonShell.OnClose(event)
-            except:
-                pass
-            quit()
         else:
-
-            self.TabCount -= 1
-            try:
+            #try:
+				#remove the id of the  StcControl form the index
                 self.IdRange.remove(text_id)
-            except:
-                pass
-            self.nb.RemovePage(self.nb.GetSelection())  #Memory leak
-            cur_doc.Destroy()
-            wx.FindWindowById(4003 + text_id).GetParent().GetSizer().Clear(True)
-            wx.FindWindowById(1001 + text_id).Destroy()
-        event.Skip()
+            #except:
+            #    pass
+			#and now. remove it from the tab manager
+                event.Skip()
+            #self.nb.DeletePage(self.nb.GetSelection())
 
-    def OpenFile(self, event):
+
+
+    def OnOpenFile(self, event):
+        """
+        OnOpenFile
+
+        Collects a path for a new file via a file dialog.
+        """
         OpenFileGetPath = wx.FileDialog(None, style=wx.OPEN | wx.FD_MULTIPLE)
-        OpenFileGetPath.SetDirectory(self.HOMEDIR)
+        if self.menubar.last_recent != "":
+		#go to the last accessed folder
+            OpenFileGetPath.SetDirectory(os.path.split(self.menubar.last_recent)[0])
+        else:
+            OpenFileGetPath.SetDirectory(self.HOMEDIR)
 
         if OpenFileGetPath.ShowModal() == wx.ID_OK:
             paths = OpenFileGetPath.GetPaths()
+            self.OpenFile(paths)
+
+        del OpenFileGetPath
+
+    def OpenFile(self, paths):
+        """
+            OpenFile
+
+            Calls NewTab with the collected path.
+            Supports multiple path selection.
+        """
+        # if paths is a list, open an StcContrel for each of them
+        if isinstance(paths, types.ListType):
             for f in paths:
                 self.NewTab(0, os.path.split(f)[-1], f)
-                Log.AddLogEntry(time.ctime() + ": Opened file " + f)
+                Log.AddLogEntry(self._ ("Opened file ") + f)
+        #if a string, open an StcControl for it
+        else:
+            self.NewTab(0, os.path.split(paths)[-1], paths)
+            Log.AddLogEntry(self._ ("Opened file ") + paths)
 
-        OpenFileGetPath.Destroy()
+        #notify general  plugins
+        for t in self.general_plugins:
+            try: #insulate from possible plugin errors
+                self.general_plugins[t].NotifyDocumentOpened()
+            except: pass
+        AutoComp.UpdateCTagsFiles(self.IdRange)
 
-    def SetStatus(self, event, Text):
-        self.StatusBar.SetStatusText(Text)
-        event.Skip()
+    def SetStatus(self, event, text):
+        """
+            ResetStatus
+
+            Sets the status of statusbar.
+        """
+        self.StatusBar.SetStatusText(text)
+       # event.Skip()
 
     def ResetStatus(self, event):
+        """
+        ResetStatus
+
+        Sets the status bar status to nothing.
+        """
         self.StatusBar.SetStatusText("")
         event.Skip()
 
     def SaveAll(self, event):
+        """
+        SaveAll
+
+        Saves all the current documents using the
+        objects Save function.
+
+        """
         for id in self.IdRange:
             cur_doc = wx.FindWindowById(id)
             if cur_doc.SaveTarget != "" and cur_doc.SaveTarget != \
@@ -509,8 +641,184 @@ Do you wish to save it?", "",
                 cur_doc.Save(0)
 
 
-if __name__ == '__main__':
+    ####################################################################
+    #                        PLUGIN INTERFACE                          #
+    ####################################################################
+
+    def ToggleSidePanel(self, event):
+        pane = self.aui_manager.GetPane(self.side_notebook)
+        if pane.IsShown(): pane.Hide()
+        else: pane.Show()
+        self.aui_manager.Update()
+
+    def ToggleBottomPanel(self, event):
+        pane = self.aui_manager.GetPane(self.bottom_notebook)
+        if pane.IsShown(): pane.Hide()
+        else: pane.Show()
+        self.aui_manager.Update()
+
+    def GetCurrentDocument(self):
+        """
+        GetCurrentDocument
+
+        Returns the selected active buffer object.
+        """
+
+        return wx.FindWindowById(self.IdRange[self.nb.GetSelection()])
+
+    def GetAllDocuments(self):
+        """
+        GetALlDocuments
+
+        Returns all existing buffers.
+        """
+        docs = []
+        for d in self.IdRange:
+            docs.append(wx.FindWindowById((d)))
+        return docs
+
+    def AddToMenuBar(self,label,menu):
+        """
+        AddToMenuBar
+
+        @id The id of the new menu entry.
+        @label The label of the new menu entry.
+        @menu A wx.Menu object which will be added in the Plugins menu.
+
+        Adds a wx.Menu object to menubar.
+        """
+        return self.menubar.plugins.AppendMenu(-1,label,menu)
+
+    def RemoveFromMenubar(self, menu):
+        """
+        RemoveFromMenubar
+
+        Removes the supplied argument menu from the plugins submenu.
+        """
+        self.menubar.plugins.RemoveItem(menu)
+
+    def BindMenubarEvent(self, item, function):
+        """
+        BindMenuBarEvent
+
+        @item The menu entry object which to be bint.
+
+        @function The function the item to be bint to.
+
+        Binds a wx.EVT_MENU event to the suplied function.
+
+        """
+        self.Bind(wx.EVT_MENU, function, id = item.GetId())
+
+    def GetBottomPanel(self):
+        """
+        GetBottomPanel
+
+        Returns the lower notebook.
+        """
+        return self.bottom_notebook
+
+    def AddToBottomPanel(self, panel, name):
+        """
+        AddToBottomPanel
+
+        Adds the suplied panel to the lower notebook with tho supplied
+        name label.
+        """
+        self.bottom_notebook.AddPage(panel, name)
+
+    def GetSidePanel(self):
+        """
+        GetSidePanel
+
+        Returns the side notebook.
+        """
+        return self.side_notebook
+
+    def AddToSidePanel(self, panel, name):
+        """
+        AddToSidePanel
+
+        Adds the suplied panel to the side notebook with tho supplied
+        name label.
+        """
+        self.side_notebook.AddPage(panel, name)
+
+    def DeleteBottomPage(self, name):
+        """
+        DeleteBottomPage
+
+        Deletes the tab named name from the lower notebook.
+        """
+        self.bottom_notebook.DeletePage(Config.GetTab(name,
+                                                  self.bottom_notebook))
+
+
+    def DeleteSidePage(self, name):
+        """
+        DeleteSidePage
+
+        Deletes the tab named name from the side notebook.
+        """
+        self.side_notebook.DeletePage(Config.GetTab(name,
+                                                    self.side_notebook))
+
+    def AddPaneToAui(self, widget ,pane_info):
+        """
+        "AddPaneToAui
+        @widget the widget to be added
+        @pane needs to be an AuiPaneInfo object.
+
+        Adds the pane to the aui manager.
+        """
+        self.aui_manager.AddPane(widget, pane_info)
+
+    def AddToolbarToAui(self, toolbar, pane_info):
+        """
+        AddToosbartoAui
+
+        @toolbar the wx.Toolbar object
+        @pane_info needs to be a wx.AuiPaneInfo object with it's name and caption
+        defined.
+        """
+        self.aui_manager.AddPane(toolbar, pane_info.ToolbarPane().Top().CloseButton(False))
+
+
+    def GetAuiManager(self):
+        """
+        GetAuiManager
+
+        Returns the AuiManager that is responsable for window layout.
+        """
+        return self.aui_manager
+
+
+    def GetTabManager(self):
+        """
+        GetTabManager
+
+        Returns the AuiNoteBook that is resposible for tabs management.
+        """
+        return self.nb
+
+    def CreateNewDocument(self, name):
+        """
+        CreateNewDocument
+
+        @name a string to be given to the new document as a name.
+
+        Creates a new empty document.
+        Returns a reference to the now StcControl
+        """
+        return self.NewTab(0, name, "")
+
+
+def main():
     app = wx.PySimpleApp()
     frame = Editor(parent=None, id=-1)
     frame.Show()
+
     app.MainLoop()
+
+if __name__ == '__main__':
+    main()
