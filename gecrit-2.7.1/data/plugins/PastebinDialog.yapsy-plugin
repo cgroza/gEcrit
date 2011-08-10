@@ -1,0 +1,9 @@
+[Core]
+Name = Pastebin.com Uploader
+Module = PastebinDialog
+
+[Documentation]
+Author = Groza Cristian
+Version = 0.1
+Website = http://www.sourceforge/projects/gecrit
+Description = Uploads the text buffer to pastebin.com

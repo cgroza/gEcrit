@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Terminal=false
+Icon[fr_CA]=gnome-panel-launcher
+Name[fr_CA]=gEcrit
+Exec=gecrit
+Comment[fr_CA]=A python text editor.
+Categories=Development;IDE;GTK;
+Icon=/usr/share/pixmaps/gEcrit.png
+Name=gEcrit
+Comment=A python text editor.

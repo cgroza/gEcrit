@@ -1,0 +1,954 @@
+
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 211 Anna Groza
+# This file is distributed under the same license as gEcrit.
+# FIRST AUTHOR anna.balerina@yahoo.com, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION"
+"Report-Msgid-Bugs-To: "
+"POT-Creation-Date: 2011-05-05 22:11-0400"
+"PO-Revision-Date: 2011-05-07 11:23-0500"
+"Last-Translator: Anna Groza anna.balerina@yahoo.com"
+"Language-Team: LANGUAGE <LL@li.org>"
+"Language: Spanish"
+"MIME-Version: 1.0"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-05-05 22:11-0400\n"
+"PO-Revision-Date: 2011-05-07 11:23-0500\n"
+"Last-Translator: Groza cristi <kristi9524@mail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+
+
+msgid "Session file loaded."
+msgstr "Sesja załadowana."
+
+
+msgid "Session saved."
+msgstr "zapisanej sesji."
+
+
+msgid "Could not load file.\nThe file "
+msgstr "Nie można załadować pliku\n."
+"Plik"
+
+
+msgid " does not exists."
+msgstr "nie istnieje."
+
+
+msgid "Input Error"
+msgstr "Błąd wejścia"
+
+
+msgid "Please make sure that your data is saved.\nAre you sure you want to quit?"
+msgstr "Proszę się upewnić, że dane są zapisywane.\n"
+"Czy na pewno chcesz wyjść?"
+
+
+msgid "Are you sure?"
+msgstr "Czy na pewno?"
+
+
+msgid "The file "
+msgstr "Plik "
+
+
+msgid " is not saved.\nDo you wish to save it?"
+msgstr "Nie został zapisany.\n"
+"Czy chcesz go zapisać?"
+
+
+
+msgid "Opened file "
+
+msgstr "Otwarty plik"
+
+
+msgid "Find"
+
+msgstr "Znajdź"
+
+msgid "Search and Replace"
+
+msgstr "Znajdź i zamień"
+
+
+
+
+msgid "The end of file was reached!\nNothing to replace."
+msgstr "Koniec pliku został osiągnięty! \n"
+"Nic nie zastąpi."
+
+
+msgid "&New Tab\tCtrl+N"
+
+msgstr "Nowa karta \tCtrl+N"
+
+
+
+
+
+
+msgid "Open a new tab."
+
+msgstr "Otwórz nową kartę."
+
+msgid "&Open\tCtrl+O"
+
+msgstr "Open \tCtrl + O"
+
+
+
+msgid "Open a new document."
+
+msgstr "Otwórz nowy dokument."
+
+
+msgid "&Save\tCtrl+S"
+
+msgstr "Zapisz \tCtrl + S"
+
+
+msgid "Save the document."
+
+msgstr "Zapisz dokument."
+
+
+
+msgid "Save As"
+
+
+msgstr "Zapisz jako"
+
+
+msgid "Save the document under a different name."
+
+msgstr "Zapisz dokument pod inną nazwą."
+
+
+
+msgid "Save All"
+msgstr "Zapisz wszystkie"
+
+
+
+msgid "Saves all the open documents that have a path."
+msgstr "Zapisuje wszystkie otwarte dokumenty, które drogą."
+
+
+
+
+msgid "Reload\tCtrl+R"
+msgstr "Odśwież\tCtrl+R"
+
+
+
+
+msgid "Reload the current file from disk."
+msgstr "Odśwież bieżącego pliku z dysku."
+
+
+
+
+msgid "&Print\tCtrl+P"
+msgstr "& Drukuj\tCtrl+P"
+
+
+
+msgid "Print the current document."
+msgstr "Drukuje bieżący dokument."
+
+
+
+
+
+msgid "Close &Tab\tCtrl+W"
+msgstr "Zamknij & Tab\tCtrl+W"
+
+
+
+msgid "Close the current tab."
+msgstr "Zamknij bieżącą kartę."
+
+
+
+msgid "Recent files\tShow the last opened files."
+msgstr "Ostatnie files \tShow ostatnio otwieranych plików."
+
+
+msgid "&Quit\tCtrl+Q"
+
+msgstr "Zakończ \tCtrl + Q"
+
+
+
+msgid "Quit gEcrit."
+
+msgstr "Zamknij gEcrit."
+
+
+
+msgid "&Undo\tCtrl+Z"
+
+msgstr "& Undo \tCtrl + Z"
+
+
+msgid "Cancel the last action."
+
+msgstr "An&uluj ostatniej akcji."
+
+
+
+
+msgid "&Redo\tCtrl+Y"
+
+msgstr "Redo\tCtrl+Y"
+
+
+
+
+
+
+
+msgid "Bring back the last action."
+
+
+msgstr "Przywróć ostatnią akcję."
+
+
+msgid "Cut the selection."
+
+
+
+
+msgstr "Wytnij zaznaczenie."
+
+
+msgid "&Cut\tCtrl+X"
+
+msgstr "&Cut\tCtrl+X"
+
+
+msgid "C&opy\tCtrl+C"
+
+msgstr "&Kopiuj\tCtrl+C"
+
+
+msgid "Copy the selection."
+
+
+msgstr "Kopiuj zaznaczenie."
+
+
+
+msgid "P&aste\tCtrl+V"
+
+msgstr "P&aste\tCtrl+V"
+
+
+msgid "Paste the selection."
+
+
+msgstr "Wklej wyboru."
+
+
+
+msgid "Select All\tCtrl+A"
+
+msgstr "Zaznacz wszystko\tCtrl+A"
+
+
+msgid "Select all the document."
+
+
+msgstr "Wybierz dokumentu."
+
+
+msgid "Select Code Block\tCtrl+Shift+A"
+
+
+msgstr "Wybierz Code Block\tCtrl+Shift+A"
+
+
+msgid "Select all the current code block."
+
+
+msgstr "Zaznacz wszystko do końca bloku kodu."
+
+
+msgid "Indent\tCtrl+K"
+
+
+msgstr "Wcięcie\tCtrl+K"
+
+
+
+msgid "Indent the selected lines."
+
+
+msgstr "wcięcie wybranych linii."
+
+
+
+msgid "Dedent\tCtrl+J"
+
+
+msgstr "Dedent \tCtrl + J"
+
+
+
+msgid "Dedent the selected lines."
+
+
+msgstr "Dedent wybranych linii."
+
+
+msgid "Comment Lines\tCtrl+Shift+C"
+
+
+
+msgstr "Lines komentarz\tCtrl+Shift+C"
+
+
+msgid "Comment the selected lines."
+
+
+msgstr "Komentarz wybranych linii."
+
+
+
+msgid "Uncomment Lines\tCtrl+Shift+X"
+
+
+msgstr "Odkomentować linie \tCtrl+Shift+X"
+
+
+msgid "Uncomment the selected lines."
+
+msgstr "Odkomentować wybrane linie."
+
+
+
+msgid "Insert date"
+
+
+msgstr "Data dodania"
+
+
+msgid "Insert the date at cursor position."
+
+
+msgstr "Należy podać datę w pozycji kursora."
+
+
+
+msgid "Preferences\tCtrl+E"
+
+msgstr "Ustawienia\tCtrl+E"
+
+
+
+
+msgid "Open the configuration window."
+
+msgstr "Otwórz okno konfiguracji."
+
+
+
+msgid "Find\tCtrl+F"
+
+msgstr "Pokaż\tCtrl+F"
+
+
+
+msgid "Search text in the current document."
+
+msgstr "Wyszukiwanie tekstu w bieżącym dokumencie."
+
+
+
+msgid "Find and Replace\tCtrl+H"
+
+msgstr "Znajdź i zamień\tCtrl+H"
+
+
+
+msgid "Search and replace text in the current document."
+
+msgstr "Wyszukiwanie i zamiana tekstu w bieżącym dokumencie."
+
+
+
+msgid "Regex Search\tCtrl+Shift+F"
+
+
+msgstr "Regex Search\tCtrl+Shift+F"
+
+
+
+msgid "Find text using a regular expression."
+
+
+msgstr "Znajdź tekst za pomocą wyrażenia regularnego."
+
+
+
+msgid "Regex Search and Replace\tCtrl+Shift+H"
+
+msgstr "Regex Znajdź i zamień\tCtrl+ hift+H"
+
+
+
+
+
+
+msgid "Find and replace text using a regular expression."
+
+msgstr "Znajdowanie i zastępowanie tekstu za pomocą wyrażeń regularnych."
+
+
+msgid "Zoom In\tCtrl++"
+msgstr "Zoom In\tCtrl++"
+
+
+msgid "Increase the size of the text."
+
+msgstr "Zwiększ rozmiar tekstu."
+
+
+
+msgid "Zoom Out\tCtrl+-"
+
+msgstr "Zoom Out\tCtrl+-"
+
+
+msgid "Decrease the size of the text."
+
+msgstr "Zmniejsz rozmiar tekstu."
+
+
+msgid "Normal Size\tCtrl+0"
+
+msgstr "Rozmiar normalny\tCtrl+0"
+
+
+
+
+
+msgid "Set the size of the text to normal."
+
+msgstr "Ustaw rozmiar tekstu do normy."
+
+
+
+
+msgid "Line Numbers"
+
+msgstr "Numery linii"
+
+
+msgid "Show/Hide line numbers."
+
+msgstr "Pokaż/Ukryj numery linii."
+
+
+
+
+
+
+msgid "Fold Marks"
+
+msgstr "Pokaż/Ukryj krotnie marek."
+
+
+
+
+
+msgid "Show/Hide fold marks."
+msgstr "Pokaż/Ukryj krotnie znaków."
+
+
+msgid "White Space"
+
+msgstr "White Space"
+
+
+
+msgid "Show/Hide white spaces."
+
+msgstr "Pokaż/Ukryj spacji."
+
+
+
+msgid "Indentation Guides"
+
+msgstr "Wcięcia przewodniki"
+
+
+
+msgid "Show/Hide indentation guides."
+
+msgstr "Pokaż/Ukryj prowadnice wcięcia."
+
+
+
+msgid "Edge Line"
+
+msgstr "Edge Line"
+
+
+
+msgid "Show/Hide the edge line."
+
+msgstr "Pokaż/Ukryj krawędzi."
+
+
+
+msgid "Syntax Highlight"
+
+msgstr "Podświetlanie składni"
+
+
+
+
+msgid "Enable/Disable Syntax Highlight."
+
+msgstr "Włącz/wyłącz podświetlanie składni."
+
+
+
+msgid "Python Shell"
+
+msgstr "Python Shell"
+
+
+msgid "Stop/Start a python shell."
+
+msgstr "Stop/Start powłoki Pythona."
+
+
+
+msgid "OS Shell"
+
+msgstr "OS Shell"
+
+
+
+msgid "Stop/Start an OS shell."
+
+msgstr "Stop/Start powłoki systemu operacyjnego."
+
+
+
+msgid "Statusbar"
+
+msgstr "Pasek stanu"
+
+
+
+msgid "Show/Hide statusbar."
+msgstr "Pokaż/Ukryj pasek stanu."
+
+
+
+msgid "Fullscreen\tF11"
+
+msgstr "Pełny ekran\tF11"
+
+
+
+
+msgid "Toggle Fullscreen mode."
+
+msgstr "Przełącz tryb pełnoekranowy."
+
+
+
+msgid "Toggle Toolbox"
+
+msgstr "Przełącz Toolbox"
+
+
+
+msgid "Show/Hide Toolbox window."
+
+msgstr "Pokaż/Ukryj okno Toolbox."
+
+
+
+msgid "Toggle Assistants"
+
+msgstr "Przełącz asystentów"
+
+
+
+msgid "Show/Hide Assistants window."
+
+msgstr "Pokaż/Ukryj okno asystentów."
+
+
+
+msgid "Remove Trailing  Spaces"
+
+
+msgstr "Usuń spacje na końcu"
+
+
+
+
+msgid "Remove spaces at the end of the line."
+
+msgstr "Usuń spacje na końcu linii."
+
+
+
+
+msgid "Run File\tF5"
+
+
+msgstr "Uruchom File\tF5"
+
+
+
+msgid "Run the current document.(python only)"
+
+msgstr "Uruchom w bieżącym dokumencie. (python tylko)"
+
+
+
+msgid "Tabify"
+
+msgstr "Tabify"
+
+
+
+msgid "Replace spaces by tabs."
+
+msgstr "Zamień spacje kart."
+
+
+
+msgid "Untabify"
+
+
+msgstr "Untabify"
+
+
+
+msgid "Replace tabs by spaces."
+
+msgstr "Zamień karty spacjami."
+
+
+
+msgid "Enable Session"
+
+msgstr "Włącz Session"
+
+
+
+
+msgid "Enable/Disable Session support."
+
+msgstr "Włącz/Wyłącz Obsługa sesji."
+
+
+
+
+msgid "Save Session"
+
+msgstr "Zapisz sesję"
+
+
+
+msgid "Save the current application state."
+
+msgstr "Zapisz bieżący stan aplikacji."
+
+
+msgid "Delete Session"
+
+msgstr "Usuń Session"
+
+
+
+
+msgid "Delete the saved session file."
+
+
+msgstr "Usuń zapisanego pliku sesji."
+
+
+
+msgid "Plugin Manager"
+
+msgstr "Plugin Manager"
+
+
+
+
+msgid "Manage gEcrit Plugins."
+
+msgstr "Zarządzaj gEcrit Plugins."
+
+
+
+msgid "About"
+
+msgstr "O"
+
+
+
+msgid "Open the about window."
+
+msgstr "Otwórz okno o programie."
+
+
+
+msgid "&File"
+
+msgstr "Plik"
+
+
+msgid "&Edit"
+
+msgstr "&Edycja"
+
+
+
+msgid "&Search"
+
+msgstr "&Szukaj"
+
+
+msgid "&View"
+
+msgstr "&Widok"
+
+
+msgid "&Document"
+
+msgstr "&Dokument"
+
+
+msgid "&Session"
+
+
+msgstr "&Sesja"
+
+
+
+msgid "&Plugins"
+
+msgstr "&Wtyczki"
+
+
+msgid "&Help"
+
+msgstr "&Pomoc"
+
+
+
+msgid "New"
+
+msgstr "Nowy"
+
+
+msgid "Open"
+
+msgstr "Open"
+
+
+
+
+msgid "Save"
+
+msgstr "Zapisz"
+
+
+msgid "Save the current document."
+
+
+msgstr "Zapisz bieżącego dokumentu."
+
+
+
+msgid "Save the current document under a differend name."
+
+msgstr "Zapisz bieżący dokument w differend imię."
+
+
+
+msgid "Settings"
+
+msgstr "Ustawienia"
+
+
+
+msgid "Quit"
+
+msgstr "Quit"
+
+
+msgid "Quit gEcrit"
+
+msgstr "Zamknij gEcrit"
+
+
+
+msgid "Print"
+
+
+msgstr "Drukuj"
+
+
+
+
+msgid "Run the current file.(Python only)"
+
+msgstr "Uruchom bieżącego pliku. (Python tylko)"
+
+
+msgid "Autocomplete Braces"
+msgstr "Autouzupełnianie Szelki"
+
+
+msgid "Show Line Numbers"
+msgstr "Pokaż numery linii"
+
+
+msgid "Autoindentation"
+msgstr "Autoindentation"
+
+
+msgid "Backspace to Unindent"
+msgstr "Backspace Usunięcie wcięcia tekstu"
+
+msgid "Use Tabs"
+msgstr "Użyj karty"
+
+
+msgid "Show Whitespace"
+msgstr "Spacja"
+
+msgid "Edge Line Position:"
+msgstr "Edge Line stanowisko:"
+
+
+msgid "Enable Autosave"
+msgstr "Autozapis"
+
+
+msgid "Save data each # of characters:"
+msgstr "Zapisz dane każdego # znaków:"
+
+
+msgid "Strip Trailing Spaces On Save"
+msgstr "Strip spacje na Zapisz"
+
+
+msgid "Status Bar"
+msgstr "Pasek stanu"
+
+
+msgid "Enable Log"
+msgstr "Włącz Log"
+
+msgid "Colour Palette"
+msgstr "Colour Palette"
+
+
+msgid "View Log"
+msgstr "Zobacz Log"
+
+
+msgid "Erase Log"
+msgstr "Usuń Log"
+
+
+msgid "OK"
+msgstr "OK"
+
+msgid "Toolbox"
+msgstr "Toolbox"
+
+msgid "Assistants and others"
+msgstr "Asystentów i innych"
+
+
+msgid "Remove"
+msgstr "Usuń"
+
+msgid "Author: "
+msgstr "Autor:"
+
+
+msgid "Version: "
+msgstr "Wersja:"
+
+msgid "Website: "
+msgstr "Strona WWW"
+
+msgid "Description: "
+msgstr "Opis:"
+
+
+msgid "Keywords"
+
+msgstr "Słowa kluczowe"
+
+
+msgid "Strings"
+msgstr "Strings"
+
+
+msgid "Triple Quotes"
+msgstr "Potrójnych cudzysłowów"
+
+msgid "Integers"
+msgstr "Liczby naturalne"
+
+
+msgid "Comments"
+msgstr "Komentarze"
+
+msgid "Brackets"
+msgstr "Klamry"
+
+
+
+msgid "Bad EOL"
+msgstr "Bad EOL"
+
+
+msgid "Method Names"
+
+msgstr "Metoda Names"
+
+
+msgid "Operators"
+msgstr "Operatorów"
+
+
+msgid "Identifiers"
+msgstr "Identyfikatory"
+
+
+msgid "Plugins:"
+msgstr "Wtyczki"
+
+

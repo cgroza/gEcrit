@@ -1,0 +1,12 @@
+[Core]
+Name = Terminator
+Module = Terminator
+
+[Documentation]
+Author = Groza Cristian
+Version = 0.1
+Website = http://www.sourceforge/projects/gecrit
+Description = With this plugin you can have multiple terminal tabs for any shell
+              you wish. Shells for Python and Bash are provided by default
+              but you can add and remove as many as you wish. All it needs is the
+              path to the shell interpreter.
