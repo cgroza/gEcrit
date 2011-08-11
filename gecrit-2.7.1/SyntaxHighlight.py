@@ -37,7 +37,6 @@ class SyntaxColorizer:
         Generates a default color dictionary.
 
         """
-        self.__HOMEDIR = os.path.expanduser('~')
 
         self.__default_color_dict = {
             "Integers": wx.Colour(181, 69, 166, 255),
@@ -53,6 +52,10 @@ class SyntaxColorizer:
             "EdgeLine": wx.Color(255, 0, 22),
             }
         self.__color_dict = {}
+
+        self.__HOMEDIR = os.path.expanduser('~')
+        self.cfg_path = os.path.join(self.__HOMEDIR, ".gEcrit", ".gEcritColor")
+        self.cfg_dir = os.path.join(self.__HOMEDIR, ".gEcrit")
         self.ReadColorFile()
 
     def GetColor(self, item):
@@ -67,13 +70,13 @@ class SyntaxColorizer:
 
         """
         try:
-            colour_file = open(self.__HOMEDIR + "/.gEcrit/.gEcritColor", "r")
+            colour_file = open(self.cfg_path, "r")
             self.__color_dict = eval(colour_file.read())
         except:
-            if not os.path.exists(self.__HOMEDIR + "/.gEcrit"):
-                os.mkdir(self.__HOMEDIR + "/.gEcrit/")
+            if not os.path.exists(self.cfg_dir):
+                os.mkdir(self.cfg_dir)
             self.__color_dict = self.__default_color_dict
-            colour_file = open(self.__HOMEDIR + "/.gEcrit/.gEcritColor", "w")
+            colour_file = open(self.cfg_path, "w")
             colour_file.write(str(self.__default_color_dict))
         colour_file.close()
 
@@ -88,18 +91,16 @@ class SyntaxColorizer:
         """
         try:
             (self.__default_color_dict)[item]
-            colour_file = open(self.__HOMEDIR + "/.gEcrit/.gEcritColor", "r")
+            colour_file = open(self.cfg_path, "r")
             self.__color_dict = eval(colour_file.read())
             self.__color_dict[item] = newcolor
-            colour_file = open(self.__HOMEDIR + "/.gEcrit/.gEcritColor", "w")
+            colour_file = open(self.cfg_path, "w")
             colour_file.write(str(self.__color_dict))
         except:
-            if not os.path.exists(self.__HOMEDIR + "/.gEcrit"):
-                os.mkdir(self.__HOMEDIR + "/.gEcrit/")
             self.__color_dict = self.__default_color_dict
-            colour_file = open(self.__HOMEDIR + "/.gEcrit/.gEcritColor", "w")
+            colour_file = open(self.cfg_path, "w")
             colour_file.write(str(self.__default_color_dict))
-            colour_file = open(self.__HOMEDIR + "/.gEcrit/.gEcritColor", "r")
+            colour_file = open(self.cfg_path, "r")
             self.__color_dict[item] = newcolor
 
         colour_file.close()

@@ -13,53 +13,30 @@ class StcPythonMode(StcMode):
         StcMode.__init__(self, stc_ctrl)
 
     def OnComment(self, event):
-        sel_end = self.stc_ctrl.LineFromPosition(self.stc_ctrl.GetSelectionEnd())
-        sel_start = self.stc_ctrl.LineFromPosition(self.stc_ctrl.GetSelectionStart())
-        for line in range(sel_start, sel_end+1):
-            line_text = "# "+self.stc_ctrl.GetLine(line)
-            ln_length = self.stc_ctrl.LineLength(line)
-            st = self.stc_ctrl.GetLineEndPosition(line) - ln_length
-            end = self.stc_ctrl.GetLineEndPosition(line)
-            self.stc_ctrl.SetTargetStart(st+1)
-            self.stc_ctrl.SetTargetEnd(end+1)
-            self.stc_ctrl.ReplaceTarget(line_text)
+        self.CommentSelection("#")
+
 
     def OnUnComment(self, event):
-        sel_end = self.stc_ctrl.LineFromPosition(self.stc_ctrl.GetSelectionEnd())
-        sel_start = self.stc_ctrl.LineFromPosition(self.stc_ctrl.GetSelectionStart())
-        for line in range(sel_start, sel_end+1):
-            line_text = self.stc_ctrl.GetLine(line)
-            #Remove Comment:
-            comment = line_text.find('#')
-            if comment > -1:
-                line_text = line_text[comment+1:]
-                ln_length = self.stc_ctrl.LineLength(line)
-                st = self.stc_ctrl.GetLineEndPosition(line) - ln_length
-                end = self.stc_ctrl.GetLineEndPosition(line)
-                self.stc_ctrl.SetTargetStart(st+1)
-                self.stc_ctrl.SetTargetEnd(end+1)
-                self.stc_ctrl.ReplaceTarget(line_text)
+        self.UnCommentSelection("#")
 
     def AutoIndent(self, event):
-        key = event.GetKeyCode()
-        if key == wx.WXK_NUMPAD_ENTER or key == wx.WXK_RETURN:
-            try:  #to silence a useless error message
-                line = self.stc_ctrl.GetCurrentLine()
-                if self.stc_ctrl.GetLine(line - 1)[-2].rstrip() == ":":
-                    self.stc_ctrl.SetLineIndentation(line,self.stc_ctrl.GetLineIndentation(line-1)+self.stc_ctrl.GetIndent())
-                    self.stc_ctrl.LineEnd()
-                else:
-                    self.stc_ctrl.SetLineIndentation(line, self.stc_ctrl.GetLineIndentation(line - 1))
-                    self.stc_ctrl.LineEnd()
-            except: event.Skip()
+        try:  #to silence a useless error message
+            line = self.stc_ctrl.GetCurrentLine()
+            if self.stc_ctrl.GetLine(line - 1)[-2].rstrip() == ":":
+                self.stc_ctrl.SetLineIndentation(line,self.stc_ctrl.GetLineIndentation(line-1)+self.stc_ctrl.GetIndent())
+                self.stc_ctrl.LineEnd()
+            else:
+                self.stc_ctrl.SetLineIndentation(line, self.stc_ctrl.GetLineIndentation(line - 1))
+                self.stc_ctrl.LineEnd()
+        except: event.Skip()
 
 
     def OnSelectCodeBlock(self, event):
         up_line = self.stc_ctrl.GetCurrentLine()
         down_line = up_line
         indent = self.stc_ctrl.GetLineIndentation(up_line)
-
-        while True:
+        max_line = self.stc_ctrl.GetLineCount()
+        while up_line > 0:
             if self.stc_ctrl.GetLineIndentation(up_line) >= indent:
                 up_line -= 1
             elif self.stc_ctrl.GetLineIndentation(up_line) < indent:
@@ -67,7 +44,7 @@ class StcPythonMode(StcMode):
                     up_line -= 1
                 else: break
 
-        while True:
+        while down_line < max_line:
             if self.stc_ctrl.GetLineIndentation(down_line) >= indent:
                 down_line += 1
             elif self.stc_ctrl.GetLineIndentation(down_line) < indent:
@@ -126,59 +103,331 @@ class StcRubyMode(StcMode):
                 "yield"]
 
     lang_name = "Ruby"
-
+    __block_start = ["begin", "BEGIN", "case", "class", "def", "do", "else",
+                     "elseif", "ensure", "for", "if", "module", "rescue",
+                     "then", "unless", "until", "when", "while"]
+    __block_end = ["end", "END", ]
+    
     def __init__(self, stc_ctrl):
         StcMode.__init__(self, stc_ctrl)
         
     def OnComment(self, event):
-        sel_end = self.stc_ctrl.LineFromPosition(self.stc_ctrl.GetSelectionEnd())
-        sel_start = self.stc_ctrl.LineFromPosition(self.stc_ctrl.GetSelectionStart())
-        for line in range(sel_start, sel_end+1):
-            line_text = "# "+self.stc_ctrl.GetLine(line)
-            ln_length = self.stc_ctrl.LineLength(line)
-            st = self.stc_ctrl.GetLineEndPosition(line) - ln_length
-            end = self.stc_ctrl.GetLineEndPosition(line)
-            self.stc_ctrl.SetTargetStart(st+1)
-            self.stc_ctrl.SetTargetEnd(end+1)
-            self.stc_ctrl.ReplaceTarget(line_text)
+        self.CommentSelection("#")
 
     def OnUnComment(self, event):
-        sel_end = self.stc_ctrl.LineFromPosition(self.stc_ctrl.GetSelectionEnd())
-        sel_start = self.stc_ctrl.LineFromPosition(self.stc_ctrl.GetSelectionStart())
-        for line in range(sel_start, sel_end+1):
-            line_text = self.stc_ctrl.GetLine(line)
-            #Remove Comment:
-            comment = line_text.find('#')
-            if comment > -1:
-                line_text = line_text[comment+1:]
-                ln_length = self.stc_ctrl.LineLength(line)
-                st = self.stc_ctrl.GetLineEndPosition(line) - ln_length
-                end = self.stc_ctrl.GetLineEndPosition(line)
-                self.stc_ctrl.SetTargetStart(st+1)
-                self.stc_ctrl.SetTargetEnd(end+1)
-                self.stc_ctrl.ReplaceTarget(line_text)
-
+        self.UnCommentSelection("#")
+        
     def AutoIndent(self, event):
-        key = event.GetKeyCode()
-        if key == wx.WXK_NUMPAD_ENTER or key == wx.WXK_RETURN:
-            linenr = self.stc_ctrl.GetCurrentLine()
-            line = self.stc_ctrl.GetLine(linenr - 1)
-            if not line.isspace():
-                line = line.split()
-                if line[-1].rstrip() in ["do","begin","ensure","{","else","then"] or line[0].lstrip() in ["def","class", "module", "rescue","while", "for", "when", "if", "case", "until","unless"]:
-                    self.stc_ctrl.SetLineIndentation(linenr,self.stc_ctrl.GetLineIndentation(linenr-1)+self.stc_ctrl.GetIndent())
-                    self.stc_ctrl.LineEnd()
-                else:
-                    self.stc_ctrl.SetLineIndentation(linenr, self.stc_ctrl.GetLineIndentation(linenr - 1))
-                    self.stc_ctrl.LineEnd()
-
+        linenr = self.stc_ctrl.GetCurrentLine()
+        line = self.stc_ctrl.GetLine(linenr - 1)
+        if not line.isspace():
+            line = line.split()
+            if line[-1].rstrip() in ["do","begin","ensure","{","else","then"] or line[0].lstrip() in ["def","class", "module", "rescue","while", "for", "when", "if", "case", "until","unless"]:
+                self.stc_ctrl.SetLineIndentation(linenr,self.stc_ctrl.GetLineIndentation(linenr-1)+self.stc_ctrl.GetIndent())
+                self.stc_ctrl.LineEnd()
             else:
                 self.stc_ctrl.SetLineIndentation(linenr, self.stc_ctrl.GetLineIndentation(linenr - 1))
                 self.stc_ctrl.LineEnd()
 
-    def OnSelectCodeBlock(self, event):
-        pass
+        else:
+            self.stc_ctrl.SetLineIndentation(linenr, self.stc_ctrl.GetLineIndentation(linenr - 1))
+            self.stc_ctrl.LineEnd()
 
+    def OnSelectCodeBlock(self, event):
+        up_line = self.stc_ctrl.GetCurrentLine()
+        down_line = up_line
+
+        max_line = self.stc_ctrl.GetLineCount()
+        
+        cur_line = ""
+
+        while up_line > 0:
+            cur_line = self.stc_ctrl.GetLine(up_line)
+            if cur_line.isspace():
+                pass
+            elif StcRubyMode.__HasBlockStart(cur_line):
+                break
+            up_line -= 1
+
+        ignore_delims = 0       # to keep track of nested blocks
+        orig_line = down_line
+        while down_line < max_line:
+            cur_line = self.stc_ctrl.GetLine(down_line)
+            if cur_line.isspace():
+                pass
+            elif StcRubyMode.__HasBlockStart(cur_line) and down_line != orig_line:
+                ignore_delims += 1
+            elif StcRubyMode.__HasBlockEnd(cur_line) and ignore_delims == 0:
+                break
+            down_line += 1
+
+        self.stc_ctrl.SetSelection(self.stc_ctrl.GetLineEndPosition(up_line),
+                                   self.stc_ctrl.GetLineEndPosition(down_line-1))
+
+    # helper functions for OnSelectCodeBlock
+    @staticmethod
+    def __HasBlockStart(line):
+        """ This method checks for Ruby block Starters"""
+        line = line.split()
+        for word in line:
+            if word in StcRubyMode.__block_start:
+                return True
+        return False
+
+    @staticmethod
+    def __HasBlockEnd(line):
+        """ This class check for Ruby block such as end """
+        line = line.split()
+        for word in line:  
+            if word in StcRubyMode.__block_end:
+                return True
+        return False
+
+class StcCppMode(StcMode):
+    lexer = wx.stc.STC_LEX_CPP
+    file_extensions = ["h", "cpp" ,"hpp", "c", "cxx", "C"]
+    keywords = ["auto",
+                "const",
+                "double",
+                "float",
+                "int",
+                "short",
+                "struct",
+                "unsigned",
+                "break",
+                "continue",
+                "else",
+                "for",
+                "long",
+                "signed",
+                "switch",
+                "void",
+                "case",
+                "default",
+                "enum",
+                "goto",
+                "register",
+                "sizeof",
+                "typedef",
+                "volatile","char",
+                "do",
+                "extern",
+                "if",
+                "return",
+                "static",
+                "union",
+                "while",
+                "asm",
+                "dynamic_cast",
+                "namespace",
+                "reinterpret_cast",
+                "try",
+                "bool",
+                "explicit",
+                "new",
+                "static_cast",
+                "typeid",
+                "catch",
+                "false",
+                "operator",
+                "template",
+                "typename",
+                "class","friend",
+                "private",
+                "this"
+                "using",
+                "const_cast",
+                "inline",
+                "public",
+                "throw",
+                "virtual",
+                "delete",
+                "mutable",
+                "protected",
+                "true",
+                "wchar_t"]
+
+    lang_name = "C/C++"
+
+    def __init__(self, stc_ctrl):
+        StcMode.__init__(self, stc_ctrl)
+
+    def OnComment(self, event):
+        self.CommentSelection("//")
+
+    def OnUnComment(self, event):
+        # remove the  // in front of every selected line
+        self.UnCommentSelection("//")
+        
+    def AutoIndent(self, event):
+        try:  #to silence a useless error message
+            line = self.stc_ctrl.GetCurrentLine()
+            if self.stc_ctrl.GetLine(line - 1)[-2].rstrip() == "{":
+                self.stc_ctrl.SetLineIndentation(line,self.stc_ctrl.GetLineIndentation(line-1)+self.stc_ctrl.GetIndent())
+                self.stc_ctrl.LineEnd()
+            else:
+                self.stc_ctrl.SetLineIndentation(line, self.stc_ctrl.GetLineIndentation(line - 1))
+                self.stc_ctrl.LineEnd()
+        except: event.Skip()
+
+
+    def OnSelectCodeBlock(self, event):
+        up_line = self.stc_ctrl.GetCurrentLine()
+        down_line = up_line
+        max_line = self.stc_ctrl.GetLineCount()
+
+        cur_line = ""
+
+        while up_line > 0 or "{" in cur_line:
+            cur_line = self.stc_ctrl.GetLine(up_line)
+            up_line -= 1
+
+        cur_line = ""
+        ignore_delim = 0        # to keep track of nested blocks
+        orig_line = down_line
+        while down_line < max_line:
+            cur_line = self.stc_ctrl.GetLine(down_line)
+            if down_line == orig_line:
+                pass
+            elif "}" in cur_line and ignore_delim == 0:
+                break
+            down_line += 1
+
+        self.stc_ctrl.SetSelection(self.stc_ctrl.GetLineEndPosition(up_line),
+                                   self.stc_ctrl.GetLineEndPosition(down_line-1))
+
+
+class StcPerlMode(StcMode):
+    """
+    This class implements the Perl mode.
+    """
+    lexer = wx.stc.STC_LEX_PERL
+    file_extensions = ["perl", "pl"]
+    keywords = ["if",
+                "unless",
+                "else",
+                "elsif",
+                "for",
+                "foreach",
+                "while",
+                "until",
+                "continue",
+                "do",
+                "use",
+                "no",
+                "last",
+                "next",
+                "redo",
+                "goto",
+                "my",
+                "our",
+                "state",
+                "local",
+                "sub",
+                "eval",
+                "package",
+                "require",
+                "defined",
+                "delete",
+                "eval",
+                "exists",
+                "grep",
+                "map",
+                "pos",
+                "print",
+                "return",
+                "scalar",
+                "sort",
+                "split",
+                "undef",
+                "chop",
+                "abs",
+                "binmode",
+                "bless",
+                "caller",
+                "chdir",
+                "chr",
+                "close",
+                "die",
+                "each",
+                "glob",
+                "hex",
+                "index",
+                "int",
+                "join",
+                "keys",
+                "lc",
+                "lcfirst",
+                "length",
+                "oct",
+                "open",
+                "ord",
+                "pipe",
+                "pop",
+                "push",
+                "quotemeta",
+                "readline",
+                "ref",
+                "reverse",
+                "rmdir",
+                "shift",
+                "splice",
+                "sprintf",
+                "substr",
+                "uc",
+                "ucfirst",
+                "unlink",
+                "unshift",
+                "values",
+                "vec",
+                "wantarray",
+                "warn"]
+
+    lang_name = "Perl"
+
+    def OnComment(self, event):
+        self.CommentSelection("#")
+
+    def OnUnComment(self, event):
+        self.UnCommentSelection("#")
+
+
+    def AutoIndent(self, event):
+        try:  #to silence a useless error message
+            line = self.stc_ctrl.GetCurrentLine()
+            if self.stc_ctrl.GetLine(line - 1)[-2].rstrip() == "{":
+                self.stc_ctrl.SetLineIndentation(line,self.stc_ctrl.GetLineIndentation(line-1)+self.stc_ctrl.GetIndent())
+                self.stc_ctrl.LineEnd()
+            else:
+                self.stc_ctrl.SetLineIndentation(line, self.stc_ctrl.GetLineIndentation(line - 1))
+                self.stc_ctrl.LineEnd()
+        except: event.Skip()
+
+
+    def OnSelectCodeBlock(self, event):
+        up_line = self.stc_ctrl.GetCurrentLine()
+        down_line = up_line
+        max_line = self.stc_ctrl.GetLineCount()
+
+        cur_line = ""
+
+        while up_line > 0 or "{" in cur_line:
+            cur_line = self.stc_ctrl.GetLine(up_line)
+            up_line -= 1
+
+        cur_line = ""
+        ignore_delim = 0        # to keep track of nested blocks
+        orig_line = down_line
+        while down_line < max_line:
+            cur_line = self.stc_ctrl.GetLine(down_line)
+            if down_line == orig_line:
+                pass
+            elif "}" in cur_line and ignore_delim == 0:
+                break
+            down_line += 1
+
+        self.stc_ctrl.SetSelection(self.stc_ctrl.GetLineEndPosition(up_line),
+                                   self.stc_ctrl.GetLineEndPosition(down_line-1))
 
 
 class StcFundamentalMode(StcMode):

@@ -447,7 +447,7 @@ class Editor(wx.Frame):
 
     def OnRun(self, event, text_id):
         """
-            Runs the current document in a xterm window, for testing.
+        Runs the current document in a xterm window, for testing.
         """
         cur_doc = wx.FindWindowById(text_id)
         cur_doc.Save(0)
@@ -455,10 +455,10 @@ class Editor(wx.Frame):
 
     def OnGotoBox(self, event, text_id):
         """
-            OnGotoBox
+        OnGotoBox
 
-            Finds the current document, and scrolls to the line indicated
-            by its input upon the Return key.
+        Finds the current document, and scrolls to the line indicated
+        by its input upon the Return key.
         """
         cur_doc = wx.FindWindowById(text_id)
         goto = wx.FindWindowById(608)
@@ -469,10 +469,10 @@ class Editor(wx.Frame):
 
     def OnPrint(self, event):
         """
-            OnPrint
+        OnPrint
 
-            Finds the document, sets the prints name, and calls the
-            wxPython toolkit to print the contents
+        Finds the document, sets the prints name, and calls the
+        wxPython toolkit to print the contents
         """
 
         print_dlg = PrettyPrinter(self)

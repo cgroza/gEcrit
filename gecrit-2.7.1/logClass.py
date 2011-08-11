@@ -33,6 +33,7 @@ class Logger:
     """
     def __init__(self):
         self.__HOMEDIR = os.path.expanduser('~')
+        self.log_path = os.path.join(self.__HOMEDIR, ".gEcrit", "gEcrit.log")
 
     def AddLogEntry(self, entry):
         """
@@ -43,7 +44,7 @@ class Logger:
             The string is received from its argument.
         """
         if Config.GetOption("ActLog"):
-            log_file = open(self.__HOMEDIR+"/.gEcrit/gEcrit.log", "a")
+            log_file = open(self.log_path, "a")
             log_file.write("\n")
             log_file.write(time.ctime() + " : "+ entry)
             log_file.close()
@@ -54,7 +55,7 @@ class Logger:
 
         Opens the log file and erases its contents.
         """
-        log_file = open(self.__HOMEDIR+"/.gEcrit/gEcrit.log", "w")
+        log_file = open(self.log_path, "w")
         log_file.write("")
         log_file.close()
 
@@ -64,7 +65,7 @@ class Logger:
 
         Reads the log file and returns a string with its contents.
         """
-        log_file = open(self.__HOMEDIR+"/.gEcrit/gEcrit.log", "r")
+        log_file = open(self.log_path, "r")
         logcontent = ""
         try:
             for line in log_file.readlines():

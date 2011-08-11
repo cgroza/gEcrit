@@ -28,7 +28,7 @@ class gEcritSession:
     and current selected tab.
     """
 
-    __session_dump_path = os.path.expanduser("~")+"/.gEcrit/session.gecrit"
+    __session_dump_path = os.path.join(os.path.expanduser("~"), ".gEcrit", "session.gecrit")
 
 
     def __init__(self):

@@ -37,7 +37,7 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
     Stores its file path.
     """
 
-    lang_modes = [StcPythonMode, StcRubyMode]
+    lang_modes = [StcPythonMode, StcRubyMode, StcCppMode, StcPerlMode]
 
     __brace_dict={              # for barce completion
                 40:")",
@@ -181,8 +181,7 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
             savefileas_dlg.SetDirectory(self.__HOMEDIR)
         if savefileas_dlg.ShowModal() == wx.ID_OK:
             filename = savefileas_dlg.GetFilename()
-            saveas_path = savefileas_dlg.GetDirectory() + "/" + \
-                filename
+            saveas_path = os.path.join(savefileas_dlg.GetDirectory(), filename)
 
             if Config.GetOption("StripTrails"):
                 self.OnRemoveTrails(0)
@@ -203,7 +202,6 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
             if self.GetFileExtension not in self.lang_mode.__class__.file_extensions:
                 self.UpdateLangMode()
                 self.SetStatusFileMode()
-
 
             #notify general plugins
             for t in self.__main_window.general_plugins:
@@ -492,8 +490,10 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         Responsible for the autoindentation feature.
 
         """
-        if Config.GetOption("Autoindentation"):
-            self.lang_mode.AutoIndent(event)
+        key = event.GetKeyCode()
+        if key == wx.WXK_NUMPAD_ENTER or key == wx.WXK_RETURN:
+            if Config.GetOption("Autoindentation"):
+                self.lang_mode.AutoIndent(event)
         event.Skip()
 
 

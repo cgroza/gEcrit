@@ -15,7 +15,26 @@
 
 
 #!/bin/sh
-python "$1"
+F=$1
+EXT=${F#*.}
+
+if [ "$EXT" = "py" ]
+    then
+    python $1
+elif [ "$EXT" = "pl" ]
+    then
+    perl $1
+
+elif [ "$EXT" = "perl" ]
+    then
+    perl $1
+
+elif [ "$EXT" = "rb" ]
+    then
+    irb $1
+fi
+
+
 echo "
 ------------------
 (program exited with code: $?)"
@@ -23,3 +42,4 @@ echo "Press return to continue"
 #to be more compatible with shells like dash
 dummy_var=""
 read dummy_var
+

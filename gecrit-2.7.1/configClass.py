@@ -29,6 +29,7 @@ class ConfigNanny:
     Manages the application configuration manipulation.
 
     """
+
     def __init__(self):
         """
         __init__
@@ -86,6 +87,8 @@ class ConfigNanny:
         }
 
         self.HOMEDIR = os.path.expanduser('~')
+        self.cfg_path = os.path.join(self.HOMEDIR, ".gEcrit","gEcrit.conf")
+        self.cfg_dir = os.path.join(self.HOMEDIR, ".gEcrit")
 
         self.ReadConfig()
 
@@ -116,7 +119,7 @@ class ConfigNanny:
         (self.DefaultConfigDict)[option]
         TempConfigDict[option] = val
 
-        NewConfig = open(self.HOMEDIR + "/.gEcrit/gEcrit.conf", "w")
+        NewConfig = open(self.cfg_path, "w")
         NewConfig.write(str(TempConfigDict))
         NewConfig.close()
         if option in ["PythonShell","BashShell"]:
@@ -137,15 +140,15 @@ class ConfigNanny:
         If something goes wrong, returns from default.
         """
         try:
-            ConfigFile = open(self.HOMEDIR + "/.gEcrit/gEcrit.conf", "r")
+            ConfigFile = open(self.cfg_path, "r")
             self.ConfigDict = eval(ConfigFile.read())
             return self.ConfigDict
         except:
-            if not os.path.exists(self.HOMEDIR + "/.gEcrit/gEcrit.conf"):
-                if not os.path.exists(self.HOMEDIR + "/.gEcrit"):
-                    os.mkdir(self.HOMEDIR + "/.gEcrit/")
+            if not os.path.exists(self.cfg_path):
+                if not os.path.exists(self.cfg_dir):
+                    os.mkdir(self.cfg_dir)
             self.ConfigDict = self.DefaultConfigDict
-            ConfigFile = open(self.HOMEDIR + "/.gEcrit/gEcrit.conf", "w")
+            ConfigFile = open(cfg_path, "w")
             ConfigFile.write(str(self.DefaultConfigDict))
             ConfigFile.close()
             return self.ConfigDict

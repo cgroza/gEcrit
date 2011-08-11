@@ -43,7 +43,6 @@ class AuiNoteBook(wx.aui.AuiNotebook):
         Alerts the plugins of the current document change.
         """
 
-
         wx.FindWindowById((self.parent.id_range)[self.GetSelection()]).SetStatusFileMode()
 
         for g in self.parent.general_plugins:
