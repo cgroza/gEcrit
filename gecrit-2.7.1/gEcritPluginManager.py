@@ -16,7 +16,7 @@
 
 
 import wx, gettext
-from configClass import *
+from Configuration import *
 
 class gEcritPluginManager(wx.Frame):
     def __init__(self, parent, id = -1):

@@ -21,35 +21,85 @@ class StcMode(object):
         It appends @comment_string in front of every selected line.
 
         """
-        sel_end = self.stc_ctrl.LineFromPosition(self.stc_ctrl.GetSelectionEnd())
-        sel_start = self.stc_ctrl.LineFromPosition(self.stc_ctrl.GetSelectionStart())
-        for line in xrange(sel_start, sel_end+1):
-            ln_length = self.stc_ctrl.LineLength(line)
-            if line == sel_end + 1:
-                st = self.stc_ctrl.GetLineEndPosition(line) - ln_length
-            else:
-                st = self.stc_ctrl.GetLineEndPosition(line) - ln_length + 1
-            self.stc_ctrl.InsertText(st, comment_string)
+        # from drPython source code
+        selstart, selend = self.stc_ctrl.GetSelection()
+        #From the start of the first line selected
+        oldcursorpos = self.stc_ctrl.GetCurrentPos()
+        startline = self.stc_ctrl.LineFromPosition(selstart)
+        self.stc_ctrl.GotoLine(startline)
+        start = self.stc_ctrl.GetCurrentPos()
+        #To the end of the last line selected
+        #Bugfix Chris Wilson
+        #Edited by Dan (selend fix)
+        if selend == selstart:
+            tend = selend
+        else:
+            tend = selend - 1
+
+        docstring = comment_string
+
+        end = self.stc_ctrl.GetLineEndPosition(self.stc_ctrl.LineFromPosition(tend))
+        #End Bugfix Chris Wilson
+        eol = self.stc_ctrl.GetEndOfLineCharacter()
+        corr = 0
+        l = len(self.stc_ctrl.GetText())
+        # if self.prefs.doccommentmode == 0:
+        self.stc_ctrl.SetSelection(start, end)
+        text = docstring + self.stc_ctrl.GetSelectedText()
+        text = text.replace(eol, eol + docstring)
+        self.stc_ctrl.ReplaceSelection(text)
+        corr = len(self.stc_ctrl.GetText()) - l
+        self.stc_ctrl.GotoPos(oldcursorpos + corr)
 
     def UnCommentSelection(self, comment_string):
         """
         This is a helper function for child classes.
         It removes the leading @comment_string in selectod lines.
         """
-        sel_end = self.stc_ctrl.LineFromPosition(self.stc_ctrl.GetSelectionEnd())
-        sel_start = self.stc_ctrl.LineFromPosition(self.stc_ctrl.GetSelectionStart())
-        for line in range(sel_start, sel_end+1):
-            line_text = self.stc_ctrl.GetLine(line)
-            #Remove Comment:
-            comment = line_text.find(comment_string)
-            if comment > -1:
-                line_text = line_text[comment+len(comment_string):]
-                ln_length = self.stc_ctrl.LineLength(line)
-                st = self.stc_ctrl.GetLineEndPosition(line) - ln_length
-                end = self.stc_ctrl.GetLineEndPosition(line)
-                self.stc_ctrl.SetTargetStart(st+1)
-                self.stc_ctrl.SetTargetEnd(end+1)
-                self.stc_ctrl.ReplaceTarget(line_text)
+
+        #from drPython source code
+        #franz: pos is not used
+        selstart, selend = self.stc_ctrl.GetSelection()
+        #From the start of the first line selected
+        startline = self.stc_ctrl.LineFromPosition(selstart)
+        oldcursorpos = self.stc_ctrl.GetCurrentPos()
+        self.stc_ctrl.GotoLine(startline)
+        start = self.stc_ctrl.GetCurrentPos()
+        #To the end of the last line selected
+        #Bugfix Chris Wilson
+        #Edited by Dan (selend fix)
+        if selend == selstart:
+            tend = selend
+        else:
+            tend = selend - 1
+        end = self.stc_ctrl.GetLineEndPosition(self.stc_ctrl.LineFromPosition(tend))
+        #End Bugfix Chris Wilson
+
+        mask = self.stc_ctrl.GetModEventMask()
+        self.stc_ctrl.SetModEventMask(0)
+        lpos = start
+        newtext = ""
+        l = len(self.stc_ctrl.GetText())
+        docstring = comment_string
+        ldocstring = len(docstring)
+        while lpos < end:
+            lpos = self.stc_ctrl.PositionFromLine(startline)
+            line = self.stc_ctrl.GetLine(startline)
+            lc = line.find(docstring)
+            if lc > -1:
+                prestyle = self.stc_ctrl.GetStyleAt(lpos + lc - 1)
+                style = self.stc_ctrl.GetStyleAt(lpos + lc)
+
+                newtext += line[0:lc] + line[lc+ldocstring:]
+            else:
+                newtext += line
+            startline += 1
+            lpos = self.stc_ctrl.PositionFromLine(startline)
+        self.stc_ctrl.SetModEventMask(mask)
+        self.stc_ctrl.SetSelection(start, end)
+        self.stc_ctrl.ReplaceSelection(newtext.rstrip(self.stc_ctrl.GetEndOfLineCharacter()))
+        corr = len(self.stc_ctrl.GetText()) - l
+        self.stc_ctrl.GotoPos(oldcursorpos + corr)
 
     # every method will be passed the event argument. The method must not event.Skip() it.
     #interface functions

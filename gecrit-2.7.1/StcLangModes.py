@@ -430,6 +430,62 @@ class StcPerlMode(StcMode):
                                    self.stc_ctrl.GetLineEndPosition(down_line-1))
 
 
+class StcJavaMode(StcCppMode):
+    lexer = wx.stc.STC_LEX_CPP
+    file_extensions = ["java"]
+    keywords = ["abstract",
+        "continue",
+        "for",
+        "new",
+        "switch",  
+        "assert",
+        "default",
+        "package",
+        "synchronized",
+        "boolean",
+        "do",
+        "if",
+        "private",
+        "this",
+        "break",
+        "double",
+        "implements",
+        "protected",
+        "throw",
+        "byte",
+        "else",
+        "import",
+        "public",
+        "throws",
+        "case",
+        "enum",
+        "instanceof",
+        "return",
+        "transient",
+        "catch",
+        "extends",
+        "int",
+        "short",
+        "try",
+        "char",
+        "final",
+        "interface",
+        "static",
+        "void",
+        "class",
+        "finally",
+        "long",
+        "volatile",
+        "float",
+        "native",
+        "super",
+        "while"]
+    lang_name = "Java"
+
+    def __init__(self, stc_ctrl):
+        StcCppMode.__init__(self, stc_ctrl)
+
+
 class StcFundamentalMode(StcMode):
     """
     This mode is used for files for wich no appropriate mode exists.

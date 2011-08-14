@@ -19,7 +19,7 @@
 
 import wx, gettext
 import os.path
-from configClass import *
+from Configuration import *
 
 
 

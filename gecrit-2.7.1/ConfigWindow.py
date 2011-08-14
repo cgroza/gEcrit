@@ -21,9 +21,9 @@
 import wx
 import wx.richtext
 from SyntaxHighlight import *
-from configClass import *
-from logClass import *
-from SyntaxColor import *
+from Configuration import *
+from Logger import *
+from ColorPFrame import *
 
 
 
@@ -146,8 +146,6 @@ class GeneralSettingsPanel(wx.Panel):
         autosave_box.Bind(wx.EVT_CHECKBOX, lambda event: CallChangeOption(event,
                          "Autosave", autosave_box.GetValue(), self.id_range))
 
-        autosave_box.Bind(wx.EVT_CHECKBOX, lambda event: ToggleSpinner(event,
-                         autosave_box.GetValue(), Interval))
 
         inter_info = wx.StaticText(self, -1,
             self._("Save data each # of characters:"), (20,35))
@@ -158,11 +156,12 @@ class GeneralSettingsPanel(wx.Panel):
         interval_spin_ctrl.Bind(wx.EVT_SPINCTRL, lambda event: CallChangeOption(event,
            "Autosave Interval", interval_spin_ctrl.GetValue(), self.id_range))
 
-        if not Config.GetOption("Autosave"):
-            autosave_box.SetValue(False)
-            interval_spin_ctrl.Disable()
-        else:
-            autosave_box.SetValue(True)
+        autosave_box.Bind(wx.EVT_CHECKBOX, lambda event: ToggleSpinner(event,
+                         autosave_box.GetValue(), interval_spin_ctrl))
+
+
+        autosave_box.SetValue(Config.GetOption("Autosave"))
+        interval_spin_ctrl.Enable(Config.GetOption("Autosave"))
 
         strip_trail_box = wx.CheckBox(self,-1, self._("Strip Trailing Spaces On Save"),
                                         pos = (20, 70), size = (-1, -1))
@@ -283,13 +282,12 @@ class EditorSettingsPanel(wx.Panel):
                           CallChangeOption(event, "Autoindentation",
                           autoindent_box.GetValue(), self.id_range))
 
-        autoindent_box.Bind(wx.EVT_CHECKBOX, lambda event: ToggleSpinner(event,
-                          autoindent_box.GetValue(), IndentSizeBox))
-
         autoindent_box.SetValue(Config.GetOption("Autoindentation"))
 
         indent_size_spinctrl = wx.SpinCtrl(self, -1, "", (35, 85), (90,
                                     -1))
+        autoindent_box.Bind(wx.EVT_CHECKBOX, lambda event: ToggleSpinner(event,
+                          autoindent_box.GetValue(), indent_size_spinctrl))
 
         indent_size_spinctrl.SetRange(1, 12)
         indent_size_spinctrl.SetValue(Config.GetOption("IndentSize"))

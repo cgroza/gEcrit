@@ -56,7 +56,7 @@ class gEcritSession:
         documents = app_instance.GetAllDocuments()
         for d in documents:
             if d is not None:
-                if d.SaveTarget:
+                if d.GetFilePath():
                     self.opened_files.append(d.GetFilePath())
 
         self.layout_perspective = app_instance.GetAuiManager().SavePerspective()

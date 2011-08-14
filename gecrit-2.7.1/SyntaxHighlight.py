@@ -21,7 +21,7 @@ import os
 
 
 
-class SyntaxColorizer:
+class SyntaxHighlight:
     """
     SyntaxColorizer
 
@@ -56,6 +56,7 @@ class SyntaxColorizer:
         self.__HOMEDIR = os.path.expanduser('~')
         self.cfg_path = os.path.join(self.__HOMEDIR, ".gEcrit", ".gEcritColor")
         self.cfg_dir = os.path.join(self.__HOMEDIR, ".gEcrit")
+        self.__color_dict = {}
         self.ReadColorFile()
 
     def GetColor(self, item):
@@ -89,77 +90,10 @@ class SyntaxColorizer:
         Writes changes to file.
 
         """
-        try:
-            (self.__default_color_dict)[item]
-            colour_file = open(self.cfg_path, "r")
-            self.__color_dict = eval(colour_file.read())
-            self.__color_dict[item] = newcolor
-            colour_file = open(self.cfg_path, "w")
+        self.__color_dict[item] = newcolor
+        with open(self.cfg_path, "w") as colour_file:
             colour_file.write(str(self.__color_dict))
-        except:
-            self.__color_dict = self.__default_color_dict
-            colour_file = open(self.cfg_path, "w")
-            colour_file.write(str(self.__default_color_dict))
-            colour_file = open(self.cfg_path, "r")
-            self.__color_dict[item] = newcolor
-
-        colour_file.close()
-
-
-    def ActivateSyntaxHighLight(self, text_id):
-        """
-        ActivateSyntaxHighLight
-
-        Initializes the lexer and sets the color styles.
-
-        """
-        cur_doc = wx.FindWindowById(text_id)
-        keywords = cur_doc.lang_mode.__class__.keywords
-        cur_doc.SetKeyWords(0, (" ").join(keywords))
-
-        cur_doc.SetProperty("fold", "1")
-
-        cur_doc.StyleSetSpec(wx.stc.STC_P_DEFAULT, "fore:#000000")
-
-        cur_doc.StyleSetSpec(wx.stc.STC_P_COMMENTLINE, "fore:" + self.GetColor("Comments").GetAsString(wx.C2S_HTML_SYNTAX))
-
-        cur_doc.StyleSetSpec(wx.stc.STC_P_NUMBER, "fore:" + self.GetColor("Integers").GetAsString(wx.C2S_HTML_SYNTAX))
-
-        cur_doc.StyleSetSpec(wx.stc.STC_P_STRING, "fore:" + self.GetColor("Strings").GetAsString(wx.C2S_HTML_SYNTAX))
-
-        cur_doc.StyleSetSpec(wx.stc.STC_P_CHARACTER, "fore:" + self.GetColor("Strings").GetAsString(wx.C2S_HTML_SYNTAX))
-
-        cur_doc.StyleSetSpec(wx.stc.STC_P_WORD, "fore:" + self.GetColor("Keywords").GetAsString(wx.C2S_HTML_SYNTAX))
-
-        cur_doc.StyleSetSpec(wx.stc.STC_P_TRIPLE, "fore:" + self.GetColor("TripleQuotes").GetAsString(wx.C2S_HTML_SYNTAX))
-
-        cur_doc.StyleSetSpec(wx.stc.STC_P_TRIPLEDOUBLE, "fore:" + self.GetColor("TripleQuotes").GetAsString(wx.C2S_HTML_SYNTAX))
-
-        cur_doc.StyleSetSpec(wx.stc.STC_P_CLASSNAME, "fore:" + self.GetColor("MethodNames").GetAsString(wx.C2S_HTML_SYNTAX) +
-                             ",bold,underline")
-
-        cur_doc.StyleSetSpec(wx.stc.STC_P_DEFNAME, "fore:" + self.GetColor("MethodNames").GetAsString(wx.C2S_HTML_SYNTAX) +
-                             ",bold,underline")
-
-        cur_doc.StyleSetSpec(wx.stc.STC_P_OPERATOR, "fore:" + self.GetColor("Operators").GetAsString(wx.C2S_HTML_SYNTAX))
-
-        cur_doc.StyleSetSpec(wx.stc.STC_P_IDENTIFIER, "fore:" + self.GetColor("Identifiers").GetAsString(wx.C2S_HTML_SYNTAX))
-
-        cur_doc.StyleSetSpec(wx.stc.STC_P_COMMENTBLOCK, "fore:" + self.GetColor("Comments").GetAsString(wx.C2S_HTML_SYNTAX))
-
-        cur_doc.StyleSetSpec(wx.stc.STC_P_STRINGEOL,
-                             "fore:#000000,face:%s,back:" + self.GetColor("BadEOL").GetAsString(wx.C2S_HTML_SYNTAX) +
-                             "eol")
-
-        cur_doc.StyleSetSpec(wx.stc.STC_STYLE_BRACELIGHT, "back:" + self.GetColor("Brackets").GetAsString(wx.C2S_HTML_SYNTAX))
-
-        cur_doc.StyleSetSpec(wx.stc.STC_STYLE_BRACEBAD,
-                             "fore:#000000,back:#FF0000,bold")
-
-        cur_doc.SetCaretForeground("BLUE")
-
-        cur_doc.SetEdgeColour(self.GetColor("EdgeLine"))
 
 
 
-SyntCol = SyntaxColorizer()
+SyntCol = SyntaxHighlight()

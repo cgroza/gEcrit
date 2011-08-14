@@ -16,9 +16,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 import wx
 import yapsy.IPlugin
 from data.plugins.categories import General
@@ -31,6 +28,14 @@ class HierarchyCtrl(wx.TreeCtrl):
     classes from a source of files.
     Creates hierarchies of them in tree.
     """
+
+    class Class():
+        def __init__(self, name = "", bases = []):
+            self.name = name
+            self.bases = bases
+            self.children = []
+            self.tree_ctrl_root = None
+
     def __init__(self,parent = None, id = wx.ID_ANY, pos = (10,10), size=(-1,-1)):
         """
         __inti__
@@ -45,7 +50,6 @@ class HierarchyCtrl(wx.TreeCtrl):
 
         self.root = self.AddRoot("Top")
         self.classes = []
-        self.base_cls = []
 
     def GenerateHierarchies(self,docs):
         """
@@ -56,52 +60,46 @@ class HierarchyCtrl(wx.TreeCtrl):
         First clears the tree with the help of the helper function
         and then populates it.
         """
-        classed = []
         file_list = self.GetFileList(docs)
-        if file_list:
-            for fl in file_list:
-                cls = self.GetClassesFromFile(fl)
-                if cls:
-                    for c in cls:
-                        self.classes.append(c)
+        for fl in file_list:
+             self.GetClassesFromFile(fl)
 
-        for c in self.classes:
-            if not self.Inherits(c):
-                self.base_cls.append(c)
-                self.classes.remove(c)
-
-        for c in self.classes:
-            bases = self.GetClassBases(c)
-            if self.GetClassBases(c):
-                for b in bases:
-                    if b not in self.classes:
-                        self.base_cls.append(c)
+        # base attributes are nothing but strings now. replace them with real Class objects
+        for cl in self.classes:
+            bases = []
+            for c in self.classes:
+                if c.name in cl.bases:
+                    bases.append(c)
+            cl.bases = bases
 
 
-        for c in self.base_cls:
-            kids = self.FindChilds(c)
-            if c not in classed:
-                root = self.AppendItem(self.root,self.CleanName(c))
-                classed.append(c)
-            if kids:
-                for n in kids:
-                    root2 = self.AppendItem(root,self.CleanName(n))
-                    kids_kids = self.FindChilds(n)
-                    i = 0
-                    if kids_kids:
-                        kids_len = len(kids_kids)
-                    while kids_kids:
-                        try:
-                            kid = kids_kids[i]
-                        except: pass
-                        has_kid = self.FindChilds(kid)
-                        if not has_kid and i == kids_len: break
-                        i+=1
-                        root3 = self.AppendItem(root2,self.CleanName(kid))
+        # get list of children
+        to_be_removed = []
+        for cl in self.classes:
+            for c in self.classes:
+                if cl in c.bases:
+                    cl.children.append(c)
+                    to_be_removed.append(c)
 
 
+        self.classes = [ c for c in self.classes if not c in to_be_removed ]
+
+        def WalkAndAddTree(node,root):
+            node.tree_ctrl_root = self.AppendItem(root, node.name)
+
+            for child in node.children:
+                child.tree_ctrl_root = self.AppendItem(node.tree_ctrl_root, child.name)
+                if child.children:
+                    WalkAndAddTree(child, child.tree_ctrl_root)
+
+        for cls in self.classes:
+            cls.tree_ctrl_root = self.AppendItem(self.root, cls.name)
+            for child in cls.children:
+                WalkAndAddTree(child,cls.tree_ctrl_root)
+
+        # filter out child classes
+        # tree_roots = list(set([ cls for cls in self.clasess if not cls.bases]))
         self.classes = []
-
 
     def FindChilds(self,cls):
         """
@@ -109,17 +107,13 @@ class HierarchyCtrl(wx.TreeCtrl):
 
         Finds the child classes of the suplied argument cls.
         Uses a helper class to check inheritance.
-        Return the list if found. If not, returns False.
+        Return the list of childs.
         """
         childs = []
-        for i in self.classes:
-            if self.InheritsFrom(cls,i):
-                childs.append(i)
-        if childs:
-             return childs
-        else:
-             return False
-
+        for c in self.classes:
+            if cls.name in c.bases:
+                childs.append(c)
+        return childs
 
     def GetClassesFromFile(self,file_path):
         """
@@ -128,26 +122,15 @@ class HierarchyCtrl(wx.TreeCtrl):
         Reads and collects the class statements from the suplied
         file_path argument.
         Creates a list of found classes and returns it if not empty.
-        If empty, returns False.
         """
-        classes = []
-        try:
-            fl = open(file_path,"r")
-            for line in fl.readlines():
-                if "class" in line and ":" in line:
-                    line = line.strip("class ")
-                    line2 = ""
-                    for i in line:
-                        if i!=":": line2+=i
 
-                    classes.append(line2)
-            if classes:
-                 return classes
-            else:
-                 return False
-            fl.close()
-        except:
-             return False
+        with  open(file_path,"r") as fl:
+            for line in fl:
+                if "class" in line and ":" in line:
+                    name = line.lstrip("class").split("(")[0].rstrip(":").strip() # extract class name
+                    bases = line.split("(")[1].split(")")[0].split(",") # extract bases
+                    bases = [ b.strip() for b in bases] # remove whitespace
+                    self.classes.append(HierarchyCtrl.Class(name,bases))
 
 
     def GetFileList(self,docs):
@@ -163,10 +146,9 @@ class HierarchyCtrl(wx.TreeCtrl):
             file_name = d.GetFilePath()
             if file_name != "":
                 file_list.append(file_name)
-        if file_list:
-             return file_list
-        else:
-             return False
+
+        return file_list
+
 
     def Refresh(self,docs):
         """
@@ -176,79 +158,6 @@ class HierarchyCtrl(wx.TreeCtrl):
         """
         self.DeleteChildren(self.root)
         self.GenerateHierarchies(docs)
-
-
-    def Inherits(self,cls_line):
-        """
-        Inherits
-
-        Checks if the suplied argument cls_line has a base class.
-        Returns True or False.
-        """
-
-        if "(" not in cls_line:
-            return False
-        else:
-            lst = cls_line.split("(")
-
-            if lst[-1][0] == ")":
-
-                return False
-
-            elif lst[-1][0] != " " or  lst[-1][-2] != ")":
-
-                return True
-
-
-
-    def GetClassBases(self,cls):
-        """
-        GetBaseClasses
-
-        Iterates through the class list and makes a list with
-        classes that have no base.
-        """
-        name = ""
-        for i in cls:
-            if i != ")":
-                name+=i
-
-        lst = name.split("(")
-        cls_lst = lst[-1].split(",")
-        if cls_lst:
-             return cls_lst
-        else:
-             return False
-
-    def CleanName(self,name):
-        """
-        CleanName
-
-        Takes the argument name and clears all the syntactic
-        elements to make it suitable for displaying.
-        """
-        name2 = ""
-        for c in name:
-            if c == "(":
-                break
-            else: name2+=c
-
-        return name2.strip("\n")
-
-    def InheritsFrom(self,base_class,child_class):
-        """
-        InheritsFrom
-
-        Takes the sting argument base_class and checks if it the base
-        of the string argument child_class.
-        Returns True or False.
-        """
-        if self.CleanName(base_class) in child_class.split("(")[-1]:
-            return True
-        else:
-            return False
-
-
 
 class ClassHierarchyWin(wx.Frame, General,yapsy.IPlugin.IPlugin):
     """
