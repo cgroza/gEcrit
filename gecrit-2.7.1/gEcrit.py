@@ -550,6 +550,7 @@ Do you wish to save it?"), "",
         else:
                 self.id_range.remove(text_id)
                 # skip the event and let the AuiNotebook handle the deletion
+                cur_doc.Deactivate() # tell the StcTextCtrl to prepare for deletition
                 event.Skip()
 
     def OnOpenFile(self, event):

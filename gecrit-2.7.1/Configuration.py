@@ -39,7 +39,7 @@ class Configuration:
         """
         self.__default_cfg_dict = {
             "Autosave": False,
-            "Autosave Interval": 200,
+            "Autosave Interval": 15,
             "StatusBar": True,
             "ActLog": True,
             "LineNumbers": False,
@@ -238,7 +238,7 @@ class Configuration:
     def UpdateAutoSaveInterval(self, val, id_range):
         for id in id_range:
             item = wx.FindWindowById(id)
-            item.autosave_interval = val
+            item.RestartAutoSaveTimer()
 
     def GetTab(self, tab_name, notebook):
         """

@@ -97,8 +97,6 @@ class HierarchyCtrl(wx.TreeCtrl):
             for child in cls.children:
                 WalkAndAddTree(child,cls.tree_ctrl_root)
 
-        # filter out child classes
-        # tree_roots = list(set([ cls for cls in self.clasess if not cls.bases]))
         self.classes = []
 
     def FindChilds(self,cls):

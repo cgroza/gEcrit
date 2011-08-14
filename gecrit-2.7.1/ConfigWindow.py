@@ -148,7 +148,7 @@ class GeneralSettingsPanel(wx.Panel):
 
 
         inter_info = wx.StaticText(self, -1,
-            self._("Save data each # of characters:"), (20,35))
+            self._("Save interval in minutes:"), (20,35))
 
         interval_spin_ctrl = wx.SpinCtrl(self, -1, "", (20, 60), (90, -1))
         interval_spin_ctrl.SetRange(1, 500)

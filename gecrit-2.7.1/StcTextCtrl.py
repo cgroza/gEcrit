@@ -27,6 +27,7 @@ from Logger import *
 import AutoComplet
 from StcMode import *
 from StcLangModes import *
+import stat
 
 class StcTextCtrl(wx.stc.StyledTextCtrl):
     """
@@ -36,6 +37,19 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
     Creates the editor object and its environment.
     Stores its file path.
     """
+
+    class ScheduleTimer(wx.Timer):
+        """
+        This class calls the parent's OnCheckFile method at a given interval.
+        """
+        def __init__(self, parent, method):
+            wx.Timer.__init__(self)
+            self.parent = parent
+            self.method = method
+            
+        def Notify(self):
+            self.method()
+
 
     lang_modes = [StcPythonMode, StcRubyMode, StcCppMode, StcPerlMode, StcJavaMode]
 
@@ -59,20 +73,26 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         wx.stc.StyledTextCtrl.__init__(self, parent, id, pos=(0, 0),
                                        size=(1, 1))
 
-        self.CharCount = 0
         self.__save_path = file_path
         self.parent = parent
 
         self.__main_window = self.parent.GetParent()
         self._ = self.__main_window._
 
-        self.__file_size = False
+        self.__file_last_modified = None
         if file_path != "New Document" and file_path != "":
             self.LoadFile(file_path)
-            self.__file_size = os.path.getsize(file_path)
-
+            self.__file_last_modified = os.stat(self.__save_path)[stat.ST_MTIME]
         else:
             self.__save_path = ""
+
+        # set up the timere that will periodically check if the file has been modified on disk.
+        self.__fl_check_timer = StcTextCtrl.ScheduleTimer(self, self.OnCheckFile)
+        self.__fl_check_timer.Start(1000)
+
+        # set up the autosave timer
+        self.__auto_save_timer = StcTextCtrl.ScheduleTimer(self, self.OnAutosave)
+        self.__auto_save_timer.Start(Config.GetOption("Autosave Interval")*60*1000) # convert  minutes to milliseconds
 
         self.__macro_register = [] # stores the macro event sequence
 
@@ -85,13 +105,6 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         self.__status_bar = wx.FindWindowById(999)
         self.text_id = id
 
-        self.__autosave_interval = Config.GetOption("Autosave Interval")
-        if Config.GetOption("Autosave") == True:
-            self.Bind(wx.stc.EVT_STC_CHARADDED, self.Autosave)
-
-        self.__show_check_dlg = True
-
-        self.__check_count = 0
         self.lang_mode = None   # will point to a StcMode object, will be set by UpdateLangMode()
 
         self.Bind(wx.stc.EVT_STC_CHARADDED, self.OnCompBrace)
@@ -103,7 +116,6 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
                   self.OnMarginClick)
 
         self.Bind(wx.EVT_KEY_UP,  self.AutoIndent)
-        self.Bind(wx.EVT_KEY_UP, self.OnCheckFile)
 
         self.Bind(wx.stc.EVT_STC_CHARADDED, lambda event: AutoComplet.AutoComp.OnKeyPressed(event,
                                                                                                  self.text_id))
@@ -125,7 +137,7 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         if Config.GetOption("SyntaxHighlight"):
             self.ActivateSyntaxHighLight() # Refreshes the control to use the current mode
 
-    def OnReload(self,event):
+    def OnReload(self):
         """
         OnReload
 
@@ -136,12 +148,15 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         if self.__save_path:
             if os.path.exists(self.__save_path):
                 self.LoadFile(self.__save_path)
+                self.__file_last_modified = os.stat(self.__save_path)[stat.ST_MTIME]
                 Log.AddLogEntry("Reloaded "+self.__save_path)
             else:
                 fl_not_exists = wx.MessageDialog(self,self._("The file ")+self.__save_path+self._(" does\
  not exists. Do you wish to save it?"), self._("Missing File"),style = wx.YES | wx.NO)
                 if fl_not_exists.ShowModal() == 5103:
                     self.Save(0)
+                else:
+                    self.file_last_modified = None
                 del fl_not_exists
         else:
             message = wx.MessageDialog(self, self._("The file seems unsaved, it does not exists\
@@ -149,8 +164,9 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
                                        style = wx.YES | wx.NO)
             if message.ShowModal() == 5103:
                 self.Save(0)
-                del message
-        self.event()
+            else:
+                self.file_last_modified = None
+            del message
 
     def OnCompBrace(self,event):
         """
@@ -190,12 +206,11 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
                 self.OnRemoveTrails(0)
 
             self.SaveFile(saveas_path)
-
+            self.__file_last_modified = os.stat(self.__save_path)[stat.ST_MTIME]
             self.save_record = self.GetText()
 
             self.__save_path = saveas_path
-            self.__file_size = os.path.getsize(self.__save_path)
-            self.__show_check_dlg = True
+
             if Config.GetOption("StatusBar"):
                 self.__status_bar.SetStatusText(self._("Saved as") + saveas_path)
 
@@ -240,11 +255,11 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
                 self.OnRemoveTrails(0)
 
             self.SaveFile(self.__save_path)
-            self.__file_size = os.path.getsize(self.__save_path)
-            self.__show_check_dlg = True
             if Config.GetOption("StatusBar"):
                 self.__status_bar.SetStatusText("Saved")
             
+            self.__file_last_modified = os.stat(self.__save_path)[stat.ST_MTIME]
+
             self.save_record = self.GetText()
             Log.AddLogEntry(self._("Saved file ") + self.__save_path)
             
@@ -260,9 +275,9 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
             self.SaveAs(0)
 
 
-    def Autosave(self, event):
+    def OnAutosave(self):
         """
-        AutoSave
+        OnAutoSave
 
         Count the numbers of characters entered. If they reach a
         value, calls Save.
@@ -270,14 +285,11 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         Adds a log entry.
 
         """
-        if self.CharCount == self.__autosave_interval:
+        if Config.GetOption("Autosave"):
             self.Save(0)
             Log.AddLogEntry(self._("Autosaved ")+self.__save_path)
-            self.CharCount = 0
-        else:
 
-            self.CharCount += 1
-        event.Skip()
+
 
     def OnDedent(self, event):
         """
@@ -665,23 +677,36 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
     def OnSelectCodeBlock(self,event):
         self.lang_mode.OnSelectCodeBlock(event)
 
-    def OnCheckFile(self,event):
-        self.__check_count += 1
-        if self.__save_path != "" and self.__show_check_dlg and self.__check_count == 5:
+    def RestartAutoSaveTimer(self):
+        self.__auto_save_timer.Stop()
+        self.__auto_save_timer.Start(Config.GetOption("Autosave Interval")*60*1000) # convert  minutes to milliseconds
+
+
+    def Deactivate(self):
+        """
+        This is a clean up class that is called when this control is no longer needed.
+        """
+        self.__fl_check_timer.Stop()
+        self.__auto_save_timer.Stop()
+
+    def OnCheckFile(self):
+        """
+        Check if the loaded file has not been changed by a third party.
+        """
+        if self.__file_last_modified != None:
             if not os.path.exists(self.__save_path):
                 self.OnReload(0)
             else:
-                if os.path.getsize(self.__save_path) != self.__file_size:
+                last_modified = os.stat(self.__save_path)[stat.ST_MTIME]
+
+                if last_modified != self.__file_last_modified:
                     check_file_ask = wx.MessageDialog(self,self._("The file ")+self.__save_path+self._(" has\
  been modified and the loaded buffer is out of date. Do you wish to reload it?"),self._("File Modified"),style = wx.YES | wx.NO)
-                    if self.check_file_ask.ShowModal() == 5103:
-                        self.OnReload(0)
-                        self.__check_count = 0
+                    if check_file_ask.ShowModal() == 5103:
+                        self.OnReload()
                     else:
-                        self.__check_count = 0
-                        self.__show_check_dlg = False
-                    del self.check_file_ask
-        event.Skip()
+                        check_file_ask.Destroy()
+                        self.__file_last_modified = None
 
     def _DefineMarkers(self):
         #marker definitions (fold nodes, line numbers...)
