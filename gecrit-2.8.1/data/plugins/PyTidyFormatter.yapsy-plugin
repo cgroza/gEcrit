@@ -1,0 +1,8 @@
+[Core]
+Name = PyTidy
+Module = PyTidyFormatter
+[Documentation]
+Author = Groza Cristian
+Version = 0.1
+Website = http://www.sourceforge/projects/gecrit
+Description = Formats python source code using the well known Python Tidy script.

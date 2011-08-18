@@ -1,0 +1,840 @@
+
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 211 Anna Groza
+# This file is distributed under the same license as gEcrit.
+# FIRST AUTHOR anna.balerina@yahoo.com, 2011.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION"
+"Report-Msgid-Bugs-To: "
+"POT-Creation-Date: 2011-05-05 22:11-0400"
+"PO-Revision-Date: 2011-05-07 11:23-0500"
+"Last-Translator: Anna Groza anna.balerina@yahoo.com"
+"Language-Team: LANGUAGE <LL@li.org>"
+"Language: Spanish"
+"MIME-Version: 1.0"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+
+#: editorClass.py:324
+msgid "Session file loaded."
+msgstr "Sesión archivo cargado."
+
+
+#: editorClass.py:342
+msgid "Session saved."
+msgstr "Sesión guardada"
+
+
+#: editorClass.py:381
+msgid ""
+"Could not load file.\n"
+"The file "
+msgstr "No se pudo cargar el archivo.\n"
+"El archivo."
+
+
+#: editorClass.py:381
+msgid " does not exists."
+msgstr "no existe."
+
+
+#: editorClass.py:381
+msgid "Input Error."
+msgstr "Error de entrada"
+
+
+#: editorClass.py:486
+msgid ""
+"Please make sure that your data is saved.\n"
+"Are you sure you want to quit?"
+msgstr ""
+"Por favor, asegúrese de que sus datos se guardan.\n"
+"Está seguro que quiere dejar?"
+
+
+#: editorClass.py:488
+msgid "Are you sure?"
+msgstr "Estás seguro?"
+
+
+#: editorClass.py:530
+msgid "The file "
+msgstr "El archivo"
+
+
+#: editorClass.py:531
+msgid ""
+" is not saved.\n"
+"Do you wish to save it?"
+msgstr ""
+"no se guarda.\n"
+"Desea guardar esto?"
+
+
+#: editorClass.py:593
+#: editorClass.py:597
+msgid "Opened file "
+msgstr "Archivo abierto"
+
+
+#: FindReplaceText.py:39
+msgid "Find"
+msgstr "Buscar"
+
+
+#: FindReplaceText.py:101
+#: FindReplaceText.py:105
+msgid "Search and Replace"
+msgstr "Buscar y Reemplazar"
+
+
+#: FindReplaceText.py:181
+msgid ""
+"The end of file was reached!\n"
+"Nothing to replace."
+msgstr "El final del archivo se alcanzado!\n"
+"No hay nada de sustituir."
+
+
+#: Menu.py:47
+msgid "&New Tab\tCtrl+N"
+msgstr "&Nuevo Documento\tCtrl+N"
+
+
+#: Menu.py:47
+#: Toolbar.py:40
+msgid "Open a new tab."
+msgstr "Abrir un nuevo documento."
+
+
+#: Menu.py:48
+msgid "&Open\tCtrl+O"
+msgstr "&Abrir\tCtrl+O"
+
+
+#: Menu.py:48
+#: Toolbar.py:42
+msgid "Open a new document."
+msgstr "Abrir un nuevo documento"
+
+
+#: Menu.py:49
+msgid "&Save\tCtrl+S"
+msgstr "&Guarde\tCtrl+S"
+
+
+#: Menu.py:49
+msgid "Save the document."
+msgstr "Guarde el documento"
+
+#: Menu.py:50
+#: Toolbar.py:45
+msgid "Save As"
+msgstr "Guarde como"
+
+
+#: Menu.py:51
+msgid "Save the document under a different name."
+msgstr "Guarde el documento con otro nombre."
+
+
+#: Menu.py:52
+msgid "Save All"
+msgstr "Guarde Todo"
+
+
+#: Menu.py:53
+msgid "Saves all the open documents that have a path."
+msgstr "Guarda todos los documentos abiertos que tienen una ruta de acceso."
+
+
+#: Menu.py:54
+msgid "Reload\tCtrl+R"
+msgstr "Actualizar\tCtrl+R"
+
+
+#: Menu.py:54
+msgid "Reload the current file from disk."
+msgstr "Actualizar el archivo actual de disco."
+
+
+#: Menu.py:55
+msgid "&Print\tCtrl+P"
+msgstr "&Imprimir\tCtrl+P"
+
+
+#: Menu.py:55
+#: Toolbar.py:54
+msgid "Print the current document."
+msgstr "Imprimir el documento actual."
+
+
+#: Menu.py:56
+msgid "Close &Tab\tCtrl+W"
+msgstr "Cerrar &Documento\tCtrl+W"
+
+
+#: Menu.py:56
+msgid "Close the current tab."
+msgstr "Cerrar la documento actual."
+
+
+#: Menu.py:64
+msgid "Recent files\tShow the last opened files."
+msgstr "Archivos recientes\tMostrar los últimos archivos abiertos"
+
+
+#: Menu.py:66
+msgid "&Quit\tCtrl+Q"
+msgstr "&Salir\tCtrl+Q"
+
+
+#: Menu.py:66
+msgid "Quit gEcrit."
+msgstr "Salga de la gEcrit."
+
+
+#: Menu.py:70
+msgid "&Undo\tCtrl+Z"
+msgstr "&Undo\tCtrl+Z"
+
+
+#: Menu.py:70
+msgid "Cancel the last action."
+msgstr "Canclearla última acción."
+
+
+#: Menu.py:71
+msgid "&Redo\tCtrl+Y"
+msgstr "&Rehace\tCtrl+Y"
+
+
+#: Menu.py:71
+msgid "Bring back the last action."
+msgstr "Traer de vuelta la última acción."
+
+
+#: Menu.py:73
+msgid "&Cut\tCtrl+X"
+msgstr "&Corta\tCtrl+X"
+
+
+#: Menu.py:73
+msgid "Cut the selection."
+msgstr "Cortar la selección."
+
+
+#: Menu.py:74
+msgid "&Copy\tCtrl+C"
+msgstr "&Copio\tCtrl+C"
+
+
+#: Menu.py:74
+msgid "Copy the selection."
+msgstr "Copio la selección."
+
+
+#: Menu.py:75
+msgid "&Paste\tCtrl+V"
+msgstr "&Paste\tCtrl+V"
+
+
+#: Menu.py:75
+msgid "Paste the selection."
+msgstr "Paste la selección."
+
+
+#: Menu.py:77
+msgid "Select All\tCtrl+A"
+msgstr "Seleccionar todo\tCtrl+A"
+
+
+#: Menu.py:78
+msgid "Select all the document."
+msgstr "Seleccionar todo los documentos"
+
+
+#: Menu.py:79
+msgid "Select Code Block\tCtrl+Shift+A"
+msgstr "Seleccionar el bloque de código"
+
+
+#: Menu.py:80
+msgid "Select all the current code block."
+msgstr ""
+
+
+#: Menu.py:82
+msgid "Indent\tCtrl+K"
+msgstr "Indent\tCtrl+K"
+
+
+#: Menu.py:82
+msgid "Indent the selected lines."
+msgstr "Indent las líneas seleccionadas."
+
+
+#: Menu.py:83
+msgid "Dedent\tCtrl+J"
+msgstr "Dedent\tCtrl+J"
+
+
+#: Menu.py:83
+msgid "Dedent the selected lines."
+msgstr "Dedent l"
+
+
+#: Menu.py:85
+msgid "Comment Lines\tCtrl+Shift+C"
+msgstr "Las líneas de comentario\tCtrl+Shift+C"
+
+
+#: Menu.py:85
+msgid "Comment the selected lines."
+msgstr "Comentar las líneas seleccionadas."
+
+
+#: Menu.py:86
+msgid "Uncomment Lines\tCtrl+Shift+X"
+msgstr "Elimine el comentarios de las líneas\tCtrl+Shift+X"
+
+
+#: Menu.py:86
+msgid "Uncomment the selected lines."
+msgstr "Elimine el comentarios de las líneas seleccionadas."
+
+
+#: Menu.py:89
+msgid "Insert date"
+msgstr "Inserte la fecha"
+
+
+#: Menu.py:90
+msgid "Insert the date at cursor position."
+msgstr "Inserte la fecha en la posición del cursor."
+
+
+#: Menu.py:92
+msgid "Preferences\tCtrl+E"
+msgstr "Preferencias\tCtrl+E"
+
+
+#: Menu.py:93
+#: Toolbar.py:48
+msgid "Open the configuration window."
+msgstr "Abra la ventana de configuración."
+
+
+#: Menu.py:95
+msgid "Find\tCtrl+F"
+msgstr "Buscar\tCtrl+F"
+
+
+#: Menu.py:96
+msgid "Search text in the current document."
+msgstr "Busca el texto en el documento actual."
+
+
+#: Menu.py:97
+msgid "Find and Replace\tCtrl+H"
+msgstr "Busca y reemplazar"
+
+
+#: Menu.py:98
+msgid "Search and replace text in the current document."
+msgstr "Busca y reemplazar texto en el documento actual."
+
+
+#: Menu.py:100
+msgid "Regex Search\tCtrl+Shift+F"
+msgstr "Regex Busca\tCtrl+Shift+F"
+
+
+#: Menu.py:100
+msgid "Find text using a regular expression."
+msgstr "Búsca de texto utilizando una expresión regular."
+
+
+#: Menu.py:101
+msgid "Regex Search and Replace\tCtrl+Shift+H"
+msgstr "Regex busca y reemplazar\tCtrl+Shift+H"
+
+
+#: Menu.py:101
+msgid "Find and replace text using a regular expression."
+msgstr "Busca y reemplazar texto usando una expresión regular."
+
+
+#: Menu.py:103
+msgid "Zoom In\tCtrl++"
+msgstr "Zoom In\tCtrl++"
+
+
+#: Menu.py:104
+msgid "Increase the size of the text."
+msgstr "Aumenta el tamaño del texto."
+
+
+#: Menu.py:105
+msgid "Zoom Out\tCtrl+-"
+msgstr "Zoom Out\tCtrl+-"
+
+
+#: Menu.py:106
+msgid "Decrease the size of the text."
+msgstr "Disminuir el tamaño del texto."
+
+
+#: Menu.py:107
+msgid "Normal Size\tCtrl+0"
+msgstr "Normal Tamaño\tCtrl+0"
+
+
+#: Menu.py:108
+msgid "Set the size of the text to normal."
+msgstr "Establece el tamaño del texto a la normalidad."
+
+
+#: Menu.py:110
+msgid "Line Numbers"
+msgstr "Números de línea"
+
+
+#: Menu.py:111
+msgid "Show/Hide line numbers."
+msgstr "Mostrar / Ocultar Números de Línea."
+
+
+#: Menu.py:112
+msgid "Fold Marks"
+msgstr "Fold Marks(Doble Marcas)"
+
+#: Menu.py:112
+msgid "Show/Hide fold marks."
+msgstr "Mostrar / Ocultar fold marks(Doble Marcas)."
+
+
+#: Menu.py:113
+msgid "White Space"
+msgstr "Espacio en Blanco"
+
+
+#: Menu.py:114
+msgid "Show/Hide white spaces."
+msgstr "Mostrar / Ocultar espacio en blanco."
+
+
+#: Menu.py:115
+msgid "Indentation Guides"
+msgstr "Sangría Guías"
+
+
+#: Menu.py:116
+msgid "Show/Hide indentation guides."
+msgstr "Mostrar / Ocultar sangría guías"
+
+
+#: Menu.py:117
+msgid "Edge Line"
+msgstr "Edge Line"
+
+
+#: Menu.py:118
+msgid "Show/Hide the edge line."
+msgstr "Mostrar / Ocultar la edge line."
+
+
+
+#: Menu.py:119
+msgid "Syntax Highlight"
+msgstr "Resaltado de Sintaxis(Syntax Highlight)"
+
+
+#: Menu.py:120
+msgid "Enable/Disable Syntax Highlight."
+msgstr "Activar / Desactivar resaltado de sintaxis(Syntax Highlight)."
+
+
+#: Menu.py:122
+msgid "Python Shell"
+msgstr "Python proyectil"
+
+
+#: Menu.py:123
+msgid "Stop/Start a python shell."
+msgstr "Stop / Start un proyectil de Python."
+
+
+#: Menu.py:124
+msgid "OS Shell"
+msgstr "OS proyectil"
+
+
+#: Menu.py:124
+msgid "Stop/Start an OS shell."
+msgstr "Stop / Start OS un proyectil."
+
+
+#: Menu.py:126
+msgid "Statusbar"
+msgstr "Barra de Estado."
+
+
+#: Menu.py:126
+msgid "Show/Hide statusbar."
+msgstr "Mostrar / Ocultar barra de estado."
+
+
+#: Menu.py:127
+msgid "Fullscreen\tF11"
+msgstr "Pantalla completa\tF11"
+
+
+#: Menu.py:127
+msgid "Toggle Fullscreen mode."
+msgstr "Activar el modo de pantalla completa."
+
+
+#: Menu.py:128
+msgid "Toggle Toolbox"
+msgstr "Activar Caja de herramientas"
+
+
+#: Menu.py:128
+msgid "Show/Hide Toolbox window."
+msgstr "Mostrar / Ocultar ventana Caja de herramientas."
+
+
+#: Menu.py:129
+msgid "Toggle Assistants"
+msgstr "Activar Asistentes"
+
+
+#: Menu.py:129
+msgid "Show/Hide Assistants window."
+msgstr "Mostrar / Ocultar ventana de asistentes."
+
+
+#: Menu.py:131
+msgid "Remove Trailing  Spaces"
+msgstr "Eliminar (Trailing) espacios al final"
+
+
+#: Menu.py:131
+msgid "Remove spaces at the end of the line."
+msgstr "Elimine espacios al final de la línea."
+
+
+#: Menu.py:132
+msgid "Run File\tF5"
+msgstr "Ejecute Archivo\tF5"
+
+
+#: Menu.py:132
+msgid "Run the current document.(python only)"
+msgstr "Ejecute el documento actual.(python sólo)"
+
+
+#: Menu.py:133
+msgid "Tabify"
+msgstr "Tabify"
+
+
+#: Menu.py:133
+msgid "Replace spaces by tabs."
+msgstr "Vuelva a colocar etiquetas con espacios."
+
+
+#: Menu.py:134
+msgid "Untabify"
+msgstr "Untabify"
+
+
+#: Menu.py:134
+msgid "Replace tabs by spaces."
+msgstr "Vuelva a colocar etiquetas con espacios."
+
+
+#: Menu.py:136
+msgid "Enable Session"
+msgstr "Active Sesión"
+
+
+#: Menu.py:136
+msgid "Enable/Disable Session support."
+msgstr "Activar / Desactivar soporte de Sesión ."
+
+
+#: Menu.py:137
+msgid "Save Session"
+msgstr "Guarda Sesión"
+
+
+#: Menu.py:137
+msgid "Save the current application state."
+msgstr "Guarda el aplicación actual de estado."
+
+
+#: Menu.py:138
+msgid "Delete Session"
+msgstr "Elimina Sesión"
+
+
+#: Menu.py:138
+msgid "Delete the saved session file."
+msgstr "Elimina el archivo de sesión guardada."
+
+
+#: Menu.py:140
+msgid "Plugin Manager"
+msgstr "Plugin Administrador"
+
+
+#: Menu.py:140
+msgid "Manage gEcrit Plugins."
+msgstr "Administrar gEcrit Plugins."
+
+
+#: Menu.py:142
+msgid "About"
+msgstr "Casi"
+
+
+#: Menu.py:142
+msgid "Open the about window."
+msgstr "Abre sobre la ventana."
+
+
+#: Menu.py:144
+msgid "&File"
+msgstr "&Archivo"
+
+
+#: Menu.py:145
+msgid "&Edit"
+msgstr "&Editar"
+
+
+#: Menu.py:146
+msgid "&Search"
+msgstr "&Busca"
+
+
+#: Menu.py:147
+msgid "&View"
+msgstr "&Ver"
+
+
+#: Menu.py:148
+msgid "&Document"
+msgstr "&Documento"
+
+
+#: Menu.py:149
+msgid "&Session"
+msgstr "&Sesiones"
+
+
+#: Menu.py:150
+msgid "&Plugins"
+msgstr "&Plugins"
+
+
+#: Menu.py:151
+msgid "&Help"
+msgstr "&Ayudar"
+
+
+#: Toolbar.py:39
+msgid "New"
+msgstr "Nuevo"
+
+
+#: Toolbar.py:41
+msgid "Open"
+msgstr "Abierto"
+
+
+#: Toolbar.py:43
+msgid "Save"
+msgstr "Guardar"
+
+
+#: Toolbar.py:44
+msgid "Save the current document."
+msgstr "Guardar el documento actual"
+
+
+#: Toolbar.py:46
+msgid "Save the current document under a differend name."
+msgstr "Guardar el documento actual con un nombre diferente."
+
+
+#: Toolbar.py:47
+msgid "Settings"
+msgstr "Configuración"
+
+
+#: Toolbar.py:50
+msgid "Quit"
+msgstr "Salir"
+
+
+#: Toolbar.py:50
+msgid "Quit gEcrit"
+msgstr "Salga de la gEcrit"
+
+
+#: Toolbar.py:53
+msgid "Print"
+msgstr "Imprimir"
+
+
+#: Toolbar.py:56
+msgid "Run the current file.(Python only)"
+msgstr "Ejecute el archivo actual.(Python sólo)"
+
+
+msgid "Autocomplete Braces"
+msgstr "Autocompleta Tirantes"
+
+
+msgid "Show Line Numbers"
+msgstr "Mostra números de línea"
+
+
+msgid "Autoindentation"
+msgstr "Auto indentación"
+
+
+msgid "Backspace to Unindent"
+msgstr "Retroceso para Unindent"
+
+
+msgid "Use Tabs"
+msgstr "Utilice los Documentos"
+
+
+msgid "Show Whitespace"
+msgstr "Mostrar espacios en blanco"
+
+
+msgid "Edge Line Position:"
+msgstr "Ponga el borde de línea:"
+
+
+msgid "Enable Autosave"
+msgstr "Activar el guardado automático"
+
+
+msgid "Save data each # of characters:"
+msgstr "Guardar los datos de cada # de caracteres:"
+
+
+msgid "Strip Trailing Spaces On Save"
+msgstr "Strip Trailing(Franja de arrastre)Espacios al guardar"
+
+
+msgid "Status Bar"
+msgstr "Barra de estado"
+
+
+msgid "Enable Log"
+msgstr "Activar la entrada"
+
+
+msgid "Colour Palette"
+msgstr "Paleta de color"
+
+
+msgid "View Log"
+msgstr "Ver el Entrada "
+
+
+msgid "Erase Log"
+msgstr "Eliminar Entrada"
+
+
+msgid "OK"
+msgstr "Bien"
+
+
+msgid "Toolbox"
+msgstr "Caja de herramientas"
+
+
+msgid "Assistants and others"
+msgstr "Asistentes y otros"
+
+
+msgid "Remove"
+msgstr "Quitar"
+
+
+msgid "Author: "
+msgstr "Autor:"
+
+
+msgid "Version: "
+msgstr "Versión:"
+
+
+msgid "Website: "
+msgstr "Página web:"
+
+
+msgid "Description: "
+msgstr "Descripción:"
+
+
+msgid "Keywords"
+msgstr "Clave Palabras"
+
+
+msgid "Strings"
+msgstr "Strings"
+
+
+msgid "Triple Quotes"
+msgstr "Triple Cotizaciones"
+
+
+msgid "Integers"
+msgstr "Enteros"
+
+
+msgid "Comments"
+msgstr "Comentarios"
+
+msgid "Brackets"
+msgstr "Paréntesis"
+
+
+msgid "Bad EOL"
+msgstr "Mal EOL"
+
+
+msgid "Method Names"
+msgstr "Método Nombres"
+
+
+msgid "Operators"
+msgstr "Operadores"
+
+
+msgid "Identifiers"
+msgstr "Identificadores"
+
+
+msgid "Plugins:"
+msgstr "Plugins:"
+
+
+
+
+
+
+

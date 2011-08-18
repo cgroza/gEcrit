@@ -1,0 +1,9 @@
+[Core]
+Name = Python Syntax Doctor
+Module = SyntaxChecker
+
+[Documentation]
+Author = Groza Cristian
+Version = 0.1
+Website = http://www.sourceforge/projects/gecrit
+Description = Provides syntax checking facilities for python.

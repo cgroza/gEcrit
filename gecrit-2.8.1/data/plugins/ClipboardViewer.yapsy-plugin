@@ -1,0 +1,10 @@
+[Core]
+Name = Clipboard Viewer
+Module = ClipboardViewer
+
+[Documentation]
+Author = Groza Cristian
+Version = 0.1
+Website = http://www.sourceforge/projects/gecrit
+Description = Provides a quick way to peak at the clipboard.
+

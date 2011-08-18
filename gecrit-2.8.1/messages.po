@@ -1,0 +1,136 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-05-07 12:38-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ConfigWindow.py:63
+msgid "Settings"
+msgstr ""
+
+#: ConfigWindow.py:69
+msgid "OK"
+msgstr ""
+
+#: ConfigWindow.py:82
+msgid "General"
+msgstr ""
+
+#: ConfigWindow.py:83
+msgid "Editor"
+msgstr ""
+
+#: ConfigWindow.py:127
+msgid "Enable Autosave"
+msgstr ""
+
+#: ConfigWindow.py:136
+msgid "Save data each # of characters:"
+msgstr ""
+
+#: ConfigWindow.py:150
+msgid "Strip Trailing Spaces On Save"
+msgstr ""
+
+#: ConfigWindow.py:156
+msgid "Enable StatusBar"
+msgstr ""
+
+#: ConfigWindow.py:165
+msgid "Enable Session"
+msgstr ""
+
+#: ConfigWindow.py:170
+msgid "Enable Log"
+msgstr ""
+
+#: ConfigWindow.py:178
+msgid "Colour Palette"
+msgstr ""
+
+#: ConfigWindow.py:183 ConfigWindow.py:222
+msgid "View Log"
+msgstr ""
+
+#: ConfigWindow.py:188
+msgid "Erase Log"
+msgstr ""
+
+#: ConfigWindow.py:232
+msgid ""
+"The Log is disabled!            \n"
+"Enable it to view."
+msgstr ""
+
+#: ConfigWindow.py:234
+msgid "Log Status"
+msgstr ""
+
+#: ConfigWindow.py:245
+msgid "Show Line Numbers"
+msgstr ""
+
+#: ConfigWindow.py:249
+msgid "LineNumbers"
+msgstr ""
+
+#: ConfigWindow.py:253
+msgid "Syntax Highlight"
+msgstr ""
+
+#: ConfigWindow.py:262
+msgid "Autoindentation"
+msgstr ""
+
+#: ConfigWindow.py:290
+msgid "Indentation Guides"
+msgstr ""
+
+#: ConfigWindow.py:301
+msgid "Backspace to Unindent"
+msgstr ""
+
+#: ConfigWindow.py:310
+msgid "Show Whitespace"
+msgstr ""
+
+#: ConfigWindow.py:318
+msgid "Use Tabs"
+msgstr ""
+
+#: ConfigWindow.py:325
+msgid "Carret Width:"
+msgstr ""
+
+#: ConfigWindow.py:337
+msgid "Fold Marks"
+msgstr ""
+
+#: ConfigWindow.py:345
+msgid "Tab Width:"
+msgstr ""
+
+#: ConfigWindow.py:356
+msgid "Edge Line"
+msgstr ""
+
+#: ConfigWindow.py:366
+msgid "Edge Line Position:"
+msgstr ""
+
+#: ConfigWindow.py:383
+msgid "Autocomplete Braces"
+msgstr ""

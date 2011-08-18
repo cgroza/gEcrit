@@ -1,0 +1,5 @@
+To run gEcrit:
+    Run the gEcrit.py file.
+
+To be able to run gEcrit you need python installed and the wxPython
+libraty.
