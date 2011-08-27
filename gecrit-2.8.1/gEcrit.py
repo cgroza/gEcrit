@@ -57,6 +57,22 @@ class gEcrit(wx.Frame):
     for diverse reasons go here.
     """
 
+
+    class EditorTimer(wx.Timer):
+        """
+        This class calls the parent's OnCheckFile method at a given interval.
+        """
+        def __init__(self, instance, method):
+            wx.Timer.__init__(self)
+            self.instance = instance
+            self.method = method
+
+        def Notify(self):
+            self.method()
+
+
+
+
     def dummy_tr(self, tr):
         return tr
 
@@ -332,6 +348,15 @@ class gEcrit(wx.Frame):
 
         if target_file: #load command line file path argument
             self.NewTab(0, os.path.split(target_file)[-1], target_file)
+
+        self._SetTimers()
+
+    def _SetTimers(self):
+        self.__statusbar_reset_timer = gEcrit.EditorTimer(self, self.OnResetStatus)
+        self.__statusbar_reset_timer.Start(5000)
+
+    def OnResetStatus(self):
+        self.SetStatus(0, self._("Done"))
 
     def LoadSessionFile(self):
         """

@@ -40,9 +40,10 @@ class AboutWindow():
         AboutInfo.Copyright = """
 gEcrit 2.7
 The Python Code Editor"""
-        AboutInfo.Developers = ["Groza Cristian e-mail: kristi9524@gmail.com\
-",                              "Groza Mihai e-mail: grozam@ymail.com\n"
-                                "Victor Pruteanu e-mail: vikkhackerz@gmail.com"]
+        AboutInfo.Developers = ["Groza Anna e-mail: anna.balerina@yahoo.com\n",
+                                 "Groza Cristian e-mail: kristi9524@gmail.com\n",
+                                "Groza Mihai e-mail: grozam@ymail.com\n",
+                                 "Victor Pruteanu e-mail: vikkhackerz@gmail.com"]
         AboutInfo.Website = "http://www.cristigrozatips.do.am"
         AboutInfo.License = \
             """

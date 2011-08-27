@@ -86,13 +86,7 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         else:
             self.__save_path = ""
 
-        # set up the timere that will periodically check if the file has been modified on disk.
-        self.__fl_check_timer = StcTextCtrl.ScheduleTimer(self, self.OnCheckFile)
-        self.__fl_check_timer.Start(1000)
-
-        # set up the autosave timer
-        self.__auto_save_timer = StcTextCtrl.ScheduleTimer(self, self.OnAutosave)
-        self.__auto_save_timer.Start(Config.GetOption("Autosave Interval")*60*1000) # convert  minutes to milliseconds
+        self._SetTimers()
 
         self.__macro_register = [] # stores the macro event sequence
 
@@ -125,6 +119,21 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         self._DefineMarkers()
         self.UpdateLangMode()   # apply the language mode
         self.ApplyIDEConfig()   # apply the IDE configurations        
+
+
+    def _SetTimers(self):
+        
+
+        # set up the timer that will periodically check if the file has been modified on disk.
+        self.__fl_check_timer = StcTextCtrl.ScheduleTimer(self, self.OnCheckFile)
+        self.__fl_check_timer.Start(1000)
+
+        # set up the autosave timer
+        self.__auto_save_timer = StcTextCtrl.ScheduleTimer(self, self.OnAutosave)
+        self.__auto_save_timer.Start(Config.GetOption("Autosave Interval")*60*1000) # convert  minutes to milliseconds
+
+
+
 
     def UpdateLangMode(self):
         ext = self.GetFileExtension()
@@ -286,8 +295,9 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
 
         """
         if Config.GetOption("Autosave"):
-            self.Save(0)
-            Log.AddLogEntry(self._("Autosaved ")+self.__save_path)
+            if file_path != "New Document" and file_path != "":
+                self.Save(0)
+                Log.AddLogEntry(self._("Autosaved ")+self.__save_path)
 
 
 
