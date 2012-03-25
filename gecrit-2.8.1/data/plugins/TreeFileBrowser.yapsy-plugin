@@ -1,9 +1,0 @@
-[Core]
-Name = Tree File Browser
-Module = TreeFileBrowser
-
-[Documentation]
-Author = Groza Cristian
-Version = 0.1
-Website = http://www.sourceforge/projects/gecrit
-Description = Provides a file tree to allow to navigate the file system.

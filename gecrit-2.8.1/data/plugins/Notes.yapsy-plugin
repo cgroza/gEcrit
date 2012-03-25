@@ -1,9 +1,0 @@
-[Core]
-Name = Notes
-Module = Notes
-
-[Documentation]
-Author = Groza Cristian
-Version = 0.1
-Website = http://www.sourceforge/projects/gecrit
-Description = Provides a simple way to write down your ideas and save them for the next session.

@@ -1,9 +1,0 @@
-[Core]
-Name = Word Counter
-Module = WordCounter
-
-[Documentation]
-Author = Groza Cristian
-Version = 0.1
-Website = http://www.sourceforge/projects/gecrit
-Description = Counts occurences of a word.

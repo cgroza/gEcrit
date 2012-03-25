@@ -1,9 +1,0 @@
-[Core]
-Name = Python Source Browser
-Module = PythonSourceBrowser
-
-[Documentation]
-Author = Groza Cristian
-Version = 0.1
-Website = http://www.sourceforge/projects/gecrit
-Description = Collects the function and class definition from a python source file and displays them in a tree.

@@ -1,9 +1,0 @@
-[Core]
-Name = StampIt
-Module = StampIt
-
-[Documentation]
-Author = Groza Cristian
-Version = 0.1
-Website = http://www.sourceforge/projects/gecrit
-Description = Automatically inserts text into a newlly created document.
