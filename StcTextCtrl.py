@@ -120,10 +120,7 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         self.UpdateLangMode()   # apply the language mode
         self.ApplyIDEConfig()   # apply the IDE configurations        
 
-
     def _SetTimers(self):
-        
-
         # set up the timer that will periodically check if the file has been modified on disk.
         self.__fl_check_timer = StcTextCtrl.ScheduleTimer(self, self.OnCheckFile)
         self.__fl_check_timer.Start(1000)
@@ -131,9 +128,6 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         # set up the autosave timer
         self.__auto_save_timer = StcTextCtrl.ScheduleTimer(self, self.OnAutosave)
         self.__auto_save_timer.Start(Config.GetOption("Autosave Interval")*60*1000) # convert  minutes to milliseconds
-
-
-
 
     def UpdateLangMode(self):
         ext = self.GetFileExtension()
@@ -280,9 +274,8 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
             #update the ctags files with the new content
             AutoComplet.AutoComp.UpdateCTagsFiles(self.__main_window.id_range)
         except:
-            print "An exception was thrown during save, falling back to default behavior"
+            print("An exception was thrown during save, falling back to default behavior")
             self.SaveAs(0)
-
 
     def OnAutosave(self):
         """
@@ -298,8 +291,6 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
             if file_path != "New Document" and file_path != "":
                 self.Save(0)
                 Log.AddLogEntry(self._("Autosaved ")+self.__save_path)
-
-
 
     def OnDedent(self, event):
         """
@@ -456,13 +447,11 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         self.StopRecord()
         event.Skip()
 
-
     def OnMacroRecord(self, event):
         "Records keystrokes and events for macro recording."
         this_event = (event.GetMessage(), event.GetWParam(), event.GetLParam())
         self.__macro_register.append(this_event)
         event.Skip()
-
 
     def OnMacroPlayback(self, event):
         "Plays the recorded macro."
@@ -521,15 +510,12 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
                 self.lang_mode.AutoIndent(event)
         event.Skip()
 
-
     def OnUpdateUI(self ,evt):
         """
         OnUpdateUI
 
         Responsible for the bad brace check feature.
         """
-
-
         braceAtCaret = -1
         braceOpposite = -1
         charBefore = None
@@ -567,7 +553,6 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         Responsible for the interaction of the user with
         code folding.
         """
-
         if evt.GetMargin() == 2:
             if evt.GetShift() and evt.GetControl():
                 self.FoldAll()
@@ -587,8 +572,6 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
                             self.Expand(lineClicked, True, True, 100)
                     else:
                         self.ToggleFold(lineClicked)
-
-
         elif evt.GetMargin() == 1:
             ln = self.LineFromPosition(evt.GetPosition())
             marker = self.MarkerGet(ln)
@@ -596,10 +579,7 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
                 self.MarkerAdd( ln , 3)
             elif marker == 8:
                 self.MarkerDelete( ln , 3)
-
-                
         evt.Skip()
-
 
     def FoldAll(self):
         """
@@ -608,7 +588,6 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         Folds all the code when given the command.
 
         """
-
         lineCount = self.GetLineCount()
         expanding = True
 
@@ -616,9 +595,7 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
             if self.GetFoldLevel(lineNum) & wx.stc.STC_FOLDLEVELHEADERFLAG:
                 expanding = not self.GetFoldExpanded(lineNum)
                 break
-
         lineNum = 0
-
         while lineNum < lineCount:
             level = self.GetFoldLevel(lineNum)
             if level & wx.stc.STC_FOLDLEVELHEADERFLAG and level & wx.stc.STC_FOLDLEVELNUMBERMASK == \
@@ -634,9 +611,7 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
 
                     if lastChild > lineNum:
                         self.HideLines(lineNum + 1, lastChild)
-
             lineNum = lineNum + 1
-
 
     def Expand(self, line, doExpand, force=False, visLevels=0, level=-1):
         """
@@ -644,10 +619,8 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
 
         Expands the provided line in argument line.
         """
-
         lastChild = self.GetLastChild(line, level)
         line = line + 1
-
         while line <= lastChild:
             if force:
                 if visLevels > 0:
@@ -680,9 +653,7 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
                                       1)
             else:
                 line = line + 1
-
         return line
-
 
     def OnSelectCodeBlock(self,event):
         self.lang_mode.OnSelectCodeBlock(event)
@@ -690,7 +661,6 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
     def RestartAutoSaveTimer(self):
         self.__auto_save_timer.Stop()
         self.__auto_save_timer.Start(Config.GetOption("Autosave Interval")*60*1000) # convert  minutes to milliseconds
-
 
     def Deactivate(self):
         """
@@ -736,7 +706,6 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
                           "white", "#808080")
     	self.MarkerDefine(3, wx.stc.STC_MARK_CIRCLE, "#0000FF", "#FF0000")
 
-        
     def GetEndOfLineCharacter(self):
         emode = self.GetEOLMode()
         if emode == wx.stc.STC_EOL_CR:
@@ -744,7 +713,6 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         elif emode == wx.stc.STC_EOL_CRLF:
             return '\r\n'
         return '\n'
-
 
     ####################################################################
     #                        PLUGIN INTERFACE                          #
@@ -781,8 +749,6 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
 
         Configures the StcTextCtrl with the user settings
         """
-
-        
         if Config.GetOption("SyntaxHighlight"):
             self.ActivateSyntaxHighLight()
 
@@ -812,7 +778,6 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
             self.SetMarginSensitive(2, True)
             self.SetMarginWidth(2, 12)
 
-
         self.SetTabWidth(Config.GetOption("TabWidth"))
         if Config.GetOption("EdgeLine"):
             self.SetEdgeColumn(Config.GetOption("EdgeColumn"))
@@ -826,7 +791,6 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
         Initializes the lexer and sets the color styles.
 
         """
-
         keywords = self.lang_mode.__class__.keywords
         self.SetKeyWords(0, (" ").join(keywords))
         self.SetProperty("fold", "1")
@@ -853,5 +817,3 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
                              "fore:#000000,back:#FF0000,bold")
         self.SetCaretForeground("BLUE")
         self.SetEdgeColour(SyntCol.GetColor("EdgeLine"))
-
-

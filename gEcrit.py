@@ -77,7 +77,7 @@ class gEcrit(wx.Frame):
             self._ = self.presLang.ugettext
             self.presLang.install()
         except:
-            print "Translation for local language not found."
+            print("Translation for local language not found.")
             self._ = self.dummy_tr
 
         pathname = os.path.abspath(os.path.dirname((sys.argv)[0]))  #  Finding where
@@ -108,13 +108,10 @@ class gEcrit(wx.Frame):
             if f.plugin_object.name in self.activated_plugins:
                 self.general_plugins[f.plugin_object.name] = f.plugin_object
 
-
         #the passive plugins now
-
         for p in self.plugin_manager.getPluginsOfCategory("Passives"):
             if p.plugin_object.name in self.activated_plugins:
                 self.passive_plugins[p.plugin_object.name] = p.plugin_object
-
 
         self.id_range = []
 
@@ -133,12 +130,12 @@ class gEcrit(wx.Frame):
         self.aui_manager = wx.aui.AuiManager(self)
 
         #creating the status bar
-        self.StatusBar = self.CreateStatusBar()
-        self.StatusBar.SetStatusText("Done")
-        self.StatusBar.SetFieldsCount(3)
-        self.StatusBar.SetId(999)
+        self.status_bar = self.CreateStatusBar()
+        self.status_bar.SetStatusText("Done")
+        self.status_bar.SetFieldsCount(3)
+        self.status_bar.SetId(999)
         if not Config.GetOption("StatusBar"):
-            self.StatusBar.Hide()
+            self.status_bar.Hide()
 
         self.menubar = MainMenu(self)
         self.SetMenuBar(self.menubar)
@@ -199,10 +196,8 @@ class gEcrit(wx.Frame):
                   id=524)
         self.Bind(wx.EVT_MENU, lambda event: f((self.id_range)[self.nb.GetSelection()]).OnSelectAll(event),
                   id=525)
-
         self.Bind(wx.EVT_MENU, lambda event: f((self.id_range)[self.nb.GetSelection()]).OnSelectCodeBlock(event),
                   id=562)
-
         self.Bind(wx.EVT_MENU, lambda event: f((self.id_range)[self.nb.GetSelection()]).OnInsertDate(event),
                   id=526)
         self.Bind(wx.EVT_MENU, lambda event: self.OnPrefs(event), id=527)
@@ -210,17 +205,14 @@ class gEcrit(wx.Frame):
                   id=528)
         self.Bind(wx.EVT_MENU, lambda event: f((self.id_range)[self.nb.GetSelection()]).OnIndent(event),
                   id=529)
-
         self.Bind(wx.EVT_MENU, lambda event:f((self.id_range)[self.nb.GetSelection()]).OnComment(event),
                   id=559)
         self.Bind(wx.EVT_MENU, lambda event:f((self.id_range)[self.nb.GetSelection()]).OnUnComment(event),
                   id=560)
-
         self.Bind(wx.EVT_MENU, lambda event: FindRepl.FindDocText(event, (self.id_range)[self.nb.GetSelection()]),
                   id=530)
         self.Bind(wx.EVT_MENU, lambda event: FindRepl.ReplaceDocText(event, (self.id_range)[self.nb.GetSelection()]),
                   id=531)
-
         self.Bind(wx.EVT_MENU, lambda event: FindRepl.FindDocText(event, (self.id_range)[self.nb.GetSelection()],wx.stc.STC_FIND_REGEXP),
                   id=532)
         self.Bind(wx.EVT_MENU, lambda event: FindRepl.ReplaceDocText(event ,(self.id_range)[self.nb.GetSelection()], wx.stc.STC_FIND_REGEXP),
@@ -249,7 +241,6 @@ class gEcrit(wx.Frame):
         self.Bind(wx.EVT_MENU, lambda event: Config.ChangeOption("SyntaxHighlight",
                                                                  self.menubar.IsChecked(547), self.id_range), id=547)
 
-
         self.Bind(wx.EVT_MENU, lambda event: Config.ChangeOption("StatusBar",
                                                                  self.menubar.IsChecked(545), self.id_range), id=545)
         self.Bind(wx.EVT_MENU, self.OnFullScreen, id=557)
@@ -274,11 +265,9 @@ class gEcrit(wx.Frame):
 
         self.FontCtrl = wx.FontPickerCtrl(self.toolbar, 607, size=(100,
                                                                    30))
-
         self.Bind(wx.EVT_FONTPICKER_CHANGED, lambda event: ChangeFont(event,
                                                                       self.FontCtrl.GetSelectedFont(), self.id_range))
-
-        #teh goto line text box
+        #the goto line text box
         self.toolbar.AddControl(self.FontCtrl)
         self.toolbar.AddControl(wx.TextCtrl(self.toolbar, 608, size=(-1,
                                                                       -1), style=wx.TE_PROCESS_ENTER))
@@ -388,7 +377,6 @@ class gEcrit(wx.Frame):
         Creates the sidebar, adds a notebook and adds its utilities
         in its tabs.
         """
-
         if not file_path:
             return
 
@@ -462,7 +450,6 @@ class gEcrit(wx.Frame):
         Finds the document, sets the prints name, and calls the
         wxPython toolkit to print the contents
         """
-
         print_dlg = PrettyPrinter(self)
         del print_dlg
 
@@ -608,7 +595,7 @@ Do you wish to save it?"), "",
 
             Sets the status of statusbar.
         """
-        self.StatusBar.SetStatusText(text)
+        self.status_bar.SetStatusText(text)
        # event.Skip()
 
     def ResetStatus(self, event):
@@ -617,7 +604,7 @@ Do you wish to save it?"), "",
 
         Sets the status bar status to nothing.
         """
-        self.StatusBar.SetStatusText("")
+        self.status_bar.SetStatusText("")
         event.Skip()
 
     def SaveAll(self, event):
