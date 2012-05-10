@@ -13,7 +13,12 @@ import threading
 import wx
 
 import fcntl
-import termios
+try:
+    import termios
+    TERMIOS = True
+except:
+    print "termios is not available. Terminator will not be available."
+    TERMIOS = False
 import struct
 import tty
 
@@ -1240,9 +1245,12 @@ class Terminator(wx.Frame, Passive, yapsy.IPlugin.IPlugin):
                              }
 
     def Init(self, parent):
+        # if termios is not installed, abort.
+        if not TERMIOS:
+            return
         self.parent = parent
-
-        self.__config_path = self.parent.HOMEDIR + "/.gEcrit/Terminator.conf"
+        self.__config_path = os.path.join(self.parent.HOMEDIR,
+                                          ".gEcrit/Terminator.conf")
 
         wx.Frame.__init__(self, self.parent, size = (400,400))
 
