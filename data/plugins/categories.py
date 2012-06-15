@@ -89,7 +89,6 @@ class General(object):
         """
         pass
 
-
     def NotifyDocumentSaved(self):
         """
         NotifyDocumentSaved

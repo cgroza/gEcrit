@@ -34,17 +34,17 @@ class AboutWindow(wx.Frame):
         Initializes the AboutDialogInfo object and sets
         all the required data.
         """
-        AboutInfo = wx.AboutDialogInfo()
-        AboutInfo.Name = "gEcrit"
-        AboutInfo.Version = "2.8.2"
-        AboutInfo.Copyright = """
+        about_info = wx.AboutDialogInfo()
+        about_info.Name = "gEcrit"
+        about_info.Version = "2.8.2"
+        about_info.Copyright = """
 gEcrit 2.8.2
 The Python Code Editor"""
-        AboutInfo.Developers = ["Groza Cristian e-mail: kristi9524@gmail.com\
+        about_info.Developers = ["Groza Cristian e-mail: kristi9524@gmail.com\
 ",                              "Groza Mihai e-mail: grozam@ymail.com\n"
                                 "Victor Pruteanu e-mail: vikkhackerz@gmail.com"]
-        AboutInfo.Website = "http://www.cristigrozatips.do.am"
-        AboutInfo.License = \
+        about_info.Website = "http://www.cristigrozatips.do.am"
+        about_info.License = \
             """
   Copyright (C) 2011  Groza Cristian
 
@@ -61,5 +61,5 @@ The Python Code Editor"""
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 """
-        wx.AboutBox(AboutInfo)
+        wx.AboutBox(about_info)
 

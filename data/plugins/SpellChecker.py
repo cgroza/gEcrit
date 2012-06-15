@@ -104,7 +104,6 @@ class SpellChecker(General, yapsy.IPlugin.IPlugin):
         """
         pass
 
-
     def SpellCheck(self, event):
         """
             OnSpellCheck
@@ -133,7 +132,6 @@ class SpellChecker(General, yapsy.IPlugin.IPlugin):
 
         event.Skip()
 
-
     def NotifyDocumentOpened(self):
         self.current_doc = self.parent.GetCurrentDocument()
         self.current_doc.Bind(wx.stc.EVT_STC_CHARADDED, self.SpellCheck)
@@ -146,11 +144,9 @@ class SpellChecker(General, yapsy.IPlugin.IPlugin):
     	self.current_doc.IndicatorSetStyle(0, wx.stc.STC_INDIC_SQUIGGLE)
     	self.current_doc.IndicatorSetForeground(0, wx.RED)
 
-
     def NotifyTabChanged(self):
         self.current_doc = self.parent.GetCurrentDocument()
         self.last_word = ""
-
 
     def HideMe(self, event):
         self.spell_dlg.Hide()

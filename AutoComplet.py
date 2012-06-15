@@ -70,7 +70,6 @@ class AutoComplet:
 
         self.entered_chars += 1
 
-
         if self.entered_chars == 3 and key not in [10,32]:
             pos = cur_doc.GetCurrentPos()
             word_start = cur_doc.WordStartPosition(pos, True)

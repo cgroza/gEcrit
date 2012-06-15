@@ -55,10 +55,7 @@ class SyntaxDoctor(General, yapsy.IPlugin.IPlugin):
         If not, prompts the user with a success message.
 
         """
-
         file_nm = self.current_doc.GetFilePath()
-
-
         try:
 
             ctext = self.current_doc.GetText()
@@ -69,7 +66,6 @@ class SyntaxDoctor(General, yapsy.IPlugin.IPlugin):
             if say_ok.ShowModal() == wx.ID_OK:
                 say_ok.Destroy()
         except Exception, e:
-
             ln_num = ""
             excstr = str(e)
             try:

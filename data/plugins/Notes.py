@@ -26,7 +26,6 @@ class Notes(wx.Panel, Passive,yapsy.IPlugin.IPlugin):
     def __init__(self):
         self.name = "Notes"
 
-
     def Init(self, parent):
         self.parent = parent
         self.save_point = parent.HOMEDIR + "/.gEcrit/Notes.plugin.conf"

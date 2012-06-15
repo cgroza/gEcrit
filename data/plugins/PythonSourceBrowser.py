@@ -31,9 +31,7 @@ class SrcTree(wx.TreeCtrl):
                              style=wx.TR_HIDE_ROOT | wx.TR_HAS_BUTTONS |
                              wx.TR_HAS_VARIABLE_ROW_HEIGHT)
         self.Bind(wx.EVT_TREE_ITEM_RIGHT_CLICK,  self.OnTreeClick)
-
         self.file_br = file_br
-
 
     def OnTreeClick(self, event):
         """

@@ -31,13 +31,9 @@ class gEcritPluginManager(wx.Frame):
         self.horizontal_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.button_sizer = wx.BoxSizer(wx.VERTICAL)
 
-
         self.remove_pl = wx.Button(self.main_panel, -1,self._("Remove"),
                                                         size = (110,40))
         self.remove_pl.Bind(wx.EVT_BUTTON, self.OnDeletePlugin)
-
-        #self.install_pl = wx.Button(self.main_panel, -1,"Install",
-        #                                               size = (110,40))
 
         font = wx.Font(18, wx.ROMAN ,wx.BOLD, wx.NORMAL)
         self.pl_list_desc = wx.StaticText(self.main_panel, -1, self._("Plugins:"),
@@ -58,7 +54,6 @@ class gEcritPluginManager(wx.Frame):
 
         self.button_sizer.Add(self.remove_pl, 0 , wx.EXPAND)
         self.button_sizer.AddSpacer(10)
-        #self.button_sizer.Add(self.install_pl, 0 , wx.EXPAND)
 
         self.horizontal_sizer.AddSpacer(5)
         self.horizontal_sizer.Add(self.plugin_list, 1, wx.EXPAND)
@@ -100,11 +95,6 @@ class gEcritPluginManager(wx.Frame):
             conf = Config.GetOption("ActivePlugins")
             conf = list(self.plugin_list.GetCheckedStrings())
             Config.ChangeOption("ActivePlugins", conf)
-
-    #def OnInstallPlugins(self, event):
-    #    self.plugin_list.GetChecked()
-
-
 
     def OnListItemClick(self,event):
         plugin = self.pl_lst[event.GetSelection()]

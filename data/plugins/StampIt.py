@@ -37,7 +37,6 @@ class StampIt(wx.Frame, yapsy.IPlugin.IPlugin, General):
     def __init__(self):
         self.name = "StampIt"
 
-
     def Init(self, parent):
         """
         __init__
@@ -108,7 +107,6 @@ class StampIt(wx.Frame, yapsy.IPlugin.IPlugin, General):
         self.text_ctrl.SaveFile(self.__text_file)
         event.Skip()
 
-
     def ReadTextFile(self):
         """
         ReadTextFile
@@ -126,21 +124,18 @@ class StampIt(wx.Frame, yapsy.IPlugin.IPlugin, General):
         doc = self.parent.GetCurrentDocument()
         doc.AddText(self.text_ctrl.GetValue())
 
-
     def ShowMe(self, event):
         """
         ShowMe
 
         Makes window visible.
         """
-
         self.Show()
 
     def HideMe(self, event):
         """
         Hides the window.
         """
-
         self.Hide()
 
 

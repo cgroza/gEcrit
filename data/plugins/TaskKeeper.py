@@ -47,7 +47,6 @@ class TaskKeeper(wx.Panel ,General , yapsy.IPlugin.IPlugin):
 
     def PopulateList(self):
         self.tasks.DeleteAllItems()
-
         try:
             for d in self.documents:
                 lst = self.CollectTasks(d.GetFileName(), d.GetText())

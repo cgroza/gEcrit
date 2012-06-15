@@ -37,11 +37,11 @@ class Logger:
 
     def AddLogEntry(self, entry):
         """
-            AddLogEntry
+        AddLogEntry
 
-            Opens the log file and appends a string with
-            the format date,time : string to it.
-            The string is received from its argument.
+        Opens the log file and appends a string with
+        the format date,time : string to it.
+        The string is received from its argument.
         """
         if Config.GetOption("ActLog"):
             log_file = open(self.log_path, "a")

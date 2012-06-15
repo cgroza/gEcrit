@@ -42,18 +42,12 @@ class MainToolbar(wx.ToolBar):
         wx.ToolBar.__init__(self, parent, id, style=wx.TB_HORIZONTAL |
                             wx.NO_BORDER)
 
-        #self.presLan_ro = gettext.translation("gEcrit", "./locale")
-
         self._ = parent._
-
-        #self.presLan_ro.install()
-
-
         self.new_tab_img = wx.Image('icons/newtab.bmp', wx.BITMAP_TYPE_ANY).ConvertToBitmap()
         self.open_img = wx.Image('icons/open.bmp', wx.BITMAP_TYPE_ANY).ConvertToBitmap()
         self.save_img = wx.Image('icons/save.bmp', wx.BITMAP_TYPE_ANY).ConvertToBitmap()
         self.saveas_image = wx.Image('icons/saveas.bmp', wx.BITMAP_TYPE_ANY).ConvertToBitmap()
-        ConfigImage = wx.Image('icons/config.bmp', wx.BITMAP_TYPE_ANY).ConvertToBitmap()
+        self.config_image = wx.Image('icons/config.bmp', wx.BITMAP_TYPE_ANY).ConvertToBitmap()
         self.quit_img = wx.Image('icons/quit.bmp', wx.BITMAP_TYPE_ANY).ConvertToBitmap()
         self.print_img = wx.Image("icons/printer.bmp", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
         self.run_img = wx.Image("icons/run.png", wx.BITMAP_TYPE_ANY).ConvertToBitmap()
@@ -66,7 +60,7 @@ class MainToolbar(wx.ToolBar):
                         self._('Save the current document.'))
         self.AddSimpleTool(603, self.saveas_image, self._('Save As'),
              self._('Save the current document under a differend name.'))
-        self.AddSimpleTool(604, ConfigImage, self._('Settings'),
+        self.AddSimpleTool(604, self.config_image, self._('Settings'),
                     self._('Open the configuration window.'))
         self.AddSeparator()
         self.AddSimpleTool(605, self.quit_img, self._('Quit'), self._('Quit gEcrit'))

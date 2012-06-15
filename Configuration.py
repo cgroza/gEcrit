@@ -196,7 +196,6 @@ class Configuration:
                 item.SetMarginWidth(2, 1)
 
     def UpdateSyntaxHighlight(self, val, id_range):
-
         if val == False:
             for id in id_range:
                 item = wx.FindWindowById(id)
@@ -207,7 +206,6 @@ class Configuration:
                 item.ActivateSyntaxHighLight()
 
     def UpdateStatusBar(self, val=True, id_range=0):
-
         item = wx.FindWindowById(999)
         if val == True:
             item.Show(True)
@@ -215,7 +213,6 @@ class Configuration:
             item.Hide()
 
     def UpdateTabWidth(self, val, id_range):
-
         for id in id_range:
             item = wx.FindWindowById(id)
             item.SetTabWidth(val)

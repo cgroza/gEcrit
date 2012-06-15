@@ -4707,9 +4707,7 @@ class PyTidyFormatter(wx.Frame, General ,yapsy.IPlugin.IPlugin):
     def __init__(self):
         self.name = "PyTidy"
 
-
     def Init(self, parent):
-
         self.parent = parent
         wx.Frame.__init__(self, self.parent,-1 ,"PyTidy Formatter",size = (500,150))
         self.current_doc = None

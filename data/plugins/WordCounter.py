@@ -95,13 +95,11 @@ class WordCounter(wx.Frame, General, yapsy.IPlugin.IPlugin):
             style = wx.OK)
         show.ShowModal()
 
-
     def OnMenuWordCount(self, event):
         msg = str(len(self.current_doc.GetText().split()))
         show = wx.MessageDialog(None, msg+" words have been counted.",
             style = wx.OK)
         show.ShowModal()
-
 
     def ShowMe(self, event):
         self.Show()
