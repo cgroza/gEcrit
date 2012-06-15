@@ -90,7 +90,6 @@ class SearchReplace:
                 cur_doc.GotoPos(1)
                 self.min_text_range = 0
         else:
-
             text_pos = cur_doc.FindText(self.min_text_range, max_pos,
                     word, search_flags|other_flags)
             start_pos = text_pos

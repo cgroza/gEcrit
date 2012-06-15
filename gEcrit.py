@@ -455,9 +455,9 @@ class gEcrit(wx.Frame):
 
     def OnAbout(self, event):
         """
-            OnAbout
+        OnAbout
 
-            Shows the about window.
+        Shows the about window.
         """
         #ShowAbout = AboutWindow
         about_win = AboutWindow()
@@ -465,11 +465,11 @@ class gEcrit(wx.Frame):
 
     def OnQuit(self, event):
         """
-            OnQuit
+        OnQuit
 
-            Closes the main window, stops the terminals, and kills the
-            application process.
-            It promps the user for confirmation.
+        Closes the main window, stops the terminals, and kills the
+        application process.
+        It promps the user for confirmation.
         """
         #warn the user
         warn_dlg = wx.MessageDialog(None,
@@ -503,14 +503,14 @@ class gEcrit(wx.Frame):
 
     def ManageCloseTab(self, event, text_id):
         """
-            ManageCloseTab
+        ManageCloseTab
 
-            Manages the process of closing a tab.
-            Checks if document is saved, prompts the user if not.
-            If this is the last tab in the application, it closes the
-            terminals, the window and kills the application.
-            If not, it decreases the number of tabs and delted the AUI
-            NETBOOK page.
+        Manages the process of closing a tab.
+        Checks if document is saved, prompts the user if not.
+        If this is the last tab in the application, it closes the
+        terminals, the window and kills the application.
+        If not, it decreases the number of tabs and delted the AUI
+        NETBOOK page.
         """
         cur_doc = wx.FindWindowById(text_id)
         current_text = cur_doc.GetText()
@@ -567,10 +567,10 @@ Do you wish to save it?"), "",
 
     def OpenFile(self, paths):
         """
-            OpenFile
+        OpenFile
 
-            Calls NewTab with the collected path.
-            Supports multiple path selection.
+        Calls NewTab with the collected path.
+        Supports multiple path selection.
         """
         # if paths is a list, open an StcContrel for each of them
         if isinstance(paths, types.ListType):
@@ -591,9 +591,9 @@ Do you wish to save it?"), "",
 
     def SetStatus(self, event, text):
         """
-            ResetStatus
+        ResetStatus
 
-            Sets the status of statusbar.
+        Sets the status of statusbar.
         """
         self.status_bar.SetStatusText(text)
        # event.Skip()
