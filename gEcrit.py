@@ -645,7 +645,10 @@ Do you wish to save it?"), "",
         Returns the selected active buffer object.
         """
 
-        return wx.FindWindowById(self.id_range[self.nb.GetSelection()])
+        try:
+            return wx.FindWindowById(self.id_range[self.nb.GetSelection()])
+        except IndexError:
+            return None
 
     def GetAllDocuments(self):
         """

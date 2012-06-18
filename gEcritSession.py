@@ -42,7 +42,7 @@ class gEcritSession:
         self.layout_perspective = ""
 
         self.current_tab = 0
-
+        self.current_pos = 0
 
     def RecordAppState(self, app_instance):
         """
@@ -63,7 +63,10 @@ class gEcritSession:
 
         self.current_tab = app_instance.GetTabManager().GetSelection()
         if self.current_tab < 0: self.current_tab = 0
-
+        cur_doc = app_instance.GetCurrentDocument()
+        if cur_doc != None:
+            self.current_pos = cur_doc.GetCurrentPos()
+        
     def RestoreAppState(self, app_instance):
         """
         RestoreAppState
@@ -74,6 +77,9 @@ class gEcritSession:
         app_instance.OpenFile(self.opened_files)
         app_instance.GetAuiManager().LoadPerspective(self.layout_perspective)
         app_instance.GetTabManager().SetSelection(self.current_tab)
+        cur_doc = app_instance.GetCurrentDocument()
+        if cur_doc != None:
+            cur_doc.GotoPos(self.current_pos)
 
     def SaveToFile(self):
         """
