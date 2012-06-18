@@ -85,10 +85,9 @@ class Configuration:
         }
 
         self.HOMEDIR = os.path.expanduser('~')
-        self.cfg_path = os.path.join(self.HOMEDIR, ".gEcrit","gEcrit.conf")
-        self.cfg_dir = os.path.join(self.HOMEDIR, ".gEcrit")
+        self.cfg_dir = os.path.join(self.HOMEDIR, ".config", ".gEcrit")
+        self.cfg_path = os.path.join(self.cfg_dir, "gEcrit.conf")
         self.__cfg_dict = {}
-
         self.ReadConfig()
 
     def GetOption(self, option):
@@ -115,7 +114,6 @@ class Configuration:
         with open(self.cfg_path, "w") as new_cfg:
             new_cfg.write(str(self.__cfg_dict))
 
-
         if option in self.update_funct:
             self.update_funct[option](val,id_range)
 
@@ -135,13 +133,12 @@ class Configuration:
         except:
             if not os.path.exists(self.cfg_path): # create the config dir if it is inexistent
                 if not os.path.exists(self.cfg_dir):
-                    os.mkdir(self.cfg_dir)
+                    os.makedirs(self.cfg_dir)
             self.__cfg_dict = self.__default_cfg_dict
             cfg_file = open(self.cfg_path, "w") # write default cfg file
             cfg_file.write(str(self.__default_cfg_dict))
             cfg_file.close()
             return self.__cfg_dict
-
 
     def UpdateIndentSize(self, val, id_range):
         for id in id_range:
