@@ -209,10 +209,9 @@ class StcTextCtrl(wx.stc.StyledTextCtrl):
                 self.OnRemoveTrails(0)
 
             self.SaveFile(saveas_path)
+            self.__save_path = saveas_path
             self.__file_last_modified = os.stat(self.__save_path)[stat.ST_MTIME]
             self.save_record = self.GetText()
-
-            self.__save_path = saveas_path
 
             if Config.GetOption("StatusBar"):
                 self.__status_bar.SetStatusText(self._("Saved as") + saveas_path)
