@@ -36,9 +36,9 @@ class AboutWindow(wx.Frame):
         """
         about_info = wx.AboutDialogInfo()
         about_info.Name = "gEcrit"
-        about_info.Version = "2.8.3"
+        about_info.Version = "2.8.4"
         about_info.Copyright = """
-gEcrit 2.8.2
+gEcrit 2.8.4
 The Python Code Editor"""
         about_info.Developers = ["Groza Cristian e-mail: kristi9524@gmail.com\
 ",                              "Groza Mihai e-mail: grozam@ymail.com\n"
