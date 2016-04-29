@@ -35,7 +35,7 @@ class gEcritPluginManager(wx.Frame):
                                                         size = (110,40))
         self.remove_pl.Bind(wx.EVT_BUTTON, self.OnDeletePlugin)
 
-        font = wx.Font(18, wx.ROMAN ,wx.BOLD, wx.NORMAL)
+        font = wx.Font(18, wx.FONTFAMILY_ROMAN ,wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL)
         self.pl_list_desc = wx.StaticText(self.main_panel, -1, self._("Plugins:"),
                                                          size = (-1,-1))
         self.pl_list_desc.SetFont(font)

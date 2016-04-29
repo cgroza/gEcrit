@@ -48,8 +48,8 @@ class SyntaxHighlight:
             "MethodNames": wx.Colour(0, 7, 255, 255),
             "Keywords": wx.Colour(26, 32, 189, 255),
             "Operators": wx.Colour(210, 147, 29, 255),
-            "TripleQuotes": wx.Color(210, 149, 29, 255),
-            "EdgeLine": wx.Color(255, 0, 22),
+            "TripleQuotes": wx.Colour(210, 149, 29, 255),
+            "EdgeLine": wx.Colour(255, 0, 22),
             }
         self.__color_dict = {}
 
